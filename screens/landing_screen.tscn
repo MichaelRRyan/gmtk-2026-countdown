@@ -1,3 +1,64 @@
 [gd_scene format=3 uid="uid://2jpg6aoiq0hp"]
 
+[ext_resource type="Script" uid="uid://7iijrysy57mu" path="res://screens/landing_screen.gd" id="1_mfl3f"]
+[ext_resource type="PackedScene" uid="uid://d10horvtevoh4" path="res://Levels/michaels_test_level.tscn" id="2_sxdh4"]
+
+[sub_resource type="Theme" id="Theme_7wuvi"]
+default_font_size = 19
+
 [node name="LandingScreen" type="Node3D" unique_id=548940566]
+script = ExtResource("1_mfl3f")
+game = ExtResource("2_sxdh4")
+
+[node name="MenuScreen" type="Control" parent="." unique_id=2009475384]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleText" type="RichTextLabel" parent="MenuScreen" unique_id=93008581]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.32900003
+anchor_top = 0.35300002
+anchor_right = 0.66700006
+anchor_bottom = 0.47100002
+offset_left = -0.008026123
+offset_top = 0.2559967
+offset_right = -0.3840332
+offset_bottom = -0.20800781
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7wuvi")
+theme_override_font_sizes/normal_font_size = 42
+text = "Count Down"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountDownText" type="RichTextLabel" parent="MenuScreen" unique_id=1620859680]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.32900003
+anchor_top = 0.35300002
+anchor_right = 0.66700006
+anchor_bottom = 0.47100002
+offset_left = -2.0080261
+offset_top = 123.256
+offset_right = -2.3840332
+offset_bottom = 122.79199
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7wuvi")
+theme_override_font_sizes/normal_font_size = 42
+text = "5
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountDownTimer" type="Timer" parent="." unique_id=542847506]
+autostart = true
+
+[node name="PenaltyTimer" type="Timer" parent="." unique_id=1125906768]
+wait_time = 3.0

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b4sc850448g56" path="res://Features/Player/player.tscn" id="1_hrjoh"]
 
-[node name="MichaelsTestLevel" type="Node3D" unique_id=961639840]
+[node name="VladsTestLevel" type="Node3D" unique_id=961639840]
 
 [node name="Player" parent="." unique_id=988380354 instance=ExtResource("1_hrjoh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2955592, 0)
