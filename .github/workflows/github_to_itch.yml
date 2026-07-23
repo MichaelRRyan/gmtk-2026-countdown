@@ -1,0 +1,63 @@
+name: Publish gmtk-2026-countdown to Itch.io
+
+on:
+  workflow_dispatch: 
+env:
+ BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+ GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ IS_MAIN: ${{ contains(github.ref, 'main') }}
+ PROJECT_NAME: "gmtk-2026-countdown"
+
+jobs:
+
+ Export:
+  runs-on: ubuntu-latest
+  steps:
+  - uses: actions/checkout@v2
+  
+  - name: Download + Authorize Godot
+    run: |
+       curl -L -o godot.zip https://github.com/godotengine/godot-builds/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip
+       unzip godot.zip
+       mv Godot_v4.7.1-stable_linux.x86_64 godot
+       ls
+       chmod +x godot
+ 
+  - name: Download Export Templates
+    run: |
+     curl -L -o export_templates.zip https://github.com/godotengine/godot-builds/releases/download/4.7.1-stable/Godot_v4.7.1-stable_export_templates.tpz
+     unzip export_templates.zip
+  
+  - name: Install Export Templates
+    run: |
+     mkdir -p ~/.local/share/godot/export_templates/4.4.1.stable
+     mv ./templates/* ~/.local/share/godot/export_templates/4.4.1.stable
+  
+  - name: Export Web
+    run: |
+     mkdir -p ./Build
+     mkdir -p ./Build/web
+     mkdir -p ./Build/linux
+     mkdir -p ./Build/win
+     ./godot --headless --path ./ --export-release "Web" ./Build/web/index.html
+     ./godot --headless --path ./ --export-release "Linux" ./Build/linux/game.x86_64
+     ./godot --headless --path ./ --export-release "Windows" ./Build/win/game.exe
+    
+  - name: Download + Authorize Butler
+    run: |
+        curl -L -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
+        unzip butler.zip
+        chmod +x butler
+        ./butler -V
+
+  - name: Login To Butler
+    run: ./butler login
+
+  - name: Push Web to Itch
+    run: ./butler push ./Build/web michael-r-ryan.itch.io/gmtk-2026:web
+
+  - name: Push Linux to Itch
+    run: ./butler push ./Build/linux michael-r-ryan.itch.io/gmtk-2026:linux
+
+  - name: Push Windows to Itch
+    run: ./butler push ./Build/win michael-r-ryan.itch.io/gmtk-2026:windows
