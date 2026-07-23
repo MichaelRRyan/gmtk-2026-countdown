@@ -54,10 +54,10 @@ jobs:
     run: ./butler login
 
   - name: Push Web to Itch
-    run: ./butler push ./Build/web michael-r-ryan.itch.io/gmtk-2026:web
+    run: ./butler push ./Build/web michael-r-ryan/gmtk-2026:web
 
   - name: Push Linux to Itch
-    run: ./butler push ./Build/linux michael-r-ryan.itch.io/gmtk-2026:linux
+    run: ./butler push ./Build/linux michael-r-ryan/gmtk-2026:linux
 
   - name: Push Windows to Itch
-    run: ./butler push ./Build/win michael-r-ryan.itch.io/gmtk-2026:windows
+    run: ./butler push ./Build/win michael-r-ryan/gmtk-2026:windows
