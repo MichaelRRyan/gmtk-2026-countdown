@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cx5m0eda4uxcc"]
+
+[ext_resource type="PackedScene" uid="uid://b4sc850448g56" path="res://Features/Player/player.tscn" id="1_1jbh1"]
+
+[node name="CilliansTestLevel" type="Node2D" unique_id=570083673]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=417645378]
+use_collision = true
+size = Vector3(10, 0.1, 10)
+
+[node name="Player" parent="." unique_id=988380354 instance=ExtResource("1_1jbh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2955592, 0)
