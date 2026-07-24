@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bbhgld6mgyoxf"]
+
+[ext_resource type="Script" uid="uid://jbi851mgpt77" path="res://Features/Player/HUD/objectives_list.gd" id="1_6a3pb"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cciay"]
+
+[node name="ObjectivesListBackground" type="TextureRect" unique_id=1966678782]
+self_modulate = Color(0.38470292, 0.34519026, 9.62615e-08, 0.81960785)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -262.0
+offset_top = 14.0
+offset_right = -21.0
+offset_bottom = 313.0
+grow_horizontal = 0
+texture = SubResource("CanvasTexture_cciay")
+script = ExtResource("1_6a3pb")
+
+[node name="ObjectivesListContainer" type="VBoxContainer" parent="." unique_id=483592899]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -232.0
+offset_top = 7.0
+offset_right = -13.0
+offset_bottom = 286.0
+grow_horizontal = 0

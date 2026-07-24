@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Player
 
+signal on_can_interact(can_interact: bool)
+
 @export var move_speed: float = 5.0
 @export var acceleration: float = 10.0
 @export var deceleration: float = 20.0
@@ -24,7 +26,6 @@ var last_interacted_task_object: TaskObjectBase = null
 func _ready() -> void:
 	"""Capture mouse when game starts."""
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	GameLogic.register_player(self)
 
 func _input(event: InputEvent) -> void:
 	"""Handle mouse movement for view direction."""
@@ -85,11 +86,13 @@ func _physics_process(delta: float) -> void:
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
 		var is_interactable: bool = collider and \
-									((collider.owner is TaskObjectBase and not collider.owner.is_task_complete) \
+									((collider.owner is TaskObjectBase and 
+									not collider.owner.is_task_complete and
+									collider.owner.is_active)
 									or collider.has_method("interact"))
-		hud.set_crosshair_interactable(is_interactable)
+		on_can_interact.emit(is_interactable)
 	else:
-		hud.set_crosshair_interactable(false)
+		on_can_interact.emit(false)
 	
 	var found_task_object: TaskObjectBase = null
 	if Input.is_action_just_pressed("interact"):
@@ -117,12 +120,10 @@ func _attempt_interaction() -> void:
 func _attempt_task(delta: float) -> TaskObjectBase:
 	if raycast.is_colliding():
 		var collider: Object = raycast.get_collider()
-		var task_object: TaskObjectBase = collider.owner as TaskObjectBase
-		if task_object:
-			task_object.interact_hold(delta)
-			return task_object
+		if collider:
+			var task_object: TaskObjectBase = collider.owner as TaskObjectBase
+			if task_object and task_object.is_active:
+				task_object.interact_hold(delta)
+				return task_object
 	
-	return null
-
-			
-			
+	return null	

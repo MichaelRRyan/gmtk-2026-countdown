@@ -1,19 +1,32 @@
 extends Node
 
-var player: Player
+@onready var player: Player = $Player
+@onready var hud: HUD = $HUD
+
 var task_objects: Array[TaskObjectBase]
 	
-func register_player(in_player: Player) -> void:
-	player = in_player
+func _ready() -> void:
+	player.on_can_interact.connect(_on_can_interact)
+	for child in get_children(true):
+		if child is TaskObjectBase:
+			var task_object: TaskObjectBase = child as TaskObjectBase
+			register_task(task_object)
 	
+
 # These might well just be sequential, we will have to see
 func register_task(task_object: TaskObjectBase):
-	task_object.on_task_updated.connect(_on_task_updated)
-	task_object.on_task_completed.connect(_on_task_completed)
-	task_objects.append(task_object)
+	if task_object.is_active:
+		task_object.on_task_updated.connect(_on_task_updated)
+		task_object.on_task_completed.connect(_on_task_completed)
+		hud.objectives_list.set_task_objective(task_object)
+		task_objects.append(task_object)
 	
 func _on_task_updated(task_object: TaskObjectBase, interact_level_current: float, interact_level_end: float):
-	player.hud.set_task_meter(interact_level_current, interact_level_end)
+	hud.set_task_meter(interact_level_current, interact_level_end)
 	
 func _on_task_completed(task_object: TaskObjectBase):
-	player.hud.show_task_complete()
+	hud.show_task_complete()
+	hud.objectives_list.remove_task_objective(task_object)
+	
+func _on_can_interact(can_interact: bool):
+	hud.set_crosshair_interactable(can_interact)

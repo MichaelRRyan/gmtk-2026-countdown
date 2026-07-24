@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cu0kdxy5t7fgl"]
 
 [ext_resource type="Script" uid="uid://degc01x2f2g1m" path="res://Features/Player/HUD/hud.gd" id="1_qjg4n"]
+[ext_resource type="PackedScene" uid="uid://bbhgld6mgyoxf" path="res://Features/Player/HUD/objectives_list.tscn" id="2_j6b2d"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c8vhp"]
 
@@ -103,3 +104,10 @@ offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
 show_percentage = false
+
+[node name="ObjectivesList" parent="." unique_id=1966678782 instance=ExtResource("2_j6b2d")]
+layout_mode = 1
+offset_left = -275.0
+offset_top = 28.0
+offset_right = -34.0
+offset_bottom = 327.0

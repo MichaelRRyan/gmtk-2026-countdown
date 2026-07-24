@@ -14,14 +14,16 @@ class_name HUD
 @onready var task_complete_timer: Timer = $TaskComplete/TaskCompleteTimer
 @onready var task_complete_animation_player: AnimationPlayer = $TaskComplete/TaskCompleteAnimationPlayer
 @onready var task_progress_bar: ProgressBar = $TaskProgressBar
-
+@onready var objectives_list: ObjectivesList = $ObjectivesList
 
 func _ready() -> void:
 	set_crosshair_interactable(false)
+	
 	task_complete.modulate.a = 0.0
-	task_progress_bar.visible = false
 	task_complete_timer.timeout.connect(_task_complete_timeout)
 	task_complete_animation_player.speed_scale = task_complete_fadeout_speed_scale
+	
+	task_progress_bar.visible = false
 
 func set_crosshair_interactable(is_interactable: bool) -> void:
 	var color_to_set: Color = crosshair_interactable_color if is_interactable else crosshair_normal_color
