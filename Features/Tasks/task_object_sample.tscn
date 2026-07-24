@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cnj66qkhs741d"]
+
+[ext_resource type="Script" uid="uid://diyqxc8gl45ux" path="res://Features/Tasks/task_object_sample.gd" id="1_ct4h5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aoolo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aoolo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7n11"]
+
+[node name="TaskObjectSample" type="Node3D" unique_id=1343915890]
+script = ExtResource("1_ct4h5")
+color_start = Color(1, 1, 1, 1)
+color_end = Color(1, 0, 0, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1077780085]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1170603134]
+shape = SubResource("BoxShape3D_aoolo")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1933779468]
+mesh = SubResource("BoxMesh_aoolo")
+surface_material_override/0 = SubResource("StandardMaterial3D_r7n11")

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://nkpdr2fcalgu"]
+
+[ext_resource type="PackedScene" uid="uid://b4sc850448g56" path="res://Features/Player/player.tscn" id="1_05ypn"]
+[ext_resource type="PackedScene" uid="uid://cnj66qkhs741d" path="res://Features/Tasks/task_object_sample.tscn" id="2_yybwl"]
+[ext_resource type="Script" uid="uid://behu5xwixyi7e" path="res://Levels/Vlad/debug_hud.gd" id="3_yybwl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dm8bi"]
+font_size = 30
+
+[node name="VladsTestLevel" type="Node3D" unique_id=961639840]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=9575002]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.7
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=988380354 instance=ExtResource("1_05ypn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2955592, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1520510822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(8.955078, 1, 10.40918)
+
+[node name="TaskObjectSample" parent="." unique_id=1343915890 instance=ExtResource("2_yybwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96532226, 0.50000024, -2.4915042)
+interact_increase_rate = 0.5
+interact_level_end = 1.0
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1675716225]
+height = 0.48
+
+[node name="DebugHud" type="Control" parent="." unique_id=320646344 node_paths=PackedStringArray("task_object_sample")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_yybwl")
+task_object_sample = NodePath("../TaskObjectSample")
+
+[node name="Label" type="Label" parent="DebugHud" unique_id=915937305]
+layout_mode = 0
+offset_right = 261.0
+offset_bottom = 98.0
+text = "Task Complete!"
+label_settings = SubResource("LabelSettings_dm8bi")
+horizontal_alignment = 1
+vertical_alignment = 1

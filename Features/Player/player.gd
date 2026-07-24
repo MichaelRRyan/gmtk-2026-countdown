@@ -81,12 +81,16 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("interact"):
 		_attempt_interaction()
+	elif Input.is_action_pressed("interact"):
+		_attempt_task(delta)
+		
 
 func _attempt_interaction() -> void:
 	"""If raycast collides with NPC or object, call its interact()."""
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		
+	
+			
 		if collider and collider.has_method("interact"):
 			
 			collider.interact(holdable_item_manager.get_held_item())
@@ -97,3 +101,11 @@ func _attempt_interaction() -> void:
 			holdable_item_manager.drop_current_item()
 	else:
 		holdable_item_manager.drop_current_item()
+		
+func _attempt_task(delta: float) -> void:
+	if raycast.is_colliding():
+		var collider: Object = raycast.get_collider()
+		var task_object: TaskObjectBase = collider.owner
+		if task_object:
+			task_object.interact_hold(delta)
+			

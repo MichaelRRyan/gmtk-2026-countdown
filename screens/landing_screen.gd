@@ -12,7 +12,7 @@ var current_countdown_amount: int = countdown_amount
 func _ready() -> void:
 	set_timer(current_countdown_amount)
 	countdown_timer.timeout.connect(_on_timeout)
-	
+	7
 func set_timer(new_countdown_amount: int):
 	current_countdown_amount = new_countdown_amount
 	countdown_text.text = "%d" % current_countdown_amount
