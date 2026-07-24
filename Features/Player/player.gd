@@ -16,7 +16,6 @@ signal on_can_interact(can_interact: bool)
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var raycast: RayCast3D = $Head/Camera3D/RayCast3D
 @onready var holdable_item_manager: HoldableItemManager = $Head/Camera3D/HoldableItemManager
-@onready var hud: HUD = $HUD
 
 var camera_rot_x: float = 0.0
 var camera_rot_y: float = 0.0
