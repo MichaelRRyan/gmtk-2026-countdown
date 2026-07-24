@@ -22,17 +22,18 @@ use_collision = true
 size = Vector3(8.955078, 1, 10.40918)
 
 [node name="TaskObjectSample" parent="." unique_id=1343915890 instance=ExtResource("2_yybwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1465707, 0.50000024, -5.0781097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1465707, 0.50000024, 1.2871356)
 objective_text = "This is an example of a task"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1675716225]
 height = 0.48
 
 [node name="TaskObjectSample2" parent="." unique_id=976524989 instance=ExtResource("2_yybwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2849383, 0.49999976, -4.6924596)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1294794, 0.49999976, -7.2276807)
 objective_text = "Yet another objective"
 
 [node name="HUD" parent="." unique_id=1740219873 instance=ExtResource("3_yybwl")]
+crosshair_normal_color = Color(1, 0, 0, 1)
 
 [node name="TaskObjectSample3" parent="." unique_id=528437102 instance=ExtResource("2_yybwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9668217, 0.43127763, -5.321501)

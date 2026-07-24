@@ -26,8 +26,9 @@ func _ready() -> void:
 	task_progress_bar.visible = false
 
 func set_crosshair_interactable(is_interactable: bool) -> void:
-	var color_to_set: Color = crosshair_interactable_color if is_interactable else crosshair_normal_color
-	crosshair.modulate = color_to_set
+	crosshair.visible = is_interactable
+	#var color_to_set: Color = crosshair_interactable_color if is_interactable else crosshair_normal_color
+	#crosshair.modulate = color_to_set
 	
 func set_task_meter(interact_level_current: float, interact_level_end: float):
 	if interact_level_current <= 0:
@@ -35,7 +36,7 @@ func set_task_meter(interact_level_current: float, interact_level_end: float):
 		return
 	
 	var percent: float = interact_level_current / interact_level_end * 100
-	task_progress_bar.visible = true
+	task_progress_bar.visible = task_progress_bar.value <= percent
 	task_progress_bar.value = percent
 	
 func show_task_complete() -> void:
