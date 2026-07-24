@@ -19,6 +19,7 @@ class_name Player
 var camera_rot_x: float = 0.0
 var camera_rot_y: float = 0.0
 var velocity_desired: Vector3 = Vector3.ZERO
+var last_interacted_task_object: TaskObjectBase = null
 
 func _ready() -> void:
 	"""Capture mouse when game starts."""
@@ -83,16 +84,23 @@ func _physics_process(delta: float) -> void:
 	
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		var is_interactable: bool = collider and (collider.owner is TaskObjectBase or collider.has_method("interact"))
+		var is_interactable: bool = collider and \
+									((collider.owner is TaskObjectBase and not collider.owner.is_task_complete) \
+									or collider.has_method("interact"))
 		hud.set_crosshair_interactable(is_interactable)
 	else:
 		hud.set_crosshair_interactable(false)
 	
+	var found_task_object: TaskObjectBase = null
 	if Input.is_action_just_pressed("interact"):
 		_attempt_interaction()
 	elif Input.is_action_pressed("interact"):
-		_attempt_task(delta)
+		found_task_object = _attempt_task(delta)
+	
+	if last_interacted_task_object and not found_task_object:
+		last_interacted_task_object.interact_release(delta)
 		
+	last_interacted_task_object = found_task_object
 
 func _attempt_interaction() -> void:
 	"""If raycast collides with NPC or object, call its interact()."""
@@ -100,20 +108,21 @@ func _attempt_interaction() -> void:
 		var collider = raycast.get_collider()
 	
 		if collider and collider.has_method("interact"):
-			
 			collider.interact(holdable_item_manager.get_held_item())
-			
-			#if collider is WateringCan:
-			#	holdable_item_manager.try_pickup(collider)
 		else:
 			holdable_item_manager.drop_current_item()
 	else:
 		holdable_item_manager.drop_current_item()
 		
-func _attempt_task(delta: float) -> void:
+func _attempt_task(delta: float) -> TaskObjectBase:
 	if raycast.is_colliding():
 		var collider: Object = raycast.get_collider()
 		var task_object: TaskObjectBase = collider.owner as TaskObjectBase
 		if task_object:
 			task_object.interact_hold(delta)
+			return task_object
+	
+	return null
+
+			
 			

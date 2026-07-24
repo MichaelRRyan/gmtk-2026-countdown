@@ -16,4 +16,4 @@ func _on_task_updated(task_object: TaskObjectBase, interact_level_current: float
 	player.hud.set_task_meter(interact_level_current, interact_level_end)
 	
 func _on_task_completed(task_object: TaskObjectBase):
-	player.hud.task_progress_bar.visible = false
+	player.hud.show_task_complete()

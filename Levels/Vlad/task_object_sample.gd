@@ -6,6 +6,12 @@ class_name TaskObjectSample
 
 @onready var mesh_instance: MeshInstance3D = $StaticBody3D/MeshInstance3D
 
-func _perform_action() -> void:
+func _update_color() -> void:
 	var new_color: Color = lerp(color_start, color_end, interact_level_current)
 	mesh_instance.get_active_material(0).albedo_color = new_color
+
+func _perform_action() -> void:
+	_update_color()
+	
+func _undo_action() -> void:
+	_update_color()

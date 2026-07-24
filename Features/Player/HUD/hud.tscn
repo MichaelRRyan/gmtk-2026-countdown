@@ -9,6 +9,42 @@
 [sub_resource type="Theme" id="Theme_qjg4n"]
 default_font_size = 29
 
+[sub_resource type="Animation" id="Animation_qjg4n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j6b2d"]
+resource_name = "task_complete_fadeout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rtong"]
+_data = {
+&"RESET": SubResource("Animation_qjg4n"),
+&"task_complete_fadeout": SubResource("Animation_j6b2d")
+}
+
 [node name="HUD" type="Control" unique_id=1740219873]
 layout_mode = 3
 anchors_preset = 15
@@ -46,6 +82,12 @@ offset_right = 254.0
 offset_bottom = 74.0
 theme = SubResource("Theme_qjg4n")
 text = "Task Complete!"
+
+[node name="TaskCompleteTimer" type="Timer" parent="TaskComplete" unique_id=1391248783]
+one_shot = true
+
+[node name="TaskCompleteAnimationPlayer" type="AnimationPlayer" parent="TaskComplete" unique_id=203708056]
+libraries/ = SubResource("AnimationLibrary_rtong")
 
 [node name="TaskProgressBar" type="ProgressBar" parent="." unique_id=1180473423]
 layout_mode = 1
