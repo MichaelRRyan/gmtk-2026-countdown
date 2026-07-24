@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://be1dc45n62e15"]
+
+[ext_resource type="Shader" uid="uid://csm131yyan6g7" path="res://Levels/Maicon/pixelate_shader.gdshader" id="1_k2kyv"]
+[ext_resource type="PackedScene" uid="uid://nkpdr2fcalgu" path="res://Levels/Vlad/vlads_test_level.tscn" id="2_71mw4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekkj2"]
+shader = ExtResource("1_k2kyv")
+shader_parameter/Pixel_Size = 8.0
+
+[node name="MaiconTestLevel" type="Node3D" unique_id=120340619]
+
+[node name="Control" type="Control" parent="." unique_id=657776224]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1063563811]
+material = SubResource("ShaderMaterial_ekkj2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VladsTestLevel" parent="." unique_id=1965605186 instance=ExtResource("2_71mw4")]
