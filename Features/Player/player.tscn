@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dn5nxnp1tnk66" path="res://Features/Player/player.gd" id="1_6u40a"]
 [ext_resource type="Script" uid="uid://caxahuta341hq" path="res://Features/Player/HoldableItemManager/holdable_item_manager.gd" id="2_xfr8u"]
+[ext_resource type="PackedScene" uid="uid://cu0kdxy5t7fgl" path="res://Features/Player/HUD/hud.tscn" id="3_efe3q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vef74"]
 
@@ -22,3 +23,5 @@ script = ExtResource("2_xfr8u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1077622134]
 shape = SubResource("CapsuleShape3D_vef74")
+
+[node name="HUD" parent="." unique_id=1740219873 instance=ExtResource("3_efe3q")]

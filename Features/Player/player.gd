@@ -14,6 +14,7 @@ class_name Player
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var raycast: RayCast3D = $Head/Camera3D/RayCast3D
 @onready var holdable_item_manager: HoldableItemManager = $Head/Camera3D/HoldableItemManager
+@onready var hud: HUD = $HUD
 
 var camera_rot_x: float = 0.0
 var camera_rot_y: float = 0.0
@@ -22,6 +23,7 @@ var velocity_desired: Vector3 = Vector3.ZERO
 func _ready() -> void:
 	"""Capture mouse when game starts."""
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	GameLogic.register_player(self)
 
 func _input(event: InputEvent) -> void:
 	"""Handle mouse movement for view direction."""
@@ -79,6 +81,13 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		var is_interactable: bool = collider and (collider.owner is TaskObjectBase or collider.has_method("interact"))
+		hud.set_crosshair_interactable(is_interactable)
+	else:
+		hud.set_crosshair_interactable(false)
+	
 	if Input.is_action_just_pressed("interact"):
 		_attempt_interaction()
 	elif Input.is_action_pressed("interact"):
@@ -90,7 +99,6 @@ func _attempt_interaction() -> void:
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
 	
-			
 		if collider and collider.has_method("interact"):
 			
 			collider.interact(holdable_item_manager.get_held_item())
@@ -105,7 +113,7 @@ func _attempt_interaction() -> void:
 func _attempt_task(delta: float) -> void:
 	if raycast.is_colliding():
 		var collider: Object = raycast.get_collider()
-		var task_object: TaskObjectBase = collider.owner
+		var task_object: TaskObjectBase = collider.owner as TaskObjectBase
 		if task_object:
 			task_object.interact_hold(delta)
 			

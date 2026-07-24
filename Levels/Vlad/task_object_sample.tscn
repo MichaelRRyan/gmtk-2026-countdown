@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnj66qkhs741d"]
 
-[ext_resource type="Script" uid="uid://diyqxc8gl45ux" path="res://Features/Tasks/task_object_sample.gd" id="1_ct4h5"]
+[ext_resource type="Script" uid="uid://diyqxc8gl45ux" path="res://Levels/Vlad/task_object_sample.gd" id="1_ct4h5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aoolo"]
 

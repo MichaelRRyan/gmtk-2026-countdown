@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cu0kdxy5t7fgl"]
+
+[ext_resource type="Script" uid="uid://degc01x2f2g1m" path="res://Features/Player/HUD/hud.gd" id="1_qjg4n"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c8vhp"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7uhao"]
+
+[sub_resource type="Theme" id="Theme_qjg4n"]
+default_font_size = 29
+
+[node name="HUD" type="Control" unique_id=1740219873]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_qjg4n")
+crosshair_normal_color = Color(1, 1, 1, 1)
+crosshair_interactable_color = Color(1, 0, 0, 1)
+
+[node name="Crosshair" type="TextureRect" parent="." unique_id=735159700]
+material = SubResource("CanvasItemMaterial_c8vhp")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -2.5
+offset_right = 2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_7uhao")
+
+[node name="TaskComplete" type="RichTextLabel" parent="." unique_id=10010184]
+layout_mode = 1
+offset_left = 34.0
+offset_top = 27.0
+offset_right = 254.0
+offset_bottom = 74.0
+theme = SubResource("Theme_qjg4n")
+text = "Task Complete!"
+
+[node name="TaskProgressBar" type="ProgressBar" parent="." unique_id=1180473423]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = 46.0
+offset_right = 110.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+show_percentage = false

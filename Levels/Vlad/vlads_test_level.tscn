@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://nkpdr2fcalgu"]
 
 [ext_resource type="PackedScene" uid="uid://b4sc850448g56" path="res://Features/Player/player.tscn" id="1_05ypn"]
-[ext_resource type="PackedScene" uid="uid://cnj66qkhs741d" path="res://Features/Tasks/task_object_sample.tscn" id="2_yybwl"]
-[ext_resource type="Script" uid="uid://behu5xwixyi7e" path="res://Levels/Vlad/debug_hud.gd" id="3_yybwl"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_dm8bi"]
-font_size = 30
+[ext_resource type="PackedScene" uid="uid://cnj66qkhs741d" path="res://Levels/Vlad/task_object_sample.tscn" id="2_yybwl"]
 
 [node name="VladsTestLevel" type="Node3D" unique_id=961639840]
 
@@ -29,22 +25,3 @@ interact_level_end = 1.0
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1675716225]
 height = 0.48
-
-[node name="DebugHud" type="Control" parent="." unique_id=320646344 node_paths=PackedStringArray("task_object_sample")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_yybwl")
-task_object_sample = NodePath("../TaskObjectSample")
-
-[node name="Label" type="Label" parent="DebugHud" unique_id=915937305]
-layout_mode = 0
-offset_right = 261.0
-offset_bottom = 98.0
-text = "Task Complete!"
-label_settings = SubResource("LabelSettings_dm8bi")
-horizontal_alignment = 1
-vertical_alignment = 1
