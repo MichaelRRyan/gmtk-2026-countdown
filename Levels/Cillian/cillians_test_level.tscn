@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b2xk5k7prufqv" path="res://Features/NPC/Bat/bat_cleaned_new.tscn" id="2_q53vc"]
 [ext_resource type="Script" uid="uid://b2shhxtljwlko" path="res://Levels/Cillian/bat.gd" id="3_lujty"]
 [ext_resource type="Script" uid="uid://y1dvy5okf8ha" path="res://Levels/Cillian/timer.gd" id="5_lujty"]
+[ext_resource type="PackedScene" uid="uid://cacuqeg84ldli" path="res://Features/NPC/Count/Count.tscn" id="6_it4p6"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_y8tdg"]
 vertices = PackedVector3Array(-4.5, 0.45, -4.5, -4.5, 0.45, 4.5, 4.5, 0.45, 4.5, 4.5, 0.45, -4.5)
@@ -18,11 +19,13 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_01oln"]
 
-[node name="CilliansTestLevel" type="Node2D" unique_id=570083673]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_it4p6"]
+
+[node name="CilliansTestLevel" type="Node3D" unique_id=1079775875]
 script = ExtResource("1_c10bt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=809001011]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3538294, 2.9110239, -2.0323648)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1424923, 0.0971272, -0.61521065)
 navigation_mesh = SubResource("NavigationMesh_y8tdg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=417645378]
@@ -30,20 +33,23 @@ use_collision = true
 size = Vector3(10, 0.1, 10)
 
 [node name="Player" parent="." unique_id=988380354 instance=ExtResource("1_1jbh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9524236, 4.5012455, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3818145, 1.6873488, -1.749919)
 
 [node name="Pillar" type="StaticBody3D" parent="." unique_id=8195517]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.016, 4.998931, -1.979652)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.5196781, 2.1850343, -0.56249785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar" unique_id=381917536]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("CylinderMesh_y8tdg")
 skin = SubResource("Skin_01oln")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar" unique_id=1756059469]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("CylinderShape3D_y8tdg")
 
 [node name="Bat" type="CharacterBody3D" parent="." unique_id=1644517313 groups=["Enemy"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1212254, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4963217, 1.3073287, 1.4171542)
+visible = false
 script = ExtResource("3_lujty")
 
 [node name="bat-cleaned" parent="Bat" unique_id=846535750 instance=ExtResource("2_q53vc")]
@@ -64,6 +70,14 @@ avoidance_enabled = true
 wait_time = 3.0
 autostart = true
 script = ExtResource("5_lujty")
+
+[node name="Count" parent="." unique_id=1983518072 instance=ExtResource("6_it4p6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2574387, 1.3036919, 1.4171542)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=747447471]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0.41631937, 2.5073452)
+use_collision = true
+material = SubResource("StandardMaterial3D_it4p6")
 
 [connection signal="timeout" from="Timer" to="Bat" method="_on_timer_timeout"]
 

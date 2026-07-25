@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cacuqeg84ldli"]
+
+[ext_resource type="Script" uid="uid://dy78hjdmy5dh" path="res://Features/NPC/Count/count.gd" id="1_4b4jr"]
+[ext_resource type="PackedScene" uid="uid://b2xk5k7prufqv" path="res://Features/NPC/Bat/bat_cleaned_new.tscn" id="2_weabx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_01oln"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pofvg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y8tdg"]
+
+[node name="Count" type="Node3D" unique_id=1983518072]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1778632351]
+script = ExtResource("1_4b4jr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=915483251]
+visible = false
+mesh = SubResource("CapsuleMesh_01oln")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1070766215]
+shape = SubResource("CapsuleShape3D_pofvg")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D" unique_id=716879646]
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="Area3D" type="Area3D" parent="CharacterBody3D" unique_id=1306331904]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D/Area3D" unique_id=958106629]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+shape = SubResource("SphereShape3D_y8tdg")
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D" unique_id=1841862045]
+
+[node name="bat-cleaned" parent="CharacterBody3D" unique_id=846535750 instance=ExtResource("2_weabx")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 0, 0, 0)
+
+[node name="Skeleton3D" parent="CharacterBody3D/bat-cleaned/Armature" parent_id_path=PackedInt32Array(846535750, 251842986) index="0" unique_id=138468782]
+bones/1/rotation = Quaternion(-0.5678825, 2.6812558e-08, 0.020076104, 0.8228648)
+bones/2/rotation = Quaternion(0.60322005, -1.901569e-07, -1.4381904e-07, 0.7975748)
+
+[node name="Timer" type="Timer" parent="." unique_id=1082849438]
+wait_time = 3.0
+autostart = true
+
+[connection signal="area_entered" from="CharacterBody3D/Area3D" to="CharacterBody3D" method="_on_area_3d_area_entered"]
+[connection signal="timeout" from="Timer" to="CharacterBody3D" method="_on_timer_timeout"]
+
+[editable path="CharacterBody3D/bat-cleaned"]
