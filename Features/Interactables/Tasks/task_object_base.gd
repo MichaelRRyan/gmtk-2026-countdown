@@ -12,7 +12,7 @@ signal on_task_updated(task_object: TaskObjectBase, interact_level_current: floa
 @export var interact_level_end: float = 100.0
 
 @export_category("Pre-Requisites")
-@export var required_item_type: EquippableObject.ItemType = EquippableObject.ItemType.STICK
+@export var required_item_type: EquippableObject.ItemType = EquippableObject.ItemType.NONE
 
 @export_category("Display")
 @export var objective_text: String = "DEBUG"
