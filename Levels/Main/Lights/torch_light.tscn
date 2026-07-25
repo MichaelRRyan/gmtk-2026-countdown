@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://3t8kgp251jik"]
+
+[node name="TorchLight" type="OmniLight3D" unique_id=180794861]
+light_color = Color(0.9804073, 0.6648134, 0.49651223, 1)
+light_energy = 0.2
+shadow_enabled = true
+omni_range = 3.126
+omni_attenuation = -0.613
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1307157682]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.8660253, 0, -0.8660253, 0.5, 0, -0.3628304, -0.10028267)
+cast_shadow = 0
+size = Vector3(0.18945313, 0.14746094, 0.71313477)

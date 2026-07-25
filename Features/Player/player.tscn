@@ -4,11 +4,14 @@
 [ext_resource type="Script" uid="uid://caxahuta341hq" path="res://Features/Player/HoldableItemManager/holdable_item_manager.gd" id="2_xfr8u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vef74"]
+radius = 0.3
+height = 1.5
 
 [node name="Player" type="CharacterBody3D" unique_id=988380354]
 script = ExtResource("1_6u40a")
 
 [node name="Head" type="Node3D" parent="." unique_id=1139519228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=2037855446]
 current = true
@@ -17,8 +20,9 @@ current = true
 target_position = Vector3(0, 0, -2)
 
 [node name="HoldableItemManager" type="Node3D" parent="Head/Camera3D" unique_id=935282256]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53311, -0.522669, -0.592899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533, 0, -0.593)
 script = ExtResource("2_xfr8u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1077622134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CapsuleShape3D_vef74")
