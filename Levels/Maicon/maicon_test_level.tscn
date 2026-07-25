@@ -2,10 +2,11 @@
 
 [ext_resource type="Shader" uid="uid://csm131yyan6g7" path="res://Levels/Maicon/pixelate_shader.gdshader" id="1_k2kyv"]
 [ext_resource type="PackedScene" uid="uid://nkpdr2fcalgu" path="res://Levels/Vlad/vlads_test_level.tscn" id="2_71mw4"]
+[ext_resource type="PackedScene" uid="uid://40x0fy46s2gq" path="res://Levels/Maicon/touch_controls.tscn" id="2_tlts2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekkj2"]
 shader = ExtResource("1_k2kyv")
-shader_parameter/Pixel_Size = 8.0
+shader_parameter/Pixel_Size = 4.000000142499999
 
 [node name="MaiconTestLevel" type="Node3D" unique_id=120340619]
 
@@ -25,5 +26,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TouchControls" parent="Control" unique_id=539810959 instance=ExtResource("2_tlts2")]
+visible = false
+layout_mode = 0
 
 [node name="VladsTestLevel" parent="." unique_id=1965605186 instance=ExtResource("2_71mw4")]

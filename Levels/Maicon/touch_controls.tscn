@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://40x0fy46s2gq"]
+
+[ext_resource type="Script" uid="uid://ddmlf6waht0wi" path="res://Levels/Maicon/touch_controls.gd" id="1_rctqb"]
+
+[node name="TouchControls" type="Control" unique_id=539810959]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rctqb")
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="." unique_id=1454822441]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.111
+anchor_top = 0.856
+anchor_right = 0.111
+anchor_bottom = 0.856
+offset_left = 123.432
+offset_top = 480.833
+offset_right = 163.432
+offset_bottom = 520.833
+grow_vertical = 0
+joystick_mode = 1
+joystick_size = 150.0
+
+[node name="Button" type="Button" parent="." unique_id=1093629419]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.822
+anchor_top = 0.789
+anchor_right = 0.922
+anchor_bottom = 0.911
+offset_left = 895.064
+offset_top = 448.71198
+offset_right = 1021.12
+offset_bottom = 554.56
+grow_horizontal = 0
+grow_vertical = 0
+text = "A"
+
+[connection signal="pressed" from="VirtualJoystick" to="." method="_on_virtual_joystick_pressed"]
+[connection signal="released" from="VirtualJoystick" to="." method="_on_virtual_joystick_released"]
