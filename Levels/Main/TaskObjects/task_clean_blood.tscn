@@ -21,3 +21,4 @@ texture = ExtResource("2_j50rd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=49189086]
 shape = SubResource("SphereShape3D_cciay")
+disabled = true
