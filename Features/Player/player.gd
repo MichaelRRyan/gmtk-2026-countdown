@@ -1,8 +1,6 @@
 extends CharacterBody3D
 class_name Player
 
-signal on_can_interact(can_interact: bool)
-
 @export var move_speed: float = 3.2
 @export var acceleration: float = 4
 @export var deceleration: float = 6
@@ -23,6 +21,7 @@ var camera_rot_x: float = 0.0
 var camera_rot_y: float = 0.0
 var velocity_desired: Vector3 = Vector3.ZERO
 var last_interacted_object: Interactable = null
+var hud: HUD
 
 
 #-------------------------------------------------------------------------------
@@ -98,20 +97,24 @@ func _physics_process(delta: float) -> void:
 	
 	var has_pressed: bool = Input.is_action_just_pressed("interact")
 	var is_holding: bool = Input.is_action_pressed("interact")
+	var reason: String = ""
 	
 	var interactable_object: Interactable = _get_current_interactable_object()
 	if interactable_object:
-		on_can_interact.emit(true)
-		
-		if has_pressed and not interactable_object.is_hold_action:
-			interactable_object.interact_press(self, delta)
-		elif is_holding and interactable_object.is_hold_action:
-			interactable_object.interact_hold(self, delta)
+		var is_interactable: Array = interactable_object.is_interactable(self)
+		if is_interactable[0]:
+			if has_pressed and not interactable_object.is_hold_action:
+				interactable_object.interact_press(self, delta)
+			elif is_holding and interactable_object.is_hold_action:
+				interactable_object.interact_hold(self, delta)
+		else:
+			reason = is_interactable[1]
 	else:
-		on_can_interact.emit(false)
+		if reason == "":
+			hud.reset_interactable_hud_elements()
 		if has_pressed:
 			holdable_item_manager.drop_current_item()
-		
+	
 	if last_interacted_object and not interactable_object:
 		last_interacted_object.interact_release(self, delta)
 	
@@ -123,6 +126,5 @@ func _get_current_interactable_object() -> Interactable:
 		var collider = raycast.get_collider()
 		if collider:
 			var interactable_object: Interactable = collider.owner as Interactable
-			if interactable_object and interactable_object.is_interactable(self):
-				return interactable_object
+			return interactable_object
 	return null

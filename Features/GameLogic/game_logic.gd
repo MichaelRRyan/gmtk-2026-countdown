@@ -6,12 +6,13 @@ extends Node
 var task_objects: Array[TaskObjectBase]
 	
 func _ready() -> void:
-	player.on_can_interact.connect(_on_can_interact)
+	player.hud = hud
 	for child in get_children(true):
-		if child is TaskObjectBase:
-			var task_object: TaskObjectBase = child as TaskObjectBase
-			register_task(task_object)
-	
+		if child is Interactable:
+			child.hud = hud
+			if child is TaskObjectBase:
+				var task_object: TaskObjectBase = child as TaskObjectBase
+				register_task(task_object)	
 
 # These might well just be sequential, we will have to see
 func register_task(task_object: TaskObjectBase):
@@ -28,5 +29,5 @@ func _on_task_completed(task_object: TaskObjectBase):
 	hud.show_task_complete()
 	hud.objectives_list.remove_task_objective(task_object)
 	
-func _on_can_interact(can_interact: bool):
+func on_can_interact(can_interact: bool):
 	hud.set_crosshair_interactable(can_interact)

@@ -1,10 +1,12 @@
 extends Node3D
 class_name Interactable
 
+var hud: HUD	
+
 @export var is_hold_action: bool = true
 
-func is_interactable(player: Player) -> bool:
-	return false
+func is_interactable(player: Player) -> Array:
+	return Array()
 	
 func interact_press(player: Player, delta: float) -> void:
 	pass
