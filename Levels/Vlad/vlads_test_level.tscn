@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cnj66qkhs741d" path="res://Levels/Vlad/task_object_sample.tscn" id="2_yybwl"]
 [ext_resource type="PackedScene" uid="uid://cu0kdxy5t7fgl" path="res://Features/Player/HUD/hud.tscn" id="3_yybwl"]
 [ext_resource type="PackedScene" uid="uid://7hyr6mum3j6q" path="res://Levels/Vlad/equippable_object_sample.tscn" id="5_nxwrc"]
+[ext_resource type="PackedScene" uid="uid://bk2kq5e62xjx3" path="res://Features/Interactables/HidingSpot/HidingSpot.tscn" id="6_rbe7r"]
 
 [node name="VladsTestLevel" type="Node3D" unique_id=1965605186]
 script = ExtResource("1_dm8bi")
@@ -48,3 +49,6 @@ is_active = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0032978, 0.2514193, -0.25172257)
 object_name = "Stick"
 is_hold_action = false
+
+[node name="HidingSpot" parent="." unique_id=1844162814 instance=ExtResource("6_rbe7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2638955, 0.5, -2.7497091)

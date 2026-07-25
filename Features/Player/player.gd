@@ -23,6 +23,8 @@ var velocity_desired: Vector3 = Vector3.ZERO
 var last_interacted_object: Interactable = null
 var hud: HUD
 
+var is_hiding: bool = false
+
 
 #-------------------------------------------------------------------------------
 func _ready() -> void:
@@ -93,7 +95,8 @@ func _process_movement(direction : Vector3, delta: float) -> void:
 
 #-------------------------------------------------------------------------------
 func _physics_process(delta: float) -> void:
-	_process_movement(_process_input(), delta)
+	if not is_hiding:
+		_process_movement(_process_input(), delta)
 	
 	var has_pressed: bool = Input.is_action_just_pressed("interact")
 	var is_holding: bool = Input.is_action_pressed("interact")
