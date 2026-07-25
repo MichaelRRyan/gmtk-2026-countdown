@@ -7,16 +7,16 @@ var camera: Camera3D
 
 # Try to pick up an item (like a watering can)
 func try_pickup(item: EquippableObject) -> void:
-	#if held_item != null:
-		#drop_current_item()
+	if held_item != null:
+		drop_current_item()
 
 	held_item = item
 	
-	#item.get_node("CollisionShape3D").disabled = true
-	item.reparent(camera, false)
+	held_item.rigid_body.freeze = true
+	held_item.collision_shape.disabled = true
 	
-	#item.translate_object_local(item.postition_equipped_camera_offset)
-	#item.rotate_object_local(Vector3.X, item.rotation_equipped_camera_offset)
+	item.reparent(camera, false)
+
 	item.transform.origin = item.postition_equipped_camera_offset
 	item.rotation = item.rotation_equipped_camera_offset
 	

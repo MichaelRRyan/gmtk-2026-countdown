@@ -11,6 +11,9 @@ signal on_task_updated(task_object: TaskObjectBase, interact_level_current: floa
 @export var interact_level_start: float = 0.0
 @export var interact_level_end: float = 100.0
 
+@export_category("Pre-Requisites")
+@export var required_item: EquippableObject
+
 @export_category("Display")
 @export var objective_text: String = "DEBUG"
 
@@ -21,7 +24,9 @@ var is_increasing: bool = false
 var interact_level_current: float = interact_level_start
 var is_task_complete: bool = false
 
-func is_interactable() -> bool:
+func is_interactable(player: Player) -> bool:
+	if required_item and required_item != player.holdable_item_manager.held_item:
+		return false 
 	return is_active and not is_task_complete
 
 func _process(delta: float) -> void:

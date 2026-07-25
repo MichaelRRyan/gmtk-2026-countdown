@@ -12,7 +12,7 @@ class_name EquippableObject
 @onready var rigid_body: RigidBody3D = $RigidBody3D
 @onready var collision_shape: CollisionShape3D = $RigidBody3D/CollisionShape3D
 
-func is_interactable() -> bool:
+func is_interactable(player: Player) -> bool:
 	return true
 
 func interact_press(player: Player, delta: float) -> void:

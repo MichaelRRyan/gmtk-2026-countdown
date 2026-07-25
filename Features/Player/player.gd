@@ -123,6 +123,6 @@ func _get_current_interactable_object() -> Interactable:
 		var collider = raycast.get_collider()
 		if collider:
 			var interactable_object: Interactable = collider.owner as Interactable
-			if interactable_object and interactable_object.is_interactable():
+			if interactable_object and interactable_object.is_interactable(self):
 				return interactable_object
 	return null
