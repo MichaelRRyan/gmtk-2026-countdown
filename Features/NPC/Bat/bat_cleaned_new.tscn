@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b2xk5k7prufqv"]
+
+[ext_resource type="PackedScene" uid="uid://c6beqjidnoyie" path="res://Features/NPC/Bat/bat-cleaned.glb" id="1_af55t"]
+
+[node name="bat-cleaned" unique_id=846535750 instance=ExtResource("1_af55t")]
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(456749229) index="0" unique_id=789988018]
+bones/1/rotation = Quaternion(-0.5076395, 0.34354764, 0.25533473, 0.7477175)
+bones/2/rotation = Quaternion(0.5346181, -0.36940676, 0.2793887, 0.7068693)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1968391604]
+autoplay = &"ArmatureAction_002"
