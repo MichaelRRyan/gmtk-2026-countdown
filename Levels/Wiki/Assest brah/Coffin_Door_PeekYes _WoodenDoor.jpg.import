@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpb5gg8a057xn"
-path.s3tc="res://.godot/imported/StoneWallFinal_171-old-wall-stone-texture-seamless (2).png-fdeb4c122752c2e12c108e8cd6bd0710.s3tc.ctex"
+uid="uid://i4ps720cd7b3"
+path.s3tc="res://.godot/imported/Coffin_Door_PeekYes _WoodenDoor.jpg-eec939d18e57e178649d0b209580a5be.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "5f00b538e5815d000e6a86d5e0190893"
+"md5": "149716a512d3646c825bde7a3068168a"
 }
 
 [deps]
 
-source_file="res://Levels/Wiki/StoneWallFinal_171-old-wall-stone-texture-seamless (2).png"
-dest_files=["res://.godot/imported/StoneWallFinal_171-old-wall-stone-texture-seamless (2).png-fdeb4c122752c2e12c108e8cd6bd0710.s3tc.ctex"]
+source_file="res://Levels/Wiki/Assest brah/Coffin_Door_PeekYes _WoodenDoor.jpg"
+dest_files=["res://.godot/imported/Coffin_Door_PeekYes _WoodenDoor.jpg-eec939d18e57e178649d0b209580a5be.s3tc.ctex"]
 
 [params]
 
