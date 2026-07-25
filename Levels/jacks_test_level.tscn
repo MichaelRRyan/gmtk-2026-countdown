@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cgvmcip3qw0ts"]
+
+[ext_resource type="PackedScene" uid="uid://b4sc850448g56" path="res://Features/Player/player.tscn" id="1_5trxs"]
+[ext_resource type="PackedScene" uid="uid://bgink6hf11kbt" path="res://Features/Interactables/HidingSpot/hiding_spot.tscn" id="2_jatuu"]
+
+[node name="MichaelsTestLevel" type="Node3D" unique_id=961639840]
+
+[node name="Player" parent="." unique_id=988380354 instance=ExtResource("1_5trxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2955592, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1520510822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(8.955078, 1, 10.40918)
+
+[node name="HidingSpot" parent="." unique_id=469388064 instance=ExtResource("2_jatuu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11331868, 0.5, 0.21733856)
+location_offset = Vector3(2, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=811582612]
+transform = Transform3D(1, 0, 0, 0, 0.17983222, 0.9836973, 0, -0.9836973, 0.17983222, 0, 3.3068879, 1.4430614)

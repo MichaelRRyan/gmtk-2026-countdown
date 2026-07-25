@@ -9,6 +9,8 @@ signal on_can_interact(can_interact: bool)
 @export var mouse_sensitivity: float = 0.002
 @export var max_look_up: float = deg_to_rad(80)
 @export var max_look_down: float = deg_to_rad(-80)
+@export var max_hiding_look: float = deg_to_rad(40)
+@export var min_hiding_look: float = deg_to_rad(-40)
 @export var gravity: float = 9.8
 @export var jump_height: float = 0.5
 
@@ -23,6 +25,7 @@ var camera_rot_x: float = 0.0
 var camera_rot_y: float = 0.0
 var velocity_desired: Vector3 = Vector3.ZERO
 var last_interacted_object: Interactable = null
+var is_hiding: bool = false
 
 
 #-------------------------------------------------------------------------------
@@ -39,6 +42,9 @@ func _input(event: InputEvent) -> void:
 		camera_rot_y -= event.relative.x * mouse_sensitivity
 		camera_rot_x -= event.relative.y * mouse_sensitivity
 		camera_rot_x = clamp(camera_rot_x, max_look_down, max_look_up)
+		
+		if is_hiding:
+			camera_rot_y = clamp(camera_rot_y, min_hiding_look, max_hiding_look)
 
 		rotation.y = camera_rot_y
 		head.rotation.x = camera_rot_x
@@ -94,7 +100,7 @@ func _process_movement(direction : Vector3, delta: float) -> void:
 
 #-------------------------------------------------------------------------------
 func _physics_process(delta: float) -> void:
-	_process_movement(_process_input(), delta)
+	if not is_hiding: _process_movement(_process_input(), delta)
 	
 	var has_pressed: bool = Input.is_action_just_pressed("interact")
 	var is_holding: bool = Input.is_action_pressed("interact")
@@ -126,3 +132,12 @@ func _get_current_interactable_object() -> Interactable:
 			if interactable_object and interactable_object.is_interactable(self):
 				return interactable_object
 	return null
+
+func rotate_to_look_at_hiding_spot(target: Vector3) -> void:
+	camera_rot_y *= -1
+	rotation.y = camera_rot_y
+	
+	look_at(target)
+	camera_rot_y = rotation.y
+	camera_rot_x = rotation.x
+	

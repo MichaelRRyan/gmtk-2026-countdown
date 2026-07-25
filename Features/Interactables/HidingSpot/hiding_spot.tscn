@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bgink6hf11kbt"]
+
+[ext_resource type="Script" uid="uid://c6qpm04hm5mnk" path="res://Features/Interactables/HidingSpot/hiding_spot.gd" id="1_3f3d4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g4v7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
+
+[node name="HidingSpot" type="Node3D" unique_id=469388064]
+script = ExtResource("1_3f3d4")
+hiding_location = Transform3D(2.59, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=535325444]
+physics_material_override = SubResource("PhysicsMaterial_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1887290248]
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1421556809]
+mesh = SubResource("BoxMesh_yf5fn")
