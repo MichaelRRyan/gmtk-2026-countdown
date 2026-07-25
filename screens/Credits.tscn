@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://n6yywsyd82vx"]
+
+[ext_resource type="Script" uid="uid://dyk3kplt3untm" path="res://screens/credits.gd" id="1_8ga8i"]
+
+[node name="Credits" type="Control" unique_id=303498971]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8ga8i")
