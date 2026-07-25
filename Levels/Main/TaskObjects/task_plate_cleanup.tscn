@@ -13,6 +13,7 @@ script = ExtResource("1_anno6")
 interact_delay_before_decrease = 0.0
 interact_decrease_rate = 0.2
 objective_text = "Clean up plates"
+task_type = 2
 metadata/_custom_type_script = "uid://c3oslm2uh8fpn"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2055351419]

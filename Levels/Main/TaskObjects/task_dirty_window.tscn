@@ -17,8 +17,8 @@ script = ExtResource("1_fshc3")
 color_start = Color(0.23256016, 0.13846281, 0.110396855, 1)
 color_end = Color(1, 1, 1, 0)
 interact_increase_rate = 0.5
-interact_level_end = 1.0
 objective_text = "Clean the window"
+task_type = 3
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1077780085]
 

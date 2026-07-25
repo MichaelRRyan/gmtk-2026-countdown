@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://7hyr6mum3j6q" path="res://Levels/Vlad/equippable_object_sample.tscn" id="5_nxwrc"]
 [ext_resource type="PackedScene" uid="uid://bk2kq5e62xjx3" path="res://Features/Interactables/HidingSpot/HidingSpot.tscn" id="6_rbe7r"]
 [ext_resource type="PackedScene" uid="uid://blthaqm2hacyh" path="res://Levels/Main/TaskObjects/task_plate_cleanup.tscn" id="7_4juuq"]
+[ext_resource type="PackedScene" uid="uid://se17jate6s7" path="res://Levels/Main/TaskObjects/task_clean_blood.tscn" id="8_3fcd2"]
+[ext_resource type="PackedScene" uid="uid://cqliejscdrsyj" path="res://Levels/Main/EquippableObjects/cleaning_cloth.tscn" id="9_u5juw"]
 
 [node name="VladsTestLevel" type="Node3D" unique_id=1965605186]
 script = ExtResource("1_dm8bi")
@@ -28,7 +30,6 @@ size = Vector3(8.955078, 1, 10.40918)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1465707, 0.50000024, 1.2871356)
 required_item_type = 1
 consume_item_on_completion = true
-objective_text = "This is an example of a task"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1675716225]
 height = 0.48
@@ -36,14 +37,12 @@ height = 0.48
 [node name="TaskObjectSample2" parent="." unique_id=976524989 instance=ExtResource("2_yybwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1294794, 0.49999976, -7.2276807)
 required_item_type = 1
-objective_text = "Yet another objective"
 
 [node name="HUD" parent="." unique_id=1740219873 instance=ExtResource("3_yybwl")]
 crosshair_normal_color = Color(1, 0, 0, 1)
 
 [node name="TaskObjectSample3" parent="." unique_id=528437102 instance=ExtResource("2_yybwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9668217, 0.43127763, -5.321501)
-objective_text = "Hidden Stuff"
 is_active = false
 
 [node name="EquippableObjectSample" parent="." unique_id=1213611896 instance=ExtResource("5_nxwrc")]
@@ -57,4 +56,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2638955, 0.5, -2.7497091)
 [node name="TaskPlateCleanup" parent="." unique_id=1857819778 instance=ExtResource("7_4juuq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1340437, 0.084232695, -0.9639044)
 interact_decrease_rate = 0.99
-interact_level_end = 1.0
+
+[node name="TaskPlateCleanup2" parent="." unique_id=1435696676 instance=ExtResource("7_4juuq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3432956, 0.084232695, -0.06030178)
+interact_decrease_rate = 0.99
+
+[node name="TaskPlateCleanup3" parent="." unique_id=810199458 instance=ExtResource("7_4juuq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6386743, 0.084232695, 0.8956936)
+interact_decrease_rate = 0.99
+
+[node name="TaskCleanBlood" parent="." unique_id=562064819 instance=ExtResource("8_3fcd2")]
+transform = Transform3D(0.46389818, 0, 0, 0, 1, 0, 0, 0, 0.46389818, -4.565799, 0.016024884, -2.608782)
+interact_increase_rate = 0.5
+
+[node name="CleaningCloth" parent="." unique_id=1437859175 instance=ExtResource("9_u5juw")]
+transform = Transform3D(1, 0, 0, 0, 0.0453096, 0.998973, 0, -0.998973, 0.0453096, -2.882752, 0.04243338, -1.6365947)
+object_name = "Cleaning Cloth"
+item_type = 3
+is_hold_action = false
