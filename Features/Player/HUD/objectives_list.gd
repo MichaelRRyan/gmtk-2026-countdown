@@ -5,7 +5,6 @@ class_name ObjectivesList
 var labels: Dictionary[TaskObjectBase.TaskType, ObjectiveItem]
 
 func set_task_objective(task_object: TaskObjectBase):
-	print(labels.find_key(task_object.task_type))
 	if labels.is_empty() or !labels.has(task_object.task_type):		
 		var new_label: ObjectiveItem = ObjectiveItem.new()
 		new_label.add_objective(task_object)

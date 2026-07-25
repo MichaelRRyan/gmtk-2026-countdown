@@ -16,7 +16,7 @@ func _ready() -> void:
 				var task_object: TaskObjectBase = child as TaskObjectBase
 				register_task(task_object)	
 
-# These might well just be sequential, we will have to see
+
 func register_task(task_object: TaskObjectBase):
 	if task_object.is_active:
 		task_object.on_task_updated.connect(_on_task_updated)
@@ -25,8 +25,10 @@ func register_task(task_object: TaskObjectBase):
 		hud.objectives_list.set_task_objective(task_object)
 		task_objects.append(task_object)
 	
+	
 func _on_task_updated(task_object: TaskObjectBase, interact_level_current: float, interact_level_end: float):
 	hud.set_task_meter(interact_level_current, interact_level_end)
+	
 	
 func _on_task_completed(task_object: TaskObjectBase):
 	hud.show_task_complete()
@@ -37,6 +39,7 @@ func _on_task_completed(task_object: TaskObjectBase):
 
 func _on_task_reset(task_object: TaskObjectBase):
 	hud.objectives_list.set_task_objective(task_object)
+	hud.show_new_task(task_object)
 
 
 func on_can_interact(can_interact: bool):
