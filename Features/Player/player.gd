@@ -1,14 +1,14 @@
 extends CharacterBody3D
 class_name Player
 
-signal on_can_interact(can_interact: bool)
-
 @export var move_speed: float = 3.2
 @export var acceleration: float = 4
 @export var deceleration: float = 6
 @export var mouse_sensitivity: float = 0.002
 @export var max_look_up: float = deg_to_rad(80)
 @export var max_look_down: float = deg_to_rad(-80)
+@export var hiding_min_look: float = deg_to_rad(-40)
+@export var hiding_max_look: float = deg_to_rad(40)
 @export var gravity: float = 9.8
 @export var jump_height: float = 0.5
 
@@ -22,13 +22,17 @@ signal on_can_interact(can_interact: bool)
 var camera_rot_x: float = 0.0
 var camera_rot_y: float = 0.0
 var velocity_desired: Vector3 = Vector3.ZERO
-var last_interacted_task_object: TaskObjectBase = null
+var last_interacted_object: Interactable = null
+var hud: HUD
+
+var is_hiding: bool = false
 
 
 #-------------------------------------------------------------------------------
 func _ready() -> void:
 	# Capture mouse when game starts.
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	holdable_item_manager.camera = camera
 
 
 #-------------------------------------------------------------------------------
@@ -38,7 +42,10 @@ func _input(event: InputEvent) -> void:
 		camera_rot_y -= event.relative.x * mouse_sensitivity
 		camera_rot_x -= event.relative.y * mouse_sensitivity
 		camera_rot_x = clamp(camera_rot_x, max_look_down, max_look_up)
-
+		
+		if is_hiding:
+			camera_rot_y = clamp(camera_rot_y, hiding_min_look, hiding_max_look)
+		
 		rotation.y = camera_rot_y
 		head.rotation.x = camera_rot_x
 	
@@ -93,49 +100,39 @@ func _process_movement(direction : Vector3, delta: float) -> void:
 
 #-------------------------------------------------------------------------------
 func _physics_process(delta: float) -> void:
-	_process_movement(_process_input(), delta)
+	if not is_hiding:
+		_process_movement(_process_input(), delta)
 	
-	if raycast.is_colliding():
-		var collider = raycast.get_collider()
-		var is_interactable: bool = collider and \
-									((collider.owner is TaskObjectBase and 
-									not collider.owner.is_task_complete and
-									collider.owner.is_active)
-									or collider.has_method("interact"))
-		on_can_interact.emit(is_interactable)
-	else:
-		on_can_interact.emit(false)
+	var has_pressed: bool = Input.is_action_just_pressed("interact")
+	var is_holding: bool = Input.is_action_pressed("interact")
+	var reason: String = ""
 	
-	var found_task_object: TaskObjectBase = null
-	if Input.is_action_just_pressed("interact"):
-		_attempt_interaction()
-	elif Input.is_action_pressed("interact"):
-		found_task_object = _attempt_task(delta)
-	
-	if last_interacted_task_object and not found_task_object:
-		last_interacted_task_object.interact_release(delta)
-		
-	last_interacted_task_object = found_task_object
-
-func _attempt_interaction() -> void:
-	"""If raycast collides with NPC or object, call its interact()."""
-	if raycast.is_colliding():
-		var collider = raycast.get_collider()
-	
-		if collider and collider.has_method("interact"):
-			collider.interact(holdable_item_manager.get_held_item())
+	var interactable_object: Interactable = _get_current_interactable_object()
+	if interactable_object:
+		var is_interactable: Array = interactable_object.is_interactable(self)
+		if is_interactable[0]:
+			if has_pressed and not interactable_object.is_hold_action:
+				interactable_object.interact_press(self, delta)
+			elif is_holding and interactable_object.is_hold_action:
+				interactable_object.interact_hold(self, delta)
 		else:
-			holdable_item_manager.drop_current_item()
+			reason = is_interactable[1]
 	else:
-		holdable_item_manager.drop_current_item()
-		
-func _attempt_task(delta: float) -> TaskObjectBase:
-	if raycast.is_colliding():
-		var collider: Object = raycast.get_collider()
-		if collider:
-			var task_object: TaskObjectBase = collider.owner as TaskObjectBase
-			if task_object and task_object.is_active:
-				task_object.interact_hold(delta)
-				return task_object
+		if reason == "" and hud:
+			hud.reset_interactable_hud_elements()
+		if has_pressed:
+			holdable_item_manager.drop_current_item()
 	
-	return null	
+	if last_interacted_object and not interactable_object:
+		last_interacted_object.interact_release(self, delta)
+	
+	last_interacted_object = interactable_object
+	
+	
+func _get_current_interactable_object() -> Interactable:
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider:
+			var interactable_object: Interactable = collider.owner as Interactable
+			return interactable_object
+	return null

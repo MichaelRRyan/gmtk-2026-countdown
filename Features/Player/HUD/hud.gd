@@ -15,9 +15,11 @@ class_name HUD
 @onready var task_complete_animation_player: AnimationPlayer = $TaskComplete/TaskCompleteAnimationPlayer
 @onready var task_progress_bar: ProgressBar = $TaskProgressBar
 @onready var objectives_list: ObjectivesList = $ObjectivesList
+@onready var equippable_object_label: RichTextLabel = $EquippableObject
 
 func _ready() -> void:
 	set_crosshair_interactable(false)
+	show_equippable_object_description("", false)
 	
 	task_complete.modulate.a = 0.0
 	task_complete_timer.timeout.connect(_task_complete_timeout)
@@ -43,6 +45,16 @@ func show_task_complete() -> void:
 	task_progress_bar.visible = false
 	task_complete.modulate.a = 1.0
 	task_complete_timer.start(task_complete_display_length)
+	
+func show_equippable_object_description(text: String, show: bool):
+	if show:
+		equippable_object_label.text = text
+	equippable_object_label.visible = show
+	
+func reset_interactable_hud_elements():
+	task_progress_bar.visible = false
+	equippable_object_label.visible = false
+	set_crosshair_interactable(false)
 	
 func _task_complete_timeout() -> void:
 	task_complete_animation_player.play("task_complete_fadeout")
