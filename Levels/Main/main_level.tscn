@@ -114,10 +114,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1.375, -10)
 use_collision = true
 size = Vector3(0.5, 3.25, 3.25)
 
-[node name="CSGBox3D31" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=654402857]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 1.375, -11)
+[node name="CSGBox3D35" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=535687144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1.375, -7.25)
 use_collision = true
-size = Vector3(0.5, 3.25, 4.25)
+size = Vector3(0.5, 3.25, 0.25)
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=654402857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 1.375, -10.75)
+use_collision = true
+size = Vector3(0.5, 3.25, 4.75)
 
 [node name="CSGBox3D28" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=1549094028]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.375, -12.625)
@@ -145,9 +150,9 @@ use_collision = true
 size = Vector3(0.5, 3.25, 2.25)
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=26715514]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5, 1.375, -8.625)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.125, 1.375, -8.625)
 use_collision = true
-size = Vector3(0.5, 3.25, 3.75)
+size = Vector3(0.5, 3.25, 3)
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=1681466951]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.25, 1.375, -6.875)
@@ -172,7 +177,7 @@ use_collision = true
 size = Vector3(0.3684082, 0.12, 1.3344727)
 
 [node name="CSGBox3D42" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters/DoorTops" unique_id=1850375027]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.125, 2.375, -8.625)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.125, 2.375, -8.875)
 use_collision = true
 size = Vector3(0.5, 1.25, 1.5)
 
@@ -191,10 +196,20 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.5
 use_collision = true
 size = Vector3(0.5, 1.25, 1.5)
 
-[node name="CSGBox3D34" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=916211196]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.25, 1.375, -8.625)
+[node name="CSGBox3D43" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters/DoorTops" unique_id=168122078]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.5, 2.5, -7.75)
 use_collision = true
-size = Vector3(0.5, 3.25, 0.75)
+size = Vector3(0.5, 1, 1.5)
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=916211196]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.125, 1.375, -8.875)
+use_collision = true
+size = Vector3(0.5, 3.25, 0.5)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=661599475]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.125, 1.375, -8.875)
+use_collision = true
+size = Vector3(0.5, 3.25, 0.5)
 
 [node name="CSGBox3D33" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=465439395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1.375, -13.25)
@@ -259,14 +274,14 @@ size = Vector3(0.5, 3.25, 7)
 [node name="DoorTops" type="Node3D" parent="CastleGeo/Walls" unique_id=1783918800]
 
 [node name="CSGBox3D37" type="CSGBox3D" parent="CastleGeo/Walls/DoorTops" unique_id=912175842]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.5, 3.125, 1.125)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.5, 2.875, 1.125)
 use_collision = true
-size = Vector3(0.5, 0.25, 2.25)
+size = Vector3(0.5, 0.75, 2.25)
 
 [node name="CSGBox3D38" type="CSGBox3D" parent="CastleGeo/Walls/DoorTops" unique_id=345978900]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.5, 3.125, -0.125)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.5, 2.875, -0.125)
 use_collision = true
-size = Vector3(0.5, 0.25, 2.25)
+size = Vector3(0.5, 0.75, 2.25)
 
 [node name="CSGBox3D36" type="CSGBox3D" parent="CastleGeo/Walls/DoorTops" unique_id=22383479]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.625, 3.125, -2.375)
@@ -284,6 +299,11 @@ font_size = 64
 [node name="Label3D5" type="Label3D" parent="CastleGeo/Notes" unique_id=26376874]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.25, 20, -2)
 text = "Kitchen"
+font_size = 64
+
+[node name="Label3D8" type="Label3D" parent="CastleGeo/Notes" unique_id=1566016857]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.123010635, 20, 0.7018564)
+text = "Entryway"
 font_size = 64
 
 [node name="Label3D6" type="Label3D" parent="CastleGeo/Notes" unique_id=1010331178]
@@ -346,21 +366,73 @@ size = Vector3(0.25, 0.75, 0.25)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=400386828]
 transform = Transform3D(0.47307584, 0, -0.88102186, 0, 1, 0, 0.88102186, 0, 0.47307584, 3.0415175, 0.875, -9.073209)
+use_collision = true
 size = Vector3(0.12, 1.75, 1.25)
 material = ExtResource("4_xh4ow")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=1913519152]
 transform = Transform3D(-0.8502067, 0, 0.5264494, 0, 1, 0, -0.5264494, 0, -0.8502067, -4.3475714, 0.9486265, -6.2219715)
+use_collision = true
 size = Vector3(0.12, 2.08313, 1.25)
+material = ExtResource("4_xh4ow")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=1504050526]
+transform = Transform3D(-0.25881904, 0, 0.96592593, 0, 1, 0, -0.96592593, 0, -0.25881904, -3.024127, 1.2017546, 2.3216233)
+use_collision = true
+size = Vector3(0.12, 2.589386, 1.1303711)
+material = ExtResource("4_xh4ow")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=2088742001]
+transform = Transform3D(-0.25881904, 0, -0.96592593, 0, 1, 0, 0.96592593, 0, -0.25881904, -3.024127, 1.2056761, -0.049877673)
+use_collision = true
+size = Vector3(0.12, 2.597229, 1.1298828)
+material = ExtResource("4_xh4ow")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=1737985844]
+transform = Transform3D(-0.258819, 0, -0.96592593, 0, 1, 0, 0.96592593, 0, -0.258819, 2.975873, 1.2017546, -1.0749536)
+use_collision = true
+size = Vector3(0.12, 2.589386, 1.1303711)
+material = ExtResource("4_xh4ow")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=668695580]
+transform = Transform3D(-0.2588192, 0, 0.96592593, 0, 1, 0, -0.96592593, 0, -0.2588192, 2.975873, 1.2056761, 0.8216233)
+use_collision = true
+size = Vector3(0.12, 2.597229, 1.1298828)
+material = ExtResource("4_xh4ow")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=157929872]
+transform = Transform3D(-0.9659258, 0, -0.25881907, 0, 1, 0, 0.25881907, 0, -0.9659258, 4.741005, 1.4604139, -3.210496)
+use_collision = true
+size = Vector3(0.12, 3.1067047, 1.8238525)
+material = ExtResource("4_xh4ow")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=269066940]
+transform = Transform3D(0.96592593, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.96592593, 8.566921, 1.4499846, -3.1537347)
+use_collision = true
+size = Vector3(0.12, 3.085846, 1.7304688)
 material = ExtResource("4_xh4ow")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=76573061]
 transform = Transform3D(0.98775715, 0, -0.15599954, 0, 1, 0, 0.15599954, 0, 0.98775715, -3.3675556, 0.75490856, -9.342742)
+use_collision = true
 size = Vector3(0.12, 1.9143219, 1.5)
 material = ExtResource("4_xh4ow")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=204831662]
 transform = Transform3D(-0.19272804, 0, -0.9812523, 0, 1, 0, 0.9812523, 0, -0.19272804, -6.151621, 0.75490856, -12.908037)
+use_collision = true
+size = Vector3(0.12, 1.9143219, 1.184082)
+material = ExtResource("4_xh4ow")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=1665686617]
+transform = Transform3D(-0.19272804, 0, -0.9812523, 0, 1, 0, 0.9812523, 0, -0.19272804, -6.0613055, 0.880332, -8.390298)
+use_collision = true
+size = Vector3(0.12, 2.1651688, 1)
+material = ExtResource("4_xh4ow")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=1534739384]
+transform = Transform3D(-0.19272804, 0, -0.9812523, 0, 1, 0, 0.9812523, 0, -0.19272804, -0.063718796, 0.75490856, -11.712334)
+use_collision = true
 size = Vector3(0.12, 1.9143219, 1.184082)
 material = ExtResource("4_xh4ow")
 
@@ -409,7 +481,7 @@ transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, 1.50
 transform = Transform3D(-1.6292068e-07, 0, -1, 0, 1, 0, 1, 0, -1.6292068e-07, -3.2469606, 2.3707786, -12.0386305)
 
 [node name="TorchLight6" parent="Lighting" unique_id=1539672842 instance=ExtResource("5_efy7f")]
-transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, -4.2469606, 2.3707786, -10.5386305)
+transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, -4.1153297, 1.9808261, -10.5386305)
 
 [node name="TorchLight4" parent="Lighting" unique_id=172986589 instance=ExtResource("5_efy7f")]
 transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, -1.1173844, 2.3707786, -12.928157)
