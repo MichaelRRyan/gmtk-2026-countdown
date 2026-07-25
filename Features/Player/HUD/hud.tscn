@@ -108,11 +108,12 @@ grow_vertical = 2
 show_percentage = false
 
 [node name="ObjectivesList" parent="." unique_id=1966678782 instance=ExtResource("2_j6b2d")]
+custom_minimum_size = Vector2(400, 200)
 layout_mode = 1
-offset_left = -275.0
-offset_top = 28.0
-offset_right = -34.0
-offset_bottom = 327.0
+offset_left = -207.0
+offset_top = -76.0
+offset_right = 193.0
+offset_bottom = 124.0
 
 [node name="EquippableObject" type="RichTextLabel" parent="." unique_id=1475675828]
 layout_mode = 1
@@ -153,3 +154,16 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NewTask" unique_id=966541854]
 libraries/ = SubResource("AnimationLibrary_rtong")
+
+[node name="TasksTooltip" type="Label" parent="." unique_id=1510269964]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = -50.0
+offset_right = 123.0
+offset_bottom = -27.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "[TAB] Tasks"
