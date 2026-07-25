@@ -18,10 +18,12 @@ func is_interactable(player: Player) -> Array:
 	
 	return [is_active, ""]
 
-
-func interact_hold(player: Player, delta: float) -> void:
+func interact_press(player: Player, delta: float) -> void:
 	if player.is_hiding:
-		player.position -= offset
-	else:
 		player.position += offset
-	player.is_hiding = !player.is_hiding
+		player.is_hiding = false
+	else:
+		player.position = position - offset
+		player.look_at(position)
+		player.camera_rot_y = player.rotation.y
+		player.is_hiding = true
