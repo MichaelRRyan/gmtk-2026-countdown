@@ -1,4 +1,4 @@
-extends Node3D
+extends Interactable
 class_name TaskObjectBase
 
 signal on_task_completed(task_object: TaskObjectBase)
@@ -14,13 +14,16 @@ signal on_task_updated(task_object: TaskObjectBase, interact_level_current: floa
 @export_category("Display")
 @export var objective_text: String = "DEBUG"
 
-@export_category("Config")
+@export_category("Debug Config")
 @export var is_active: bool = true
 
 var is_increasing: bool = false
 var interact_level_current: float = interact_level_start
 var is_task_complete: bool = false
-	
+
+func is_interactable() -> bool:
+	return is_active and not is_task_complete
+
 func _process(delta: float) -> void:
 	if not is_active or is_task_complete or is_increasing or interact_level_current <= 0:
 		return
@@ -29,7 +32,7 @@ func _process(delta: float) -> void:
 	on_task_updated.emit(self, interact_level_current, interact_level_end)
 	_undo_action()
 
-func interact_hold(delta: float) -> void:
+func interact_hold(player: Player, delta: float) -> void:
 	if is_task_complete or not is_active:
 		return
 
@@ -44,7 +47,7 @@ func interact_hold(delta: float) -> void:
 	
 	_perform_action()
 	
-func interact_release(delta: float) -> void:
+func interact_release(player: Player, delta: float) -> void:
 	is_increasing = false	
 	
 func _perform_action() -> void:

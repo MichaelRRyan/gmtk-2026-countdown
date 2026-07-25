@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://7hyr6mum3j6q"]
+
+[ext_resource type="Script" uid="uid://ckisauu46hp7u" path="res://Features/Interactables/Equipment/equippable_object.gd" id="1_tgtny"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tgtny"]
+size = Vector3(0.21582031, 0.23001099, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i7pm3"]
+size = Vector3(0.22827148, 0.1517334, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r18bt"]
+resource_local_to_scene = true
+albedo_color = Color(0.29951712, 0.22075987, 0.1316526, 1)
+
+[node name="EquippableObjectSample" type="Node3D" unique_id=1213611896]
+script = ExtResource("1_tgtny")
+postition_equipped_camera_offset = Vector3(0.81633335, -0.41719148, -0.94695014)
+rotation_equipped_camera_offset = Vector3(1.3136373, -1.5707965, -1.5707965)
+metadata/_custom_type_script = "uid://ckisauu46hp7u"
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1983943077]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=226460599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010253906, 0, 0)
+shape = SubResource("BoxShape3D_tgtny")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=889393041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005493164, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_i7pm3")
+surface_material_override/0 = SubResource("StandardMaterial3D_r18bt")

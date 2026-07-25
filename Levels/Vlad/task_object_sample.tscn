@@ -15,6 +15,7 @@ color_start = Color(1, 1, 1, 1)
 color_end = Color(1, 0, 0, 1)
 interact_increase_rate = 0.5
 interact_level_end = 1.0
+input_type = 1
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1077780085]
 

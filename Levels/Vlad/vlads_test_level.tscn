@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cbjl433ayjis4" path="res://Features/GameLogic/game_logic.gd" id="1_dm8bi"]
 [ext_resource type="PackedScene" uid="uid://cnj66qkhs741d" path="res://Levels/Vlad/task_object_sample.tscn" id="2_yybwl"]
 [ext_resource type="PackedScene" uid="uid://cu0kdxy5t7fgl" path="res://Features/Player/HUD/hud.tscn" id="3_yybwl"]
+[ext_resource type="PackedScene" uid="uid://7hyr6mum3j6q" path="res://Levels/Vlad/equippable_object_sample.tscn" id="5_nxwrc"]
 
 [node name="VladsTestLevel" type="Node3D" unique_id=1965605186]
 script = ExtResource("1_dm8bi")
@@ -39,3 +40,8 @@ crosshair_normal_color = Color(1, 0, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9668217, 0.43127763, -5.321501)
 objective_text = "Hidden Stuff"
 is_active = false
+
+[node name="EquippableObjectSample" parent="." unique_id=1213611896 instance=ExtResource("5_nxwrc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0032978, 0.2514193, -0.25172257)
+object_name = "Stick"
+is_hold_action = false
