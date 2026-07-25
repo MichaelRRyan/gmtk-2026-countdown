@@ -1,0 +1,22 @@
+extends Control
+
+class_name  main_menu
+
+var tree: SceneTree = null
+@export
+var main_level: PackedScene
+@onready
+var container : VBoxContainer = $ButtonsContainer
+
+func _ready():
+	tree = get_tree()
+
+func _on_exit_pressed():
+	tree.quit()
+
+func _on_credits_pressed():
+	tree.change_scene_to_file("res://screens/Credits.tscn")
+
+
+func _on_play_pressed():
+	tree.change_scene_to_packed(main_level)
