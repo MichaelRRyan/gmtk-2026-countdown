@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b8m7yvupsk1fe"]
+
+[ext_resource type="PackedScene" uid="uid://cul2wooyqf08t" path="res://Levels/Wiki/CountDown'sBed.glb" id="1_67or1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vw6b8"]
+size = Vector3(5.8269043, 1.6704102, 5.9379272)
+
+[node name="CoffinBed" type="Node3D" unique_id=2082441799]
+
+[node name="CountDown\'sBed" parent="." unique_id=1169236732 instance=ExtResource("1_67or1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1, -6)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=412063253]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=372421212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.4008205, -0.05480957, 1.1940918, 0.30547148)
+shape = SubResource("BoxShape3D_vw6b8")

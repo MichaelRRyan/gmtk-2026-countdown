@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dc4ajsbspmbka"]
+
+[ext_resource type="Script" uid="uid://cbjl433ayjis4" path="res://Features/GameLogic/game_logic.gd" id="1_45her"]
+[ext_resource type="PackedScene" uid="uid://b4sc850448g56" path="res://Features/Player/player.tscn" id="2_1x30t"]
+[ext_resource type="PackedScene" uid="uid://cnj66qkhs741d" path="res://Levels/Vlad/task_object_sample.tscn" id="3_53j40"]
+[ext_resource type="PackedScene" uid="uid://cu0kdxy5t7fgl" path="res://Features/Player/HUD/hud.tscn" id="4_iy1da"]
+[ext_resource type="PackedScene" uid="uid://7hyr6mum3j6q" path="res://Levels/Vlad/equippable_object_sample.tscn" id="5_yh0le"]
+[ext_resource type="PackedScene" uid="uid://bk2kq5e62xjx3" path="res://Features/Interactables/HidingSpot/HidingSpot.tscn" id="6_rqo30"]
+[ext_resource type="PackedScene" uid="uid://blthaqm2hacyh" path="res://Levels/Main/TaskObjects/task_plate_cleanup.tscn" id="7_h0b6c"]
+[ext_resource type="PackedScene" uid="uid://b8m7yvupsk1fe" path="res://Levels/Wiki/coffin_bed.tscn" id="8_iqlh5"]
+
+[node name="VladsTestLevel" type="Node3D" unique_id=1965605186]
+script = ExtResource("1_45her")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=9575002]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.7
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=988380354 instance=ExtResource("2_1x30t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2955592, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1520510822]
+transform = Transform3D(3.257623, 0, 0, 0, 1, 0, 0, 0, 2.3250275, 0, -0.5, 0)
+use_collision = true
+size = Vector3(8.955078, 1, 10.40918)
+
+[node name="TaskObjectSample" parent="." unique_id=1343915890 instance=ExtResource("3_53j40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1465707, 0.50000024, 1.2871356)
+required_item_type = 1
+consume_item_on_completion = true
+objective_text = "This is an example of a task"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1675716225]
+height = 0.48
+
+[node name="TaskObjectSample2" parent="." unique_id=976524989 instance=ExtResource("3_53j40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1294794, 0.49999976, -7.2276807)
+required_item_type = 1
+objective_text = "Yet another objective"
+
+[node name="HUD" parent="." unique_id=1740219873 instance=ExtResource("4_iy1da")]
+crosshair_normal_color = Color(1, 0, 0, 1)
+
+[node name="TaskObjectSample3" parent="." unique_id=528437102 instance=ExtResource("3_53j40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9668217, 0.43127763, -5.321501)
+objective_text = "Hidden Stuff"
+is_active = false
+
+[node name="EquippableObjectSample" parent="." unique_id=1213611896 instance=ExtResource("5_yh0le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0032978, 0.2514193, -0.25172257)
+object_name = "Stick"
+is_hold_action = false
+
+[node name="HidingSpot" parent="." unique_id=1844162814 instance=ExtResource("6_rqo30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2638955, 0.5, -2.7497091)
+
+[node name="TaskPlateCleanup" parent="." unique_id=1857819778 instance=ExtResource("7_h0b6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1340437, 0.084232695, -0.9639044)
+interact_decrease_rate = 0.99
+interact_level_end = 1.0
+
+[node name="CoffinBed" parent="." unique_id=2082441799 instance=ExtResource("8_iqlh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 3)
