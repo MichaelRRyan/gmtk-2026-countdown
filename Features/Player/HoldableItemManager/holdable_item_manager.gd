@@ -30,6 +30,12 @@ func drop_current_item() -> void:
 	held_item.reparent(get_tree().get_root())
 	held_item = null
 
+func destroy_current_item() -> void:
+	if held_item == null:
+		return
+	held_item.queue_free()
+	held_item = null
+
 # Get the held item
 func get_held_item() -> Node3D:
 	return held_item

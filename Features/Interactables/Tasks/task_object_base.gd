@@ -13,6 +13,7 @@ signal on_task_updated(task_object: TaskObjectBase, interact_level_current: floa
 
 @export_category("Pre-Requisites")
 @export var required_item_type: EquippableObject.ItemType = EquippableObject.ItemType.NONE
+@export var consume_item_on_completion: bool = false
 
 @export_category("Display")
 @export var objective_text: String = "DEBUG"
@@ -27,7 +28,7 @@ var is_task_complete: bool = false
 func is_interactable(player: Player) -> Array:
 	var has_pre_requisites: bool = required_item_type != EquippableObject.ItemType.NONE
 	var pre_requisites_met: bool = player.holdable_item_manager.held_item and required_item_type == player.holdable_item_manager.held_item.item_type
-	var item_is_missing: bool = has_pre_requisites and !pre_requisites_met
+	var item_is_missing: bool = has_pre_requisites and !pre_requisites_met and not is_task_complete
 	var interaction_is_available: bool = is_active and not is_task_complete
 	var is_interactable: bool = !item_is_missing and interaction_is_available
 	var object_description: String = ""

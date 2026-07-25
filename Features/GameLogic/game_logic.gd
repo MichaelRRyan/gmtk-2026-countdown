@@ -28,6 +28,8 @@ func _on_task_updated(task_object: TaskObjectBase, interact_level_current: float
 func _on_task_completed(task_object: TaskObjectBase):
 	hud.show_task_complete()
 	hud.objectives_list.remove_task_objective(task_object)
+	if task_object.consume_item_on_completion:
+		player.holdable_item_manager.destroy_current_item()
 	
 func on_can_interact(can_interact: bool):
 	hud.set_crosshair_interactable(can_interact)

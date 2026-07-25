@@ -24,6 +24,8 @@ size = Vector3(8.955078, 1, 10.40918)
 
 [node name="TaskObjectSample" parent="." unique_id=1343915890 instance=ExtResource("2_yybwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1465707, 0.50000024, 1.2871356)
+required_item_type = 1
+consume_item_on_completion = true
 objective_text = "This is an example of a task"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1675716225]
@@ -31,6 +33,7 @@ height = 0.48
 
 [node name="TaskObjectSample2" parent="." unique_id=976524989 instance=ExtResource("2_yybwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1294794, 0.49999976, -7.2276807)
+required_item_type = 1
 objective_text = "Yet another objective"
 
 [node name="HUD" parent="." unique_id=1740219873 instance=ExtResource("3_yybwl")]
