@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b66ha6tgvh6vq"]
+
+[ext_resource type="Script" uid="uid://dwg5sjkfscrrn" path="res://Levels/Main/TaskObjects/task_dirty_window.gd" id="1_fshc3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aoolo"]
+size = Vector3(0.1, 1.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aoolo"]
+size = Vector3(0.1, 1.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7n11"]
+resource_local_to_scene = true
+transparency = 1
+
+[node name="DirtyWindowTask" type="Node3D" unique_id=1343915890]
+script = ExtResource("1_fshc3")
+color_start = Color(0.23256016, 0.13846281, 0.110396855, 1)
+color_end = Color(1, 1, 1, 0)
+interact_increase_rate = 0.5
+interact_level_end = 1.0
+objective_text = "Clean the window"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1077780085]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1170603134]
+shape = SubResource("BoxShape3D_aoolo")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1933779468]
+mesh = SubResource("BoxMesh_aoolo")
+surface_material_override/0 = SubResource("StandardMaterial3D_r7n11")
+
+[node name="TaskCooldownTimer" type="Timer" parent="." unique_id=1878962301]
+one_shot = true
+
+[connection signal="on_task_completed" from="." to="." method="_on_task_completed"]
+[connection signal="timeout" from="TaskCooldownTimer" to="." method="_on_task_cooldown_timer_timeout"]

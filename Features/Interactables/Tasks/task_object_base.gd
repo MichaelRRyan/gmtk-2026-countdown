@@ -3,6 +3,7 @@ class_name TaskObjectBase
 
 signal on_task_completed(task_object: TaskObjectBase)
 signal on_task_updated(task_object: TaskObjectBase, interact_level_current: float, interact_level_end: float)
+signal on_task_reset(task_object: TaskObjectBase)
 
 @export_category("Completion Rates")
 @export var interact_increase_rate: float = 0.1
@@ -71,3 +72,14 @@ func _perform_action() -> void:
 	
 func _undo_action() -> void:
 	pass
+
+
+#-------------------------------------------------------------------------------
+func _reset_task():
+	is_active = true
+	is_task_complete = false
+	interact_level_current = interact_level_start
+	on_task_reset.emit(self)
+	
+	
+#-------------------------------------------------------------------------------

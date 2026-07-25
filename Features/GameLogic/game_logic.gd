@@ -1,5 +1,7 @@
 extends Node
 
+@export var task_container : Node = self
+
 @onready var player: Player = $Player
 @onready var hud: HUD = $HUD
 
@@ -7,7 +9,7 @@ var task_objects: Array[TaskObjectBase]
 	
 func _ready() -> void:
 	player.hud = hud
-	for child in get_children(true):
+	for child in task_container.get_children(true):
 		if child is Interactable:
 			child.hud = hud
 			if child is TaskObjectBase:
@@ -19,6 +21,7 @@ func register_task(task_object: TaskObjectBase):
 	if task_object.is_active:
 		task_object.on_task_updated.connect(_on_task_updated)
 		task_object.on_task_completed.connect(_on_task_completed)
+		task_object.on_task_reset.connect(_on_task_reset)
 		hud.objectives_list.set_task_objective(task_object)
 		task_objects.append(task_object)
 	
@@ -30,6 +33,11 @@ func _on_task_completed(task_object: TaskObjectBase):
 	hud.objectives_list.remove_task_objective(task_object)
 	if task_object.consume_item_on_completion:
 		player.holdable_item_manager.destroy_current_item()
-	
+
+
+func _on_task_reset(task_object: TaskObjectBase):
+	hud.objectives_list.set_task_objective(task_object)
+
+
 func on_can_interact(can_interact: bool):
 	hud.set_crosshair_interactable(can_interact)

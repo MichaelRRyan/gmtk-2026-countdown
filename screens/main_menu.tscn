@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://otehevk40x1d"]
 
-[ext_resource type="Script" uid="uid://d1ui5d3fvkqdd" path="res://screens/main_menu.gd" id="1_ocono"]
-[ext_resource type="PackedScene" uid="uid://2jpg6aoiq0hp" path="res://screens/landing_screen.tscn" id="2_p3cyw"]
+[ext_resource type="Script" uid="uid://d1ui5d3fvkqdd" path="res://Screens/main_menu.gd" id="1_ocono"]
+[ext_resource type="PackedScene" uid="uid://dci1j83ojyowk" path="res://Levels/Main/main_level.tscn" id="2_vj53j"]
 
 [sub_resource type="Theme" id="Theme_dqmnb"]
 default_font_size = 18
@@ -14,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ocono")
-main_level = ExtResource("2_p3cyw")
+main_level = ExtResource("2_vj53j")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=517693782]
 layout_mode = 1

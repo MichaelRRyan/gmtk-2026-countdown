@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dci1j83ojyowk"]
 
 [ext_resource type="Material" uid="uid://bjtacodt1sidr" path="res://Levels/Main/Materials/stone_material.tres" id="1_1u2st"]
+[ext_resource type="Script" uid="uid://cbjl433ayjis4" path="res://Features/GameLogic/game_logic.gd" id="1_nvb6w"]
 [ext_resource type="Material" uid="uid://cpydbdc1whea7" path="res://Levels/Main/Materials/carpet_material.tres" id="2_hdvse"]
 [ext_resource type="Material" uid="uid://dvsfw6n81eqoa" path="res://Levels/Main/Materials/wood_material.tres" id="3_cbg0b"]
 [ext_resource type="Material" uid="uid://b780x1kpqp6fo" path="res://Levels/Main/Materials/wood_furniture_material.tres" id="4_0vyy6"]
@@ -11,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://3t8kgp251jik" path="res://Levels/Main/Lights/torch_light.tscn" id="5_efy7f"]
 [ext_resource type="PackedScene" uid="uid://cph68o10smjc4" path="res://Levels/Main/Objects/chair.tscn" id="5_gf0bk"]
 [ext_resource type="Shader" uid="uid://csm131yyan6g7" path="res://Levels/Maicon/pixelate_shader.gdshader" id="5_hdvse"]
+[ext_resource type="PackedScene" uid="uid://cu0kdxy5t7fgl" path="res://Features/Player/HUD/hud.tscn" id="12_1h7oc"]
+[ext_resource type="PackedScene" uid="uid://b66ha6tgvh6vq" path="res://Levels/Main/TaskObjects/task_dirty_window.tscn" id="14_h71bk"]
 
 [sub_resource type="Environment" id="Environment_btu42"]
 background_energy_multiplier = 0.3
@@ -19,7 +22,9 @@ background_energy_multiplier = 0.3
 shader = ExtResource("5_hdvse")
 shader_parameter/Pixel_Size = 8.0000003325
 
-[node name="Main" type="Node3D" unique_id=2088972694]
+[node name="Main" type="Node3D" unique_id=2088972694 node_paths=PackedStringArray("task_container")]
+script = ExtResource("1_nvb6w")
+task_container = NodePath("TaskObjects")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=26953060]
 environment = SubResource("Environment_btu42")
@@ -230,7 +235,7 @@ use_collision = true
 size = Vector3(1.25, 0.48382813, 1.5)
 
 [node name="CSGBox3D39" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters/Stairs" unique_id=2041896823]
-transform = Transform3D(-0.81679046, -0.57693446, -7.9414434e-08, -0.57693446, 0.81679046, -2.5218606e-08, 7.941442e-08, 2.5218606e-08, -1, 2.5923986, -0.4879554, -8.646187)
+transform = Transform3D(-0.81679046, -0.57693446, -7.9414434e-08, -0.57693446, 0.81679046, -2.5218606e-08, 7.941442e-08, 2.5218606e-08, -1, 2.5923986, -0.48287, -8.646187)
 use_collision = true
 size = Vector3(1.5, 0.12, 1.3344727)
 
@@ -682,3 +687,47 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HUD" parent="." unique_id=1740219873 instance=ExtResource("12_1h7oc")]
+
+[node name="TaskObjects" type="Node3D" parent="." unique_id=277395040]
+
+[node name="DirtyWindowTask" parent="TaskObjects" unique_id=1343915890 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.152851, 1.642251, 3.515573)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask2" parent="TaskObjects" unique_id=1671789168 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.152851, 1.642251, 0.515573)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask3" parent="TaskObjects" unique_id=1268340960 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.152851, 1.642251, -2.484427)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask4" parent="TaskObjects" unique_id=2016142441 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.478043, 1.642251, -4.781184)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask9" parent="TaskObjects" unique_id=1408658100 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.478043, 1.642251, -7.531184)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask10" parent="TaskObjects" unique_id=1000021268 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.478043, 1.642251, -10.281184)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask5" parent="TaskObjects" unique_id=2141173000 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.478043, 1.642251, 0.96881557)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask6" parent="TaskObjects" unique_id=1297926415 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.478043, 1.642251, 3.9688156)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask7" parent="TaskObjects" unique_id=2055633987 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 8.728043, 1.642251, 6.468816)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask8" parent="TaskObjects" unique_id=457356035 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 5.7280426, 1.642251, 6.468816)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
