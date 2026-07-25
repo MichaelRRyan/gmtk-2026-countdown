@@ -13,8 +13,11 @@ albedo_color = Color(0.29951712, 0.22075987, 0.1316526, 1)
 
 [node name="HidingSpot" type="Node3D" unique_id=1844162814]
 script = ExtResource("1_alj0q")
+is_hold_action = false
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=440068970]
+mass = 100000.0
+gravity_scale = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=821095511]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010253906, 0, 0)

@@ -7,6 +7,8 @@ class_name Player
 @export var mouse_sensitivity: float = 0.002
 @export var max_look_up: float = deg_to_rad(80)
 @export var max_look_down: float = deg_to_rad(-80)
+@export var hiding_min_look: float = deg_to_rad(-40)
+@export var hiding_max_look: float = deg_to_rad(40)
 @export var gravity: float = 9.8
 @export var jump_height: float = 0.5
 
@@ -40,7 +42,10 @@ func _input(event: InputEvent) -> void:
 		camera_rot_y -= event.relative.x * mouse_sensitivity
 		camera_rot_x -= event.relative.y * mouse_sensitivity
 		camera_rot_x = clamp(camera_rot_x, max_look_down, max_look_up)
-
+		
+		if is_hiding:
+			camera_rot_y = clamp(camera_rot_y, hiding_min_look, hiding_max_look)
+		
 		rotation.y = camera_rot_y
 		head.rotation.x = camera_rot_x
 	
