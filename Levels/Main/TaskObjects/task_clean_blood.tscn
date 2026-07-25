@@ -10,6 +10,7 @@ script = ExtResource("1_j50rd")
 required_item_type = 3
 consume_item_on_completion = true
 objective_text = "Clean up stain"
+task_type = 1
 metadata/_custom_type_script = "uid://c3oslm2uh8fpn"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=175665428]
