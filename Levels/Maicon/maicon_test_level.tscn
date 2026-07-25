@@ -28,7 +28,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TouchControls" parent="Control" unique_id=539810959 instance=ExtResource("2_tlts2")]
-visible = false
-layout_mode = 0
+layout_mode = 1
 
 [node name="VladsTestLevel" parent="." unique_id=1965605186 instance=ExtResource("2_71mw4")]

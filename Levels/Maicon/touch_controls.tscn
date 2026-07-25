@@ -4,40 +4,50 @@
 
 [node name="TouchControls" type="Control" unique_id=539810959]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_rctqb")
 
 [node name="VirtualJoystick" type="VirtualJoystick" parent="." unique_id=1454822441]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.111
-anchor_top = 0.856
-anchor_right = 0.111
-anchor_bottom = 0.856
-offset_left = 123.432
-offset_top = 480.833
-offset_right = 163.432
-offset_bottom = 520.833
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 65.0
+offset_top = -296.0
+offset_right = 335.0
+offset_bottom = -26.0
 grow_vertical = 0
-joystick_mode = 1
-joystick_size = 150.0
+joystick_mode = 2
+joystick_size = 270.0
+tip_size = 100.0
+action_left = &"move_left"
+action_right = &"move_right"
+action_up = &"move_forward"
+action_down = &"move_back"
+visibility_mode = 1
 
-[node name="Button" type="Button" parent="." unique_id=1093629419]
+[node name="VirtualJoystick2" type="VirtualJoystick" parent="." unique_id=1148769811]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.822
-anchor_top = 0.789
-anchor_right = 0.922
-anchor_bottom = 0.911
-offset_left = 895.064
-offset_top = 448.71198
-offset_right = 1021.12
-offset_bottom = 554.56
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -326.0
+offset_top = -294.0
+offset_right = -56.0
+offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "A"
-
-[connection signal="pressed" from="VirtualJoystick" to="." method="_on_virtual_joystick_pressed"]
-[connection signal="released" from="VirtualJoystick" to="." method="_on_virtual_joystick_released"]
+joystick_mode = 2
+joystick_size = 270.0
+tip_size = 100.0
+action_left = &"look_left"
+action_right = &"look_right"
+action_up = &"look_up"
+action_down = &"look_down"
+visibility_mode = 1
