@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://sgm12leuc65s"
-path="res://.godot/imported/StoneWallFinal.glb-8270c4469dafb5be2b80784a6b5b0675.scn"
+path="res://.godot/imported/StoneWallFinal.glb-a629c15c442ac2f77c395bd1c572cada.scn"
 
 [deps]
 
-source_file="res://Levels/Wiki/StoneWallFinal.glb"
-dest_files=["res://.godot/imported/StoneWallFinal.glb-8270c4469dafb5be2b80784a6b5b0675.scn"]
+source_file="res://Levels/Wiki/Assest brah/StoneWallFinal.glb"
+dest_files=["res://.godot/imported/StoneWallFinal.glb-a629c15c442ac2f77c395bd1c572cada.scn"]
 
 [params]
 

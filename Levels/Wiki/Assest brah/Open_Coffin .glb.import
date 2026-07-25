@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cul2wooyqf08t"
-path="res://.godot/imported/CountDown'sBed.glb-02f33b4d97768d91a57d75495c285772.scn"
+uid="uid://dew6pf5vhh8dc"
+path="res://.godot/imported/Open_Coffin .glb-bbecad03164dc3eee4bf548fdb77ac99.scn"
 
 [deps]
 
-source_file="res://Levels/Wiki/CountDown'sBed.glb"
-dest_files=["res://.godot/imported/CountDown'sBed.glb-02f33b4d97768d91a57d75495c285772.scn"]
+source_file="res://Levels/Wiki/Assest brah/Open_Coffin .glb"
+dest_files=["res://.godot/imported/Open_Coffin .glb-bbecad03164dc3eee4bf548fdb77ac99.scn"]
 
 [params]
 
