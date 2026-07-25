@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b8m7yvupsk1fe" path="res://Levels/Wiki/Assest brah/coffin_bed.tscn" id="8_iqlh5"]
 [ext_resource type="PackedScene" uid="uid://sgm12leuc65s" path="res://Levels/Wiki/Assest brah/StoneWallFinal.glb" id="9_co80o"]
 [ext_resource type="PackedScene" uid="uid://dn4vyxcsku7qq" path="res://Levels/Wiki/Assest brah/Coffin_Door_PeekYes .glb" id="10_o2nbn"]
+[ext_resource type="PackedScene" uid="uid://1ubxrcku6xbk" path="res://Levels/Wiki/Assest brah/WoodenFloor.glb" id="11_o2nbn"]
 
 [node name="VladsTestLevel" type="Node3D" unique_id=1965605186]
 script = ExtResource("1_45her")
@@ -70,3 +71,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 
 [node name="Coffin_Door_PeekYes " parent="." unique_id=1812998910 instance=ExtResource("10_o2nbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="WoodenFloor" parent="." unique_id=158034227 instance=ExtResource("11_o2nbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 4)
