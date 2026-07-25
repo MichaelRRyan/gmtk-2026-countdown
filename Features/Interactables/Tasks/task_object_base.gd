@@ -10,7 +10,7 @@ signal on_task_reset(task_object: TaskObjectBase)
 @export var interact_delay_before_decrease: float = 0.05
 @export var interact_decrease_rate: float = 0.05
 @export var interact_level_start: float = 0.0
-@export var interact_level_end: float = 100.0
+@export var interact_level_end: float = 1.0
 
 @export_category("Pre-Requisites")
 @export var required_item_type: EquippableObject.ItemType = EquippableObject.ItemType.NONE
