@@ -7,6 +7,8 @@
 
 [node name="TaskCleanBlood" type="Node3D" unique_id=562064819]
 script = ExtResource("1_j50rd")
+required_item_type = 3
+consume_item_on_completion = true
 objective_text = "Clean up stain"
 metadata/_custom_type_script = "uid://c3oslm2uh8fpn"
 
