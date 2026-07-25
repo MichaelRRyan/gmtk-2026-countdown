@@ -103,6 +103,9 @@ func _physics_process(delta: float) -> void:
 	if not is_hiding:
 		_process_movement(_process_input(), delta)
 	
+	if Input.is_action_just_pressed("show_tasks"):
+		hud.toggle_tasks()
+	
 	var has_pressed: bool = Input.is_action_just_pressed("interact")
 	var is_holding: bool = Input.is_action_pressed("interact")
 	var reason: String = ""

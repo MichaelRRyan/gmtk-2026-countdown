@@ -27,7 +27,8 @@ func register_task(task_object: TaskObjectBase):
 	
 	
 func _on_task_updated(task_object: TaskObjectBase, interact_level_current: float, interact_level_end: float):
-	hud.set_task_meter(interact_level_current, interact_level_end)
+	if task_object == player.last_interacted_object:
+		hud.set_task_meter(interact_level_current, interact_level_end)
 	
 	
 func _on_task_completed(task_object: TaskObjectBase):

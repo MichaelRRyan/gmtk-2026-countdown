@@ -23,6 +23,7 @@ class_name HUD
 @onready var task_progress_bar: ProgressBar = $TaskProgressBar
 @onready var objectives_list: ObjectivesList = $ObjectivesList
 @onready var equippable_object_label: RichTextLabel = $EquippableObject
+@onready var tasks_tooltip: Label = $TasksTooltip
 
 func _ready() -> void:
 	set_crosshair_interactable(false)
@@ -35,6 +36,9 @@ func _ready() -> void:
 	new_task.modulate.a = 0.0
 	new_task_timer.timeout.connect(_new_task_timeout)
 	new_task_animation_player.speed_scale = new_task_fadeout_speed_scale
+	
+	objectives_list.visible = true
+	tasks_tooltip.visible = false
 	
 	task_progress_bar.visible = false
 
@@ -71,6 +75,10 @@ func reset_interactable_hud_elements():
 	task_progress_bar.visible = false
 	equippable_object_label.visible = false
 	set_crosshair_interactable(false)
+	
+func toggle_tasks() -> void:
+	objectives_list.visible = !objectives_list.visible
+	tasks_tooltip.visible = !tasks_tooltip.visible
 	
 func _task_complete_timeout() -> void:
 	task_complete_animation_player.play("task_complete_fadeout")

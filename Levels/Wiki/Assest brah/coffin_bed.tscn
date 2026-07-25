@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8m7yvupsk1fe"]
 
-[ext_resource type="PackedScene" uid="uid://cul2wooyqf08t" path="res://Levels/Wiki/CountDown'sBed.glb" id="1_67or1"]
+[ext_resource type="PackedScene" uid="uid://cul2wooyqf08t" path="res://Levels/Wiki/Assest brah/CountDown'sBed.glb" id="1_67or1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vw6b8"]
 size = Vector3(5.8269043, 1.6704102, 5.9379272)

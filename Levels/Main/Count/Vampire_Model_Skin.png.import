@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpb5gg8a057xn"
-path.s3tc="res://.godot/imported/StoneWallFinal_171-old-wall-stone-texture-seamless (2).png-fdeb4c122752c2e12c108e8cd6bd0710.s3tc.ctex"
+uid="uid://cfb7p864qnghe"
+path.s3tc="res://.godot/imported/Vampire_Model_Skin.png-19898fa9aebc2d836f363f18fb38100e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "5f00b538e5815d000e6a86d5e0190893"
+"md5": "d12a1dca4f6b0f1d3a0da655e225fbd4"
 }
 
 [deps]
 
-source_file="res://Levels/Wiki/StoneWallFinal_171-old-wall-stone-texture-seamless (2).png"
-dest_files=["res://.godot/imported/StoneWallFinal_171-old-wall-stone-texture-seamless (2).png-fdeb4c122752c2e12c108e8cd6bd0710.s3tc.ctex"]
+source_file="res://Levels/Main/Count/Vampire_Model_Skin.png"
+dest_files=["res://.godot/imported/Vampire_Model_Skin.png-19898fa9aebc2d836f363f18fb38100e.s3tc.ctex"]
 
 [params]
 

@@ -8,8 +8,11 @@ size = Vector3(0.34057617, 0.3320923, 0.059692383)
 
 [node name="CleaningCloth" type="Node3D" unique_id=1437859175]
 script = ExtResource("1_w0kik")
+object_name = "Cleaning Cloth"
 postition_equipped_camera_offset = Vector3(0.3429729, -0.18849738, -0.39251834)
 rotation_equipped_camera_offset = Vector3(0, 0, -0.13088968)
+item_type = 3
+is_hold_action = false
 metadata/_custom_type_script = "uid://ckisauu46hp7u"
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1731828548]

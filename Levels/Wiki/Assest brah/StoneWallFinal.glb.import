@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cul2wooyqf08t"
-path="res://.godot/imported/CountDown'sBed.glb-02f33b4d97768d91a57d75495c285772.scn"
+uid="uid://sgm12leuc65s"
+path="res://.godot/imported/StoneWallFinal.glb-a629c15c442ac2f77c395bd1c572cada.scn"
 
 [deps]
 
-source_file="res://Levels/Wiki/CountDown'sBed.glb"
-dest_files=["res://.godot/imported/CountDown'sBed.glb-02f33b4d97768d91a57d75495c285772.scn"]
+source_file="res://Levels/Wiki/Assest brah/StoneWallFinal.glb"
+dest_files=["res://.godot/imported/StoneWallFinal.glb-a629c15c442ac2f77c395bd1c572cada.scn"]
 
 [params]
 

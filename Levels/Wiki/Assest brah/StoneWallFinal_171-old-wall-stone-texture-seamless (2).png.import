@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq2obsiomtbka"
-path.s3tc="res://.godot/imported/CountDown\'sBed_Texturelabs_Stone_125S.jpg-22afd3a12dc93c8b7b8514bd577c0e4e.s3tc.ctex"
+uid="uid://dpb5gg8a057xn"
+path.s3tc="res://.godot/imported/StoneWallFinal_171-old-wall-stone-texture-seamless (2).png-4887788d1eeed4ea715fec065a382147.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "cc7b94194371f1d9eedc6183bc6d644b"
+"md5": "5f00b538e5815d000e6a86d5e0190893"
 }
 
 [deps]
 
-source_file="res://Levels/Wiki/CountDown'sBed_Texturelabs_Stone_125S.jpg"
-dest_files=["res://.godot/imported/CountDown\\'sBed_Texturelabs_Stone_125S.jpg-22afd3a12dc93c8b7b8514bd577c0e4e.s3tc.ctex"]
+source_file="res://Levels/Wiki/Assest brah/StoneWallFinal_171-old-wall-stone-texture-seamless (2).png"
+dest_files=["res://.godot/imported/StoneWallFinal_171-old-wall-stone-texture-seamless (2).png-4887788d1eeed4ea715fec065a382147.s3tc.ctex"]
 
 [params]
 
