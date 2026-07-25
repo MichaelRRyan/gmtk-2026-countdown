@@ -11,6 +11,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rctqb")
 
+[node name="InteractButton" type="Button" parent="." unique_id=1101120778]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -228.0
+offset_right = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="VirtualJoystick" type="VirtualJoystick" parent="." unique_id=1454822441]
 layout_mode = 1
 anchors_preset = 2
@@ -51,3 +63,6 @@ action_right = &"look_right"
 action_up = &"look_up"
 action_down = &"look_down"
 visibility_mode = 1
+
+[connection signal="button_down" from="InteractButton" to="." method="_on_button_down"]
+[connection signal="button_up" from="InteractButton" to="." method="_on_button_up"]
