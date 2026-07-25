@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cph68o10smjc4"]
+
+[ext_resource type="Material" uid="uid://b780x1kpqp6fo" path="res://Levels/Main/Materials/wood_furniture_material.tres" id="1_hufoq"]
+
+[node name="Chair" type="CSGBox3D" unique_id=1028974512]
+use_collision = true
+size = Vector3(0.6369629, 0.09094238, 0.6386719)
+material = ExtResource("1_hufoq")
+
+[node name="Back" type="CSGBox3D" parent="." unique_id=823464912]
+transform = Transform3D(0.15879866, 0.987311, 0, -0.987311, 0.15879866, 0, 0, 0, 1, -0.3086052, 0.28308314, 0)
+use_collision = true
+size = Vector3(0.5699463, 0.09094238, 0.5)
+material = ExtResource("1_hufoq")
+
+[node name="Leg" type="CSGBox3D" parent="." unique_id=1019994285]
+transform = Transform3D(0.99656564, 0.08280148, 0.0009418952, -0.082308926, 0.9892637, 0.12075821, 0.009067176, -0.12042101, 0.9926815, -0.24098873, -0.24603271, 0.23277283)
+use_collision = true
+size = Vector3(0.099365234, 0.4169922, 0.09765625)
+material = ExtResource("1_hufoq")
+
+[node name="Leg2" type="CSGBox3D" parent="." unique_id=655225970]
+transform = Transform3D(-0.009067221, 0.12042102, -0.9926815, -0.08230893, 0.98926383, 0.12075824, 0.99656576, 0.08280151, 0.000941855, -0.23627567, -0.24603271, -0.24345994)
+use_collision = true
+size = Vector3(0.099365234, 0.4169922, 0.09765625)
+material = ExtResource("1_hufoq")
+
+[node name="Leg3" type="CSGBox3D" parent="." unique_id=1096709333]
+transform = Transform3D(-0.9965657, -0.08280153, -0.0009418135, -0.08230893, 0.98926383, 0.12075826, -0.009067264, 0.12042103, -0.9926814, 0.24231529, -0.24603271, -0.23874474)
+use_collision = true
+size = Vector3(0.099365234, 0.4169922, 0.09765625)
+material = ExtResource("1_hufoq")
+
+[node name="Leg4" type="CSGBox3D" parent="." unique_id=2096942353]
+transform = Transform3D(0.009067237, -0.12042103, 0.9926814, -0.08230895, 0.9892641, 0.12075829, -0.9965659, -0.08280154, -0.0009418726, 0.23524189, -0.24603271, 0.242203)
+use_collision = true
+size = Vector3(0.099365234, 0.4169922, 0.09765625)
+material = ExtResource("1_hufoq")
