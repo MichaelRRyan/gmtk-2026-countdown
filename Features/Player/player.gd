@@ -110,7 +110,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			reason = is_interactable[1]
 	else:
-		if reason == "":
+		if reason == "" and hud:
 			hud.reset_interactable_hud_elements()
 		if has_pressed:
 			holdable_item_manager.drop_current_item()
