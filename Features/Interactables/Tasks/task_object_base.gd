@@ -22,9 +22,8 @@ signal on_task_reset(task_object: TaskObjectBase)
 @export var objective_text: String = "DEBUG"
 @export var task_type: TaskType = TaskType.DEBUG
 
-@export_category("Debug Config")
-@export var is_active: bool = true
 
+var is_active: bool = false
 var is_increasing: bool = false
 var interact_level_current: float = interact_level_start
 var is_task_complete: bool = false
@@ -75,14 +74,22 @@ func _perform_action() -> void:
 	
 func _undo_action() -> void:
 	pass
-
-
-#-------------------------------------------------------------------------------
-func _reset_task():
+	
+func set_hidden() -> void:
+	is_active = false
+	is_task_complete = false
+	visible = false
+	
+func initialize_task() -> void:
 	is_active = true
 	is_task_complete = false
 	interact_level_current = interact_level_start
-	on_task_reset.emit(self)
+	visible = true
 	
+
+#-------------------------------------------------------------------------------
+func _reset_task():
+	initialize_task()
+	on_task_reset.emit(self)
 	
 #-------------------------------------------------------------------------------

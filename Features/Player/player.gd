@@ -26,6 +26,7 @@ var last_interacted_object: Interactable = null
 var hud: HUD
 
 var is_hiding: bool = false
+var is_frozen: bool = false
 
 
 #-------------------------------------------------------------------------------
@@ -37,6 +38,8 @@ func _ready() -> void:
 
 #-------------------------------------------------------------------------------
 func _input(event: InputEvent) -> void:
+	if is_frozen:
+		return
 	# Handle mouse movement for view direction.
 	if not OS.has_feature("web_android") and not OS.has_feature("web_ios"):
 		if event is InputEventMouseMotion:
@@ -72,7 +75,7 @@ func _input(event: InputEvent) -> void:
 
 
 #-------------------------------------------------------------------------------
-func _process_input() -> Vector3:
+func _process_input() -> Vector3:	
 	# Process movement direction from input.
 	var direction := Vector3.ZERO
 	

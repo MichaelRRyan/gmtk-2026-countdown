@@ -2583,3 +2583,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 1.1617
 transform = Transform3D(0.39999998, -1.7763568e-15, 1.7763568e-15, 0, 0.39999998, -2.2351744e-08, 0, 2.2351738e-08, 0.4, 0.0672836, 3.4464245, -5.8229628)
 
 [node name="CountTimer" parent="." unique_id=426008035 instance=ExtResource("24_woe30")]
+
+[node name="PlayerFreezeTimer" type="Timer" parent="." unique_id=1968032739]
+one_shot = true
