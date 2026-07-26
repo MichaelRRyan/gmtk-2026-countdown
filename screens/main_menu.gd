@@ -7,6 +7,7 @@ var tree: SceneTree = null
 @onready var container : VBoxContainer = $ButtonsContainer
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	tree = get_tree()
 
 func _on_exit_pressed():

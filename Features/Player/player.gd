@@ -26,6 +26,7 @@ var last_interacted_object: Interactable = null
 var hud: HUD
 
 var is_hiding: bool = false
+var is_frozen: bool = false
 
 
 #-------------------------------------------------------------------------------
@@ -37,6 +38,8 @@ func _ready() -> void:
 
 #-------------------------------------------------------------------------------
 func _input(event: InputEvent) -> void:
+	if is_frozen:
+		return
 	# Handle mouse movement for view direction.
 	if event is InputEventMouseMotion:
 		camera_rot_y -= event.relative.x * mouse_sensitivity
@@ -55,7 +58,7 @@ func _input(event: InputEvent) -> void:
 
 
 #-------------------------------------------------------------------------------
-func _process_input() -> Vector3:
+func _process_input() -> Vector3:	
 	# Process movement direction from input.
 	var direction := Vector3.ZERO
 	
@@ -74,6 +77,9 @@ func _process_input() -> Vector3:
 #-------------------------------------------------------------------------------
 # Apply movement, gravity, and acceleration each physics frame.
 func _process_movement(direction : Vector3, delta: float) -> void:
+	if is_frozen:
+		return
+		
 	velocity_desired = direction * move_speed
 	
 	# Horizontal components
@@ -112,7 +118,7 @@ func _physics_process(delta: float) -> void:
 	
 	var interactable_object: Interactable = _get_current_interactable_object()
 	if interactable_object:
-		var is_interactable: Array = interactable_object.is_interactable(self)
+		var is_interactable: Array = interactable_object.check_is_interactable(self)
 		if is_interactable[0]:
 			if has_pressed and not interactable_object.is_hold_action:
 				interactable_object.interact_press(self, delta)

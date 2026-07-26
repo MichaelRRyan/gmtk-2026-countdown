@@ -48,4 +48,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TasksLeftLabel" type="Label" parent="." unique_id=900224788]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.5
+offset_top = 10.0
+offset_right = 47.5
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "Tasks Left: 5"
+
 [connection signal="pressed" from="Button" to="." method="_on_toggle_button_pressed"]

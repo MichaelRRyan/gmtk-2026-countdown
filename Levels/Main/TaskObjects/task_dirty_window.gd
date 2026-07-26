@@ -6,7 +6,7 @@ class_name DirtyWindowTask
 
 @onready var mesh_instance: MeshInstance3D = $StaticBody3D/MeshInstance3D
 
-func _ready():
+func _ready() -> void:
 	_update_color()
 
 func _update_color() -> void:
@@ -19,10 +19,8 @@ func _perform_action() -> void:
 func _undo_action() -> void:
 	_update_color()
 
-
-func _on_task_completed(task_object):
+func _on_task_completed(_task_object):
 	$TaskCooldownTimer.start(randf_range(60, 90))
-
 
 func _on_task_cooldown_timer_timeout():
 	_reset_task()

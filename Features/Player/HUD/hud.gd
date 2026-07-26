@@ -24,6 +24,7 @@ class_name HUD
 @onready var objectives_list: ObjectivesList = $ObjectivesList
 @onready var equippable_object_label: RichTextLabel = $EquippableObject
 @onready var tasks_tooltip: Label = $TasksTooltip
+@onready var night_timer: CountDownTimer = $Timer
 
 func _ready() -> void:
 	set_crosshair_interactable(false)
@@ -66,10 +67,10 @@ func show_new_task(task_object: TaskObjectBase) -> void:
 	new_task.modulate.a = 1.0
 	new_task_timer.start(new_task_display_length)
 	
-func show_equippable_object_description(text: String, show: bool):
-	if show:
+func show_equippable_object_description(text: String, show_text: bool):
+	if show_text:
 		equippable_object_label.text = text
-	equippable_object_label.visible = show
+	equippable_object_label.visible = show_text
 	
 func reset_interactable_hud_elements():
 	task_progress_bar.visible = false
@@ -85,3 +86,9 @@ func _task_complete_timeout() -> void:
 	
 func _new_task_timeout() -> void:
 	new_task_animation_player.play("task_complete_fadeout")
+	
+func _show_hiding_spot() -> void:
+	$LeaveHidingSpot.visible = true
+	
+func _hide_hiding_spot() -> void:
+	$LeaveHidingSpot.visible = false

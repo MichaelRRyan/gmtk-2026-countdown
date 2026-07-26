@@ -5,7 +5,7 @@ var hud: HUD
 
 @export var is_hold_action: bool = true
 
-func is_interactable(_player: Player) -> Array:
+func check_is_interactable(_player: Player) -> Array:
 	return Array()
 	
 func interact_press(_player: Player, _delta: float) -> void:

@@ -23,13 +23,18 @@
 [ext_resource type="PackedScene" uid="uid://bbm2yoodb8jdm" path="res://Levels/Wiki/Assest brah/StoneFloor.glb" id="20_67oqy"]
 [ext_resource type="PackedScene" uid="uid://sgm12leuc65s" path="res://Levels/Wiki/Assest brah/StoneWallFinal.glb" id="21_ofdr7"]
 [ext_resource type="PackedScene" uid="uid://1ubxrcku6xbk" path="res://Levels/Wiki/Assest brah/WoodenFloor.glb" id="22_elxtf"]
+[ext_resource type="PackedScene" uid="uid://cfvx5yqps5g6a" path="res://Features/GameLogic/count_timer.tscn" id="24_woe30"]
+[ext_resource type="PackedScene" uid="uid://cj42ii7fx2a8i" path="res://Features/Player/HUD/screen.tscn" id="25_vl6cs"]
 
 [sub_resource type="Environment" id="Environment_btu42"]
-background_energy_multiplier = 0.3
+background_energy_multiplier = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbg0b"]
 shader = ExtResource("5_hdvse")
-shader_parameter/Pixel_Size = 5.00000019
+shader_parameter/pixel_size = 4.000000142499999
+shader_parameter/vhs_intensity = 3.0
+shader_parameter/noise_intensity = 0.15
+shader_parameter/opacity = 0.30000001425
 
 [node name="Main" type="Node3D" unique_id=2088972694 node_paths=PackedStringArray("task_container")]
 script = ExtResource("1_nvb6w")
@@ -1799,9 +1804,6 @@ transform = Transform3D(-1.3909062e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 
 [node name="StoneWallFinal240" parent="CastleGeo/Walls" unique_id=301821779 instance=ExtResource("21_ofdr7")]
 transform = Transform3D(-0.9999999, 0, 5.7620444e-08, 0, 1, 0, -5.7620444e-08, 0, -0.9999999, 2.057974, -0.74709314, -4.597873)
 
-[node name="StoneWallFinal241" parent="CastleGeo/Walls" unique_id=723863453 instance=ExtResource("21_ofdr7")]
-transform = Transform3D(-0.9999999, 0, 5.7620444e-08, 0, 1, 0, -5.7620444e-08, 0, -0.9999999, 2.057974, 1.2529068, -4.597873)
-
 [node name="StoneWallFinal242" parent="CastleGeo/Walls" unique_id=578205975 instance=ExtResource("21_ofdr7")]
 transform = Transform3D(-0.9999999, 0, 5.7620444e-08, 0, 1, 0, -5.7620444e-08, 0, -0.9999999, 2.2901566, -0.74709314, -6.597873)
 
@@ -1810,6 +1812,72 @@ transform = Transform3D(-0.9999999, 0, 5.7620444e-08, 0, 1, 0, -5.7620444e-08, 0
 
 [node name="StoneWallFinal244" parent="CastleGeo/Walls" unique_id=45151092 instance=ExtResource("21_ofdr7")]
 transform = Transform3D(-0.9999999, 0, 5.7620444e-08, 0, 1, 0, -5.7620444e-08, 0, -0.9999999, 2.2901566, -0.74709314, -10.597874)
+
+[node name="StoneWallFinal274" parent="CastleGeo/Walls" unique_id=24084767 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, 1.3443934, 1.497829, -7.0274854)
+
+[node name="StoneWallFinal275" parent="CastleGeo/Walls" unique_id=1102667286 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -0.5917839, -0.74733627, -7.0274854)
+
+[node name="StoneWallFinal276" parent="CastleGeo/Walls" unique_id=1420521097 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -0.5917839, 1.2526637, -7.0274854)
+
+[node name="StoneWallFinal277" parent="CastleGeo/Walls" unique_id=790054777 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -2.591784, -0.74733627, -7.0274854)
+
+[node name="StoneWallFinal278" parent="CastleGeo/Walls" unique_id=436340413 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -2.591784, 1.2526637, -7.0274854)
+
+[node name="StoneWallFinal279" parent="CastleGeo/Walls" unique_id=552288284 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -4.591784, -0.74733627, -7.0274854)
+
+[node name="StoneWallFinal280" parent="CastleGeo/Walls" unique_id=682361811 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -4.591784, 1.2526637, -7.0274854)
+
+[node name="StoneWallFinal281" parent="CastleGeo/Walls" unique_id=1955540241 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -6.591784, -0.74733627, -7.0274854)
+
+[node name="StoneWallFinal287" parent="CastleGeo/Walls" unique_id=1158488001 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(2.6995864, 0, -4.9389886e-08, 0, 1.6005341, 0, 3.9155677e-07, 0, 0.34051836, -3.0028567, -0.74733627, -6.920439)
+
+[node name="StoneWallFinal282" parent="CastleGeo/Walls" unique_id=1413060732 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -6.591784, 1.2526637, -7.0274854)
+
+[node name="StoneWallFinal283" parent="CastleGeo/Walls" unique_id=227252969 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -8.591784, -0.74733627, -7.0274854)
+
+[node name="StoneWallFinal318" parent="CastleGeo/Walls" unique_id=1053560811 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.01331835e-07, 0, 0.9999999, -0.9999999, -4.371139e-08, 1.01331835e-07, 4.3711385e-08, -1, -4.429355e-15, -9.2484665, 2.5463285, -7.0906053)
+
+[node name="StoneWallFinal319" parent="CastleGeo/Walls" unique_id=794127775 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.01331835e-07, 0, 0.9999999, -0.9999999, -4.371139e-08, 1.01331835e-07, 4.3711385e-08, -1, -4.429355e-15, -7.2484665, 2.5463285, -7.0906053)
+
+[node name="StoneWallFinal320" parent="CastleGeo/Walls" unique_id=456137013 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.01331835e-07, 0, 0.9999999, -0.9999999, -4.371139e-08, 1.01331835e-07, 4.3711385e-08, -1, -4.429355e-15, -9.2484665, 2.5463285, -9.090605)
+
+[node name="StoneWallFinal321" parent="CastleGeo/Walls" unique_id=1426433878 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.01331835e-07, 0, 0.9999999, -0.9999999, -4.371139e-08, 1.01331835e-07, 4.3711385e-08, -1, -4.429355e-15, -7.2484665, 2.5463285, -9.090605)
+
+[node name="StoneWallFinal322" parent="CastleGeo/Walls" unique_id=1003739826 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.01331835e-07, 0, 0.9999999, -0.9999999, -4.371139e-08, 1.01331835e-07, 4.3711385e-08, -1, -4.429355e-15, -9.2484665, 2.5463285, -11.090605)
+
+[node name="StoneWallFinal323" parent="CastleGeo/Walls" unique_id=1724464236 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.01331835e-07, 0, 0.9999999, -0.9999999, -4.371139e-08, 1.01331835e-07, 4.3711385e-08, -1, -4.429355e-15, -7.2484665, 2.5463285, -11.090605)
+
+[node name="StoneWallFinal324" parent="CastleGeo/Walls" unique_id=785179757 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.01331835e-07, 0, 0.9999999, -0.9999999, -4.371139e-08, 1.01331835e-07, 4.3711385e-08, -1, -4.429355e-15, -9.2484665, 2.5463285, -13.090605)
+
+[node name="StoneWallFinal325" parent="CastleGeo/Walls" unique_id=590547528 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.01331835e-07, 0, 0.9999999, -0.9999999, -4.371139e-08, 1.01331835e-07, 4.3711385e-08, -1, -4.429355e-15, -7.2484665, 2.5463285, -13.090605)
+
+[node name="StoneWallFinal284" parent="CastleGeo/Walls" unique_id=831407163 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -8.591784, 1.2526637, -7.0274854)
+
+[node name="StoneWallFinal285" parent="CastleGeo/Walls" unique_id=1055070476 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -10.591784, -0.74733627, -7.0274854)
+
+[node name="StoneWallFinal286" parent="CastleGeo/Walls" unique_id=1213613689 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -10.591784, 1.2526637, -7.0274854)
 
 [node name="StoneWallFinal260" parent="CastleGeo/Walls" unique_id=1067447903 instance=ExtResource("21_ofdr7")]
 transform = Transform3D(-0.99999976, 0, 8.839441e-09, 0, 1, 0, -5.7620436e-08, 0, -0.15340804, 2.2901566, -0.74709314, -9.426998)
@@ -1832,11 +1900,164 @@ transform = Transform3D(-0.9999999, 0, 3.789575e-08, 0, 1, 0, -5.7620444e-08, 0,
 [node name="StoneWallFinal246" parent="CastleGeo/Walls" unique_id=1371742756 instance=ExtResource("21_ofdr7")]
 transform = Transform3D(-0.9999999, 0, 5.7620444e-08, 0, 1, 0, -5.7620444e-08, 0, -0.9999999, 2.2901566, -0.74709314, -12.597874)
 
+[node name="StoneWallFinal268" parent="CastleGeo/Walls" unique_id=847550195 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, 0.16622019, -0.74709314, -13.075192)
+
+[node name="StoneWallFinal269" parent="CastleGeo/Walls" unique_id=925661309 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, 0.16622019, -0.74709314, -10.151928)
+
+[node name="StoneWallFinal270" parent="CastleGeo/Walls" unique_id=49606840 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, 0.16622019, 1.2529068, -10.151928)
+
+[node name="StoneWallFinal271" parent="CastleGeo/Walls" unique_id=1042795431 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, 0.16622019, 1.2529068, -13.151928)
+
+[node name="StoneWallFinal272" parent="CastleGeo/Walls" unique_id=1323318552 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, 0.16622019, 1.2529068, -13.151928)
+
+[node name="StoneWallFinal273" parent="CastleGeo/Walls" unique_id=133699261 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 1.5322106e-08, 0, 1, 0, -2.9802326e-08, 0, 0.51412445, 0.16221815, 1.2529068, -11.642893)
+
 [node name="StoneWallFinal248" parent="CastleGeo/Walls" unique_id=731931155 instance=ExtResource("21_ofdr7")]
 transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, 1.2201586, -0.74709314, -13.708503)
 
 [node name="StoneWallFinal249" parent="CastleGeo/Walls" unique_id=2083589421 instance=ExtResource("21_ofdr7")]
 transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, 1.2201586, 1.2529068, -13.708503)
+
+[node name="StoneWallFinal288" parent="CastleGeo/Walls" unique_id=1260373202 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, -0.7798414, -0.74709314, -13.708503)
+
+[node name="StoneWallFinal289" parent="CastleGeo/Walls" unique_id=1303738339 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, -0.7798414, 1.2529068, -13.708503)
+
+[node name="StoneWallFinal332" parent="CastleGeo/Walls" unique_id=1548688160 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999999, 0, 5.7620444e-08, 0, 1, 0, -5.7620444e-08, 0, -0.9999999, -0.16820979, -0.7470932, -13.072727)
+
+[node name="StoneWallFinal333" parent="CastleGeo/Walls" unique_id=1406208303 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999999, 0, 5.7620444e-08, 0, 1, 0, -5.7620444e-08, 0, -0.9999999, -0.16820979, 1.2529068, -13.072727)
+
+[node name="StoneWallFinal334" parent="CastleGeo/Walls" unique_id=701637216 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999999, 0, 5.7620444e-08, 0, 1, 0, -5.7620444e-08, 0, -0.9999999, -0.16820979, -0.7470932, -10.072727)
+
+[node name="StoneWallFinal335" parent="CastleGeo/Walls" unique_id=1668546538 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999999, 0, 5.7620444e-08, 0, 1, 0, -5.7620444e-08, 0, -0.9999999, -0.16820979, 1.2529068, -10.072727)
+
+[node name="StoneWallFinal336" parent="CastleGeo/Walls" unique_id=463818090 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999998, 0, 2.7439466e-08, 0, 1, 0, -5.762044e-08, 0, -0.47621053, -0.16820979, 1.2529068, -11.556125)
+
+[node name="StoneWallFinal290" parent="CastleGeo/Walls" unique_id=198564691 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, -2.7798414, -0.74709314, -13.708503)
+
+[node name="StoneWallFinal291" parent="CastleGeo/Walls" unique_id=1012286924 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, -2.7798414, 1.2529068, -13.708503)
+
+[node name="StoneWallFinal326" parent="CastleGeo/Walls" unique_id=1503294671 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, -3.0802073, -0.7470932, -12.336475)
+
+[node name="StoneWallFinal327" parent="CastleGeo/Walls" unique_id=2034072056 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, -3.0802073, 1.2529068, -12.336475)
+
+[node name="StoneWallFinal330" parent="CastleGeo/Walls" unique_id=2036394386 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, -3.0802073, -0.7470932, -14.336475)
+
+[node name="StoneWallFinal331" parent="CastleGeo/Walls" unique_id=1238015598 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, -3.0802073, 1.2529068, -14.336475)
+
+[node name="StoneWallFinal328" parent="CastleGeo/Walls" unique_id=428794510 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, -3.0802073, -0.7470932, -10.336475)
+
+[node name="StoneWallFinal329" parent="CastleGeo/Walls" unique_id=1837918690 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, -3.0802073, 1.2529068, -10.336475)
+
+[node name="StoneWallFinal337" parent="CastleGeo/Walls" unique_id=1131517940 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-7.351371e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -7.351371e-08, -2.6062298, -0.7470932, -9.329856)
+
+[node name="StoneWallFinal338" parent="CastleGeo/Walls" unique_id=570052454 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-7.351371e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -7.351371e-08, -2.6062298, 1.2529068, -9.329856)
+
+[node name="StoneWallFinal339" parent="CastleGeo/Walls" unique_id=624419782 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-7.351371e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -7.351371e-08, -0.6062298, -0.7470932, -9.329856)
+
+[node name="StoneWallFinal340" parent="CastleGeo/Walls" unique_id=425481385 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-7.351371e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -7.351371e-08, -0.6062298, 1.2529068, -9.329856)
+
+[node name="StoneWallFinal292" parent="CastleGeo/Walls" unique_id=1874441679 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, -4.7798414, -0.74709314, -13.708503)
+
+[node name="StoneWallFinal293" parent="CastleGeo/Walls" unique_id=134590593 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, -4.7798414, 1.2529068, -13.708503)
+
+[node name="StoneWallFinal294" parent="CastleGeo/Walls" unique_id=1333872217 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, -6.7798414, -0.74709314, -13.708503)
+
+[node name="StoneWallFinal295" parent="CastleGeo/Walls" unique_id=577568570 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, -6.7798414, 1.2529068, -13.708503)
+
+[node name="StoneWallFinal296" parent="CastleGeo/Walls" unique_id=1335257242 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, -8.779841, -0.74709314, -13.708503)
+
+[node name="StoneWallFinal297" parent="CastleGeo/Walls" unique_id=1764597407 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, -8.779841, 1.2529068, -13.708503)
+
+[node name="StoneWallFinal308" parent="CastleGeo/Walls" unique_id=886289258 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999999, 0, 4.7301608e-08, 0, 1, 0, -5.7620444e-08, 0, -0.820917, -6.1774845, -0.7470932, -11.373527)
+
+[node name="StoneWallFinal309" parent="CastleGeo/Walls" unique_id=902136883 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999999, 0, 4.7301608e-08, 0, 1, 0, -5.7620444e-08, 0, -0.820917, -6.1774845, 1.2529068, -11.373527)
+
+[node name="StoneWallFinal316" parent="CastleGeo/Walls" unique_id=640603964 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999999, 0, 3.0851417e-08, 0, 1, 0, -5.7620444e-08, 0, -0.53542477, -6.1774845, 1.2529068, -12.743945)
+
+[node name="StoneWallFinal317" parent="CastleGeo/Walls" unique_id=1892502740 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999999, 0, 3.627599e-08, 0, 1, 0, -5.7620444e-08, 0, -0.6295679, -6.1774845, 1.479323, -8.292704)
+
+[node name="StoneWallFinal310" parent="CastleGeo/Walls" unique_id=113564777 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999999, 0, 4.7301608e-08, 0, 1, 0, -5.7620444e-08, 0, -0.820917, -6.1774845, -0.7470932, -9.731692)
+
+[node name="StoneWallFinal312" parent="CastleGeo/Walls" unique_id=1002021113 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999998, 0, 1.9410063e-08, 0, 1, 0, -5.762044e-08, 0, -0.3368607, -6.1774845, -0.7470932, -7.293512)
+
+[node name="StoneWallFinal313" parent="CastleGeo/Walls" unique_id=155220019 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999998, 0, 1.9410063e-08, 0, 1, 0, -5.762044e-08, 0, -0.3368607, -6.1774845, 1.2529068, -7.293512)
+
+[node name="StoneWallFinal314" parent="CastleGeo/Walls" unique_id=1177834776 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999998, 0, 1.9410063e-08, 0, 1, 0, -5.762044e-08, 0, -0.3368607, -6.1774845, -0.7470932, -13.615586)
+
+[node name="StoneWallFinal315" parent="CastleGeo/Walls" unique_id=1026399255 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999998, 0, 1.9410063e-08, 0, 1, 0, -5.762044e-08, 0, -0.3368607, -6.1774845, 1.2529068, -13.615586)
+
+[node name="StoneWallFinal311" parent="CastleGeo/Walls" unique_id=1772515990 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-0.9999999, 0, 4.7301608e-08, 0, 1, 0, -5.7620444e-08, 0, -0.820917, -6.1774845, 1.2529068, -9.731692)
+
+[node name="StoneWallFinal298" parent="CastleGeo/Walls" unique_id=886088142 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, -10.779841, -0.74709314, -13.708503)
+
+[node name="StoneWallFinal299" parent="CastleGeo/Walls" unique_id=1194645321 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, -10.779841, 1.2529068, -13.708503)
+
+[node name="StoneWallFinal300" parent="CastleGeo/Walls" unique_id=1856116163 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, -10.310586, -0.7470932, -12.708503)
+
+[node name="StoneWallFinal301" parent="CastleGeo/Walls" unique_id=922501376 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, -10.310586, 1.2529068, -12.708503)
+
+[node name="StoneWallFinal302" parent="CastleGeo/Walls" unique_id=694334628 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, -10.310586, -0.7470932, -10.708503)
+
+[node name="StoneWallFinal303" parent="CastleGeo/Walls" unique_id=1666925801 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, -10.310586, 1.2529068, -10.708503)
+
+[node name="StoneWallFinal304" parent="CastleGeo/Walls" unique_id=1417548010 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, -10.310586, -0.7470932, -8.708503)
+
+[node name="StoneWallFinal305" parent="CastleGeo/Walls" unique_id=910437002 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, -10.310586, 1.2529068, -8.708503)
+
+[node name="StoneWallFinal306" parent="CastleGeo/Walls" unique_id=1464382467 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 9.230722e-09, 0, 1, 0, -2.9802326e-08, 0, 0.30973154, -10.310586, -0.7470932, -7.3857584)
+
+[node name="StoneWallFinal307" parent="CastleGeo/Walls" unique_id=1455887488 instance=ExtResource("21_ofdr7")]
+transform = Transform3D(0.9999999, 0, 9.230722e-09, 0, 1, 0, -2.9802326e-08, 0, 0.30973154, -10.310586, 1.2529068, -7.3857584)
 
 [node name="StoneWallFinal250" parent="CastleGeo/Walls" unique_id=1962481476 instance=ExtResource("21_ofdr7")]
 transform = Transform3D(-1.3909059e-08, 0, -0.9999999, -0.9999999, -4.371139e-08, 1.3909059e-08, -4.3711385e-08, 1, 6.0798426e-16, 1.2201586, 2.5068786, -13.640197)
@@ -2364,3 +2585,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 1.1617
 
 [node name="CoffinBed" parent="TaskObjects" unique_id=2082441799 instance=ExtResource("18_7oflx")]
 transform = Transform3D(0.39999998, -1.7763568e-15, 1.7763568e-15, 0, 0.39999998, -2.2351744e-08, 0, 2.2351738e-08, 0.4, 0.0672836, 3.4464245, -5.8229628)
+
+[node name="Screen" parent="." unique_id=1859783061 instance=ExtResource("25_vl6cs")]
+
+[node name="PlayerSpawnPoint" type="Node3D" parent="." unique_id=1231924512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.038892)
+
+[node name="Timers" type="Node3D" parent="." unique_id=2051956589]
+
+[node name="PlayerFreezeTimer" type="Timer" parent="Timers" unique_id=1968032739]
+one_shot = true
+
+[node name="CountTimer" parent="Timers" unique_id=426008035 instance=ExtResource("24_woe30")]
+
+[node name="IntroScreenTimer" type="Timer" parent="Timers" unique_id=427290947]
+one_shot = true
+
+[node name="EndScreenTimer" type="Timer" parent="Timers" unique_id=399131059]
+one_shot = true
+
+[node name="GameOverScreenTimer" type="Timer" parent="Timers" unique_id=1832852366]
+one_shot = true

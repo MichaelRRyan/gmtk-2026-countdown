@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cfvx5yqps5g6a"]
+
+[ext_resource type="Script" uid="uid://c8exh86ovxvsf" path="res://Features/GameLogic/count_timer.gd" id="1_ti7un"]
+
+[node name="CountTimer" type="Node" unique_id=426008035]
+script = ExtResource("1_ti7un")
+
+[node name="TimeToStartCheckingArea" type="Timer" parent="." unique_id=1913670887]
+
+[node name="TimeToFinishChecking" type="Timer" parent="." unique_id=220098126]
+
+[connection signal="timeout" from="TimeToStartCheckingArea" to="." method="_on_time_to_start_checking_area_timeout"]
+[connection signal="timeout" from="TimeToFinishChecking" to="." method="_on_time_to_finish_checking_timeout"]

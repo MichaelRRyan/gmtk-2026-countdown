@@ -22,14 +22,13 @@ signal on_task_reset(task_object: TaskObjectBase)
 @export var objective_text: String = "DEBUG"
 @export var task_type: TaskType = TaskType.DEBUG
 
-@export_category("Debug Config")
-@export var is_active: bool = true
 
+var is_active: bool = false
 var is_increasing: bool = false
 var interact_level_current: float = interact_level_start
 var is_task_complete: bool = false
 
-func is_interactable(player: Player) -> Array:
+func check_is_interactable(player: Player) -> Array:
 	var has_pre_requisites: bool = required_item_type != EquippableObject.ItemType.NONE
 	var pre_requisites_met: bool = player.holdable_item_manager.held_item and required_item_type == player.holdable_item_manager.held_item.item_type
 	var item_is_missing: bool = has_pre_requisites and !pre_requisites_met and not is_task_complete
@@ -52,7 +51,7 @@ func _process(delta: float) -> void:
 	on_task_updated.emit(self, interact_level_current, interact_level_end)
 	_undo_action()
 
-func interact_hold(player: Player, delta: float) -> void:
+func interact_hold(_player: Player, delta: float) -> void:
 	if is_task_complete or not is_active:
 		return
 
@@ -67,7 +66,7 @@ func interact_hold(player: Player, delta: float) -> void:
 	
 	_perform_action()
 	
-func interact_release(player: Player, delta: float) -> void:
+func interact_release(_player: Player, _delta: float) -> void:
 	is_increasing = false	
 	
 func _perform_action() -> void:
@@ -75,14 +74,22 @@ func _perform_action() -> void:
 	
 func _undo_action() -> void:
 	pass
-
-
-#-------------------------------------------------------------------------------
-func _reset_task():
+	
+func set_hidden() -> void:
+	is_active = false
+	is_task_complete = false
+	visible = false
+	
+func initialize_task() -> void:
 	is_active = true
 	is_task_complete = false
 	interact_level_current = interact_level_start
-	on_task_reset.emit(self)
+	visible = true
 	
+
+#-------------------------------------------------------------------------------
+func _reset_task():
+	initialize_task()
+	on_task_reset.emit(self)
 	
 #-------------------------------------------------------------------------------

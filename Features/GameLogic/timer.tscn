@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bcygdx0gaa2cw"]
+
+[ext_resource type="Script" uid="uid://dbalh2vnx52n5" path="res://Features/GameLogic/timer.gd" id="1_xby6y"]
+
+[node name="Timer" type="Control" unique_id=280677918]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xby6y")
+
+[node name="DayTimer" type="Timer" parent="." unique_id=1486638885]
+wait_time = 5.0
+one_shot = true
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=1918221490]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Time Remaining:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="DayTimer" to="." method="_on_timer_timeout"]
