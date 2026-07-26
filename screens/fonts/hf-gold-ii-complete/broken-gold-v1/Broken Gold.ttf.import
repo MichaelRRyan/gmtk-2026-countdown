@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://tk22w2xweqvo"
-path="res://.godot/imported/Broken Gold.ttf-8a42b33fcfa564a3071cb9fad9568561.fontdata"
+path="res://.godot/imported/Broken Gold.ttf-50218e22ed35f729a67dd6fee4d50a97.fontdata"
 
 [deps]
 
-source_file="res://screens/fonts/hf-gold-ii-complete/broken-gold-v1/Broken Gold.ttf"
-dest_files=["res://.godot/imported/Broken Gold.ttf-8a42b33fcfa564a3071cb9fad9568561.fontdata"]
+source_file="res://Screens/fonts/hf-gold-ii-complete/broken-gold-v1/Broken Gold.ttf"
+dest_files=["res://.godot/imported/Broken Gold.ttf-50218e22ed35f729a67dd6fee4d50a97.fontdata"]
 
 [params]
 

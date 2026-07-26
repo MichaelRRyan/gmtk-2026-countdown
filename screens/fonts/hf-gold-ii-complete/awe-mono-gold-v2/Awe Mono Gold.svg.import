@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://balw2fh67ydj"
-path="res://.godot/imported/Awe Mono Gold.svg-f66acbe99357f99a23bb16f2c11bd3af.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
-source_file="res://screens/fonts/hf-gold-ii-complete/awe-mono-gold-v2/Awe Mono Gold.svg"
-dest_files=["res://.godot/imported/Awe Mono Gold.svg-f66acbe99357f99a23bb16f2c11bd3af.ctex"]
+source_file="res://Screens/fonts/hf-gold-ii-complete/awe-mono-gold-v2/Awe Mono Gold.svg"
 
 [params]
 

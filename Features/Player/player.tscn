@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dn5nxnp1tnk66" path="res://Features/Player/player.gd" id="1_6u40a"]
 [ext_resource type="Script" uid="uid://caxahuta341hq" path="res://Features/Player/HoldableItemManager/holdable_item_manager.gd" id="2_xfr8u"]
+[ext_resource type="PackedScene" uid="uid://cpqyrsb0cg511" path="res://Features/Player/FootstepAudioPlayer/footstep_audio_player.tscn" id="3_efe3q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vef74"]
 radius = 0.3
@@ -26,3 +27,5 @@ script = ExtResource("2_xfr8u")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1077622134]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CapsuleShape3D_vef74")
+
+[node name="FootstepAudio" parent="." unique_id=945028907 instance=ExtResource("3_efe3q")]
