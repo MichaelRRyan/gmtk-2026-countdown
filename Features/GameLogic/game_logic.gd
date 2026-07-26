@@ -5,7 +5,7 @@ class_name GameLogic
 
 @export_category("Game Mode")
 @export var number_of_tasks_available_per_round = 8
-@export var tasks_to_complete_per_round = 1
+@export var tasks_to_complete_per_round = 3
 @export var objectives_display_time_in_seconds = 2.0
 @export var intro_screen_display_time_in_seconds = 2.0
 @export var end_screen_display_time_in_seconds = 2.0
