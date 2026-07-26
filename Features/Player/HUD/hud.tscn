@@ -174,23 +174,6 @@ one_shot = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NewTask" unique_id=966541854]
 libraries/ = SubResource("AnimationLibrary_rtong")
 
-[node name="CountDownTimer" type="RichTextLabel" parent="." unique_id=1062291649]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -500.0
-offset_top = -47.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = SubResource("Theme_qjg4n")
-text = "Time Remaining:"
-fit_content = true
-vertical_alignment = 1
-
 [node name="TasksTooltip" type="Label" parent="." unique_id=1510269964]
 layout_mode = 1
 anchors_preset = 2
@@ -204,6 +187,15 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 18
 text = "[TAB] Tasks"
 
-[node name="Timer" parent="." unique_id=1417300461 node_paths=PackedStringArray("label") instance=ExtResource("4_2oed0")]
-label = NodePath("../CountDownTimer")
-totalTime = 90.0
+[node name="Timer" parent="." unique_id=1417300461 instance=ExtResource("4_2oed0")]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+offset_left = -231.0
+offset_top = -102.0
+offset_right = -31.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0

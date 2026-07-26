@@ -3,11 +3,10 @@ extends Node
 class_name  CountTimer
 
 signal start_checking_area
-
 signal finished_checking
 
 @export_category("Timers")
-@export var time_to_wait_start_checking: float = 60
+@export var time_to_wait_start_checking: float = 5
 @export var time_to_wait_return_to_bed: float = 60
 
 @onready var start_checking_timer = $TimeToStartCheckingArea
