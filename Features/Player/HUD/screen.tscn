@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cj42ii7fx2a8i"]
 
+[ext_resource type="Theme" uid="uid://dkgcamelbh4xu" path="res://screens/ui_theme.tres" id="1_kddk5"]
 [ext_resource type="Script" uid="uid://bd8vsoxviguc" path="res://Features/Player/HUD/screen.gd" id="1_ovyw4"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_cciay"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_kddk5")
 script = ExtResource("1_ovyw4")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=889915893]

@@ -1,8 +1,88 @@
 [gd_scene format=3 uid="uid://n6yywsyd82vx"]
 
 [ext_resource type="Script" uid="uid://dyk3kplt3untm" path="res://screens/credits.gd" id="1_8ga8i"]
+[ext_resource type="Theme" uid="uid://dkgcamelbh4xu" path="res://screens/ui_theme.tres" id="1_52jsi"]
 
 [node name="Credits" type="Control" unique_id=303498971]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_52jsi")
 script = ExtResource("1_8ga8i")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=179902601]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4036905, 0.03352609, 0.14353696, 1)
+
+[node name="Credits" type="VBoxContainer" parent="." unique_id=1013200538]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -40.0
+offset_right = 211.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits" unique_id=1805317356]
+layout_mode = 2
+theme = ExtResource("1_52jsi")
+text = "Credits
+"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="Credits" unique_id=353772031]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Credits" unique_id=1421325736]
+layout_mode = 2
+theme = ExtResource("1_52jsi")
+text = "Wiki - Production, Design, Art"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Credits" unique_id=1056973614]
+layout_mode = 2
+theme = ExtResource("1_52jsi")
+text = "Michael - Design, Level Design, Production, Code"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Credits" unique_id=296815705]
+layout_mode = 2
+theme = ExtResource("1_52jsi")
+text = "Cillian - Design, Code, Art"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Credits" unique_id=2127567880]
+layout_mode = 2
+theme = ExtResource("1_52jsi")
+text = "Vlad - Level Design, Design, Code"
+fit_content = true
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Credits" unique_id=124051968]
+layout_mode = 2
+theme = ExtResource("1_52jsi")
+text = "Jack - Code, System Design"
+fit_content = true
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Credits" unique_id=867735324]
+layout_mode = 2
+theme = ExtResource("1_52jsi")
+text = "Maicon - Code, Design, Build Engineering"
+fit_content = true
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="Credits" unique_id=1753584063]
+layout_mode = 2
+theme = ExtResource("1_52jsi")
+text = "Yoana - Art"
+fit_content = true
