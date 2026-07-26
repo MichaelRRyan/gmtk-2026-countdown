@@ -38,3 +38,14 @@ offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=995091536]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_toggle_button_pressed"]

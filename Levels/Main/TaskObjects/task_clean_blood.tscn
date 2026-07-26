@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://btqeskrnp0h7s" path="res://Levels/Main/TaskObjects/task_clean_blood.gd" id="1_j50rd"]
 [ext_resource type="Texture2D" uid="uid://syjn54lr3x00" path="res://Levels/Main/Textures/BloodEffect.png" id="2_j50rd"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_cciay"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ofdr7"]
+size = Vector3(2.3548431, 0.61120605, 2.0942993)
 
 [node name="TaskCleanBlood" type="Node3D" unique_id=562064819]
 script = ExtResource("1_j50rd")
@@ -20,5 +21,5 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0
 texture = ExtResource("2_j50rd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=49189086]
-shape = SubResource("SphereShape3D_cciay")
-disabled = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07570648, 0.2645874, 0.035980225)
+shape = SubResource("BoxShape3D_ofdr7")

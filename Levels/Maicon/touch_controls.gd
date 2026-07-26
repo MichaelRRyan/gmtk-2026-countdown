@@ -13,6 +13,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# TODO: if possible make it smoother later
+	# Reset mouse movements to allow only from touch
+	var mouse_reset_ev = InputEventMouseMotion.new()
+	mouse_reset_ev.relative.y = 0;
+	mouse_reset_ev.relative.x = 0;
+	Input.parse_input_event(mouse_reset_ev)
 	if Input.is_action_pressed("look_up"):
 		var ev = InputEventMouseMotion.new()
 		ev.relative.y = -10;
@@ -33,10 +38,12 @@ func _process(_delta: float) -> void:
 
 func _on_button_down() -> void:
 	var ev = InputEventAction.new()
-	ev.set_as_action("interact", true)
+	ev.action = "interact"
+	ev.pressed = true
 	Input.parse_input_event(ev)
 
 func _on_button_up() -> void:
 	var ev = InputEventAction.new()
-	ev.set_as_action("interact", false)
+	ev.action = "interact"
+	ev.pressed = false
 	Input.parse_input_event(ev)

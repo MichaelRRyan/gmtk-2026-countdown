@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bl8xgw501gyhi"]
+
+[ext_resource type="PackedScene" uid="uid://xluhxn8irw0q" path="res://Levels/Wiki/Assest brah/PersianRug.glb" id="1_dxqqn"]
+
+[node name="Rug" type="Node3D" unique_id=725089702]
+
+[node name="PersianRug" parent="." unique_id=1262569692 instance=ExtResource("1_dxqqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4919443, 0, 0)
