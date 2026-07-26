@@ -39,6 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03152573, 0)
 shape = SubResource("CapsuleShape3D_y8tdg")
 
 [node name="FootstepAudio" parent="CharacterBody3D" unique_id=945028907 instance=ExtResource("3_m7mew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="PatrolTimer" type="Timer" parent="." unique_id=1082849438]
 wait_time = 8.0

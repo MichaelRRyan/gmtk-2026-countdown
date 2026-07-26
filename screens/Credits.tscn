@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://n6yywsyd82vx"]
 
-[ext_resource type="Script" uid="uid://dyk3kplt3untm" path="res://screens/credits.gd" id="1_8ga8i"]
-[ext_resource type="Theme" uid="uid://dkgcamelbh4xu" path="res://screens/ui_theme.tres" id="1_52jsi"]
+[ext_resource type="Script" uid="uid://dyk3kplt3untm" path="res://Screens/credits.gd" id="1_8ga8i"]
+[ext_resource type="Theme" uid="uid://dkgcamelbh4xu" path="res://Screens/ui_theme.tres" id="1_52jsi"]
 
 [node name="Credits" type="Control" unique_id=303498971]
 layout_mode = 3
@@ -29,9 +29,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -174.0
-offset_top = -40.0
-offset_right = 211.0
+offset_left = -192.5
+offset_top = -276.0
+offset_right = 192.5
 grow_horizontal = 2
 grow_vertical = 0
 

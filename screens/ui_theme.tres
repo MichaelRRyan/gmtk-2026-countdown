@@ -1,7 +1,50 @@
 [gd_resource type="Theme" format=3 uid="uid://dkgcamelbh4xu"]
 
-[ext_resource type="FontFile" uid="uid://bxiv8vtu2r46y" path="res://screens/fonts/hf-gold-ii-complete/softball-gold-v2/Softball Gold.otf" id="1_fbd66"]
+[ext_resource type="FontFile" uid="uid://bxiv8vtu2r46y" path="res://Screens/fonts/hf-gold-ii-complete/softball-gold-v2/Softball Gold.otf" id="1_fbd66"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0coxg"]
+bg_color = Color(0.19975814, 0.23023507, 0.7299227, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7856725, 0.8033427, 0.8150226, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0m5h"]
+bg_color = Color(0.1176947, 0.1388112, 0.49015087, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7856725, 0.8033427, 0.8150226, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyyux"]
+bg_color = Color(0.049078003, 0.062489904, 0.27386197, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7856725, 0.8033427, 0.8150226, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [resource]
 default_font = ExtResource("1_fbd66")
-default_font_size = 16
+default_font_size = 24
+Button/font_sizes/font_size = 24
+Button/styles/hover = SubResource("StyleBoxFlat_0coxg")
+Button/styles/normal = SubResource("StyleBoxFlat_j0m5h")
+Button/styles/pressed = SubResource("StyleBoxFlat_gyyux")

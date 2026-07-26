@@ -4,7 +4,7 @@ class_name  main_menu
 
 var tree: SceneTree = null
 @export var main_level: PackedScene
-@onready var container : VBoxContainer = $ButtonsContainer
+@onready var container : HBoxContainer = $ButtonsContainer
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
