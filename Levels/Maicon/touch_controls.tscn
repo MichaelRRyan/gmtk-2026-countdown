@@ -1,6 +1,30 @@
 [gd_scene format=3 uid="uid://40x0fy46s2gq"]
 
-[ext_resource type="Script" uid="uid://ddmlf6waht0wi" path="res://Levels/Maicon/touch_controls.gd" id="1_rctqb"]
+[sub_resource type="GDScript" id="GDScript_crdyf"]
+script/source = "extends Control
+@onready var virtual_joystick: VirtualJoystick = $VirtualJoystick
+@onready var virtual_joystick_2: VirtualJoystick = $VirtualJoystick2
+@onready var interact_button: Button = $InteractButton
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	if not DisplayServer.is_touchscreen_available():
+		virtual_joystick.hide()
+		virtual_joystick_2.hide()
+		interact_button.hide()
+
+func _on_button_down() -> void:
+	var ev = InputEventAction.new()
+	ev.action = \"interact\"
+	ev.pressed = true
+	Input.parse_input_event(ev)
+
+func _on_button_up() -> void:
+	var ev = InputEventAction.new()
+	ev.action = \"interact\"
+	ev.pressed = false
+	Input.parse_input_event(ev)
+"
 
 [node name="TouchControls" type="Control" unique_id=539810959]
 layout_mode = 3
@@ -9,7 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rctqb")
+script = SubResource("GDScript_crdyf")
 
 [node name="InteractButton" type="Button" parent="." unique_id=1101120778]
 modulate = Color(1, 1, 1, 0)
