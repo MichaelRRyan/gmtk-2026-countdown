@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://degc01x2f2g1m" path="res://Features/Player/HUD/hud.gd" id="1_qjg4n"]
 [ext_resource type="PackedScene" uid="uid://bbhgld6mgyoxf" path="res://Features/Player/HUD/objectives_list.tscn" id="2_j6b2d"]
-[ext_resource type="PackedScene" uid="uid://40x0fy46s2gq" path="res://Levels/Maicon/touch_controls.tscn" id="3_rtong"]
 [ext_resource type="PackedScene" uid="uid://bcygdx0gaa2cw" path="res://Features/GameLogic/timer.tscn" id="4_2oed0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c8vhp"]
@@ -190,9 +189,6 @@ theme = SubResource("Theme_qjg4n")
 text = "CountDown Timer: "
 fit_content = true
 vertical_alignment = 1
-
-[node name="TouchControls" parent="." unique_id=539810959 instance=ExtResource("3_rtong")]
-layout_mode = 1
 
 [node name="TasksTooltip" type="Label" parent="." unique_id=1510269964]
 layout_mode = 1

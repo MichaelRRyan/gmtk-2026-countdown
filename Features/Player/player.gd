@@ -41,26 +41,9 @@ func _input(event: InputEvent) -> void:
 	if is_frozen:
 		return
 	# Handle mouse movement for view direction.
-	if not OS.has_feature("web_android") and not OS.has_feature("web_ios"):
-		if event is InputEventMouseMotion:
-			camera_rot_y -= event.relative.x * mouse_sensitivity
-			camera_rot_x -= event.relative.y * mouse_sensitivity
-			camera_rot_x = clamp(camera_rot_x, max_look_down, max_look_up)
-			
-			if is_hiding:
-				camera_rot_y = clamp(camera_rot_y, hiding_min_look, hiding_max_look)
-			
-			rotation.y = camera_rot_y
-			head.rotation.x = camera_rot_x
-	else:
-		if Input.is_action_pressed("look_up"):
-			camera_rot_y -= 10 * mouse_sensitivity
-		if Input.is_action_pressed("look_down"):
-			camera_rot_y += 10 * mouse_sensitivity
-		if Input.is_action_pressed("look_left"):
-			camera_rot_x += 10 * mouse_sensitivity
-		if Input.is_action_pressed("look_right"):
-			camera_rot_x -= 10 * mouse_sensitivity
+	if event is InputEventMouseMotion:
+		camera_rot_y -= event.relative.x * mouse_sensitivity
+		camera_rot_x -= event.relative.y * mouse_sensitivity
 		camera_rot_x = clamp(camera_rot_x, max_look_down, max_look_up)
 		
 		if is_hiding:
