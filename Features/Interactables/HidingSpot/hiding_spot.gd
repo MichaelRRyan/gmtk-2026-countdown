@@ -32,8 +32,10 @@ func interact_press(player: Player, delta: float) -> void:
 	if player.is_hiding:
 		player.position += offset
 		player.is_hiding = false
+		hud._hide_hiding_spot()
 	else:
 		player.position = position - offset
 		player.look_at(position)
 		player.camera_rot_y = player.rotation.y
 		player.is_hiding = true
+		hud._show_hiding_spot()

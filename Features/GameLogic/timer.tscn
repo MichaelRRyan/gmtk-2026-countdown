@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bcygdx0gaa2cw"]
+
+[ext_resource type="Script" uid="uid://dbalh2vnx52n5" path="res://Features/GameLogic/timer.gd" id="1_xby6y"]
+
+[node name="Timer" type="Node" unique_id=1417300461]
+script = ExtResource("1_xby6y")
+
+[node name="DayTimer" type="Timer" parent="." unique_id=1486638885]
+wait_time = 5.0
+
+[connection signal="ready" from="DayTimer" to="." method="_on_day_timer_ready"]
+[connection signal="timeout" from="DayTimer" to="." method="_on_timer_timeout"]

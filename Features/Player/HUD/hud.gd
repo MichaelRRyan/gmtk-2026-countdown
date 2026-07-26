@@ -85,3 +85,9 @@ func _task_complete_timeout() -> void:
 	
 func _new_task_timeout() -> void:
 	new_task_animation_player.play("task_complete_fadeout")
+	
+func _show_hiding_spot() -> void:
+	$LeaveHidingSpot.visible = true
+	
+func _hide_hiding_spot() -> void:
+	$LeaveHidingSpot.visible = false

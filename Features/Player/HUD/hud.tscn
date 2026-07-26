@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://degc01x2f2g1m" path="res://Features/Player/HUD/hud.gd" id="1_qjg4n"]
 [ext_resource type="PackedScene" uid="uid://bbhgld6mgyoxf" path="res://Features/Player/HUD/objectives_list.tscn" id="2_j6b2d"]
 [ext_resource type="PackedScene" uid="uid://40x0fy46s2gq" path="res://Levels/Maicon/touch_controls.tscn" id="3_rtong"]
+[ext_resource type="PackedScene" uid="uid://bcygdx0gaa2cw" path="res://Features/GameLogic/timer.tscn" id="4_2oed0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c8vhp"]
 
@@ -134,6 +135,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LeaveHidingSpot" type="RichTextLabel" parent="." unique_id=742500956]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -173,6 +175,22 @@ one_shot = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NewTask" unique_id=966541854]
 libraries/ = SubResource("AnimationLibrary_rtong")
 
+[node name="CountDownTimer" type="RichTextLabel" parent="." unique_id=1062291649]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -567.0
+offset_top = 222.0
+offset_right = -67.0
+offset_bottom = 269.0
+grow_horizontal = 2
+theme = SubResource("Theme_qjg4n")
+text = "CountDown Timer: "
+fit_content = true
+vertical_alignment = 1
+
 [node name="TouchControls" parent="." unique_id=539810959 instance=ExtResource("3_rtong")]
 layout_mode = 1
 
@@ -188,3 +206,7 @@ offset_bottom = -27.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 18
 text = "[TAB] Tasks"
+
+[node name="Timer" parent="." unique_id=1417300461 node_paths=PackedStringArray("label") instance=ExtResource("4_2oed0")]
+label = NodePath("../CountDownTimer")
+totalTime = 30.0
