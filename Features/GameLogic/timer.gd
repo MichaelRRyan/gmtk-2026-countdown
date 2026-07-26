@@ -6,8 +6,7 @@ signal timer_completed
 
 @onready var label: RichTextLabel = $Label
 
-@onready
-var dayTimer: Timer = $DayTimer
+@onready var dayTimer: Timer = $DayTimer
 
 func _process(delta):
 	if !dayTimer.is_stopped():

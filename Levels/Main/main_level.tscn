@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://se17jate6s7" path="res://Levels/Main/TaskObjects/task_clean_blood.tscn" id="15_kfrea"]
 [ext_resource type="PackedScene" uid="uid://cqliejscdrsyj" path="res://Levels/Main/EquippableObjects/cleaning_cloth.tscn" id="16_32g1e"]
 [ext_resource type="PackedScene" uid="uid://blthaqm2hacyh" path="res://Levels/Main/TaskObjects/task_plate_cleanup.tscn" id="17_h1rqx"]
+[ext_resource type="Theme" uid="uid://dkgcamelbh4xu" path="res://screens/ui_theme.tres" id="17_whuwa"]
 [ext_resource type="PackedScene" uid="uid://b8m7yvupsk1fe" path="res://Levels/Main/Objects/coffin_bed.tscn" id="18_7oflx"]
 [ext_resource type="PackedScene" uid="uid://bbm2yoodb8jdm" path="res://Levels/Wiki/Assest brah/StoneFloor.glb" id="20_67oqy"]
 [ext_resource type="PackedScene" uid="uid://sgm12leuc65s" path="res://Levels/Wiki/Assest brah/StoneWallFinal.glb" id="21_ofdr7"]
@@ -2521,6 +2522,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("17_whuwa")
 
 [node name="ColorRect" type="ColorRect" parent="Control" unique_id=562131817]
 material = SubResource("ShaderMaterial_cbg0b")
