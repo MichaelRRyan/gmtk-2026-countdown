@@ -5,20 +5,35 @@ class_name GameLogic
 
 @export_category("Game Mode")
 @export var number_of_tasks_available_per_round = 8
-@export var objectives_display_time_in_seconds = 2
-@export var task_to_complete_per_roud = 3
+@export var tasks_to_complete_per_round = 3
+@export var objectives_display_time_in_seconds = 2.0
+@export var intro_screen_display_time_in_seconds = 2.0
+@export var end_screen_display_time_in_seconds = 2.0
+@export var game_over_screen_display_time_in_seconds = 2.0
 
 @onready var player: Player = $Player
 @onready var hud: HUD = $HUD
-@onready var player_freeze_timer: Timer = $PlayerFreezeTimer
+@onready var screen: Screen = $Screen
+@onready var player_freeze_timer: Timer = $Timers/PlayerFreezeTimer
+@onready var intro_screen_timer: Timer = $Timers/IntroScreenTimer
+@onready var end_screen_timer: Timer = $Timers/EndScreenTimer
+@onready var game_over_screen_timer: Timer = $Timers/GameOverScreenTimer
+@onready var player_spawn_point: Node3D = $PlayerSpawnPoint
 
 var task_objects: Array[TaskObjectBase]
 	
 var tasks_completed: int = 0
+var nights_completed: int = 0
 	
 func _ready() -> void:
 	player_freeze_timer.wait_time = objectives_display_time_in_seconds
+	intro_screen_timer.wait_time = intro_screen_display_time_in_seconds
+	end_screen_timer.wait_time = end_screen_display_time_in_seconds
+	game_over_screen_timer.wait_time = intro_screen_display_time_in_seconds
 	player_freeze_timer.timeout.connect(_on_player_freeze_timeout)
+	intro_screen_timer.timeout.connect(_on_intro_screen_timeout)
+	end_screen_timer.timeout.connect(_on_end_screen_timeout)
+	game_over_screen_timer.timeout.connect(_on_game_over_screen_timeout)
 	player.hud = hud
 	for child in task_container.get_children(true):
 		if child is Interactable:
@@ -26,13 +41,35 @@ func _ready() -> void:
 			if child is TaskObjectBase:
 				var task_object: TaskObjectBase = child as TaskObjectBase
 				register_task(task_object)	
-				
+	
+	_prepare_round()
+
+func _prepare_round():
+	player.position = player_spawn_point.position
+	player.rotation = player_spawn_point.rotation
+	player.is_frozen = true
+	screen.visible = true
+	nights_completed += 1
+	screen.label.text = "Night %d" % nights_completed
+	intro_screen_timer.start()
+	
+func _on_intro_screen_timeout():
 	_start_round()
+	
+func _on_end_screen_timeout():
+	_prepare_round()
+	
+func _on_game_over_screen_timeout():
+	pass
 
 func _start_round():
+	for task_object in task_objects:
+		task_object.set_hidden()
+	
+	screen.visible = false
 	tasks_completed = 0
 	hud.objectives_list.reset()
-	hud.objectives_list.set_tasks_left(number_of_tasks_available_per_round - tasks_completed)
+	hud.objectives_list.set_tasks_left(tasks_to_complete_per_round - tasks_completed)
 	var tasks_to_activate = select_number_of_tasks(number_of_tasks_available_per_round)
 	for task in tasks_to_activate:
 		task.initialize_task()
@@ -45,7 +82,6 @@ func _start_round():
 func _on_player_freeze_timeout():
 	player.is_frozen = false
 	hud.objectives_list.visible = false
-	# This is where the timer will get kicked off
 	
 func select_number_of_tasks(number_of_tasks: int):
 	var eligible_tasks = task_objects.duplicate()
@@ -77,13 +113,13 @@ func _on_task_updated(task_object: TaskObjectBase, interact_level_current: float
 	
 func _on_task_completed(task_object: TaskObjectBase):
 	tasks_completed += 1
-	if tasks_completed == number_of_tasks_available_per_round:
-		# TODO: Add completion here
-		pass
+	if tasks_completed == tasks_to_complete_per_round:
+		_show_end_screen()
+		return
 		
 	hud.show_task_complete()
 	hud.objectives_list.remove_task_objective(task_object)
-	hud.objectives_list.set_tasks_left(number_of_tasks_available_per_round - tasks_completed)
+	hud.objectives_list.set_tasks_left(tasks_to_complete_per_round - tasks_completed)
 	if task_object.consume_item_on_completion:
 		player.holdable_item_manager.destroy_current_item()
 
@@ -95,3 +131,11 @@ func _on_task_reset(task_object: TaskObjectBase):
 
 func on_can_interact(can_interact: bool):
 	hud.set_crosshair_interactable(can_interact)
+
+	
+func _show_end_screen():
+	player.is_frozen = true
+	screen.visible = true
+	screen.label.text = "Night Survived"
+	end_screen_timer.start()
+	
