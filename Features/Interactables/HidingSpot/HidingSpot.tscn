@@ -1,31 +1,26 @@
 [gd_scene format=3 uid="uid://bk2kq5e62xjx3"]
 
 [ext_resource type="Script" uid="uid://c6qpm04hm5mnk" path="res://Features/Interactables/HidingSpot/hiding_spot.gd" id="1_alj0q"]
+[ext_resource type="PackedScene" uid="uid://dew6pf5vhh8dc" path="res://Levels/Wiki/Assest brah/Open_Coffin .glb" id="2_jl4ua"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kvxqa"]
-size = Vector3(0.21582031, 0.23001099, 1)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g4v7s"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_22rbs"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jl4ua"]
-resource_local_to_scene = true
-albedo_color = Color(0.29951712, 0.22075987, 0.1316526, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_jl4ua"]
+size = Vector3(1, 1, 1.4727783)
 
 [node name="HidingSpot" type="Node3D" unique_id=1844162814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.91082317, 0, 0, 0)
 script = ExtResource("1_alj0q")
 is_hold_action = false
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=440068970]
+transform = Transform3D(1, 0, 0, 0, -0.0035043128, 0.99999386, 0, -0.99999386, -0.0035043128, 1.6126769, -0.75695086, 8.099104)
 mass = 100000.0
+physics_material_override = SubResource("PhysicsMaterial_g4v7s")
 gravity_scale = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=821095511]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010253906, 0, 0)
-shape = SubResource("BoxShape3D_kvxqa")
-debug_color = Color(1, 1, 1, 0.41960785)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=767564121]
+transform = Transform3D(0.6331975, 0, 0, 0, 0.81355983, -8.568168e-08, 0, -7.450581e-09, 3.98999, 1.011948, 1.0064073, 2.711954)
+shape = SubResource("BoxShape3D_jl4ua")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=682387175]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005493164, 0, 0)
-cast_shadow = 0
-mesh = SubResource("BoxMesh_22rbs")
-surface_material_override/0 = SubResource("StandardMaterial3D_jl4ua")
+[node name="Open_Coffin " parent="." unique_id=652615488 instance=ExtResource("2_jl4ua")]
