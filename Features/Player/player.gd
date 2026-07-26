@@ -94,6 +94,9 @@ func _process_input() -> Vector3:
 #-------------------------------------------------------------------------------
 # Apply movement, gravity, and acceleration each physics frame.
 func _process_movement(direction : Vector3, delta: float) -> void:
+	if is_frozen:
+		return
+		
 	velocity_desired = direction * move_speed
 	
 	# Horizontal components
