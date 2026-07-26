@@ -55,9 +55,9 @@ func _input(event: InputEvent) -> void:
 		if Input.is_action_pressed("look_down"):
 			camera_rot_y += 10 * mouse_sensitivity
 		if Input.is_action_pressed("look_left"):
-			camera_rot_x -= 10 * mouse_sensitivity
-		if Input.is_action_pressed("look_right"):
 			camera_rot_x += 10 * mouse_sensitivity
+		if Input.is_action_pressed("look_right"):
+			camera_rot_x -= 10 * mouse_sensitivity
 		camera_rot_x = clamp(camera_rot_x, max_look_down, max_look_up)
 		
 		if is_hiding:
