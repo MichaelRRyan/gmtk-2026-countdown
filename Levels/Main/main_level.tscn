@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://sgm12leuc65s" path="res://Levels/Wiki/Assest brah/StoneWallFinal.glb" id="21_ofdr7"]
 [ext_resource type="PackedScene" uid="uid://1ubxrcku6xbk" path="res://Levels/Wiki/Assest brah/WoodenFloor.glb" id="22_elxtf"]
 [ext_resource type="PackedScene" uid="uid://cfvx5yqps5g6a" path="res://Features/GameLogic/count_timer.tscn" id="24_woe30"]
+[ext_resource type="PackedScene" uid="uid://cj42ii7fx2a8i" path="res://Features/Player/HUD/screen.tscn" id="25_vl6cs"]
 
 [sub_resource type="Environment" id="Environment_btu42"]
 background_energy_multiplier = 0.3
@@ -2582,7 +2583,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 1.1617
 [node name="CoffinBed" parent="TaskObjects" unique_id=2082441799 instance=ExtResource("18_7oflx")]
 transform = Transform3D(0.39999998, -1.7763568e-15, 1.7763568e-15, 0, 0.39999998, -2.2351744e-08, 0, 2.2351738e-08, 0.4, 0.0672836, 3.4464245, -5.8229628)
 
-[node name="CountTimer" parent="." unique_id=426008035 instance=ExtResource("24_woe30")]
+[node name="Screen" parent="." unique_id=1859783061 instance=ExtResource("25_vl6cs")]
 
-[node name="PlayerFreezeTimer" type="Timer" parent="." unique_id=1968032739]
+[node name="PlayerSpawnPoint" type="Node3D" parent="." unique_id=1231924512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.038892)
+
+[node name="Timers" type="Node3D" parent="." unique_id=2051956589]
+
+[node name="PlayerFreezeTimer" type="Timer" parent="Timers" unique_id=1968032739]
+one_shot = true
+
+[node name="CountTimer" parent="Timers" unique_id=426008035 instance=ExtResource("24_woe30")]
+
+[node name="IntroScreenTimer" type="Timer" parent="Timers" unique_id=427290947]
+one_shot = true
+
+[node name="EndScreenTimer" type="Timer" parent="Timers" unique_id=399131059]
+one_shot = true
+
+[node name="GameOverScreenTimer" type="Timer" parent="Timers" unique_id=1832852366]
 one_shot = true

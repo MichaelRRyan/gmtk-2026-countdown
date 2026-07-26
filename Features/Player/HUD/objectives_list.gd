@@ -7,6 +7,7 @@ class_name ObjectivesList
 var labels: Dictionary[TaskObjectBase.TaskType, ObjectiveItem]
 
 func reset():
+	labels.clear()
 	for child in objectives_list_container.get_children():
 		objectives_list_container.remove_child(child)
 		child.queue_free()
