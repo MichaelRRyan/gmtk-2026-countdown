@@ -38,16 +38,17 @@ func _ready() -> void:
 #-------------------------------------------------------------------------------
 func _input(event: InputEvent) -> void:
 	# Handle mouse movement for view direction.
-	if event is InputEventMouseMotion:
-		camera_rot_y -= event.relative.x * mouse_sensitivity
-		camera_rot_x -= event.relative.y * mouse_sensitivity
-		camera_rot_x = clamp(camera_rot_x, max_look_down, max_look_up)
-		
-		if is_hiding:
-			camera_rot_y = clamp(camera_rot_y, hiding_min_look, hiding_max_look)
-		
-		rotation.y = camera_rot_y
-		head.rotation.x = camera_rot_x
+	if not OS.has_feature("web_android") and not OS.has_feature("web_ios"):
+		if event is InputEventMouseMotion:
+			camera_rot_y -= event.relative.x * mouse_sensitivity
+			camera_rot_x -= event.relative.y * mouse_sensitivity
+			camera_rot_x = clamp(camera_rot_x, max_look_down, max_look_up)
+			
+			if is_hiding:
+				camera_rot_y = clamp(camera_rot_y, hiding_min_look, hiding_max_look)
+			
+			rotation.y = camera_rot_y
+			head.rotation.x = camera_rot_x
 	
 	# PLACEHOLDER - TODO: Remove this.
 	if event.is_action_pressed("exit"):
