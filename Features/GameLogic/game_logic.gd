@@ -152,3 +152,7 @@ func _show_end_screen():
 	screen.label.text = "Night Survived"
 	end_screen_timer.start()
 	
+
+
+func _count_finished_searching() -> void:
+	pass # Replace with function body.

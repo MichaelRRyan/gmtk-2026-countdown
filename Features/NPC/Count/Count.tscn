@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dy78hjdmy5dh" path="res://Features/NPC/Count/count.gd" id="1_4b4jr"]
 [ext_resource type="PackedScene" uid="uid://bcc4cntv5v0xh" path="res://Levels/Main/Count/Vampire_Model.glb" id="2_weabx"]
+[ext_resource type="PackedScene" uid="uid://cfvx5yqps5g6a" path="res://Features/GameLogic/count_timer.tscn" id="3_2x40n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pofvg"]
 radius = 0.3
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_weabx"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vl6cs"]
 
 [node name="Count" type="Node3D" unique_id=1983518072]
 
@@ -31,16 +30,31 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -
 libraries/count_anim_lib = SubResource("AnimationLibrary_weabx")
 
 [node name="Area3D" type="Area3D" parent="CharacterBody3D" unique_id=761968050]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Area3D" unique_id=106722353]
-shape = SubResource("BoxShape3D_vl6cs")
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="CharacterBody3D/Area3D" unique_id=1271506286]
+polygon = PackedVector2Array(-25, 35, 25, 35, 0, 0)
 
 [node name="PatrolTimer" type="Timer" parent="." unique_id=1082849438]
-wait_time = 12.0
+wait_time = 8.0
 autostart = true
 
 [node name="MemoryTimer" type="Timer" parent="." unique_id=1812780494]
 wait_time = 2.0
 
+[node name="CountTimer" parent="." unique_id=426008035 instance=ExtResource("3_2x40n")]
+
+[node name="TimeToStartCheckingArea" parent="CountTimer" index="0" unique_id=1913670887]
+one_shot = true
+
+[node name="TimeToFinishChecking" parent="CountTimer" index="1" unique_id=220098126]
+one_shot = true
+
+[connection signal="body_entered" from="CharacterBody3D/Area3D" to="CharacterBody3D" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="CharacterBody3D/Area3D" to="CharacterBody3D" method="_on_area_3d_body_exited"]
 [connection signal="timeout" from="PatrolTimer" to="CharacterBody3D" method="_on_timer_timeout"]
 [connection signal="timeout" from="MemoryTimer" to="CharacterBody3D" method="_forget_player"]
+[connection signal="finished_checking" from="CountTimer" to="CharacterBody3D" method="_count_finished_searching"]
+[connection signal="start_checking_area" from="CountTimer" to="CharacterBody3D" method="_start_searching_area"]
+
+[editable path="CountTimer"]
