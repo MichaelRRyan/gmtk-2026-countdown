@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://otehevk40x1d"]
 
 [ext_resource type="Script" uid="uid://d1ui5d3fvkqdd" path="res://screens/main_menu.gd" id="1_ocono"]
+[ext_resource type="Theme" uid="uid://dkgcamelbh4xu" path="res://screens/ui_theme.tres" id="1_t3bh0"]
 [ext_resource type="PackedScene" uid="uid://dci1j83ojyowk" path="res://Levels/Main/main_level.tscn" id="2_vj53j"]
 
 [sub_resource type="Theme" id="Theme_dqmnb"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_t3bh0")
 script = ExtResource("1_ocono")
 main_level = ExtResource("2_vj53j")
 
@@ -25,6 +27,7 @@ offset_left = -5.0
 offset_right = -5.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_t3bh0")
 color = Color(0.59839195, 0, 0.1590251, 1)
 
 [node name="ButtonsContainer" type="VBoxContainer" parent="." unique_id=1826921472]
@@ -61,6 +64,7 @@ offset_bottom = 41.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
+theme = ExtResource("1_t3bh0")
 theme_override_font_sizes/font_size = 50
 text = "Play"
 horizontal_alignment = 1
@@ -82,6 +86,7 @@ offset_bottom = 44.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
+theme = ExtResource("1_t3bh0")
 theme_override_font_sizes/font_size = 50
 text = "Credits"
 
@@ -101,6 +106,7 @@ offset_bottom = 43.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
+theme = ExtResource("1_t3bh0")
 theme_override_font_sizes/font_size = 50
 text = "Exit"
 

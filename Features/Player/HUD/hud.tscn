@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cu0kdxy5t7fgl"]
 
+[ext_resource type="Theme" uid="uid://dkgcamelbh4xu" path="res://screens/ui_theme.tres" id="1_2oed0"]
 [ext_resource type="Script" uid="uid://degc01x2f2g1m" path="res://Features/Player/HUD/hud.gd" id="1_qjg4n"]
 [ext_resource type="PackedScene" uid="uid://bbhgld6mgyoxf" path="res://Features/Player/HUD/objectives_list.tscn" id="2_j6b2d"]
 [ext_resource type="PackedScene" uid="uid://bcygdx0gaa2cw" path="res://Features/GameLogic/timer.tscn" id="4_2oed0"]
@@ -47,6 +48,8 @@ _data = {
 &"task_complete_fadeout": SubResource("Animation_j6b2d")
 }
 
+[sub_resource type="Theme" id="Theme_c8vhp"]
+
 [node name="HUD" type="Control" unique_id=1740219873]
 layout_mode = 3
 anchors_preset = 15
@@ -56,6 +59,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_2oed0")
 script = ExtResource("1_qjg4n")
 crosshair_normal_color = Color(1, 1, 1, 1)
 crosshair_interactable_color = Color(1, 0, 0, 1)
@@ -76,6 +80,7 @@ offset_right = 2.5
 offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_2oed0")
 texture = SubResource("CanvasTexture_7uhao")
 
 [node name="TaskComplete" type="RichTextLabel" parent="." unique_id=10010184]
@@ -106,6 +111,7 @@ offset_right = 110.0
 offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_2oed0")
 show_percentage = false
 
 [node name="ObjectivesList" parent="." unique_id=1966678782 instance=ExtResource("2_j6b2d")]
@@ -115,6 +121,7 @@ offset_left = -207.0
 offset_top = -76.0
 offset_right = 193.0
 offset_bottom = 124.0
+theme = ExtResource("1_2oed0")
 
 [node name="EquippableObject" type="RichTextLabel" parent="." unique_id=1475675828]
 layout_mode = 1
@@ -129,6 +136,7 @@ offset_right = 108.0
 offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_2oed0")
 text = "DEBUG"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -147,6 +155,7 @@ offset_right = 544.0
 offset_bottom = -130.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_c8vhp")
 text = "Right Click to Leave Hiding Spot"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -184,18 +193,13 @@ offset_top = -50.0
 offset_right = 123.0
 offset_bottom = -27.0
 grow_vertical = 0
+theme = ExtResource("1_2oed0")
 theme_override_font_sizes/font_size = 18
 text = "[TAB] Tasks"
 
 [node name="Timer" parent="." unique_id=1417300461 instance=ExtResource("4_2oed0")]
-custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-offset_left = -231.0
-offset_top = -102.0
-offset_right = -31.0
-offset_bottom = -2.0
-grow_horizontal = 0
-grow_vertical = 0
+offset_left = 360.0
+offset_top = 291.0
+offset_right = 360.0
+offset_bottom = 291.0
