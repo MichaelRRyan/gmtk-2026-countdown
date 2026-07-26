@@ -29,15 +29,15 @@
 [ext_resource type="PackedScene" uid="uid://cs2nw6lbu83dr" path="res://Audio/audio_players.tscn" id="27_domlc"]
 [ext_resource type="PackedScene" uid="uid://ej8m3siwk3dh" path="res://Levels/Main/audio_zones.tscn" id="28_hlqrd"]
 
-[sub_resource type="Environment" id="Environment_btu42"]
-background_energy_multiplier = 0.5
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbg0b"]
 shader = ExtResource("5_hdvse")
 shader_parameter/pixel_size = 4.000000142499999
 shader_parameter/vhs_intensity = 3.0
 shader_parameter/noise_intensity = 0.15
 shader_parameter/opacity = 0.30000001425
+
+[sub_resource type="Environment" id="Environment_btu42"]
+background_energy_multiplier = 0.5
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_y8tdg"]
 vertices = PackedVector3Array(3.748581, 3.75, -14, 11.248581, 3.75, -14.25, 11.248581, 3.75, -16, 3.498581, 3.75, -16, 12.248581, 3.75, -13.5, 12.248581, 3.75, -2.25, 12.748581, 3.75, -2.25, 12.748581, 3.75, -13.5, -7.001419, -0.25, -7.75, -7.001419, -0.25, -8.25, -7.751419, -0.25, -8.5, -9.501419, -0.25, -7.75, -9.501419, -0.25, -13, -7.751419, -0.25, -9.5, -7.001419, -0.25, -12.75, -7.001419, -0.25, -9.75, -9.501419, 3, -13, -9.501419, 3, -8.75, -7.001419, 3, -8.75, -7.001419, 3, -13, -5.501419, 3, -8.75, -4.501419, 3, -8.75, -4.501419, 3, -9.75, -5.501419, 3, -13, -3.751419, 3, -10.25, -3.751419, 3, -13, -5.251419, -0.25, -13, -5.251419, -0.25, -12.5, -4.251419, -0.25, -12.5, -4.251419, -0.25, -13, -1.7514191, -0.25, -11.75, -1.5014191, -0.25, -13, -2.251419, -0.25, -13, -2.251419, -0.25, -10, -1.0014191, -0.25, -10.25, -1.0014191, -0.25, -11.5, -2.251419, 3, -13, -2.251419, 3, -10, -1.0014191, 3, -10.25, -1.0014191, 3, -13, 0.99858093, -0.25, -7.75, 1.4985809, -0.25, -7.75, 1.7485809, -0.25, -8.5, 1.4985809, -0.25, -13, 0.99858093, -0.25, -13, 0.99858093, 3, -13, 0.99858093, 3, -7.75, 1.4985809, 3, -7.75, 1.4985809, 3, -13, 3.998581, 0.5, -2.75, 4.998581, 0.5, -2.75, 4.998581, 0.5, -4, 3.998581, 0.5, -7.5, 9.248581, 0.5, -4, 9.498581, 0.5, -2.75, 10.748581, 0.5, -2.75, 6.748581, 0.5, -2.25, 7.748581, 0.5, -2.25, 8.248581, 0.5, -4, 6.248581, 0.5, -4.25, 10.748581, 0.5, -12.25, 3.998581, 0.5, -12.5, 4.998581, 0.5, -9, 4.998581, 0.5, -8.25, 3.998581, 0.5, -9.25, 3.998581, 3.75, -2.75, 10.748581, 3.75, -2.75, 10.748581, 3.75, -12.25, 3.998581, 3.75, -12.5, -5.251419, -0.25, -10.75, -5.251419, -0.25, -10.25, -4.501419, -0.25, -10.25, -4.501419, -0.25, -10.75, -5.251419, -0.25, -7.75, -0.75141907, -0.25, -7.75, -0.75141907, -0.25, -8.25, -5.501419, -0.25, -8.5, -2.501419, 3, -8.5, -2.501419, 3, -7.75, -0.50141907, 3, -7.75, -0.50141907, 3, -8.5, -1.7514191, -0.25, -6, -1.7514191, -0.25, -4.25, 1.2485809, -0.25, -4.25, 1.4985809, -0.25, -6, -10.501419, 0.5, -2.5, -9.501419, 0.5, -2.75, -9.501419, 0.5, -3.5, -4.751419, 0.5, -4.75, -4.001419, 0.5, -5, -4.001419, 0.5, -6, -9.751419, 0.5, 0.25, -10.001419, 0.5, -1, -10.501419, 0.5, -1.25, -10.501419, 0.5, 2, -10.001419, 0.5, 1.75, -8.751419, 0.5, -3.75, -8.751419, 0.5, -5, -4.001419, 0.5, -2.25, -4.001419, 0.5, -3.5, -4.751419, 0.5, -3.75, -5.501419, 0.5, -2.25, -11.501419, 0.5, -6, -7.001419, 0.5, -5.25, -6.751419, 0.5, -3.75, -11.501419, 0.5, 4.25, -10.001419, 0.5, 4.25, -11.501419, 3.75, -6, -11.501419, 3.75, 7.25, -4.001419, 3.75, 7.25, -4.001419, 3.75, -6, -1.2514191, 2.75, -3.5, -2.001419, 2.25, -3.5, -2.001419, 2.25, -2.75, -1.2514191, 2.5, -2.5, 1.9985809, 0.5, 3.75, -1.0014191, 0.5, 0.5, -2.001419, 0.5, -0.25, -2.001419, 0.5, 5.75, 1.9985809, 0.5, 5, 1.9985809, 2.25, -2.75, 1.9985809, 2.25, -3.5, 0.99858093, 2.75, -3.5, 0.99858093, 2.5, -2.5, -1.2514191, 0.75, -0.25, -0.75141907, 1.25, -0.75, -3.251419, 0.5, 6, -3.251419, 0.5, 6.75, -2.001419, 0.5, 7, 0.74858093, 0.5, 0.75, 3.248581, 0.5, 4.75, 3.248581, 0.5, 4, 1.9985809, 0.5, -0.25, 0.99858093, 0.75, -0.25, 0.99858093, 1, -0.5, 0.99858093, 3.75, -6, -1.0014191, 3.75, -6, -2.001419, 0.5, 9.75, 1.9985809, 0.5, 9.75, 2.748581, 8, 1.25, 2.748581, 8, 0, 1.9985809, 7.75, -0.25, -2.001419, 7.75, 1.25, -2.001419, 7.75, -5.75, 1.9985809, 7.75, -5.75, -8.751419, 1.25, 1, -8.501419, 1.25, 4.5, -7.251419, 1.25, 4.5, -7.001419, 1.25, 1, -7.251419, 1.25, -2.75, -8.501419, 1.25, -2.75, -5.501419, 0.5, 4.5, -6.251419, 0.5, 4.75, -6.501419, 0.5, 5.5, -4.751419, 0.5, 5.5, -4.751419, 0.5, 4.75, -4.501419, 0.5, 7.25, -4.001419, 0.5, 4.5, -5.001419, 0.5, 2.5, -5.751419, 0.5, 3, -9.251419, 0.5, 5.5, -11.501419, 0.5, 7.25, -5.001419, 0.5, 1.5, -5.501419, 0.5, 0.25, 7.998581, 0.5, -0.75, 6.248581, 0.5, -0.75, 4.748581, 0.5, 2.5, 4.748581, 0.5, 3.5, 4.498581, 0.5, 5.75, 10.748581, 0.5, 5.75, 10.748581, 0.5, -0.75, 3.998581, 0.5, -0.75, 3.998581, 0.5, 2.25, 3.998581, 3.75, -0.75, 3.998581, 3.75, 5.75, 10.748581, 3.75, 5.75, 10.748581, 3.75, -0.75, 12.248581, 3.75, -0.75, 12.248581, 3.75, 5.75, 12.748581, 3.75, 5.75, 12.748581, 3.75, -0.75, -2.001419, 6, 2.25, -2.001419, 6, 10, 1.9985809, 6, 10, 1.9985809, 6, 2.25)
@@ -52,11 +52,36 @@ vertices_per_polygon = 8.0
 script = ExtResource("1_nvb6w")
 task_container = NodePath("TaskObjects")
 
-[node name="Count" parent="." unique_id=1983518072 groups=["navmesh"] instance=ExtResource("2_vl6cs")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.0208939, -0.05407363)
+[node name="Control" type="Control" parent="." unique_id=678476739]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_whuwa")
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=562131817]
+material = SubResource("ShaderMaterial_cbg0b")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" parent="." unique_id=1740219873 instance=ExtResource("12_1h7oc")]
+offset_top = 1.0
+offset_bottom = 1.0
+
+[node name="Screen" parent="." unique_id=1859783061 instance=ExtResource("25_vl6cs")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=26953060]
 environment = SubResource("Environment_btu42")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1292795222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010272741, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_y8tdg")
 
 [node name="CastleGeo" type="Node3D" parent="." unique_id=1402113960 groups=["navmesh"]]
 
@@ -2416,6 +2441,68 @@ use_collision = true
 size = Vector3(0.5, 5.75, 1.25)
 material = ExtResource("4_7n064")
 
+[node name="AudioZones" parent="." unique_id=1441628413 instance=ExtResource("28_hlqrd")]
+
+[node name="TaskObjects" type="Node3D" parent="." unique_id=277395040]
+
+[node name="DirtyWindowTask" parent="TaskObjects" unique_id=1343915890 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.113363, 1.642251, 3.515573)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask2" parent="TaskObjects" unique_id=1671789168 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.108674, 1.642251, 0.515573)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask3" parent="TaskObjects" unique_id=1268340960 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.076042, 1.642251, -2.484427)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask4" parent="TaskObjects" unique_id=2016142441 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.427193, 1.642251, -4.781184)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask9" parent="TaskObjects" unique_id=1408658100 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.427193, 1.642251, -7.531184)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask10" parent="TaskObjects" unique_id=1000021268 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.427193, 1.642251, -10.281184)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask5" parent="TaskObjects" unique_id=2141173000 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.429636, 1.642251, 0.96881557)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask6" parent="TaskObjects" unique_id=1297926415 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.429636, 1.642251, 3.9688156)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask7" parent="TaskObjects" unique_id=2055633987 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 8.728043, 1.642251, 6.422007)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask8" parent="TaskObjects" unique_id=457356035 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 5.7280426, 1.642251, 6.422007)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="TaskCleanBlood" parent="TaskObjects" unique_id=562064819 instance=ExtResource("15_kfrea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5295353, 0.04478711, -9.654356)
+
+[node name="CleaningCloth" parent="TaskObjects" unique_id=1437859175 instance=ExtResource("16_32g1e")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.8250847, 0.24593513, -7.2810335)
+
+[node name="TaskPlateCleanup" parent="TaskObjects" unique_id=1857819778 instance=ExtResource("17_h1rqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 4.251539)
+
+[node name="TaskPlateCleanup2" parent="TaskObjects" unique_id=1555737448 instance=ExtResource("17_h1rqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, -2.3148062)
+
+[node name="TaskPlateCleanup3" parent="TaskObjects" unique_id=1894126411 instance=ExtResource("17_h1rqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 1.1617994)
+
+[node name="CoffinBed" parent="TaskObjects" unique_id=2082441799 instance=ExtResource("18_7oflx")]
+transform = Transform3D(0.39999998, -1.7763568e-15, 1.7763568e-15, 0, 0.39999998, -2.2351744e-08, 0, 2.2351738e-08, 0.4, 0.0672836, 3.4464245, -5.8229628)
+
 [node name="Lighting" type="Node3D" parent="." unique_id=1286854159]
 
 [node name="ChandelierLight" parent="Lighting" unique_id=175456360 instance=ExtResource("4_cbg0b")]
@@ -2478,92 +2565,11 @@ transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, -4.6
 [node name="TorchLight4" parent="Lighting" unique_id=172986589 instance=ExtResource("5_efy7f")]
 transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, -1.6173844, 1.8707786, -13.428157)
 
+[node name="Count" parent="." unique_id=1983518072 groups=["navmesh"] instance=ExtResource("2_vl6cs")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.0208939, -0.05407363)
+
 [node name="Player" parent="." unique_id=988380354 groups=["player"] instance=ExtResource("4_efy7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1352939, 0, 9.035391)
-
-[node name="Control" type="Control" parent="." unique_id=678476739]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("17_whuwa")
-
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=562131817]
-material = SubResource("ShaderMaterial_cbg0b")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HUD" parent="." unique_id=1740219873 instance=ExtResource("12_1h7oc")]
-offset_top = 1.0
-offset_bottom = 1.0
-
-[node name="TaskObjects" type="Node3D" parent="." unique_id=277395040]
-
-[node name="DirtyWindowTask" parent="TaskObjects" unique_id=1343915890 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.113363, 1.642251, 3.515573)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask2" parent="TaskObjects" unique_id=1671789168 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.108674, 1.642251, 0.515573)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask3" parent="TaskObjects" unique_id=1268340960 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.076042, 1.642251, -2.484427)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask4" parent="TaskObjects" unique_id=2016142441 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.427193, 1.642251, -4.781184)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask9" parent="TaskObjects" unique_id=1408658100 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.427193, 1.642251, -7.531184)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask10" parent="TaskObjects" unique_id=1000021268 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.427193, 1.642251, -10.281184)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask5" parent="TaskObjects" unique_id=2141173000 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.429636, 1.642251, 0.96881557)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask6" parent="TaskObjects" unique_id=1297926415 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.429636, 1.642251, 3.9688156)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask7" parent="TaskObjects" unique_id=2055633987 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 8.728043, 1.642251, 6.422007)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask8" parent="TaskObjects" unique_id=457356035 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 5.7280426, 1.642251, 6.422007)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="TaskCleanBlood" parent="TaskObjects" unique_id=562064819 instance=ExtResource("15_kfrea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5295353, 0.04478711, -9.654356)
-
-[node name="CleaningCloth" parent="TaskObjects" unique_id=1437859175 instance=ExtResource("16_32g1e")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.8250847, 0.24593513, -7.2810335)
-
-[node name="TaskPlateCleanup" parent="TaskObjects" unique_id=1857819778 instance=ExtResource("17_h1rqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 4.251539)
-
-[node name="TaskPlateCleanup2" parent="TaskObjects" unique_id=1555737448 instance=ExtResource("17_h1rqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, -2.3148062)
-
-[node name="TaskPlateCleanup3" parent="TaskObjects" unique_id=1894126411 instance=ExtResource("17_h1rqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 1.1617994)
-
-[node name="CoffinBed" parent="TaskObjects" unique_id=2082441799 instance=ExtResource("18_7oflx")]
-transform = Transform3D(0.39999998, -1.7763568e-15, 1.7763568e-15, 0, 0.39999998, -2.2351744e-08, 0, 2.2351738e-08, 0.4, 0.0672836, 3.4464245, -5.8229628)
-
-[node name="Screen" parent="." unique_id=1859783061 instance=ExtResource("25_vl6cs")]
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="." unique_id=1231924512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.038892)
@@ -2584,10 +2590,4 @@ one_shot = true
 [node name="GameOverScreenTimer" type="Timer" parent="Timers" unique_id=1832852366]
 one_shot = true
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1292795222]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010272741, 0, 0)
-navigation_mesh = SubResource("NavigationMesh_y8tdg")
-
 [node name="AudioPlayers" parent="." unique_id=1913657729 instance=ExtResource("27_domlc")]
-
-[node name="AudioZones" parent="." unique_id=1441628413 instance=ExtResource("28_hlqrd")]

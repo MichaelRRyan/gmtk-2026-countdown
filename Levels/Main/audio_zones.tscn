@@ -16,6 +16,8 @@ size = Vector3(8.686523, 1, 19.383034)
 
 [node name="EntryWay" type="Area3D" parent="." unique_id=2050142723 groups=["stone_floor"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.4212737)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EntryWay" unique_id=1325264924]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.20806885)
@@ -23,6 +25,8 @@ shape = SubResource("BoxShape3D_btu42")
 
 [node name="EntryWay2" type="Area3D" parent="." unique_id=214472881 groups=["stone_floor"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -6.5787263)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EntryWay2" unique_id=2006314380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5539551, 0, -2.1385188)
@@ -30,6 +34,8 @@ shape = SubResource("BoxShape3D_domlc")
 
 [node name="DiningRoom" type="Area3D" parent="." unique_id=762121785 groups=["wood_floor"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6570854, 0, 0.017281532)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DiningRoom" unique_id=1344847412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5802307)
@@ -37,6 +43,8 @@ shape = SubResource("BoxShape3D_wghp1")
 
 [node name="LivingRoomOffice" type="Area3D" parent="." unique_id=1455450580 groups=["wood_floor"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7030516, 0, -3.6822524)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LivingRoomOffice" unique_id=569048363]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23791504, 0, 0.33053207)

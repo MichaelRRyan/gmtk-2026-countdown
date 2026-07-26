@@ -15,6 +15,7 @@ var player
 
 func _ready() -> void:
 	find_next_nav_location()
+	$Vampire.set_state_idle()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,6 +49,14 @@ func _process(delta: float) -> void:
 	var new_velocity = (next_location - current_location).normalized() * speed
 	velocity = velocity.move_toward(new_velocity,0.25)
 	move_and_slide()
+	
+	if velocity.length_squared() > 0:
+		$FootstepAudio.play()
+		$Vampire.set_state_walking()
+	else:
+		$FootstepAudio.stop()
+		$Vampire.set_state_idle()
+	
 
 func find_next_nav_location():
 	var start_pos = global_transform.origin

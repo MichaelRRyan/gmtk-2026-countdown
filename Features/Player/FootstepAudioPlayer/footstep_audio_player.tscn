@@ -17,6 +17,8 @@ wait_time = 0.5
 one_shot = true
 
 [node name="AudioZoneAreaDetector" type="Area3D" parent="." unique_id=1836539569]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AudioZoneAreaDetector" unique_id=1558161389]
 shape = SubResource("SphereShape3D_btu42")
