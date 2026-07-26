@@ -74,3 +74,7 @@ func _start_searching_area() -> void:
 
 func _count_finished_searching() -> void:
 	pass
+
+func _check_for_player_collision(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		get_node("/root/Main")._game_over()
