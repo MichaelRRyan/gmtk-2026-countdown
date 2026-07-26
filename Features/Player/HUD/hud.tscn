@@ -133,6 +133,23 @@ text = "DEBUG"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LeaveHidingSpot" type="RichTextLabel" parent="." unique_id=742500956]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 328.0
+offset_top = -170.0
+offset_right = 544.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Right Click to Leave Hiding Spot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="NewTask" type="RichTextLabel" parent="." unique_id=874122001]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
