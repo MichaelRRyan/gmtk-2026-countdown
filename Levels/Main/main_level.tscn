@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://se17jate6s7" path="res://Levels/Main/TaskObjects/task_clean_blood.tscn" id="15_kfrea"]
 [ext_resource type="PackedScene" uid="uid://cqliejscdrsyj" path="res://Levels/Main/EquippableObjects/cleaning_cloth.tscn" id="16_32g1e"]
 [ext_resource type="PackedScene" uid="uid://blthaqm2hacyh" path="res://Levels/Main/TaskObjects/task_plate_cleanup.tscn" id="17_h1rqx"]
+[ext_resource type="PackedScene" uid="uid://b8m7yvupsk1fe" path="res://Levels/Main/Objects/coffin_bed.tscn" id="18_7oflx"]
 
 [sub_resource type="Environment" id="Environment_btu42"]
 background_energy_multiplier = 0.3
@@ -745,3 +746,6 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.82
 
 [node name="TaskPlateCleanup" parent="TaskObjects" unique_id=1857819778 instance=ExtResource("17_h1rqx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 4.251539)
+
+[node name="CoffinBed" parent="TaskObjects" unique_id=2082441799 instance=ExtResource("18_7oflx")]
+transform = Transform3D(0.39999998, -1.7763568e-15, 1.7763568e-15, 0, 0.39999998, -2.2351744e-08, 0, 2.2351738e-08, 0.4, 0.0672836, 3.4464245, -5.8229628)

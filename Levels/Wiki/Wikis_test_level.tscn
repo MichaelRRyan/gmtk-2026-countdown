@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://7hyr6mum3j6q" path="res://Levels/Vlad/equippable_object_sample.tscn" id="5_yh0le"]
 [ext_resource type="PackedScene" uid="uid://bk2kq5e62xjx3" path="res://Features/Interactables/HidingSpot/HidingSpot.tscn" id="6_rqo30"]
 [ext_resource type="PackedScene" uid="uid://blthaqm2hacyh" path="res://Levels/Main/TaskObjects/task_plate_cleanup.tscn" id="7_h0b6c"]
-[ext_resource type="PackedScene" uid="uid://b8m7yvupsk1fe" path="res://Levels/Wiki/Assest brah/coffin_bed.tscn" id="8_iqlh5"]
+[ext_resource type="PackedScene" uid="uid://b8m7yvupsk1fe" path="res://Levels/Main/Objects/coffin_bed.tscn" id="8_iqlh5"]
 [ext_resource type="PackedScene" uid="uid://sgm12leuc65s" path="res://Levels/Wiki/Assest brah/StoneWallFinal.glb" id="9_co80o"]
 [ext_resource type="PackedScene" uid="uid://dn4vyxcsku7qq" path="res://Levels/Wiki/Assest brah/Coffin_Door_PeekYes .glb" id="10_o2nbn"]
 [ext_resource type="PackedScene" uid="uid://1ubxrcku6xbk" path="res://Levels/Wiki/Assest brah/WoodenFloor.glb" id="11_o2nbn"]
 
-[node name="VladsTestLevel" type="Node3D" unique_id=1965605186]
+[node name="VladsTestLevel2" type="Node3D" unique_id=1965605186]
 script = ExtResource("1_45her")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=9575002]
@@ -61,7 +61,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2638955, 0.5, -2.7497091)
 [node name="TaskPlateCleanup" parent="." unique_id=1857819778 instance=ExtResource("7_h0b6c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1340437, 0.084232695, -0.9639044)
 interact_decrease_rate = 0.99
-interact_level_end = 1.0
 
 [node name="CoffinBed" parent="." unique_id=2082441799 instance=ExtResource("8_iqlh5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 3)

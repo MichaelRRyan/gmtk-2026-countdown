@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://b8m7yvupsk1fe"]
+
+[ext_resource type="PackedScene" uid="uid://cul2wooyqf08t" path="res://Levels/Wiki/Assest brah/CountDown'sBed.glb" id="1_67or1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vw6b8"]
+size = Vector3(5.8269043, 2.1813965, 5.9379272)
+
+[sub_resource type="Animation" id="Animation_tu8ia"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CountDown\'sBed:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(5, -1.3182082, -6)]
+}
+
+[sub_resource type="Animation" id="Animation_rpvp4"]
+resource_name = "float"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CountDown\'sBed:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(5, -1.3182082, -6), Vector3(5, -0.9, -6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tu8ia"]
+_data = {
+&"RESET": SubResource("Animation_tu8ia"),
+&"float": SubResource("Animation_rpvp4")
+}
+
+[node name="CoffinBed" type="Node3D" unique_id=2082441799]
+
+[node name="CountDown\'sBed" parent="." unique_id=1169236732 instance=ExtResource("1_67or1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.3182082, -6)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=412063253]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=372421212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.4008205, -0.05480957, 1.449585, 0.30547148)
+shape = SubResource("BoxShape3D_vw6b8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=767308423]
+libraries/ = SubResource("AnimationLibrary_tu8ia")
+autoplay = &"float"
