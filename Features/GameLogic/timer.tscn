@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bcygdx0gaa2cw"]
 
 [ext_resource type="Script" uid="uid://dbalh2vnx52n5" path="res://Features/GameLogic/timer.gd" id="1_xby6y"]
+[ext_resource type="Theme" uid="uid://dkgcamelbh4xu" path="res://screens/ui_theme.tres" id="2_4g682"]
 
 [node name="Timer" type="Control" unique_id=280677918]
 layout_mode = 3
@@ -22,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_4g682")
 text = "Time Remaining:"
 horizontal_alignment = 1
 vertical_alignment = 1
