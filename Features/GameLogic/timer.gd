@@ -4,21 +4,18 @@ class_name CountDownTimer
 
 signal timer_completed
 
-@export_category("Timer")
-@export var label: RichTextLabel
-@export var totalTime: float 
+@onready var label: RichTextLabel = $Label
 
 @onready
 var dayTimer: Timer = $DayTimer
 
-func _ready():
-	dayTimer.wait_time = totalTime
-	dayTimer.start()
-
 func _process(delta):
-	var time_remaining: int = dayTimer.time_left
-	var minutes: int = floor(time_remaining / 60.0)
-	var seconds: int = time_remaining % 60
+	if !dayTimer.is_stopped():
+		display_current_time(dayTimer.time_left)
+	
+func display_current_time(time: int):
+	var minutes: int = floor(time / 60.0)
+	var seconds: int = time % 60
 	label.text = "Time Remaining: %02d:%02d" % [minutes, seconds]
 	
 func _start_timer():

@@ -5,6 +5,7 @@ class_name GameLogic
 
 @export_category("Game Mode")
 @export var number_of_tasks_available_per_round = 8
+@export var night_duration_in_seconds = 120
 @export var tasks_to_complete_per_round = 3
 @export var objectives_display_time_in_seconds = 2.0
 @export var intro_screen_display_time_in_seconds = 2.0
@@ -34,6 +35,7 @@ func _ready() -> void:
 	intro_screen_timer.timeout.connect(_on_intro_screen_timeout)
 	end_screen_timer.timeout.connect(_on_end_screen_timeout)
 	game_over_screen_timer.timeout.connect(_on_game_over_screen_timeout)
+	hud.night_timer.dayTimer.timeout.connect(_game_over)
 	player.hud = hud
 	for child in task_container.get_children(true):
 		if child is Interactable:
@@ -53,6 +55,13 @@ func _prepare_round():
 	screen.label.text = "Night %d" % nights_completed
 	intro_screen_timer.start()
 	
+func _game_over():
+	hud.night_timer.dayTimer.stop()
+	player.is_frozen = true
+	screen.visible = true
+	screen.label.text = "After %d nights, you shift is forever over." % nights_completed
+	game_over_screen_timer.start()
+	
 func _on_intro_screen_timeout():
 	_start_round()
 	
@@ -60,12 +69,13 @@ func _on_end_screen_timeout():
 	_prepare_round()
 	
 func _on_game_over_screen_timeout():
-	pass
+	get_tree().change_scene_to_file("res://screens/main_menu.tscn")
 
 func _start_round():
 	for task_object in task_objects:
 		task_object.set_hidden()
 	
+	hud.night_timer.display_current_time(night_duration_in_seconds)
 	screen.visible = false
 	tasks_completed = 0
 	hud.objectives_list.reset()
@@ -82,6 +92,8 @@ func _start_round():
 func _on_player_freeze_timeout():
 	player.is_frozen = false
 	hud.objectives_list.visible = false
+	hud.night_timer.dayTimer.wait_time = night_duration_in_seconds
+	hud.night_timer.dayTimer.start()
 	
 func select_number_of_tasks(number_of_tasks: int):
 	var eligible_tasks = task_objects.duplicate()
@@ -134,6 +146,7 @@ func on_can_interact(can_interact: bool):
 
 	
 func _show_end_screen():
+	hud.night_timer.dayTimer.stop()
 	player.is_frozen = true
 	screen.visible = true
 	screen.label.text = "Night Survived"
