@@ -66,10 +66,10 @@ func show_new_task(task_object: TaskObjectBase) -> void:
 	new_task.modulate.a = 1.0
 	new_task_timer.start(new_task_display_length)
 	
-func show_equippable_object_description(text: String, show: bool):
-	if show:
+func show_equippable_object_description(text: String, show_text: bool):
+	if show_text:
 		equippable_object_label.text = text
-	equippable_object_label.visible = show
+	equippable_object_label.visible = show_text
 	
 func reset_interactable_hud_elements():
 	task_progress_bar.visible = false

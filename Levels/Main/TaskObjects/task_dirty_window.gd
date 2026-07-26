@@ -20,7 +20,7 @@ func _undo_action() -> void:
 	_update_color()
 
 
-func _on_task_completed(task_object):
+func _on_task_completed(_task_object):
 	$TaskCooldownTimer.start(randf_range(60, 90))
 
 
