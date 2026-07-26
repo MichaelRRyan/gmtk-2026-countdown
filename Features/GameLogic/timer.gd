@@ -16,7 +16,13 @@ func _ready():
 	dayTimer.start()
 
 func _process(delta):
-	label.text = "Day Left: %d" % dayTimer.time_left
+	var time_remaining: int = dayTimer.time_left
+	var minutes: int = floor(time_remaining / 60.0)
+	var seconds: int = time_remaining % 60
+	label.text = "Time Remaining: %02d:%02d" % [minutes, seconds]
+	
+func _start_timer():
+	dayTimer.start()
 
 func _on_timer_timeout():
 	timer_completed.emit()
