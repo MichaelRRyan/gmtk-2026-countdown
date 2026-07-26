@@ -26,11 +26,14 @@
 [ext_resource type="PackedScene" uid="uid://cfvx5yqps5g6a" path="res://Features/GameLogic/count_timer.tscn" id="24_woe30"]
 
 [sub_resource type="Environment" id="Environment_btu42"]
-background_energy_multiplier = 0.3
+background_energy_multiplier = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbg0b"]
 shader = ExtResource("5_hdvse")
-shader_parameter/Pixel_Size = 5.00000019
+shader_parameter/pixel_size = 4.000000142499999
+shader_parameter/vhs_intensity = 3.0
+shader_parameter/noise_intensity = 0.15
+shader_parameter/opacity = 0.30000001425
 
 [node name="Main" type="Node3D" unique_id=2088972694 node_paths=PackedStringArray("task_container")]
 script = ExtResource("1_nvb6w")
