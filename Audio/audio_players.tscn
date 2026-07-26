@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cs2nw6lbu83dr"]
+
+[ext_resource type="AudioStream" uid="uid://bwfnlp5eisdrf" path="res://Audio/Ambience/rain.wav" id="1_cjtyo"]
+
+[node name="AudioPlayers" type="Node3D" unique_id=1913657729]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=868426030]
+stream = ExtResource("1_cjtyo")
+volume_db = 10.0
+autoplay = true

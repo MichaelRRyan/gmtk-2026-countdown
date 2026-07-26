@@ -103,6 +103,11 @@ func _process_movement(direction : Vector3, delta: float) -> void:
 	
 	move_and_slide()
 	
+	if direction.length() > 0 and is_on_floor():
+		$FootstepAudio.play()
+	else:
+		$FootstepAudio.stop()
+	
 
 #-------------------------------------------------------------------------------
 func _physics_process(delta: float) -> void:

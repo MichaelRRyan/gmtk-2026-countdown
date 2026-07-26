@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cpqyrsb0cg511"]
+
+[ext_resource type="Script" uid="uid://dy5rrvtc3qogn" path="res://Features/Player/FootstepAudioPlayer/footstep_audio_player.gd" id="1_ms5td"]
+[ext_resource type="AudioStream" uid="uid://xgmtr7iqwko1" path="res://Audio/SFX/step_wood_0.wav" id="2_26ed5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_btu42"]
+
+[node name="FootstepAudio" type="Node3D" unique_id=945028907]
+script = ExtResource("1_ms5td")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=874316508]
+stream = ExtResource("2_26ed5")
+volume_db = -10.0
+
+[node name="FootstepFrequency" type="Timer" parent="." unique_id=909849243]
+wait_time = 0.5
+one_shot = true
+
+[node name="AudioZoneAreaDetector" type="Area3D" parent="." unique_id=1836539569]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AudioZoneAreaDetector" unique_id=1558161389]
+shape = SubResource("SphereShape3D_btu42")
+
+[connection signal="timeout" from="FootstepFrequency" to="." method="_on_footstep_frequency_timeout"]
+[connection signal="area_entered" from="AudioZoneAreaDetector" to="." method="_on_audio_zone_area_detector_area_entered"]

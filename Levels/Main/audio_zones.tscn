@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://ej8m3siwk3dh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btu42"]
+size = Vector3(5.661133, 1, 13.734253)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_domlc"]
+size = Vector3(8.769043, 1, 10.421936)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wghp1"]
+size = Vector3(9.1623535, 1, 14.478577)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hlqrd"]
+size = Vector3(8.686523, 1, 19.383034)
+
+[node name="AudioZones" type="Node3D" unique_id=1441628413]
+
+[node name="EntryWay" type="Area3D" parent="." unique_id=2050142723 groups=["stone_floor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.4212737)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntryWay" unique_id=1325264924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.20806885)
+shape = SubResource("BoxShape3D_btu42")
+
+[node name="EntryWay2" type="Area3D" parent="." unique_id=214472881 groups=["stone_floor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -6.5787263)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntryWay2" unique_id=2006314380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5539551, 0, -2.1385188)
+shape = SubResource("BoxShape3D_domlc")
+
+[node name="DiningRoom" type="Area3D" parent="." unique_id=762121785 groups=["wood_floor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6570854, 0, 0.017281532)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DiningRoom" unique_id=1344847412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5802307)
+shape = SubResource("BoxShape3D_wghp1")
+
+[node name="LivingRoomOffice" type="Area3D" parent="." unique_id=1455450580 groups=["wood_floor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7030516, 0, -3.6822524)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LivingRoomOffice" unique_id=569048363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23791504, 0, 0.33053207)
+shape = SubResource("BoxShape3D_hlqrd")
