@@ -10,8 +10,9 @@ size = Vector3(1.0244141, 0.44335938, 1.0019531)
 
 [node name="TaskPlateCleanup" type="Node3D" unique_id=1857819778]
 script = ExtResource("1_anno6")
-interact_delay_before_decrease = 0.0
-interact_decrease_rate = 0.2
+interact_increase_rate = 0.5
+interact_delay_before_decrease = 0.1
+interact_decrease_rate = 1.0
 objective_text = "Clean up plates"
 task_type = 2
 metadata/_custom_type_script = "uid://c3oslm2uh8fpn"

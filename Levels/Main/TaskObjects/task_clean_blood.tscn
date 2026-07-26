@@ -8,6 +8,7 @@ size = Vector3(2.3548431, 0.61120605, 2.0942993)
 
 [node name="TaskCleanBlood" type="Node3D" unique_id=562064819]
 script = ExtResource("1_j50rd")
+interact_increase_rate = 0.25
 required_item_type = 3
 consume_item_on_completion = true
 objective_text = "Clean up stain"
