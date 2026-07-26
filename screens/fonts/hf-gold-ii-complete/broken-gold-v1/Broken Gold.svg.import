@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cevaebesn11a6"
-path="res://.godot/imported/Broken Gold.svg-7e1f054c4b92904df87d7aea7bd2a555.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
-source_file="res://screens/fonts/hf-gold-ii-complete/broken-gold-v1/Broken Gold.svg"
-dest_files=["res://.godot/imported/Broken Gold.svg-7e1f054c4b92904df87d7aea7bd2a555.ctex"]
+source_file="res://Screens/fonts/hf-gold-ii-complete/broken-gold-v1/Broken Gold.svg"
 
 [params]
 

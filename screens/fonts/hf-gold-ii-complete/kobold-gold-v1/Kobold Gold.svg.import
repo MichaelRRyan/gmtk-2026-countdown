@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://omqjkbppruld"
-path="res://.godot/imported/Kobold Gold.svg-5b6c055c0b5def64bc83927114cac4d6.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
-source_file="res://screens/fonts/hf-gold-ii-complete/kobold-gold-v1/Kobold Gold.svg"
-dest_files=["res://.godot/imported/Kobold Gold.svg-5b6c055c0b5def64bc83927114cac4d6.ctex"]
+source_file="res://Screens/fonts/hf-gold-ii-complete/kobold-gold-v1/Kobold Gold.svg"
 
 [params]
 
