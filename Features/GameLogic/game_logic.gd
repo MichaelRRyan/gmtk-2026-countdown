@@ -1,10 +1,12 @@
 extends Node
+class_name GameLogic
 
 @export var task_container : Node = self
 
 @export_category("Game Mode")
-@export var number_of_tasks_per_round = 5
-@export var objectives_display_time = 2
+@export var number_of_tasks_available_per_round = 8
+@export var objectives_display_time_in_seconds = 2
+@export var task_to_complete_per_roud = 3
 
 @onready var player: Player = $Player
 @onready var hud: HUD = $HUD
@@ -12,10 +14,11 @@ extends Node
 
 var task_objects: Array[TaskObjectBase]
 	
-func _ready() -> void:
-	player_freeze_timer.wait_time = objectives_display_time
-	player_freeze_timer.timeout.connect(_on_player_freeze_timeout)
+var tasks_completed: int = 0
 	
+func _ready() -> void:
+	player_freeze_timer.wait_time = objectives_display_time_in_seconds
+	player_freeze_timer.timeout.connect(_on_player_freeze_timeout)
 	player.hud = hud
 	for child in task_container.get_children(true):
 		if child is Interactable:
@@ -27,7 +30,10 @@ func _ready() -> void:
 	_start_round()
 
 func _start_round():
-	var tasks_to_activate = select_number_of_tasks(number_of_tasks_per_round)
+	tasks_completed = 0
+	hud.objectives_list.reset()
+	hud.objectives_list.set_tasks_left(number_of_tasks_available_per_round - tasks_completed)
+	var tasks_to_activate = select_number_of_tasks(number_of_tasks_available_per_round)
 	for task in tasks_to_activate:
 		task.initialize_task()
 		hud.objectives_list.set_task_objective(task)
@@ -70,8 +76,14 @@ func _on_task_updated(task_object: TaskObjectBase, interact_level_current: float
 	
 	
 func _on_task_completed(task_object: TaskObjectBase):
+	tasks_completed += 1
+	if tasks_completed == number_of_tasks_available_per_round:
+		# TODO: Add completion here
+		pass
+		
 	hud.show_task_complete()
 	hud.objectives_list.remove_task_objective(task_object)
+	hud.objectives_list.set_tasks_left(number_of_tasks_available_per_round - tasks_completed)
 	if task_object.consume_item_on_completion:
 		player.holdable_item_manager.destroy_current_item()
 
