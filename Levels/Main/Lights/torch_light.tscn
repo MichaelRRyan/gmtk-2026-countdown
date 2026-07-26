@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://3t8kgp251jik"]
 
+[ext_resource type="Material" uid="uid://b780x1kpqp6fo" path="res://Levels/Main/Materials/wood_furniture_material.tres" id="1_t1oa3"]
+
 [node name="TorchLight" type="OmniLight3D" unique_id=180794861]
 light_color = Color(0.9804073, 0.6648134, 0.49651223, 1)
 light_energy = 0.2
@@ -11,3 +13,4 @@ omni_attenuation = -0.613
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.8660253, 0, -0.8660253, 0.5, 0, -0.3628304, -0.10028267)
 cast_shadow = 0
 size = Vector3(0.18945313, 0.14746094, 0.71313477)
+material = ExtResource("1_t1oa3")

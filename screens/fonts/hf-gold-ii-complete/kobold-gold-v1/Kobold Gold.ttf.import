@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bhu2r8545eu2u"
-path="res://.godot/imported/Kobold Gold.ttf-ee304f98ceb49d5f2fc3bfb56342bb9f.fontdata"
+path="res://.godot/imported/Kobold Gold.ttf-86e191ae3303bfe4c4280edbff32cc3a.fontdata"
 
 [deps]
 
-source_file="res://screens/fonts/hf-gold-ii-complete/kobold-gold-v1/Kobold Gold.ttf"
-dest_files=["res://.godot/imported/Kobold Gold.ttf-ee304f98ceb49d5f2fc3bfb56342bb9f.fontdata"]
+source_file="res://Screens/fonts/hf-gold-ii-complete/kobold-gold-v1/Kobold Gold.ttf"
+dest_files=["res://.godot/imported/Kobold Gold.ttf-86e191ae3303bfe4c4280edbff32cc3a.fontdata"]
 
 [params]
 
