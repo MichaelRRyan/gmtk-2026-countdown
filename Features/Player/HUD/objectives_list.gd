@@ -22,3 +22,10 @@ func remove_task_objective(task_object: TaskObjectBase):
 			label_to_decrement.queue_free()
 		else:
 			label_to_decrement.complete_objective(task_object)
+
+
+func _on_toggle_button_pressed() -> void:
+	var ev = InputEventAction.new()
+	ev.action = "show_tasks"
+	ev.pressed = true
+	Input.parse_input_event(ev)

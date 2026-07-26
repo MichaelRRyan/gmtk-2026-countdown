@@ -33,10 +33,12 @@ func _process(_delta: float) -> void:
 
 func _on_button_down() -> void:
 	var ev = InputEventAction.new()
-	ev.set_as_action("interact", true)
+	ev.action = "interact"
+	ev.pressed = true
 	Input.parse_input_event(ev)
 
 func _on_button_up() -> void:
 	var ev = InputEventAction.new()
-	ev.set_as_action("interact", false)
+	ev.action = "interact"
+	ev.pressed = false
 	Input.parse_input_event(ev)
