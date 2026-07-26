@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://blthaqm2hacyh"]
+
+[ext_resource type="Script" uid="uid://c3oslm2uh8fpn" path="res://Levels/Main/TaskObjects/task_plate_cleanup.gd" id="1_anno6"]
+[ext_resource type="PackedScene" uid="uid://nq0v5l4y7blh" path="res://Levels/Main/Objects/plate.glb" id="2_naraw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cciay"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cciay"]
+size = Vector3(1.0244141, 0.44335938, 1.0019531)
+
+[node name="TaskPlateCleanup" type="Node3D" unique_id=1857819778]
+script = ExtResource("1_anno6")
+interact_delay_before_decrease = 0.0
+interact_decrease_rate = 0.2
+objective_text = "Clean up plates"
+task_type = 2
+metadata/_custom_type_script = "uid://c3oslm2uh8fpn"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2055351419]
+transform = Transform3D(0.5259603, 0, 0, 0, 1, 0, 0, 0, 0.5038756, 0, 0, 0)
+visible = false
+mesh = SubResource("PlaneMesh_cciay")
+
+[node name="Plates" type="Node3D" parent="." unique_id=1225727517]
+
+[node name="plate" parent="Plates" unique_id=1672264742 instance=ExtResource("2_naraw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.4940683, -0.07678873, 0, 0.07678873, 0.4940683, -0.040503263, 0.05075988, 0.14199606)
+
+[node name="plate4" parent="Plates" unique_id=1022986365 instance=ExtResource("2_naraw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.4940683, -0.07678873, 0, 0.07678873, 0.4940683, -0.17590651, 0.05075988, -0.108633816)
+
+[node name="plate5" parent="Plates" unique_id=1758830552 instance=ExtResource("2_naraw")]
+transform = Transform3D(0.4735226, -0.15864547, 0.024656883, 0.16055015, 0.46790507, -0.072722405, 0, 0.07678874, 0.49406835, -0.20037797, 0.08202934, 0.08476758)
+
+[node name="plate6" parent="Plates" unique_id=849023539 instance=ExtResource("2_naraw")]
+transform = Transform3D(0.49978736, 0.014408216, -0.0022393428, -0.014581159, 0.49385822, -0.07675607, 0, 0.07678873, 0.49406832, -0.008732483, 0.13210285, 0.08476758)
+
+[node name="plate7" parent="Plates" unique_id=592911470 instance=ExtResource("2_naraw")]
+transform = Transform3D(0.49978736, 0.014408216, -0.0022393425, 0.012837424, -0.47121257, -0.16671501, -0.006914526, 0.16658664, -0.47138208, 0.0044213384, 0.08749986, -0.16832805)
+
+[node name="plate8" parent="Plates" unique_id=156557005 instance=ExtResource("2_naraw")]
+transform = Transform3D(0.46476808, 0.13887346, -0.12126337, -0.10281899, 0.46821564, 0.14213473, 0.15303232, -0.10718304, 0.46378106, 0.22897322, 0.12502715, -0.06487158)
+
+[node name="plate2" parent="Plates" unique_id=1778917228 instance=ExtResource("2_naraw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.4662701, 0.18053316, 0, -0.18053316, 0.4662701, 0.082308486, 0.06635909, -0.07774347)
+
+[node name="plate3" parent="Plates" unique_id=1022069484 instance=ExtResource("2_naraw")]
+transform = Transform3D(0.5, 0, 0, 0, -0.45735896, 0.20204651, 0, -0.20204651, -0.45735896, 0.19525066, 0.06635909, 0.12199685)
+
+[node name="Area3D" type="RigidBody3D" parent="." unique_id=1690107167]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2122158500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012207031, 0.21777344, -0.0009765625)
+shape = SubResource("BoxShape3D_cciay")

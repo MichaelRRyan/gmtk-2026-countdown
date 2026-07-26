@@ -14,6 +14,9 @@
 [ext_resource type="Shader" uid="uid://csm131yyan6g7" path="res://Levels/Maicon/pixelate_shader.gdshader" id="5_hdvse"]
 [ext_resource type="PackedScene" uid="uid://cu0kdxy5t7fgl" path="res://Features/Player/HUD/hud.tscn" id="12_1h7oc"]
 [ext_resource type="PackedScene" uid="uid://b66ha6tgvh6vq" path="res://Levels/Main/TaskObjects/task_dirty_window.tscn" id="14_h71bk"]
+[ext_resource type="PackedScene" uid="uid://se17jate6s7" path="res://Levels/Main/TaskObjects/task_clean_blood.tscn" id="15_kfrea"]
+[ext_resource type="PackedScene" uid="uid://cqliejscdrsyj" path="res://Levels/Main/EquippableObjects/cleaning_cloth.tscn" id="16_32g1e"]
+[ext_resource type="PackedScene" uid="uid://blthaqm2hacyh" path="res://Levels/Main/TaskObjects/task_plate_cleanup.tscn" id="17_h1rqx"]
 
 [sub_resource type="Environment" id="Environment_btu42"]
 background_energy_multiplier = 0.3
@@ -689,6 +692,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HUD" parent="." unique_id=1740219873 instance=ExtResource("12_1h7oc")]
+offset_top = 1.0
+offset_bottom = 1.0
 
 [node name="TaskObjects" type="Node3D" parent="." unique_id=277395040]
 
@@ -731,3 +736,12 @@ color_end = Color(0.23, 0.13654333, 0.10810001, 0)
 [node name="DirtyWindowTask8" parent="TaskObjects" unique_id=457356035 instance=ExtResource("14_h71bk")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 5.7280426, 1.642251, 6.468816)
 color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="TaskCleanBlood" parent="TaskObjects" unique_id=562064819 instance=ExtResource("15_kfrea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3544445, 0.050911006, -9.429797)
+
+[node name="CleaningCloth" parent="TaskObjects" unique_id=1437859175 instance=ExtResource("16_32g1e")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.8250847, 0.13894503, -7.2810335)
+
+[node name="TaskPlateCleanup" parent="TaskObjects" unique_id=1857819778 instance=ExtResource("17_h1rqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 4.251539)

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cqliejscdrsyj"]
+
+[ext_resource type="Script" uid="uid://ckisauu46hp7u" path="res://Features/Interactables/Equipment/equippable_object.gd" id="1_w0kik"]
+[ext_resource type="PackedScene" uid="uid://d32wo77gn1iej" path="res://Levels/Main/Objects/cloth.glb" id="2_mqfon"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cciay"]
+size = Vector3(0.34057617, 0.3320923, 0.059692383)
+
+[node name="CleaningCloth" type="Node3D" unique_id=1437859175]
+script = ExtResource("1_w0kik")
+object_name = "Cleaning Cloth"
+postition_equipped_camera_offset = Vector3(0.3429729, -0.18849738, -0.39251834)
+rotation_equipped_camera_offset = Vector3(0, 0, -0.13088968)
+item_type = 3
+is_hold_action = false
+metadata/_custom_type_script = "uid://ckisauu46hp7u"
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1731828548]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=890966906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005004883, 0.007904053, -0.0025024414)
+shape = SubResource("BoxShape3D_cciay")
+
+[node name="cloth" parent="RigidBody3D" unique_id=613845862 instance=ExtResource("2_mqfon")]
+transform = Transform3D(0.14860563, 0, 0, 0, 0.14860563, 0, 0, 0, 0.14860563, 0.0053066015, 0.009660125, 0.002760142)

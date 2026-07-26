@@ -1,18 +1,42 @@
 extends Control
+@onready var virtual_joystick: VirtualJoystick = $VirtualJoystick
+@onready var virtual_joystick_2: VirtualJoystick = $VirtualJoystick2
+@onready var interact_button: Button = $InteractButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	if not DisplayServer.is_touchscreen_available():
+		virtual_joystick.hide()
+		virtual_joystick_2.hide()
+		interact_button.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	# TODO: if possible make it smoother later
+	if Input.is_action_pressed("look_up"):
+		var ev = InputEventMouseMotion.new()
+		ev.relative.y = -10;
+		Input.parse_input_event(ev)
+	if Input.is_action_pressed("look_down"):
+		var ev = InputEventMouseMotion.new()
+		ev.relative.y = 10;
+		Input.parse_input_event(ev)
+	if Input.is_action_pressed("look_left"):
+		var ev = InputEventMouseMotion.new()
+		ev.relative.x = -10;
+		Input.parse_input_event(ev)
+	if Input.is_action_pressed("look_right"):
+		var ev = InputEventMouseMotion.new()
+		ev.relative.x = 10;
+		Input.parse_input_event(ev)
 
 
-func _on_virtual_joystick_pressed() -> void:
-	pass # Replace with function body.
+func _on_button_down() -> void:
+	var ev = InputEventAction.new()
+	ev.set_as_action("interact", true)
+	Input.parse_input_event(ev)
 
-
-func _on_virtual_joystick_released(_input_vector: Vector2) -> void:
-	pass # Replace with function body.
+func _on_button_up() -> void:
+	var ev = InputEventAction.new()
+	ev.set_as_action("interact", false)
+	Input.parse_input_event(ev)

@@ -1,7 +1,7 @@
 extends Interactable
 class_name EquippableObject
 
-enum ItemType { NONE, STICK, KEY, BROOM }
+enum ItemType { NONE, STICK, KEY, CLOTH }
 
 @export_category("Debug Config")
 @export var is_active: bool = true
