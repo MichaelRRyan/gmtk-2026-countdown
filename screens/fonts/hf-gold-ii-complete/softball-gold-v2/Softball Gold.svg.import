@@ -7,7 +7,7 @@ valid=false
 
 [deps]
 
-source_file="res://Screens/fonts/hf-gold-ii-complete/softball-gold-v2/Softball Gold.svg"
+source_file="res://screens/fonts/hf-gold-ii-complete/softball-gold-v2/Softball Gold.svg"
 
 [params]
 

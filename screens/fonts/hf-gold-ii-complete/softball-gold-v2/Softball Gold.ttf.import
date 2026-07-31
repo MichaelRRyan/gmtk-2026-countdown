@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cek6cuo6t72xf"
-path="res://.godot/imported/Softball Gold.ttf-6ed8ff68080f412a291f57fc9fc04138.fontdata"
+path="res://.godot/imported/Softball Gold.ttf-1dd33787d479ab44de2fc9e6ca9bcbb3.fontdata"
 
 [deps]
 
-source_file="res://Screens/fonts/hf-gold-ii-complete/softball-gold-v2/Softball Gold.ttf"
-dest_files=["res://.godot/imported/Softball Gold.ttf-6ed8ff68080f412a291f57fc9fc04138.fontdata"]
+source_file="res://screens/fonts/hf-gold-ii-complete/softball-gold-v2/Softball Gold.ttf"
+dest_files=["res://.godot/imported/Softball Gold.ttf-1dd33787d479ab44de2fc9e6ca9bcbb3.fontdata"]
 
 [params]
 
