@@ -28,6 +28,10 @@
 [ext_resource type="PackedScene" uid="uid://cj42ii7fx2a8i" path="res://Features/Player/HUD/screen.tscn" id="25_vl6cs"]
 [ext_resource type="PackedScene" uid="uid://cs2nw6lbu83dr" path="res://Audio/audio_players.tscn" id="27_domlc"]
 [ext_resource type="PackedScene" uid="uid://ej8m3siwk3dh" path="res://Levels/Main/audio_zones.tscn" id="28_hlqrd"]
+[ext_resource type="PackedScene" uid="uid://cn5mexdd83vtk" path="res://Levels/Wiki/Assest brah/Barrel.glb" id="29_hlqrd"]
+[ext_resource type="PackedScene" uid="uid://chrt0quhltq51" path="res://Levels/Wiki/Assest brah/Bed.glb" id="30_sb46h"]
+[ext_resource type="PackedScene" uid="uid://b3sucj24j823v" path="res://Levels/Wiki/Assest brah/Table.glb" id="31_xb2y2"]
+[ext_resource type="PackedScene" uid="uid://cph0ce4mqfj5f" path="res://Levels/Wiki/Assest brah/Chair.glb" id="32_xb2y2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbg0b"]
 shader = ExtResource("5_hdvse")
@@ -81,6 +85,7 @@ environment = SubResource("Environment_btu42")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1292795222]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010272741, 0, 0)
+visible = false
 navigation_mesh = SubResource("NavigationMesh_y8tdg")
 
 [node name="CastleGeo" type="Node3D" parent="." unique_id=1402113960 groups=["navmesh"]]
@@ -2394,7 +2399,7 @@ size = Vector3(0.12, 2.1651688, 1)
 material = ExtResource("4_xh4ow")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="CastleGeo/Doors" unique_id=1534739384]
-transform = Transform3D(-0.19272804, 0, -0.9812523, 0, 1, 0, 0.9812523, 0, -0.19272804, -0.5637188, 0.25490856, -12.167941)
+transform = Transform3D(0.10321545, 0, -0.9946591, 0, 1, 0, 0.9946591, 0, 0.10321545, -0.5637188, 0.25490856, -11.165073)
 use_collision = true
 size = Vector3(0.12, 1.9143219, 1.184082)
 material = ExtResource("4_xh4ow")
@@ -2440,6 +2445,42 @@ transform = Transform3D(1, 0, 1.8278232e-07, 0, 1, 0, -1.8278232e-07, 0, 1, -3, 
 use_collision = true
 size = Vector3(0.5, 5.75, 1.25)
 material = ExtResource("4_7n064")
+
+[node name="Barrel" parent="CastleGeo" unique_id=456213854 instance=ExtResource("29_hlqrd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5171125, -1.6435542, -11.45013)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CastleGeo/Barrel" unique_id=110948053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3362848, 0)
+visible = false
+use_collision = true
+radius = 0.41992188
+
+[node name="Bed" parent="CastleGeo" unique_id=1026427022 instance=ExtResource("30_sb46h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5795548, -0.6882029, -10.334494)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CastleGeo/Bed" unique_id=406692922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+use_collision = true
+size = Vector3(1.2548828, 1, 2.6503906)
+
+[node name="Table" parent="CastleGeo" unique_id=619753851 instance=ExtResource("31_xb2y2")]
+transform = Transform3D(1.1501155, 0, 0, 0, 1, 0, 0, 0, 1.1371187, -2.3293495, -0.74999976, -13.056448)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CastleGeo/Table" unique_id=1764100004]
+transform = Transform3D(-3.800609e-08, 0, -0.8694779, 0, 1, 0, 0.8794157, 0, -3.844048e-08, 0.5945823, 0.56179684, -0.1648674)
+visible = false
+use_collision = true
+size = Vector3(1.2548828, 1, 2.6503906)
+
+[node name="Chair" parent="CastleGeo" unique_id=977902710 instance=ExtResource("32_xb2y2")]
+transform = Transform3D(0.5107488, 0, 0.85973, 0, 1, 0, -0.85973, 0, 0.5107488, -1.9809566, -0.74541235, -12.210872)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CastleGeo/Chair" unique_id=725002562]
+transform = Transform3D(0.0124563575, 0, -0.99992263, 0, 1, 0, 0.99992263, 0, 0.0124563575, -0.025850296, 0.55720943, -0.07601118)
+visible = false
+use_collision = true
+size = Vector3(0.69140625, 1, 0.732666)
 
 [node name="AudioZones" parent="." unique_id=1441628413 instance=ExtResource("28_hlqrd")]
 

@@ -10,35 +10,33 @@ radius = 0.35
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y8tdg"]
 
-[node name="Count" type="Node3D" unique_id=1983518072]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1778632351]
+[node name="TheCount" type="CharacterBody3D" unique_id=1778632351]
 script = ExtResource("1_4b4jr")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1070766215]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1070766215]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03152573, 0)
 shape = SubResource("CapsuleShape3D_pofvg")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D" unique_id=716879646]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=716879646]
 
-[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D" unique_id=1841862045]
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1841862045]
 
-[node name="Vampire" parent="CharacterBody3D" unique_id=1006799130 instance=ExtResource("2_2x40n")]
+[node name="Vampire" parent="." unique_id=1006799130 instance=ExtResource("2_2x40n")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
 
-[node name="Viewcone" type="Area3D" parent="CharacterBody3D" unique_id=761968050]
+[node name="Viewcone" type="Area3D" parent="." unique_id=761968050]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="CharacterBody3D/Viewcone" unique_id=1271506286]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Viewcone" unique_id=1271506286]
 polygon = PackedVector2Array(-25, 35, 25, 35, 0, 0)
 
-[node name="BodyCollision" type="Area3D" parent="CharacterBody3D" unique_id=1398431801]
+[node name="BodyCollision" type="Area3D" parent="." unique_id=1398431801]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/BodyCollision" unique_id=1637777036]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BodyCollision" unique_id=1637777036]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03152573, 0)
 shape = SubResource("CapsuleShape3D_y8tdg")
 
-[node name="FootstepAudio" parent="CharacterBody3D" unique_id=945028907 instance=ExtResource("3_m7mew")]
+[node name="FootstepAudio" parent="." unique_id=945028907 instance=ExtResource("3_m7mew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="PatrolTimer" type="Timer" parent="." unique_id=1082849438]
@@ -56,12 +54,12 @@ one_shot = true
 [node name="TimeToFinishChecking" parent="CountTimer" index="1" unique_id=220098126]
 one_shot = true
 
-[connection signal="body_entered" from="CharacterBody3D/Viewcone" to="CharacterBody3D" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="CharacterBody3D/Viewcone" to="CharacterBody3D" method="_on_area_3d_body_exited"]
-[connection signal="body_entered" from="CharacterBody3D/BodyCollision" to="CharacterBody3D" method="_check_for_player_collision"]
-[connection signal="timeout" from="PatrolTimer" to="CharacterBody3D" method="_on_timer_timeout"]
-[connection signal="timeout" from="MemoryTimer" to="CharacterBody3D" method="_forget_player"]
-[connection signal="finished_checking" from="CountTimer" to="CharacterBody3D" method="_count_finished_searching"]
-[connection signal="start_checking_area" from="CountTimer" to="CharacterBody3D" method="_start_searching_area"]
+[connection signal="body_entered" from="Viewcone" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Viewcone" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="BodyCollision" to="." method="_check_for_player_collision"]
+[connection signal="timeout" from="PatrolTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="MemoryTimer" to="." method="_forget_player"]
+[connection signal="finished_checking" from="CountTimer" to="." method="_count_finished_searching"]
+[connection signal="start_checking_area" from="CountTimer" to="." method="_start_searching_area"]
 
 [editable path="CountTimer"]

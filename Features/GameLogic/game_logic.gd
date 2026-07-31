@@ -31,12 +31,15 @@ func _ready() -> void:
 	intro_screen_timer.wait_time = intro_screen_display_time_in_seconds
 	end_screen_timer.wait_time = end_screen_display_time_in_seconds
 	game_over_screen_timer.wait_time = intro_screen_display_time_in_seconds
+	
 	player_freeze_timer.timeout.connect(_on_player_freeze_timeout)
 	intro_screen_timer.timeout.connect(_on_intro_screen_timeout)
 	end_screen_timer.timeout.connect(_on_end_screen_timeout)
 	game_over_screen_timer.timeout.connect(_on_game_over_screen_timeout)
 	hud.night_timer.dayTimer.timeout.connect(_game_over)
+	
 	player.hud = hud
+	
 	for child in task_container.get_children(true):
 		if child is Interactable:
 			child.hud = hud

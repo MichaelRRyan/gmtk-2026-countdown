@@ -8,9 +8,9 @@ signal timer_completed
 
 @onready var dayTimer: Timer = $DayTimer
 
-func _process(delta):
+func _process(_delta):
 	if !dayTimer.is_stopped():
-		display_current_time(dayTimer.time_left)
+		display_current_time(int(dayTimer.time_left))
 	
 func display_current_time(time: int):
 	var minutes: int = floor(time / 60.0)
