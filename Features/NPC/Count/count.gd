@@ -2,15 +2,15 @@ extends CharacterBody3D
 
 @onready var nav = $NavigationAgent3D
 @onready var raycast = $RayCast3D
-@onready var memory_timer = $"../MemoryTimer"
-@onready var patrol_timer = $"../PatrolTimer"
+@onready var memory_timer = $MemoryTimer
+@onready var patrol_timer = $PatrolTimer
 
-var speed = 2.5
-var gravity = 9.8
-var start_searching = false
-var next_nav_location
-var player_found = false
-var player
+var speed : float = 2.5
+var gravity : float = 9.8
+var start_searching : bool = false
+var next_nav_location : Vector3 = Vector3.ZERO
+var player_found : bool = false
+var player : Player = null
 
 
 func _ready() -> void:
@@ -21,13 +21,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !start_searching:
 		return
+		
 	if nav.is_target_reached():
 		find_next_nav_location()
 		patrol_timer.start()
+		
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	else:
 		velocity.y -= 2
+		
 	if player:
 		raycast.target_position = to_local(player.global_position)
 		raycast.force_raycast_update()
@@ -40,7 +43,9 @@ func _process(delta: float) -> void:
 			nav.target_position = next_nav_location
 	else:
 		nav.target_position = next_nav_location
+		
 	var next_location = nav.get_next_path_position()
+	
 	if next_location != global_transform.origin:
 		look_at(next_location, Vector3(0,1,0))
 		rotation.x = 0
