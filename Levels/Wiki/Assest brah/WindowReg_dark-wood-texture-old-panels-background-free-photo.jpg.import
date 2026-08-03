@@ -2,20 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv0wj6tryvhmf"
-path="res://.godot/imported/kobold-gold-v1.png-732013fcad310549488dd0d2cbd0ce41.ctex"
+uid="uid://ickwpqy23arw"
+path.s3tc="res://.godot/imported/WindowReg_dark-wood-texture-old-panels-background-free-photo.jpg-359f03db51b752bd22e1cf558040aa5d.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "8d114eacb772f4cdea31186a5c944511"
 }
 
 [deps]
 
-source_file="res://screens/fonts/hf-gold-ii-complete/kobold-gold-v1/kobold-gold-v1.png"
-dest_files=["res://.godot/imported/kobold-gold-v1.png-732013fcad310549488dd0d2cbd0ce41.ctex"]
+source_file="res://Levels/Wiki/Assest brah/WindowReg_dark-wood-texture-old-panels-background-free-photo.jpg"
+dest_files=["res://.godot/imported/WindowReg_dark-wood-texture-old-panels-background-free-photo.jpg-359f03db51b752bd22e1cf558040aa5d.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -23,7 +27,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -37,4 +41,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

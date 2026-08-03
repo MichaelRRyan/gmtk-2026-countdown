@@ -7,7 +7,7 @@ valid=false
 
 [deps]
 
-source_file="res://Screens/fonts/hf-gold-ii-complete/broken-gold-v1/Broken Gold.svg"
+source_file="res://screens/fonts/hf-gold-ii-complete/broken-gold-v1/Broken Gold.svg"
 
 [params]
 

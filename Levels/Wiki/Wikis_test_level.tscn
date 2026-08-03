@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://dyxqnhvb16rre" path="res://Levels/Wiki/Assest brah/window.glb" id="14_fbbg6"]
 [ext_resource type="PackedScene" uid="uid://chrt0quhltq51" path="res://Levels/Wiki/Assest brah/Bed.glb" id="15_byw22"]
 [ext_resource type="PackedScene" uid="uid://cn5mexdd83vtk" path="res://Levels/Wiki/Assest brah/Barrel.glb" id="16_fbbg6"]
+[ext_resource type="PackedScene" uid="uid://ciwr67o4es4w2" path="res://Levels/Wiki/Assest brah/office_desk.glb" id="17_8eeq6"]
+[ext_resource type="PackedScene" uid="uid://dq2jvj6y3tktc" path="res://Levels/Wiki/Assest brah/wardrobe.glb" id="18_nglus"]
+[ext_resource type="PackedScene" uid="uid://otgtana0wdj6" path="res://Levels/Wiki/Assest brah/WindowReg.glb" id="19_nglus"]
 
 [node name="VladsTestLevel2" type="Node3D" unique_id=1965605186]
 script = ExtResource("1_45her")
@@ -92,3 +95,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 6)
 
 [node name="Barrel" parent="." unique_id=1722743702 instance=ExtResource("16_fbbg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 3)
+
+[node name="office_desk" parent="." unique_id=1765252763 instance=ExtResource("17_8eeq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 2)
+
+[node name="wardrobe" parent="." unique_id=8284438 instance=ExtResource("18_nglus")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0)
+
+[node name="WindowReg" parent="." unique_id=1762291943 instance=ExtResource("19_nglus")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -9)
