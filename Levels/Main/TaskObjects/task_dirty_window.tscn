@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://dwg5sjkfscrrn" path="res://Levels/Main/TaskObjects/task_dirty_window.gd" id="1_fshc3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aoolo"]
-size = Vector3(0.1, 1.5, 1)
+size = Vector3(0.1, 1.6, 1.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_aoolo"]
-size = Vector3(0.1, 1.5, 1)
+size = Vector3(0.1, 1.6, 1.2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7n11"]
 resource_local_to_scene = true
@@ -14,7 +14,7 @@ transparency = 1
 
 [node name="DirtyWindowTask" type="Node3D" unique_id=1343915890]
 script = ExtResource("1_fshc3")
-color_start = Color(0.23256016, 0.13846281, 0.110396855, 1)
+color_start = Color(0.79607844, 0.49803922, 0.34509805, 0.7529412)
 color_end = Color(1, 1, 1, 0)
 interact_increase_rate = 0.5
 objective_text = "Clean the window"

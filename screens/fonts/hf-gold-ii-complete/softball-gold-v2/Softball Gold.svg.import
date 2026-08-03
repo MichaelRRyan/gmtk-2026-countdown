@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn54byxtn7aga"
-valid=false
+path="res://.godot/imported/Softball Gold.svg-a5c122df6b1f327d5bb58bce8f418d79.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://screens/fonts/hf-gold-ii-complete/softball-gold-v2/Softball Gold.svg"
+dest_files=["res://.godot/imported/Softball Gold.svg-a5c122df6b1f327d5bb58bce8f418d79.ctex"]
 
 [params]
 
