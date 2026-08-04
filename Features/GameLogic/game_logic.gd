@@ -20,11 +20,14 @@ class_name GameLogic
 @onready var end_screen_timer: Timer = $Timers/EndScreenTimer
 @onready var game_over_screen_timer: Timer = $Timers/GameOverScreenTimer
 @onready var player_spawn_point: Node3D = $PlayerSpawnPoint
+@onready var count_ai = $TheCount
 
 var task_objects: Array[TaskObjectBase]
 	
 var tasks_completed: int = 0
 var nights_completed: int = 0
+var _debug_mode = true
+
 	
 func _ready() -> void:
 	player_freeze_timer.wait_time = objectives_display_time_in_seconds
@@ -48,6 +51,17 @@ func _ready() -> void:
 				register_task(task_object)	
 	
 	_prepare_round()
+
+
+func _process(delta: float) -> void:
+	if _debug_mode:
+		if Input.is_action_just_pressed("debug_reset_ai"):
+			count_ai.reset()
+		if Input.is_action_just_pressed("debug_bright_light"):
+			var env : Environment = $WorldEnvironment.environment
+			env.background_energy_multiplier = 2
+			$WorldEnvironment.environment = env
+
 
 func _prepare_round():
 	player.position = player_spawn_point.position
@@ -154,6 +168,7 @@ func _show_end_screen():
 	screen.visible = true
 	screen.label.text = "Night Survived"
 	end_screen_timer.start()
+	count_ai.reset()
 	
 
 

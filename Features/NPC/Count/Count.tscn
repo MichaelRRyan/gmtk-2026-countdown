@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dy78hjdmy5dh" path="res://Features/NPC/Count/count.gd" id="1_4b4jr"]
 [ext_resource type="PackedScene" uid="uid://b1cj0yc13ahxp" path="res://Levels/Main/Count/CountWithAnims.tscn" id="2_2x40n"]
-[ext_resource type="PackedScene" uid="uid://cfvx5yqps5g6a" path="res://Features/GameLogic/count_timer.tscn" id="3_2x40n"]
 [ext_resource type="PackedScene" uid="uid://cpqyrsb0cg511" path="res://Features/Player/FootstepAudioPlayer/footstep_audio_player.tscn" id="3_m7mew"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pofvg"]
@@ -26,6 +25,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -
 
 [node name="Viewcone" type="Area3D" parent="." unique_id=761968050]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+monitoring = false
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Viewcone" unique_id=1271506286]
 polygon = PackedVector2Array(-25, 35, 25, 35, 0, 0)
@@ -39,6 +39,9 @@ shape = SubResource("CapsuleShape3D_y8tdg")
 [node name="FootstepAudio" parent="." unique_id=945028907 instance=ExtResource("3_m7mew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
+[node name="AudioStreamPlayer3D" parent="FootstepAudio" index="0" unique_id=874316508]
+volume_db = 0.0
+
 [node name="PatrolTimer" type="Timer" parent="." unique_id=1082849438]
 wait_time = 8.0
 autostart = true
@@ -46,20 +49,16 @@ autostart = true
 [node name="MemoryTimer" type="Timer" parent="." unique_id=1812780494]
 wait_time = 2.0
 
-[node name="CountTimer" parent="." unique_id=426008035 instance=ExtResource("3_2x40n")]
-
-[node name="TimeToStartCheckingArea" parent="CountTimer" index="0" unique_id=1913670887]
+[node name="StartIdleTimer" type="Timer" parent="." unique_id=104788566]
+wait_time = 15.0
 one_shot = true
-
-[node name="TimeToFinishChecking" parent="CountTimer" index="1" unique_id=220098126]
-one_shot = true
+autostart = true
 
 [connection signal="body_entered" from="Viewcone" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Viewcone" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="BodyCollision" to="." method="_check_for_player_collision"]
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="MemoryTimer" to="." method="_forget_player"]
-[connection signal="finished_checking" from="CountTimer" to="." method="_count_finished_searching"]
-[connection signal="start_checking_area" from="CountTimer" to="." method="_start_searching_area"]
+[connection signal="timeout" from="StartIdleTimer" to="." method="_on_start_idle_timer_timeout"]
 
-[editable path="CountTimer"]
+[editable path="FootstepAudio"]

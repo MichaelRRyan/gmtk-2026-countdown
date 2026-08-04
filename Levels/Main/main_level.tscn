@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://bbm2yoodb8jdm" path="res://Levels/Wiki/Assest brah/StoneFloor.glb" id="20_67oqy"]
 [ext_resource type="PackedScene" uid="uid://sgm12leuc65s" path="res://Levels/Wiki/Assest brah/StoneWallFinal.glb" id="21_ofdr7"]
 [ext_resource type="PackedScene" uid="uid://1ubxrcku6xbk" path="res://Levels/Wiki/Assest brah/WoodenFloor.glb" id="22_elxtf"]
-[ext_resource type="PackedScene" uid="uid://cfvx5yqps5g6a" path="res://Features/GameLogic/count_timer.tscn" id="24_woe30"]
 [ext_resource type="PackedScene" uid="uid://cj42ii7fx2a8i" path="res://Features/Player/HUD/screen.tscn" id="25_vl6cs"]
 [ext_resource type="PackedScene" uid="uid://cs2nw6lbu83dr" path="res://Audio/audio_players.tscn" id="27_domlc"]
 [ext_resource type="PackedScene" uid="uid://ej8m3siwk3dh" path="res://Levels/Main/audio_zones.tscn" id="28_hlqrd"]
@@ -2625,9 +2624,8 @@ transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, -4.6
 [node name="TorchLight4" parent="Lighting" unique_id=172986589 instance=ExtResource("5_efy7f")]
 transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, -1.6173844, 1.8707786, -13.428157)
 
-[node name="Count" parent="." unique_id=1983518072 groups=["navmesh"] instance=ExtResource("2_vl6cs")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.0208939, -0.05407363)
-script = null
+[node name="TheCount" parent="." unique_id=1778632351 groups=["navmesh"] instance=ExtResource("2_vl6cs")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1, 0)
 
 [node name="Player" parent="." unique_id=988380354 groups=["player"] instance=ExtResource("4_efy7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1352939, 0, 9.035391)
@@ -2639,8 +2637,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.038892)
 
 [node name="PlayerFreezeTimer" type="Timer" parent="Timers" unique_id=1968032739]
 one_shot = true
-
-[node name="CountTimer" parent="Timers" unique_id=426008035 instance=ExtResource("24_woe30")]
 
 [node name="IntroScreenTimer" type="Timer" parent="Timers" unique_id=427290947]
 one_shot = true
