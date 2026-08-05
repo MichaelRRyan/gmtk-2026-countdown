@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://djg6wu6a0emq6"]
+
+[ext_resource type="PackedScene" uid="uid://otgtana0wdj6" path="res://Levels/Wiki/Assest brah/WindowReg.glb" id="1_hwqw7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixi0c"]
+albedo_color = Color(0.14129311, 0.096866034, 0.06610532, 1)
+
+[node name="Window" type="Node3D" unique_id=1949170552]
+
+[node name="WindowReg" parent="." unique_id=181699970 instance=ExtResource("1_hwqw7")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WindowReg" unique_id=1754729784]
+transform = Transform3D(0.41171578, 0.4498122, -0.7925649, -3.9993207e-08, 0.86969626, 0.49358734, 0.9113123, -0.20321766, 0.35806772, -2.1785452, 2.7853246, 0.89837)
+light_color = Color(0.28549817, 0.54943675, 0.8489342, 1)
+light_energy = 2.0
+shadow_enabled = true
+shadow_caster_mask = 4293918736
+spot_range = 7.0
+spot_attenuation = 0.7
+
+[node name="AreaLight3D" type="AreaLight3D" parent="WindowReg" unique_id=1362543472]
+transform = Transform3D(-2.1855693e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855693e-07, 0.04708311, 1.49412, 0)
+area_range = 0.117
+area_size = Vector2(1.1699432, 1.5411375)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WindowReg" unique_id=1422446296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23695719, 3.1391413, 0)
+layers = 16
+size = Vector3(0.17626953, 1.6622314, 4.2070313)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="WindowReg" unique_id=329071325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23695719, 1.5059147, 1.3562214)
+layers = 16
+size = Vector3(0.17626953, 1.6622314, 1.5327148)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="WindowReg" unique_id=1466608997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23695719, 1.5059147, -1.4268796)
+layers = 16
+size = Vector3(0.17626953, 1.6622314, 1.5327148)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WindowReg" unique_id=335930167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23695719, -0.1484034, 0)
+layers = 16
+size = Vector3(0.17626953, 1.6622314, 4.263672)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="WindowReg" unique_id=277969932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18578158, 1.5077012, 0.005065918)
+size = Vector3(0.31848145, 1.6723022, 1.2669678)
+material = SubResource("StandardMaterial3D_ixi0c")
