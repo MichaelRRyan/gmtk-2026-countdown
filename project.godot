@@ -88,6 +88,12 @@ debug_bright_light={
 
 pointing/emulate_touch_from_mouse=true
 
+[layer_names]
+
+3d_physics/layer_1="all"
+3d_physics/layer_2="interaction"
+3d_physics/layer_5="shadows"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

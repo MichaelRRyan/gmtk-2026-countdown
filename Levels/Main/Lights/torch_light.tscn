@@ -1,6 +1,49 @@
 [gd_scene format=3 uid="uid://3t8kgp251jik"]
 
-[ext_resource type="Material" uid="uid://b780x1kpqp6fo" path="res://Levels/Main/Materials/wood_furniture_material.tres" id="1_t1oa3"]
+[ext_resource type="PackedScene" uid="uid://cwxcyrtjagb7e" path="res://Levels/Wiki/Assest brah/Torch.glb" id="1_t1oa3"]
+
+[sub_resource type="Curve" id="Curve_gx6nt"]
+_data = [Vector2(0.49504954, 0.978142), 0.0, -0.20972691, 0, 0, Vector2(1, 0), -3.0355175, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_t1oa3"]
+curve = SubResource("Curve_gx6nt")
+
+[sub_resource type="Gradient" id="Gradient_t1oa3"]
+offsets = PackedFloat32Array(0.55714285, 1)
+colors = PackedColorArray(0.65091306, 0.19679004, 0.07720462, 1, 0.9955211, 0.49935883, 0.33014843, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7uw0m"]
+gradient = SubResource("Gradient_t1oa3")
+
+[sub_resource type="Curve" id="Curve_t1oa3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.72677594), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dtj8i"]
+curve = SubResource("Curve_t1oa3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ixi0c"]
+gravity = Vector3(0, 1.2, 0)
+scale_curve = SubResource("CurveTexture_dtj8i")
+color_ramp = SubResource("GradientTexture1D_7uw0m")
+alpha_curve = SubResource("CurveTexture_t1oa3")
+turbulence_enabled = true
+turbulence_noise_scale = 0.0
+turbulence_influence_min = 0.044000003
+turbulence_influence_max = 0.074
+turbulence_initial_displacement_min = -0.9999985
+turbulence_initial_displacement_max = 1.0000015
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vju8"]
+transparency = 1
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(0.63057023, 0.19378832, 0.058432326, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ao3j6"]
+material = SubResource("StandardMaterial3D_7vju8")
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="TorchLight" type="OmniLight3D" unique_id=180794861]
 light_color = Color(0.9804073, 0.6648134, 0.49651223, 1)
@@ -9,8 +52,11 @@ shadow_enabled = true
 omni_range = 3.126
 omni_attenuation = -0.613
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1307157682]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.8660253, 0, -0.8660253, 0.5, 0, -0.3628304, -0.10028267)
-cast_shadow = 0
-size = Vector3(0.18945313, 0.14746094, 0.71313477)
-material = ExtResource("1_t1oa3")
+[node name="Torch" parent="." unique_id=337480372 instance=ExtResource("1_t1oa3")]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 0, -0.42789957, -0.14183515)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1208676782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.08457273)
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ixi0c")
+draw_pass_1 = SubResource("BoxMesh_ao3j6")

@@ -48,8 +48,10 @@ transform = Transform3D(0.5, 0, 0, 0, 0.4662701, 0.18053316, 0, -0.18053316, 0.4
 [node name="plate3" parent="Plates" unique_id=1022069484 instance=ExtResource("2_naraw")]
 transform = Transform3D(0.5, 0, 0, 0, -0.45735896, 0.20204651, 0, -0.20204651, -0.45735896, 0.19525066, 0.06635909, 0.12199685)
 
-[node name="Area3D" type="RigidBody3D" parent="." unique_id=1690107167]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=143160142]
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2122158500]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2122158500]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012207031, 0.21777344, -0.0009765625)
 shape = SubResource("BoxShape3D_cciay")

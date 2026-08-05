@@ -32,7 +32,6 @@
 [ext_resource type="PackedScene" uid="uid://chrt0quhltq51" path="res://Levels/Wiki/Assest brah/Bed.glb" id="30_sb46h"]
 [ext_resource type="PackedScene" uid="uid://b3sucj24j823v" path="res://Levels/Wiki/Assest brah/Table.glb" id="31_xb2y2"]
 [ext_resource type="PackedScene" uid="uid://cph0ce4mqfj5f" path="res://Levels/Wiki/Assest brah/Chair.glb" id="32_xb2y2"]
-[ext_resource type="PackedScene" uid="uid://otgtana0wdj6" path="res://Levels/Wiki/Assest brah/WindowReg.glb" id="33_4723i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbg0b"]
 shader = ExtResource("5_hdvse")
@@ -1831,7 +1830,7 @@ transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0
 transform = Transform3D(0.9999999, 0, -1.4504322e-07, 0, 1, 0, 1.4504322e-07, 0, 0.9999999, 0.15821612, -0.74733627, -8.027485)
 
 [node name="StoneWallFinal342" parent="CastleGeo/Walls" unique_id=1605351295 instance=ExtResource("21_ofdr7")]
-transform = Transform3D(0.9999999, 0, -1.4504322e-07, 0, 1, 0, 1.4504322e-07, 0, 0.9999999, 0.15821612, 1.2526637, -8.027485)
+transform = Transform3D(0.9999999, 0, -1.4504322e-07, 0, 1, 0, 1.4504322e-07, 0, 0.9999999, 0.15821612, 1.2088925, -8.027485)
 
 [node name="StoneWallFinal276" parent="CastleGeo/Walls" unique_id=1420521097 instance=ExtResource("21_ofdr7")]
 transform = Transform3D(1.0133183e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.0133183e-07, -0.5917839, 1.2526637, -7.0274854)
@@ -1921,16 +1920,13 @@ transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0,
 transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, 0.16622019, -0.74709314, -10.151928)
 
 [node name="StoneWallFinal270" parent="CastleGeo/Walls" unique_id=49606840 instance=ExtResource("21_ofdr7")]
-transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, 0.16622019, 1.2529068, -10.151928)
-
-[node name="StoneWallFinal271" parent="CastleGeo/Walls" unique_id=1042795431 instance=ExtResource("21_ofdr7")]
-transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, 0.16622019, 1.2529068, -13.151928)
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, 0.16622019, 1.2142758, -10.151928)
 
 [node name="StoneWallFinal272" parent="CastleGeo/Walls" unique_id=1323318552 instance=ExtResource("21_ofdr7")]
-transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, 0.16622019, 1.2529068, -13.151928)
+transform = Transform3D(0.9999999, 0, 2.9802326e-08, 0, 1, 0, -2.9802326e-08, 0, 0.9999999, 0.16622019, 1.2272735, -13.151928)
 
 [node name="StoneWallFinal273" parent="CastleGeo/Walls" unique_id=133699261 instance=ExtResource("21_ofdr7")]
-transform = Transform3D(0.9999999, 0, 1.5322106e-08, 0, 1, 0, -2.9802326e-08, 0, 0.51412445, 0.16221815, 1.2529068, -11.642893)
+transform = Transform3D(0.9999999, 0, 1.5322106e-08, 0, 1, 0, -2.9802326e-08, 0, 0.51412445, 0.16221815, 1.2272735, -11.642893)
 
 [node name="StoneWallFinal248" parent="CastleGeo/Walls" unique_id=731931155 instance=ExtResource("21_ofdr7")]
 transform = Transform3D(-1.3909059e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -1.3909059e-08, 1.2201586, -0.74709314, -13.708503)
@@ -2334,23 +2330,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4303527, 0.039794922, -9.86
 
 [node name="Windows" type="Node3D" parent="CastleGeo" unique_id=1892184934]
 
-[node name="WindowReg" parent="CastleGeo/Windows" unique_id=1690236718 instance=ExtResource("33_4723i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.005511, 0.15839314, 5.1193104)
-
-[node name="WindowReg2" parent="CastleGeo/Windows" unique_id=1752372243 instance=ExtResource("33_4723i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.005511, 0.15839314, 2.1193106)
-
-[node name="WindowReg3" parent="CastleGeo/Windows" unique_id=208500465 instance=ExtResource("33_4723i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.005511, 0.15839314, -0.8806894)
-
-[node name="WindowReg4" parent="CastleGeo/Windows" unique_id=1978065344 instance=ExtResource("33_4723i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.005511, 0.15839314, -3.8806894)
-
 [node name="Window" parent="CastleGeo/Windows" unique_id=1949170552 instance=ExtResource("17_4723i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.962516, 0.158, 6.349)
 
 [node name="Window2" parent="CastleGeo/Windows" unique_id=732904027 instance=ExtResource("17_4723i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.962516, 0.158, 6.349)
+
+[node name="Window7" parent="CastleGeo/Windows" unique_id=724066448 instance=ExtResource("17_4723i")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.35172, 0.15799999, 0.8736043)
+
+[node name="Window8" parent="CastleGeo/Windows" unique_id=407315163 instance=ExtResource("17_4723i")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.351721, 0.15799999, 3.8736043)
+
+[node name="Window9" parent="CastleGeo/Windows" unique_id=994611094 instance=ExtResource("17_4723i")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.35172, 0.15799999, -7.126396)
+
+[node name="Window11" parent="CastleGeo/Windows" unique_id=653123301 instance=ExtResource("17_4723i")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.35172, 0.15799999, -10.126396)
+
+[node name="Window10" parent="CastleGeo/Windows" unique_id=1236416493 instance=ExtResource("17_4723i")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.351721, 0.15799999, -4.1263957)
+
+[node name="Window3" parent="CastleGeo/Windows" unique_id=952678787 instance=ExtResource("17_4723i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.035114, 0.15799999, 5.0997276)
+
+[node name="Window4" parent="CastleGeo/Windows" unique_id=406854851 instance=ExtResource("17_4723i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.035114, 0.15799999, 2.0997276)
+
+[node name="Window5" parent="CastleGeo/Windows" unique_id=237511242 instance=ExtResource("17_4723i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.035114, 0.15799999, -0.90027237)
+
+[node name="Window6" parent="CastleGeo/Windows" unique_id=1839194734 instance=ExtResource("17_4723i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.035114, 0.15799999, -3.9002724)
 
 [node name="Doors" type="Node3D" parent="CastleGeo" unique_id=1614324794]
 
@@ -2514,48 +2525,48 @@ size = Vector3(0.69140625, 1, 0.732666)
 
 [node name="TaskObjects" type="Node3D" parent="." unique_id=277395040]
 
-[node name="DirtyWindowTask" parent="TaskObjects" unique_id=1343915890 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.069992, 1.6429632, 5.1189747)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
 [node name="DirtyWindowTask12" parent="TaskObjects" unique_id=2041613348 instance=ExtResource("14_h71bk")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.9634295, 1.6429632, 6.402946)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask14" parent="TaskObjects" unique_id=1343915890 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.089061, 1.6429632, 5.1006413)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask15" parent="TaskObjects" unique_id=1227845493 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.089061, 1.6429632, 2.1006413)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask16" parent="TaskObjects" unique_id=839802124 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.089061, 1.6429632, -0.89935875)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask17" parent="TaskObjects" unique_id=1362220640 instance=ExtResource("14_h71bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.089061, 1.6429632, -3.8993587)
 color_end = Color(0.23, 0.13654333, 0.10810001, 0)
 
 [node name="DirtyWindowTask13" parent="TaskObjects" unique_id=1721852476 instance=ExtResource("14_h71bk")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.9521265, 1.6429632, 6.402946)
 color_end = Color(0.23, 0.13654333, 0.10810001, 0)
 
-[node name="DirtyWindowTask2" parent="TaskObjects" unique_id=1671789168 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.069992, 1.6429632, 2.1172636)
+[node name="DirtyWindowTask18" parent="TaskObjects" unique_id=297043379 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, 3.8726907)
 color_end = Color(0.23, 0.13654333, 0.10810001, 0)
 
-[node name="DirtyWindowTask3" parent="TaskObjects" unique_id=1268340960 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.069992, 1.6429632, -0.88682497)
+[node name="DirtyWindowTask19" parent="TaskObjects" unique_id=803134074 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, 0.8839936)
 color_end = Color(0.23, 0.13654333, 0.10810001, 0)
 
-[node name="DirtyWindowTask11" parent="TaskObjects" unique_id=1017048000 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.069992, 1.6429632, -3.8749409)
+[node name="DirtyWindowTask20" parent="TaskObjects" unique_id=84955580 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, -4.1273093)
 color_end = Color(0.23, 0.13654333, 0.10810001, 0)
 
-[node name="DirtyWindowTask4" parent="TaskObjects" unique_id=2016142441 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.427193, 1.642251, -4.781184)
+[node name="DirtyWindowTask21" parent="TaskObjects" unique_id=2066433290 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, -7.116007)
 color_end = Color(0.23, 0.13654333, 0.10810001, 0)
 
-[node name="DirtyWindowTask9" parent="TaskObjects" unique_id=1408658100 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.427193, 1.642251, -7.531184)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask10" parent="TaskObjects" unique_id=1000021268 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.427193, 1.642251, -10.281184)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask5" parent="TaskObjects" unique_id=2141173000 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.429636, 1.642251, 0.96881557)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask6" parent="TaskObjects" unique_id=1297926415 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.429636, 1.642251, 3.9688156)
+[node name="DirtyWindowTask22" parent="TaskObjects" unique_id=527206351 instance=ExtResource("14_h71bk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, -10.116007)
 color_end = Color(0.23, 0.13654333, 0.10810001, 0)
 
 [node name="TaskCleanBlood" parent="TaskObjects" unique_id=562064819 instance=ExtResource("15_kfrea")]
@@ -2607,16 +2618,16 @@ transform = Transform3D(1, 0, 2.9802319e-08, 0, 1, 0, -2.9802319e-08, 0, 1, -1.1
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -7.9422936, 1.8707786, -7.3460627)
 
 [node name="TorchLight10" parent="Lighting" unique_id=30262312 instance=ExtResource("5_efy7f")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -2.5, 2.25, 4)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -2.5, 2, 4.7521873)
 
 [node name="TorchLight13" parent="Lighting" unique_id=1928754398 instance=ExtResource("5_efy7f")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -2.5, 2.25, 8.5)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -2.456775, 2.118462, 8.030447)
 
 [node name="TorchLight11" parent="Lighting" unique_id=129483716 instance=ExtResource("5_efy7f")]
-transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 2.5234618, 2.25, 7.5)
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 2.523, 2, 6.141)
 
 [node name="TorchLight12" parent="Lighting" unique_id=1938190138 instance=ExtResource("5_efy7f")]
-transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 2.5, 2.25, 1.75)
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 2.4380462, 2.1906762, 2.581)
 
 [node name="TorchLight2" parent="Lighting" unique_id=930918707 instance=ExtResource("5_efy7f")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -9.942293, 1.8707786, -9.565246)
@@ -2628,7 +2639,7 @@ transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -9.84867
 transform = Transform3D(-1.6292068e-07, 0, -1, 0, 1, 0, 1, 0, -1.6292068e-07, -6.4969606, 1.8707786, -11.0386305)
 
 [node name="TorchLight8" parent="Lighting" unique_id=868464415 instance=ExtResource("5_efy7f")]
-transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, 1.0030394, 1.8707786, -13.2886305)
+transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, 1.2508965, 0.88039756, -13.2886305)
 
 [node name="TorchLight7" parent="Lighting" unique_id=1397822081 instance=ExtResource("5_efy7f")]
 transform = Transform3D(-1.6292068e-07, 0, -1, 0, 1, 0, 1, 0, -1.6292068e-07, -3.7469606, 1.8707786, -12.5386305)
@@ -2637,7 +2648,7 @@ transform = Transform3D(-1.6292068e-07, 0, -1, 0, 1, 0, 1, 0, -1.6292068e-07, -3
 transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, -4.6153297, 1.4808261, -11.0386305)
 
 [node name="TorchLight4" parent="Lighting" unique_id=172986589 instance=ExtResource("5_efy7f")]
-transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, -1.6173844, 1.8707786, -13.428157)
+transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, -1.6173844, 1.3073521, -13.428157)
 
 [node name="TheCount" parent="." unique_id=1778632351 groups=["navmesh"] instance=ExtResource("2_vl6cs")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1, 0)
