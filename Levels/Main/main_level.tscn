@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dci1j83ojyowk"]
 
 [ext_resource type="Material" uid="uid://bjtacodt1sidr" path="res://Levels/Main/Materials/stone_material.tres" id="1_1u2st"]
-[ext_resource type="Script" uid="uid://cbjl433ayjis4" path="res://Features/GameLogic/game_logic.gd" id="1_nvb6w"]
+[ext_resource type="Script" uid="uid://cpavxnfughx88" path="res://Features/TaskManager/task_manager.gd" id="2_4723i"]
 [ext_resource type="Material" uid="uid://cpydbdc1whea7" path="res://Levels/Main/Materials/carpet_material.tres" id="2_hdvse"]
 [ext_resource type="PackedScene" uid="uid://cacuqeg84ldli" path="res://Features/NPC/Count/Count.tscn" id="2_vl6cs"]
 [ext_resource type="Material" uid="uid://dvsfw6n81eqoa" path="res://Levels/Main/Materials/wood_material.tres" id="3_cbg0b"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://balec3k6ksk0v" path="res://Levels/Main/Lights/chandelier_light.tscn" id="4_cbg0b"]
 [ext_resource type="PackedScene" uid="uid://b4sc850448g56" path="res://Features/Player/player.tscn" id="4_efy7f"]
 [ext_resource type="Material" uid="uid://brnsekpl8m4wb" path="res://Levels/Main/Materials/wood_door_material.tres" id="4_xh4ow"]
+[ext_resource type="PackedScene" uid="uid://3qt8k80lbkfq" path="res://Features/GameStateManager/game_state_manager.tscn" id="5_4723i"]
 [ext_resource type="PackedScene" uid="uid://3t8kgp251jik" path="res://Levels/Main/Lights/torch_light.tscn" id="5_efy7f"]
 [ext_resource type="PackedScene" uid="uid://cph68o10smjc4" path="res://Levels/Main/Objects/chair.tscn" id="5_gf0bk"]
 [ext_resource type="Shader" uid="uid://csm131yyan6g7" path="res://Levels/Maicon/pixelate_shader.gdshader" id="5_hdvse"]
@@ -56,9 +57,7 @@ agent_height = 2.0
 agent_radius = 0.3
 vertices_per_polygon = 8.0
 
-[node name="Main" type="Node3D" unique_id=2088972694 node_paths=PackedStringArray("task_container")]
-script = ExtResource("1_nvb6w")
-task_container = NodePath("TaskObjects")
+[node name="Main" type="Node3D" unique_id=2088972694]
 
 [node name="Control" type="Control" parent="." unique_id=678476739]
 layout_mode = 3
@@ -83,6 +82,20 @@ offset_top = 1.0
 offset_bottom = 1.0
 
 [node name="Screen" parent="." unique_id=1859783061 instance=ExtResource("25_vl6cs")]
+
+[node name="GameStateManager" parent="." unique_id=75615673 node_paths=PackedStringArray("_player", "_player_spawn_point", "_task_manager", "_hud", "_screen", "_count_ai") instance=ExtResource("5_4723i")]
+_player = NodePath("../Player")
+_player_spawn_point = NodePath("../PlayerSpawnPoint")
+_task_manager = NodePath("../TaskManager")
+_hud = NodePath("../HUD")
+_screen = NodePath("../Screen")
+_count_ai = NodePath("../TheCount")
+
+[node name="TaskManager" type="Node" parent="." unique_id=507081622 node_paths=PackedStringArray("_task_container", "_hud", "_player")]
+script = ExtResource("2_4723i")
+_task_container = NodePath("../TaskObjects")
+_hud = NodePath("../HUD")
+_player = NodePath("../Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=26953060]
 environment = SubResource("Environment_btu42")
@@ -2656,21 +2669,9 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1
 [node name="Player" parent="." unique_id=988380354 groups=["player"] instance=ExtResource("4_efy7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1352939, 0, 9.035391)
 
+[node name="AudioPlayers" parent="." unique_id=1913657729 instance=ExtResource("27_domlc")]
+
 [node name="PlayerSpawnPoint" type="Node3D" parent="." unique_id=1231924512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.038892)
 
-[node name="Timers" type="Node3D" parent="." unique_id=2051956589]
-
-[node name="PlayerFreezeTimer" type="Timer" parent="Timers" unique_id=1968032739]
-one_shot = true
-
-[node name="IntroScreenTimer" type="Timer" parent="Timers" unique_id=427290947]
-one_shot = true
-
-[node name="EndScreenTimer" type="Timer" parent="Timers" unique_id=399131059]
-one_shot = true
-
-[node name="GameOverScreenTimer" type="Timer" parent="Timers" unique_id=1832852366]
-one_shot = true
-
-[node name="AudioPlayers" parent="." unique_id=1913657729 instance=ExtResource("27_domlc")]
+[connection signal="all_tasks_completed" from="TaskManager" to="GameStateManager" method="_on_task_manager_all_tasks_completed"]

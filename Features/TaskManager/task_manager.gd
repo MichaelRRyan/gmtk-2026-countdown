@@ -1,0 +1,100 @@
+class_name TaskManager
+extends Node
+
+signal all_tasks_completed
+
+
+@export_category("References")
+@export var _task_container : Node = self
+@export var _hud: HUD = null
+@export var _player: Player = null
+
+@export_category("Config")
+@export var number_of_tasks_available_per_round = 8
+@export var tasks_to_complete_per_round = 3
+
+var task_objects: Array[TaskObjectBase]
+var tasks_completed: int = 0
+
+
+#-------------------------------------------------------------------------------
+func reset_task_states():
+	for task_object in task_objects:
+		task_object.set_hidden()
+
+	tasks_completed = 0
+
+	_hud.objectives_list.reset()
+	_hud.objectives_list.set_tasks_left(tasks_to_complete_per_round - tasks_completed)
+	
+	var tasks_to_activate = _select_number_of_tasks(number_of_tasks_available_per_round)
+	for task in tasks_to_activate:
+		task.initialize_task()
+		_hud.objectives_list.set_task_objective(task)
+
+
+#-------------------------------------------------------------------------------
+# PRIVATE INTERFACE
+#-------------------------------------------------------------------------------
+func _ready() -> void:
+	for child in _task_container.get_children(true):
+		if child is Interactable:
+			child.hud = _hud
+			if child is TaskObjectBase:
+				var task_object: TaskObjectBase = child as TaskObjectBase
+				register_task(task_object)
+
+
+#-------------------------------------------------------------------------------
+func _select_number_of_tasks(number_of_tasks: int):
+	var eligible_tasks = task_objects.duplicate()
+	for eligible_task in eligible_tasks:
+		if eligible_task.is_task_complete:
+			eligible_tasks.erase(eligible_task)
+	
+	var tasks = Array()
+	for n in range(number_of_tasks):
+		var eligible_task: TaskObjectBase = eligible_tasks.pick_random()
+		tasks.append(eligible_task)
+		eligible_tasks.erase(eligible_task)
+	
+	return tasks
+
+
+#-------------------------------------------------------------------------------
+func register_task(task_object: TaskObjectBase):
+	task_object.on_task_updated.connect(_on_task_updated)
+	task_object.on_task_completed.connect(_on_task_completed)
+	task_object.on_task_reset.connect(_on_task_reset)
+	task_object.set_hidden()
+	#hud.objectives_list.set_task_objective(task_object)
+	task_objects.append(task_object)
+
+
+#-------------------------------------------------------------------------------
+func _on_task_updated(task_object: TaskObjectBase, interact_level_current: float, interact_level_end: float):
+	if task_object == _player.last_interacted_object:
+		_hud.set_task_meter(interact_level_current, interact_level_end)
+	
+	
+#-------------------------------------------------------------------------------
+func _on_task_completed(task_object: TaskObjectBase):
+	tasks_completed += 1
+	if tasks_completed == tasks_to_complete_per_round:
+		all_tasks_completed.emit()
+		return
+		
+	_hud.show_task_complete()
+	_hud.objectives_list.remove_task_objective(task_object)
+	_hud.objectives_list.set_tasks_left(tasks_to_complete_per_round - tasks_completed)
+	if task_object.consume_item_on_completion:
+		_player.holdable_item_manager.destroy_current_item()
+
+
+#-------------------------------------------------------------------------------
+func _on_task_reset(task_object: TaskObjectBase):
+	_hud.objectives_list.set_task_objective(task_object)
+	_hud.show_new_task(task_object)
+
+
+#-------------------------------------------------------------------------------

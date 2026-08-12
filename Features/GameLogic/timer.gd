@@ -1,24 +1,14 @@
+class_name CountdownTimer
 extends Node
 
-class_name CountDownTimer
+@onready var _label: RichTextLabel = $Label
 
-signal timer_completed
 
-@onready var label: RichTextLabel = $Label
-
-@onready var dayTimer: Timer = $DayTimer
-
-func _process(_delta):
-	if !dayTimer.is_stopped():
-		display_current_time(int(dayTimer.time_left))
-	
+#-------------------------------------------------------------------------------
 func display_current_time(time: int):
 	var minutes: int = floor(time / 60.0)
 	var seconds: int = time % 60
-	label.text = "Time Remaining: %02d:%02d" % [minutes, seconds]
-	
-func _start_timer():
-	dayTimer.start()
+	_label.text = "Time Remaining: %02d:%02d" % [minutes, seconds]
 
-func _on_timer_timeout():
-	timer_completed.emit()
+
+#-------------------------------------------------------------------------------

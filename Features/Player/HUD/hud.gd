@@ -24,7 +24,12 @@ class_name HUD
 @onready var objectives_list: ObjectivesList = $ObjectivesList
 @onready var equippable_object_label: RichTextLabel = $EquippableObject
 @onready var tasks_tooltip: Label = $TasksTooltip
-@onready var night_timer: CountDownTimer = $Timer
+@onready var countdown_timer : CountdownTimer = $CountdownTimer
+
+
+func set_countdown_timer_display(remaining_time : float) -> void:
+	countdown_timer.display_current_time(remaining_time)
+
 
 func _ready() -> void:
 	set_crosshair_interactable(false)

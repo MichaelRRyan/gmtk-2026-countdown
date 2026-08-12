@@ -65,6 +65,13 @@ crosshair_normal_color = Color(1, 1, 1, 1)
 crosshair_interactable_color = Color(1, 0, 0, 1)
 new_task_display_length = 0.5
 
+[node name="CountdownTimer" parent="." unique_id=1417300461 instance=ExtResource("4_2oed0")]
+layout_mode = 1
+offset_left = 360.0
+offset_top = 291.0
+offset_right = 360.0
+offset_bottom = 291.0
+
 [node name="Crosshair" type="TextureRect" parent="." unique_id=735159700]
 modulate = Color(1, 0, 0, 1)
 material = SubResource("CanvasItemMaterial_c8vhp")
@@ -196,10 +203,3 @@ grow_vertical = 0
 theme = ExtResource("1_2oed0")
 theme_override_font_sizes/font_size = 18
 text = "[TAB] Tasks"
-
-[node name="Timer" parent="." unique_id=1417300461 instance=ExtResource("4_2oed0")]
-layout_mode = 1
-offset_left = 360.0
-offset_top = 291.0
-offset_right = 360.0
-offset_bottom = 291.0

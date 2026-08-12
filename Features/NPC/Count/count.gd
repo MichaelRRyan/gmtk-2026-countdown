@@ -15,14 +15,13 @@ enum BehaviourState {
 @onready var patrol_timer = $PatrolTimer
 @onready var _animated_mesh = $Vampire
 
-var _state : BehaviourState = BehaviourState.REST
+var _state : BehaviourState = BehaviourState.NONE
 var speed : float = 2.5
 var gravity : float = 9.8
 var next_nav_location : Vector3 = Vector3.ZERO
 var player_found : bool = false
 var player : Player = null
 var _start_transform : Transform3D = Transform3D.IDENTITY
-var _start_position : Vector3 = Vector3.ZERO
 
 
 
@@ -39,10 +38,12 @@ func set_state(new_state : BehaviourState) -> void:
 	# Enable/disable the viewcone depending on whether we're in the rest state.
 	if _state == BehaviourState.REST:
 		$Viewcone.monitoring = true
+		visible = true
 	
 	if new_state == BehaviourState.REST:
 		$Viewcone.monitoring = false
 		velocity = Vector3.ZERO
+		visible = false
 	
 	_state = new_state
 	print("New State: " + str(_state))
@@ -53,6 +54,7 @@ func _ready() -> void:
 	_start_transform = global_transform
 	find_next_nav_location()
 	_animated_mesh.set_state_idle()
+	set_state(BehaviourState.REST)
 
 
 #-------------------------------------------------------------------------------
@@ -82,6 +84,7 @@ func _process(delta: float) -> void:
 		_animated_mesh.set_state_idle()
 
 
+#-------------------------------------------------------------------------------
 func _process_wander() -> void:
 	# If the player is within the view cone and line of sight, switch to chase.
 	if player and _check_player_line_of_sight():
@@ -185,8 +188,9 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 #-------------------------------------------------------------------------------
 func _check_for_player_collision(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		get_node("/root/Main")._game_over()
+	if _state == BehaviourState.CHASE:
+		if body.is_in_group("player"):
+			get_node("/root/Main")._game_over()
 
 
 #-------------------------------------------------------------------------------

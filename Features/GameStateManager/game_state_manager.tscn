@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://3qt8k80lbkfq"]
+
+[ext_resource type="Script" uid="uid://dsr0mlf6qkayq" path="res://Features/GameStateManager/game_state_manager.gd" id="1_yc5vj"]
+
+[node name="GameStateManager" type="Node" unique_id=75615673]
+script = ExtResource("1_yc5vj")
+
+[node name="PlayerFreezeTimer" type="Timer" parent="." unique_id=1630231226]
+one_shot = true
+
+[node name="IntroScreenTimer" type="Timer" parent="." unique_id=830044734]
+one_shot = true
+
+[node name="DayCompleteScreenTimer" type="Timer" parent="." unique_id=581648080]
+one_shot = true
+
+[node name="GameOverScreenTimer" type="Timer" parent="." unique_id=1484501306]
+one_shot = true
+
+[node name="CountPatrolCountdown" type="Timer" parent="." unique_id=1288232168]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="PlayerFreezeTimer" to="." method="_on_player_freeze_timer_timeout"]
+[connection signal="timeout" from="IntroScreenTimer" to="." method="_on_intro_screen_timer_timeout"]
+[connection signal="timeout" from="DayCompleteScreenTimer" to="." method="_on_day_complete_screen_timer_timeout"]
+[connection signal="timeout" from="GameOverScreenTimer" to="." method="_on_game_over_screen_timer_timeout"]
+[connection signal="timeout" from="CountPatrolCountdown" to="." method="_on_count_patrol_countdown_timeout"]
