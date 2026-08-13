@@ -20,7 +20,7 @@ enum GameState {
 @export var _count_ai : CharacterBody3D = null
 
 @export_category("Game Mode")
-@export var night_duration_in_seconds : float = 120
+@export var night_duration_in_seconds : float = 60
 @export var objectives_display_time_in_seconds : float = 2.0
 @export var intro_screen_display_time_in_seconds : float = 2.0
 @export var end_screen_display_time_in_seconds : float = 2.0
@@ -79,7 +79,7 @@ func _on_player_freeze_timer_timeout():
 
 #-------------------------------------------------------------------------------
 func _game_over():
-	_hud.night_timer.dayTimer.stop()
+	_count_patrol_countdown.stop()
 	_player.is_frozen = true
 	_screen.visible = true
 	_screen.label.text = "After %d nights, you shift is forever over." % nights_completed
@@ -93,14 +93,13 @@ func _on_game_over_screen_timer_timeout():
 
 #-------------------------------------------------------------------------------
 func _on_count_patrol_countdown_timeout() -> void:
-	_game_over()
+	_count_ai.start_wandering()
 
 
 #-------------------------------------------------------------------------------
 func _process(_delta: float) -> void:
 	if not _count_patrol_countdown.is_stopped():
 		_hud.set_countdown_timer_display(_count_patrol_countdown.time_left)
-	
 	
 	if _debug_mode:
 		if Input.is_action_just_pressed("debug_reset_ai"):
@@ -109,7 +108,6 @@ func _process(_delta: float) -> void:
 			var env : Environment = $WorldEnvironment.environment
 			env.background_energy_multiplier = 2
 			$WorldEnvironment.environment = env
-
 
 
 #-------------------------------------------------------------------------------
@@ -153,5 +151,15 @@ func _show_end_screen():
 	day_complete_screen_timer.start()
 	_count_ai.reset()
 	
+
+#-------------------------------------------------------------------------------
+func _on_the_count_returned_to_rest() -> void:
+	pass
+
+
+#-------------------------------------------------------------------------------
+func _on_the_count_caught_player() -> void:
+	_game_over()
+
 
 #-------------------------------------------------------------------------------

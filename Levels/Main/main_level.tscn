@@ -2675,3 +2675,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1352939, 0, 9.035391)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.038892)
 
 [connection signal="all_tasks_completed" from="TaskManager" to="GameStateManager" method="_on_task_manager_all_tasks_completed"]
+[connection signal="caught_player" from="TheCount" to="GameStateManager" method="_on_the_count_caught_player"]
+[connection signal="returned_to_rest" from="TheCount" to="GameStateManager" method="_on_the_count_returned_to_rest"]
