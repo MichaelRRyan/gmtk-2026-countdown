@@ -12,8 +12,8 @@ enum BehaviourState {
 	SEARCH,
 }
 
-@export var min_wander_time_secs : float = 5.0
-@export var max_wander_time_secs : float = 10.0
+@export var min_wander_time_secs : float = 40.0
+@export var max_wander_time_secs : float = 60.0
 
 
 @onready var nav = $NavigationAgent3D
@@ -35,6 +35,7 @@ var _start_transform : Transform3D = Transform3D.IDENTITY
 
 #-------------------------------------------------------------------------------
 func reset() -> void:
+	print("Resetting")
 	global_transform = _start_transform
 	set_state(BehaviourState.REST)
 
@@ -51,8 +52,6 @@ func set_state(new_state : BehaviourState) -> void:
 	if _state == BehaviourState.REST:
 		$Viewcone.monitoring = true
 		visible = true
-		print("The Count is no longer Resting")
-		
 	
 	match new_state:
 		BehaviourState.REST:
@@ -60,12 +59,19 @@ func set_state(new_state : BehaviourState) -> void:
 			velocity = Vector3.ZERO
 			visible = false
 			returned_to_rest.emit()
-			print("The Count is Resting")
+			print("Resting")
 			
 		BehaviourState.WANDER:
-			_wander_timer.start(randf_range(min_wander_time_secs, max_wander_time_secs))
-			print("The Count is Wandering")
-			
+			if _wander_timer.paused:
+				_wander_timer.paused = false
+				print("Wandering - Resumed")
+			else:
+				_wander_timer.start(randf_range(min_wander_time_secs, max_wander_time_secs))
+				print("Wandering")
+		
+		BehaviourState.CHASE:
+			_wander_timer.paused = true
+			print("Chasing")
 	
 	_state = new_state
 
@@ -202,7 +208,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 #-------------------------------------------------------------------------------
 # Player exited view cone
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and _state == BehaviourState.CHASE:
 		player = null
 		set_state(BehaviourState.WANDER)
 
@@ -216,7 +222,8 @@ func _check_for_player_collision(body: Node3D) -> void:
 
 #-------------------------------------------------------------------------------
 func _on_wander_timer_timeout() -> void:
-	reset()
+	if _state == BehaviourState.WANDER:
+		reset()
 
 
 #-------------------------------------------------------------------------------

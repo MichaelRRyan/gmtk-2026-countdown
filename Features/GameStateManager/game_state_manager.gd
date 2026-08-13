@@ -20,7 +20,7 @@ enum GameState {
 @export var _count_ai : CharacterBody3D = null
 
 @export_category("Game Mode")
-@export var night_duration_in_seconds : float = 60
+@export var count_rest_duration_secs : float = 30
 @export var objectives_display_time_in_seconds : float = 2.0
 @export var intro_screen_display_time_in_seconds : float = 2.0
 @export var end_screen_display_time_in_seconds : float = 2.0
@@ -74,7 +74,8 @@ func _on_task_manager_all_tasks_completed() -> void:
 func _on_player_freeze_timer_timeout():
 	_player.is_frozen = false
 	_hud.objectives_list.visible = false
-	_count_patrol_countdown.start(night_duration_in_seconds)
+	_count_patrol_countdown.start(count_rest_duration_secs)
+	_set_game_state(GameState.COUNT_RESTING)
 
 
 #-------------------------------------------------------------------------------
@@ -134,7 +135,7 @@ func _start_round():
 	
 	_task_manager.reset_task_states()
 	
-	_hud.set_countdown_timer_display(night_duration_in_seconds)
+	_hud.set_countdown_timer_display(count_rest_duration_secs)
 	_screen.visible = false
 	
 	_hud.objectives_list.visible = true
@@ -144,6 +145,7 @@ func _start_round():
 	
 #-------------------------------------------------------------------------------
 func _show_end_screen():
+	_game_state = GameState.INTRO
 	_count_patrol_countdown.stop()
 	_player.is_frozen = true
 	_screen.visible = true
@@ -154,7 +156,9 @@ func _show_end_screen():
 
 #-------------------------------------------------------------------------------
 func _on_the_count_returned_to_rest() -> void:
-	pass
+	# This IF Stops the initial AI state change from starting the timer.
+	if _game_state != GameState.INTRO:
+		_count_patrol_countdown.start(count_rest_duration_secs)
 
 
 #-------------------------------------------------------------------------------

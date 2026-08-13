@@ -50,6 +50,7 @@ autostart = true
 wait_time = 2.0
 
 [node name="WanderTimer" type="Timer" parent="." unique_id=582273238]
+one_shot = true
 
 [connection signal="body_entered" from="Viewcone" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Viewcone" to="." method="_on_area_3d_body_exited"]
