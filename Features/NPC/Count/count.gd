@@ -51,7 +51,7 @@ func set_state(new_state : BehaviourState) -> void:
 	if _state == BehaviourState.REST:
 		$Viewcone.monitoring = true
 		visible = true
-		print("The Count is not Resting")
+		print("The Count is no longer Resting")
 		
 	
 	match new_state:
@@ -64,7 +64,7 @@ func set_state(new_state : BehaviourState) -> void:
 			
 		BehaviourState.WANDER:
 			_wander_timer.start(randf_range(min_wander_time_secs, max_wander_time_secs))
-			print("The Count is not Wandering")
+			print("The Count is Wandering")
 			
 	
 	_state = new_state
