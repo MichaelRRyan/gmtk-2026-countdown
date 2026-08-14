@@ -31,11 +31,15 @@ var player_found : bool = false
 var player : Player = null
 var _start_transform : Transform3D = Transform3D.IDENTITY
 
+var _debug_print : bool = false
+
 
 
 #-------------------------------------------------------------------------------
 func reset() -> void:
-	print("Resetting")
+	if _debug_print:
+		print("Resetting")
+	
 	global_transform = _start_transform
 	set_state(BehaviourState.REST)
 
@@ -59,19 +63,26 @@ func set_state(new_state : BehaviourState) -> void:
 			velocity = Vector3.ZERO
 			visible = false
 			returned_to_rest.emit()
-			print("Resting")
+			if _debug_print:
+				print("Resting")
 			
 		BehaviourState.WANDER:
 			if _wander_timer.paused:
 				_wander_timer.paused = false
-				print("Wandering - Resumed")
+				
+				if _debug_print:
+					print("Wandering - Resumed")
 			else:
 				_wander_timer.start(randf_range(min_wander_time_secs, max_wander_time_secs))
-				print("Wandering")
+				
+				if _debug_print:
+					print("Wandering")
 		
 		BehaviourState.CHASE:
 			_wander_timer.paused = true
-			print("Chasing")
+			
+			if _debug_print:
+				print("Chasing")
 	
 	_state = new_state
 

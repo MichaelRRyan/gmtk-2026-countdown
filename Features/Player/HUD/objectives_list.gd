@@ -12,15 +12,17 @@ func reset():
 		objectives_list_container.remove_child(child)
 		child.queue_free()
 
+
 func set_task_objective(task_object: TaskObjectBase):
-	if labels.is_empty() or !labels.has(task_object.task_type):		
+	if labels.is_empty() or !labels.has(task_object.task_type):
 		var new_label: ObjectiveItem = ObjectiveItem.new()
 		new_label.add_objective(task_object)
 		labels[task_object.task_type] = new_label
 		objectives_list_container.add_child(new_label)
 	else: 
 		labels[task_object.task_type].add_objective(task_object)
-	
+
+
 func remove_task_objective(task_object: TaskObjectBase):
 	var label_to_decrement = labels[task_object.task_type]
 	if label_to_decrement:
@@ -31,11 +33,6 @@ func remove_task_objective(task_object: TaskObjectBase):
 		else:
 			label_to_decrement.complete_objective(task_object)
 
+
 func set_tasks_left(tasks_left: int):
 	tasks_left_label.text = "Tasks Left: %d" % tasks_left
-
-func _on_toggle_button_pressed() -> void:
-	var ev = InputEventAction.new()
-	ev.action = "show_tasks"
-	ev.pressed = true
-	Input.parse_input_event(ev)

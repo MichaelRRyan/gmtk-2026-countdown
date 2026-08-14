@@ -10,19 +10,37 @@ class_name DirtyWindowTask
 func _ready() -> void:
 	_update_color()
 
+
 func _update_color() -> void:
 	var new_color: Color = lerp(color_start, color_end, interact_level_current)
 	mesh_instance.get_active_material(0).albedo_color = new_color
 
+
 func _perform_action() -> void:
 	_update_color()
-	
+
+
 func _undo_action() -> void:
 	_update_color()
+
 
 func _on_task_completed(_task_object):
 	$TaskCooldownTimer.start(randf_range(60, 90))
 
+
 func _on_task_cooldown_timer_timeout():
 	_reset_task()
+
+
+func initialize_task() -> void:
+	super.initialize_task()
 	_update_color()
+	
+	$TaskCooldownTimer.start(randf_range(60, 90))
+	$TaskCooldownTimer.stop()
+
+
+func set_hidden() -> void:
+	super.set_hidden()
+	$TaskCooldownTimer.start(randf_range(60, 90))
+	

@@ -10,11 +10,10 @@ signal all_tasks_completed
 @export var _player: Player = null
 
 @export_category("Config")
-@export var number_of_tasks_available_per_round = 8
-@export var tasks_to_complete_per_round = 3
+@export var number_of_tasks_available_per_round = 6
 
 var task_objects: Array[TaskObjectBase]
-var tasks_completed: int = 0
+var _tasks_remaining : int = 0
 
 
 #-------------------------------------------------------------------------------
@@ -22,15 +21,15 @@ func reset_task_states():
 	for task_object in task_objects:
 		task_object.set_hidden()
 
-	tasks_completed = 0
-
+	_tasks_remaining = 0
 	_hud.objectives_list.reset()
-	_hud.objectives_list.set_tasks_left(tasks_to_complete_per_round - tasks_completed)
 	
 	var tasks_to_activate = _select_number_of_tasks(number_of_tasks_available_per_round)
 	for task in tasks_to_activate:
 		task.initialize_task()
 		_hud.objectives_list.set_task_objective(task)
+	
+	_hud.objectives_list.set_tasks_left(_tasks_remaining)
 
 
 #-------------------------------------------------------------------------------
@@ -41,7 +40,7 @@ func _ready() -> void:
 		if child is Interactable:
 			child.hud = _hud
 			if child is TaskObjectBase:
-				var task_object: TaskObjectBase = child as TaskObjectBase
+				var task_object: TaskObjectBase = child
 				register_task(task_object)
 
 
@@ -54,9 +53,14 @@ func _select_number_of_tasks(number_of_tasks: int):
 	
 	var tasks = Array()
 	for n in range(number_of_tasks):
+		
+		if eligible_tasks.is_empty():
+			break
+			
 		var eligible_task: TaskObjectBase = eligible_tasks.pick_random()
 		tasks.append(eligible_task)
 		eligible_tasks.erase(eligible_task)
+		_tasks_remaining += 1
 	
 	return tasks
 
@@ -67,8 +71,8 @@ func register_task(task_object: TaskObjectBase):
 	task_object.on_task_completed.connect(_on_task_completed)
 	task_object.on_task_reset.connect(_on_task_reset)
 	task_object.set_hidden()
-	#hud.objectives_list.set_task_objective(task_object)
 	task_objects.append(task_object)
+
 
 
 #-------------------------------------------------------------------------------
@@ -79,14 +83,14 @@ func _on_task_updated(task_object: TaskObjectBase, interact_level_current: float
 	
 #-------------------------------------------------------------------------------
 func _on_task_completed(task_object: TaskObjectBase):
-	tasks_completed += 1
-	if tasks_completed == tasks_to_complete_per_round:
+	_tasks_remaining -= 1
+	if _tasks_remaining <= 0:
 		all_tasks_completed.emit()
 		return
 		
 	_hud.show_task_complete()
 	_hud.objectives_list.remove_task_objective(task_object)
-	_hud.objectives_list.set_tasks_left(tasks_to_complete_per_round - tasks_completed)
+	_hud.objectives_list.set_tasks_left(_tasks_remaining)
 	if task_object.consume_item_on_completion:
 		_player.holdable_item_manager.destroy_current_item()
 
@@ -95,6 +99,7 @@ func _on_task_completed(task_object: TaskObjectBase):
 func _on_task_reset(task_object: TaskObjectBase):
 	_hud.objectives_list.set_task_objective(task_object)
 	_hud.show_new_task(task_object)
+	_tasks_remaining += 1
 
 
 #-------------------------------------------------------------------------------

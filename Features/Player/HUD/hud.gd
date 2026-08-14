@@ -48,11 +48,13 @@ func _ready() -> void:
 	
 	task_progress_bar.visible = false
 
+
 func set_crosshair_interactable(is_interactable: bool) -> void:
 	crosshair.visible = is_interactable
 	#var color_to_set: Color = crosshair_interactable_color if is_interactable else crosshair_normal_color
 	#crosshair.modulate = color_to_set
-	
+
+
 func set_task_meter(interact_level_current: float, interact_level_end: float):
 	if interact_level_current <= 0:
 		task_progress_bar.visible = false
@@ -61,39 +63,48 @@ func set_task_meter(interact_level_current: float, interact_level_end: float):
 	var percent: float = interact_level_current / interact_level_end * 100
 	task_progress_bar.visible = task_progress_bar.value <= percent
 	task_progress_bar.value = percent
-	
+
+
 func show_task_complete() -> void:
 	task_progress_bar.visible = false
 	task_complete.modulate.a = 1.0
 	task_complete_timer.start(task_complete_display_length)
-	
+
+
 func show_new_task(task_object: TaskObjectBase) -> void:
 	new_task.text = task_object.objective_text
 	new_task.modulate.a = 1.0
 	new_task_timer.start(new_task_display_length)
-	
+
+
 func show_equippable_object_description(text: String, show_text: bool):
 	if show_text:
 		equippable_object_label.text = text
 	equippable_object_label.visible = show_text
-	
+
+
 func reset_interactable_hud_elements():
 	task_progress_bar.visible = false
 	equippable_object_label.visible = false
 	set_crosshair_interactable(false)
-	
+
+
 func toggle_tasks() -> void:
 	objectives_list.visible = !objectives_list.visible
 	tasks_tooltip.visible = !tasks_tooltip.visible
-	
+
+
 func _task_complete_timeout() -> void:
 	task_complete_animation_player.play("task_complete_fadeout")
-	
+
+
 func _new_task_timeout() -> void:
 	new_task_animation_player.play("task_complete_fadeout")
-	
+
+
 func _show_hiding_spot() -> void:
 	$LeaveHidingSpot.visible = true
-	
+
+
 func _hide_hiding_spot() -> void:
 	$LeaveHidingSpot.visible = false
