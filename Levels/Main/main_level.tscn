@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://cqliejscdrsyj" path="res://Levels/Main/EquippableObjects/cleaning_cloth.tscn" id="16_32g1e"]
 [ext_resource type="PackedScene" uid="uid://djg6wu6a0emq6" path="res://Features/LevelElements/Window/window.tscn" id="17_4723i"]
 [ext_resource type="PackedScene" uid="uid://blthaqm2hacyh" path="res://Levels/Main/TaskObjects/task_plate_cleanup.tscn" id="17_h1rqx"]
-[ext_resource type="Theme" uid="uid://dkgcamelbh4xu" path="res://screens/ui_theme.tres" id="17_whuwa"]
 [ext_resource type="PackedScene" uid="uid://b8m7yvupsk1fe" path="res://Levels/Main/Objects/coffin_bed.tscn" id="18_7oflx"]
 [ext_resource type="PackedScene" uid="uid://bbm2yoodb8jdm" path="res://Levels/Wiki/Assest brah/StoneFloor.glb" id="20_67oqy"]
 [ext_resource type="PackedScene" uid="uid://sgm12leuc65s" path="res://Levels/Wiki/Assest brah/StoneWallFinal.glb" id="21_ofdr7"]
@@ -59,42 +58,42 @@ vertices_per_polygon = 8.0
 
 [node name="Main" type="Node3D" unique_id=2088972694]
 
-[node name="Control" type="Control" parent="." unique_id=678476739]
+[node name="ScreenspaceShader" type="ColorRect" parent="." unique_id=562131817]
+material = SubResource("ShaderMaterial_cbg0b")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UI" type="Control" parent="." unique_id=861997967]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("17_whuwa")
 
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=562131817]
-material = SubResource("ShaderMaterial_cbg0b")
+[node name="HUD" parent="UI" unique_id=1740219873 instance=ExtResource("12_1h7oc")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HUD" parent="." unique_id=1740219873 instance=ExtResource("12_1h7oc")]
 offset_top = 1.0
 offset_bottom = 1.0
 
-[node name="Screen" parent="." unique_id=1859783061 instance=ExtResource("25_vl6cs")]
+[node name="DayTransitionScreen" parent="UI" unique_id=1859783061 instance=ExtResource("25_vl6cs")]
+layout_mode = 1
 
 [node name="GameStateManager" parent="." unique_id=75615673 node_paths=PackedStringArray("_player", "_player_spawn_point", "_task_manager", "_hud", "_screen", "_count_ai") instance=ExtResource("5_4723i")]
 _player = NodePath("../Player")
 _player_spawn_point = NodePath("../PlayerSpawnPoint")
 _task_manager = NodePath("../TaskManager")
-_hud = NodePath("../HUD")
-_screen = NodePath("../Screen")
+_hud = NodePath("../UI/HUD")
+_screen = NodePath("../UI/DayTransitionScreen")
 _count_ai = NodePath("../TheCount")
 
 [node name="TaskManager" type="Node" parent="." unique_id=507081622 node_paths=PackedStringArray("_task_container", "_hud", "_player")]
 script = ExtResource("2_4723i")
 _task_container = NodePath("../TaskObjects")
-_hud = NodePath("../HUD")
+_hud = NodePath("../UI/HUD")
 _player = NodePath("../Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=26953060]
@@ -2672,7 +2671,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1352939, 0, 9.035391)
 [node name="AudioPlayers" parent="." unique_id=1913657729 instance=ExtResource("27_domlc")]
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="." unique_id=1231924512]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.038892)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3299732, -0.7013602, -11.934151)
 
 [connection signal="all_tasks_completed" from="TaskManager" to="GameStateManager" method="_on_task_manager_all_tasks_completed"]
 [connection signal="caught_player" from="TheCount" to="GameStateManager" method="_on_the_count_caught_player"]

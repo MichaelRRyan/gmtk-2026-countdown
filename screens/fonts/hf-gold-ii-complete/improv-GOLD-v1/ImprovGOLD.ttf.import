@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://baq6sebx4e80w"
-path="res://.godot/imported/ImprovGOLD.ttf-a7acee7fb68c479364d4eb3968b50fc6.fontdata"
+path="res://.godot/imported/ImprovGOLD.ttf-b8db0589b24057a4c651bf5f136ae468.fontdata"
 
 [deps]
 
-source_file="res://screens/fonts/hf-gold-ii-complete/improv-GOLD-v1/ImprovGOLD.ttf"
-dest_files=["res://.godot/imported/ImprovGOLD.ttf-a7acee7fb68c479364d4eb3968b50fc6.fontdata"]
+source_file="res://Screens/fonts/hf-gold-ii-complete/improv-GOLD-v1/ImprovGOLD.ttf"
+dest_files=["res://.godot/imported/ImprovGOLD.ttf-b8db0589b24057a4c651bf5f136ae468.fontdata"]
 
 [params]
 

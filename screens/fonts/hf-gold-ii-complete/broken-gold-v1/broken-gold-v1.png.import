@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhdrn8xkmled4"
-path="res://.godot/imported/broken-gold-v1.png-d429f59d3c9e69a6b4e1b9f7b3961e5e.ctex"
+path="res://.godot/imported/broken-gold-v1.png-de127b47ee28ffc8bd47166489b2d146.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://screens/fonts/hf-gold-ii-complete/broken-gold-v1/broken-gold-v1.png"
-dest_files=["res://.godot/imported/broken-gold-v1.png-d429f59d3c9e69a6b4e1b9f7b3961e5e.ctex"]
+source_file="res://Screens/fonts/hf-gold-ii-complete/broken-gold-v1/broken-gold-v1.png"
+dest_files=["res://.godot/imported/broken-gold-v1.png-de127b47ee28ffc8bd47166489b2d146.ctex"]
 
 [params]
 
