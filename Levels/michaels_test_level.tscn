@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://d10horvtevoh4"]
 
 [ext_resource type="PackedScene" uid="uid://b4sc850448g56" path="res://Features/Player/player.tscn" id="1_kf4fb"]
+[ext_resource type="Material" uid="uid://dr3pnh281if4x" path="res://Assets/Materials/StoneWall/stone_wall.material" id="2_xqruo"]
+[ext_resource type="PackedScene" uid="uid://sgm12leuc65s" path="res://Levels/Wiki/Assest brah/StoneWallFinal.glb" id="3_oi3u2"]
+[ext_resource type="PackedScene" uid="uid://otgtana0wdj6" path="res://Levels/Wiki/Assest brah/WindowReg.glb" id="4_ritwx"]
 
 [node name="MichaelsTestLevel" type="Node3D" unique_id=961639840]
 
@@ -11,3 +14,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2955592, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(8.955078, 1, 10.40918)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="." unique_id=1815534237]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.0673513, 1.125, -3.4122095)
+use_collision = true
+size = Vector3(0.5, 4, 8)
+material = ExtResource("2_xqruo")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D23" unique_id=783214589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38237357, 0.3330078)
+operation = 2
+size = Vector3(1, 1.5689087, 1.2304688)
+material = ExtResource("2_xqruo")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="." unique_id=536690276]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.9326487, 2.625, -3.4122095)
+use_collision = true
+size = Vector3(0.5, 1, 2)
+material = ExtResource("2_xqruo")
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="." unique_id=109225217]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.9326487, 1.125, -3.4122095)
+use_collision = true
+size = Vector3(0.5, 4, 6)
+material = ExtResource("2_xqruo")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=801018190]
+transform = Transform3D(-0.87189174, -0.30054346, 0.38662443, -0.22127879, 0.94611204, 0.2364482, -0.43685293, 0.12060545, -0.8914112, 0.1289194, 2.2774267, -5.5013866)
+shadow_enabled = true
+shadow_caster_mask = 4294967293
+spot_range = 7.195292
+
+[node name="StoneWallFinal151" parent="." unique_id=572222333 instance=ExtResource("3_oi3u2")]
+transform = Transform3D(-4.371139e-08, -7.1054274e-15, 1, 0, 1, 0, -1, 0, -4.371138e-08, -6.6250954, -0.038235188, -2.6164284)
+
+[node name="WindowReg" parent="." unique_id=2105490350 instance=ExtResource("4_ritwx")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7546154, 0, -3.1306438)
