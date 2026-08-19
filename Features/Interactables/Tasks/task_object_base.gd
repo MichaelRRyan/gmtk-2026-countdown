@@ -1,7 +1,7 @@
 extends Interactable
 class_name TaskObjectBase
 
-enum TaskType { DEBUG, BLOOD, PLATES, WINDOW }
+enum TaskType { DEBUG, BLOOD, PLATES, WINDOW, RETURN_TO_BED }
 
 signal on_task_completed(task_object: TaskObjectBase)
 signal on_task_updated(task_object: TaskObjectBase, interact_level_current: float, interact_level_end: float)

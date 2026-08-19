@@ -7,6 +7,9 @@ class_name DirtyWindowTask
 
 @onready var mesh_instance: MeshInstance3D = $StaticBody3D/MeshInstance3D
 
+var _min_regen_time = 120
+var _max_regen_time = 180
+
 func _ready() -> void:
 	_update_color()
 
@@ -25,7 +28,7 @@ func _undo_action() -> void:
 
 
 func _on_task_completed(_task_object):
-	$TaskCooldownTimer.start(randf_range(60, 90))
+	$TaskCooldownTimer.start(randf_range(_min_regen_time, _max_regen_time))
 
 
 func _on_task_cooldown_timer_timeout():
@@ -36,11 +39,11 @@ func initialize_task() -> void:
 	super.initialize_task()
 	_update_color()
 	
-	$TaskCooldownTimer.start(randf_range(60, 90))
+	$TaskCooldownTimer.start(randf_range(_min_regen_time, _max_regen_time))
 	$TaskCooldownTimer.stop()
 
 
 func set_hidden() -> void:
 	super.set_hidden()
-	$TaskCooldownTimer.start(randf_range(60, 90))
+	$TaskCooldownTimer.start(randf_range(_min_regen_time, _max_regen_time))
 	

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dad4il7imx1sx"]
+
+[ext_resource type="Script" uid="uid://dw4gw0j6upt4e" path="res://Features/Interactables/Tasks/ReturnToBed/return_to_bed_task.gd" id="1_mdmy7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btu42"]
+
+[node name="ReturnToBedTask" type="Area3D" unique_id=1315407154]
+monitorable = false
+script = ExtResource("1_mdmy7")
+objective_text = "Go to bed"
+task_type = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1313091350]
+shape = SubResource("BoxShape3D_btu42")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

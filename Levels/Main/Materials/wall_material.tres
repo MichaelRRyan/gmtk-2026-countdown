@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://c42s3egl84edj"]
-
-[ext_resource type="Texture2D" uid="uid://0chofi7l2scx" path="res://Assets/Materials/StoneWall/Textures/stone_wall_diff_4k.jpg" id="1_vk8ji"]
-
-[resource]
-albedo_texture = ExtResource("1_vk8ji")
-normal_enabled = true
-uv1_scale = Vector3(0.215, 0.215, 0.215)
-uv1_triplanar = true

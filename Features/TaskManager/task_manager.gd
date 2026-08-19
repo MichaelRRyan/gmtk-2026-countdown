@@ -6,6 +6,7 @@ signal all_tasks_completed
 
 @export_category("References")
 @export var _task_container : Node = self
+@export var _return_to_bed_task : ReturnToBedTask = null
 @export var _hud: HUD = null
 @export var _player: Player = null
 
@@ -25,11 +26,13 @@ func reset_task_states():
 	_hud.objectives_list.reset()
 	
 	var tasks_to_activate = _select_number_of_tasks(number_of_tasks_available_per_round)
-	for task in tasks_to_activate:
+	for task : TaskObjectBase in tasks_to_activate:
 		task.initialize_task()
 		_hud.objectives_list.set_task_objective(task)
 	
 	_hud.objectives_list.set_tasks_left(_tasks_remaining)
+	
+	_return_to_bed_task.set_hidden()
 
 
 #-------------------------------------------------------------------------------
@@ -42,6 +45,10 @@ func _ready() -> void:
 			if child is TaskObjectBase:
 				var task_object: TaskObjectBase = child
 				register_task(task_object)
+	
+	# Set up the return to bed signals.
+	_return_to_bed_task.on_task_completed.connect(_on_task_completed)
+	_return_to_bed_task.on_task_reset.connect(_on_task_reset)
 
 
 #-------------------------------------------------------------------------------
@@ -74,7 +81,6 @@ func register_task(task_object: TaskObjectBase):
 	task_objects.append(task_object)
 
 
-
 #-------------------------------------------------------------------------------
 func _on_task_updated(task_object: TaskObjectBase, interact_level_current: float, interact_level_end: float):
 	if task_object == _player.last_interacted_object:
@@ -85,8 +91,16 @@ func _on_task_updated(task_object: TaskObjectBase, interact_level_current: float
 func _on_task_completed(task_object: TaskObjectBase):
 	_tasks_remaining -= 1
 	if _tasks_remaining <= 0:
-		all_tasks_completed.emit()
-		return
+		
+		# Enable the Go To Bed task if not already complete.
+		if not _return_to_bed_task.is_task_complete:
+			_return_to_bed_task.is_active = true
+			_hud.objectives_list.set_task_objective(_return_to_bed_task)
+			_hud.show_new_task(_return_to_bed_task)
+			
+		else:
+			all_tasks_completed.emit()
+			return
 		
 	_hud.show_task_complete()
 	_hud.objectives_list.remove_task_objective(task_object)
@@ -96,10 +110,16 @@ func _on_task_completed(task_object: TaskObjectBase):
 
 
 #-------------------------------------------------------------------------------
+# If a task is reset (needs to be done again).
 func _on_task_reset(task_object: TaskObjectBase):
 	_hud.objectives_list.set_task_objective(task_object)
 	_hud.show_new_task(task_object)
 	_tasks_remaining += 1
+	
+	# If the return to bed task is active, remove it from the objective list
+	if task_object != _return_to_bed_task and _return_to_bed_task.is_active:
+		_hud.objectives_list.remove_task_objective(_return_to_bed_task)
+		_return_to_bed_task.set_hidden()
 
 
 #-------------------------------------------------------------------------------

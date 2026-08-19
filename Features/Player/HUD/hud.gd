@@ -28,7 +28,7 @@ class_name HUD
 
 
 func set_countdown_timer_display(remaining_time : float) -> void:
-	countdown_timer.display_current_time(remaining_time)
+	countdown_timer.display_current_time(int(remaining_time))
 
 
 func _ready() -> void:

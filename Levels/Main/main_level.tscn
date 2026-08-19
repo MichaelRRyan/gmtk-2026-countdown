@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cacuqeg84ldli" path="res://Features/NPC/Count/Count.tscn" id="2_vl6cs"]
 [ext_resource type="Material" uid="uid://dvsfw6n81eqoa" path="res://Levels/Main/Materials/wood_material.tres" id="3_cbg0b"]
 [ext_resource type="Material" uid="uid://b780x1kpqp6fo" path="res://Levels/Main/Materials/wood_furniture_material.tres" id="4_0vyy6"]
-[ext_resource type="Material" uid="uid://c42s3egl84edj" path="res://Levels/Main/Materials/wall_material.tres" id="4_7n064"]
 [ext_resource type="PackedScene" uid="uid://balec3k6ksk0v" path="res://Levels/Main/Lights/chandelier_light.tscn" id="4_cbg0b"]
 [ext_resource type="PackedScene" uid="uid://b4sc850448g56" path="res://Features/Player/player.tscn" id="4_efy7f"]
 [ext_resource type="Material" uid="uid://brnsekpl8m4wb" path="res://Levels/Main/Materials/wood_door_material.tres" id="4_xh4ow"]
@@ -31,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://cn5mexdd83vtk" path="res://Levels/Wiki/Assest brah/Barrel.glb" id="29_hlqrd"]
 [ext_resource type="PackedScene" uid="uid://chrt0quhltq51" path="res://Levels/Wiki/Assest brah/Bed.glb" id="30_sb46h"]
 [ext_resource type="PackedScene" uid="uid://b3sucj24j823v" path="res://Levels/Wiki/Assest brah/Table.glb" id="31_xb2y2"]
+[ext_resource type="PackedScene" uid="uid://dad4il7imx1sx" path="res://Features/Interactables/Tasks/ReturnToBed/return_to_bed_task.tscn" id="32_4723i"]
 [ext_resource type="PackedScene" uid="uid://cph0ce4mqfj5f" path="res://Levels/Wiki/Assest brah/Chair.glb" id="32_xb2y2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbg0b"]
@@ -55,6 +55,11 @@ geometry_source_group_name = &"navmesh"
 agent_height = 2.0
 agent_radius = 0.3
 vertices_per_polygon = 8.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sb46h"]
+normal_enabled = true
+uv1_scale = Vector3(0.215, 0.215, 0.215)
+uv1_triplanar = true
 
 [node name="Main" type="Node3D" unique_id=2088972694]
 
@@ -90,9 +95,10 @@ _hud = NodePath("../UI/HUD")
 _screen = NodePath("../UI/DayTransitionScreen")
 _count_ai = NodePath("../TheCount")
 
-[node name="TaskManager" type="Node" parent="." unique_id=507081622 node_paths=PackedStringArray("_task_container", "_hud", "_player")]
+[node name="TaskManager" type="Node" parent="." unique_id=507081622 node_paths=PackedStringArray("_task_container", "_return_to_bed_task", "_hud", "_player")]
 script = ExtResource("2_4723i")
 _task_container = NodePath("../TaskObjects")
+_return_to_bed_task = NodePath("../ReturnToBedTask")
 _hud = NodePath("../UI/HUD")
 _player = NodePath("../Player")
 
@@ -627,91 +633,91 @@ material = ExtResource("1_1u2st")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4979181, 0.875, -11.5000725)
 use_collision = true
 size = Vector3(0.5, 3.25, 4.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D38" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=787540188]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4979181, 0.5, -5.2500725)
 use_collision = true
 size = Vector3(0.5, 2.5, 5.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=866502419]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.502082, 0.875, -10.6250725)
 use_collision = true
 size = Vector3(0.5, 3.25, 7)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D27" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=129890158]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.002082, 0.875, -10.5000725)
 use_collision = true
 size = Vector3(0.5, 3.25, 3.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D35" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=535687144]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.002082, 1, -7.250073)
 use_collision = true
 size = Vector3(0.5, 3.5, 0.75)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D31" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=654402857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2520819, 0.875, -11.2500725)
 use_collision = true
 size = Vector3(0.5, 3.25, 4.75)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D28" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=1549094028]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002081871, 0.875, -13.1250725)
 use_collision = true
 size = Vector3(0.5, 3.25, 2)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D29" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=1230651582]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002081871, 0.875, -10.0000725)
 use_collision = true
 size = Vector3(0.5, 3.25, 2.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=1869465200]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.625, 1.375, -6.875)
 use_collision = true
 size = Vector3(0.5, 4.25, 9)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=474928547]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.002082, 0.875, -13.8750725)
 use_collision = true
 size = Vector3(0.5, 3.25, 12.75)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D32" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=1126913195]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.627082, 0.875, -11.6250725)
 use_collision = true
 size = Vector3(0.5, 3.25, 2.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=26715514]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.6270819, 0.875, -9.1250725)
 use_collision = true
 size = Vector3(0.5, 3.25, 3)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D34" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=916211196]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.627082, 0.875, -9.3750725)
 use_collision = true
 size = Vector3(0.5, 3.25, 0.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D36" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=661599475]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.6270819, 0.875, -9.3750725)
 use_collision = true
 size = Vector3(0.5, 3.25, 0.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D33" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=465439395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.002082, 0.875, -13.7500725)
 use_collision = true
 size = Vector3(0.5, 3.25, 0.75)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="Stairs" type="Node3D" parent="CastleGeo/Walls/ServantsQuarters" unique_id=740922749]
 
@@ -731,103 +737,103 @@ size = Vector3(1.5, 0.12, 1.3344727)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.627082, 1.875, -9.3750725)
 use_collision = true
 size = Vector3(0.5, 1.25, 1.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D39" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters/DoorTops" unique_id=1921903996]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.7479181, 2.5, -8.1250725)
 use_collision = true
 size = Vector3(1, 1.5, 2.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D40" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters/DoorTops" unique_id=542164104]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.002081871, 1.875, -11.6250725)
 use_collision = true
 size = Vector3(0.5, 1.25, 1.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D41" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters/DoorTops" unique_id=1685223255]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.002082, 1.875, -12.7500725)
 use_collision = true
 size = Vector3(0.5, 1.25, 1.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D43" type="CSGBox3D" parent="CastleGeo/Walls/ServantsQuarters/DoorTops" unique_id=168122078]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.002082, 2, -8.2500725)
 use_collision = true
 size = Vector3(0.5, 1, 1.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="CastleGeo/Walls" unique_id=692292281]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3.75, 8.25)
 use_collision = true
 size = Vector3(0.5, 7.5, 5.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="CastleGeo/Walls" unique_id=1391649933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.75, 1.625, -3.5)
 use_collision = true
 size = Vector3(0.5, 3.25, 20)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="CastleGeo/Walls" unique_id=269362467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3.75, 9.25)
 use_collision = true
 size = Vector3(0.5, 7.5, 3.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="CastleGeo/Walls" unique_id=1329375777]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.422304, 1.625, 0.5)
 use_collision = true
 size = Vector3(0.5, 3.25, 15.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="CastleGeo/Walls" unique_id=186773138]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 3.75, 10.75)
 use_collision = true
 size = Vector3(0.5, 7.5, 5.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="CastleGeo/Walls" unique_id=580323496]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.75, 1.625, 8.125)
 use_collision = true
 size = Vector3(0.5, 3.25, 9.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="CastleGeo/Walls" unique_id=2071079105]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.625, 1.625, 6.75)
 use_collision = true
 size = Vector3(0.5, 3.25, 8.75)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="CastleGeo/Walls" unique_id=1653943526]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.25, 1.625, -13.375)
 use_collision = true
 size = Vector3(0.5, 3.25, 8.75)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="CastleGeo/Walls" unique_id=540170970]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.5, 1.625, -1.75)
 use_collision = true
 size = Vector3(0.5, 3.25, 2.75)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D22" type="CSGBox3D" parent="CastleGeo/Walls" unique_id=1160553030]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 1.625, -1.75)
 use_collision = true
 size = Vector3(0.5, 3.25, 3.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="CastleGeo/Walls" unique_id=455157059]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3.125, 0.375)
 use_collision = true
 size = Vector3(0.5, 8.75, 9.75)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="CastleGeo/Walls" unique_id=859030256]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3.25, -6.5)
 use_collision = true
 size = Vector3(0.5, 8.5, 1.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="DoorTops" type="Node3D" parent="CastleGeo/Walls" unique_id=1783918800]
 
@@ -835,19 +841,19 @@ material = ExtResource("4_7n064")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3, 5, 6.375)
 use_collision = true
 size = Vector3(0.5, 5, 2.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D38" type="CSGBox3D" parent="CastleGeo/Walls/DoorTops" unique_id=345978900]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3, 5, 4.375)
 use_collision = true
 size = Vector3(0.5, 5, 2.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D36" type="CSGBox3D" parent="CastleGeo/Walls/DoorTops" unique_id=22383479]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.125, 2.875, -1.75)
 use_collision = true
 size = Vector3(0.5, 0.75, 2.75)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="EntryWay" type="Node3D" parent="CastleGeo/Walls" unique_id=929066219]
 
@@ -2459,43 +2465,43 @@ material = ExtResource("4_xh4ow")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3.125, -2.375)
 use_collision = true
 size = Vector3(0.5, 8.75, 11.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D37" type="CSGBox3D" parent="CastleGeo" unique_id=1789303510]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9979181, 3.375, -11.5000725)
 use_collision = true
 size = Vector3(0.5, 8.25, 4.5)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="CastleGeo" unique_id=1681466951]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.25, 4.5, -6.875)
 use_collision = true
 size = Vector3(0.5, 6, 6.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="CastleGeo" unique_id=10624884]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.25, 6.5, 0.2540903)
 use_collision = true
 size = Vector3(0.5, 2, 6.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D24" type="CSGBox3D" parent="CastleGeo" unique_id=348648336]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.25, 0.375, -6.875)
 use_collision = true
 size = Vector3(0.5, 2.25, 3.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="CastleGeo" unique_id=1212813399]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.25, 0.5, -3.375)
 use_collision = true
 size = Vector3(0.5, 2.5, 5.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="CSGBox3D38" type="CSGBox3D" parent="CastleGeo" unique_id=1434105009]
 transform = Transform3D(1, 0, 1.8278232e-07, 0, 1, 0, -1.8278232e-07, 0, 1, -3, 4.625, -5.125)
 use_collision = true
 size = Vector3(0.5, 5.75, 1.25)
-material = ExtResource("4_7n064")
+material = SubResource("StandardMaterial3D_sb46h")
 
 [node name="Barrel" parent="CastleGeo" unique_id=456213854 instance=ExtResource("29_hlqrd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5171125, -1.6435542, -11.45013)
@@ -2598,6 +2604,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 1.1617
 
 [node name="CoffinBed" parent="TaskObjects" unique_id=2082441799 instance=ExtResource("18_7oflx")]
 transform = Transform3D(0.39999998, -1.7763568e-15, 1.7763568e-15, 0, 0.39999998, -2.2351744e-08, 0, 2.2351738e-08, 0.4, 0.0672836, 3.4464245, -5.8229628)
+
+[node name="ReturnToBedTask" parent="." unique_id=1315407154 instance=ExtResource("32_4723i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7217144, 0.3136133, -11.644807)
 
 [node name="Lighting" type="Node3D" parent="." unique_id=1286854159]
 
