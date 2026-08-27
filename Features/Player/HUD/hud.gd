@@ -20,7 +20,7 @@ class_name HUD
 @onready var new_task: RichTextLabel = $NewTask
 @onready var new_task_timer: Timer = $NewTask/NewTaskTimer
 @onready var new_task_animation_player: AnimationPlayer = $NewTask/AnimationPlayer
-@onready var task_progress_bar: ProgressBar = $TaskProgressBar
+@onready var task_progress_bar: TextureProgressBar = $TaskProgressBar
 @onready var objectives_list: ObjectivesList = $ObjectivesList
 @onready var equippable_object_label: RichTextLabel = $EquippableObject
 @onready var tasks_tooltip: Label = $TasksTooltip
@@ -108,3 +108,12 @@ func _show_hiding_spot() -> void:
 
 func _hide_hiding_spot() -> void:
 	$LeaveHidingSpot.visible = false
+
+
+func show_note(note_text : String) -> void:
+	$ExamineUI.show()
+	$ExamineUI/Panel/Label.text = note_text
+
+
+func hide_note() -> void:
+	$ExamineUI.hide()

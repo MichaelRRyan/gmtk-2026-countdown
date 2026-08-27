@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://b3sucj24j823v" path="res://Levels/Wiki/Assest brah/Table.glb" id="31_xb2y2"]
 [ext_resource type="PackedScene" uid="uid://dad4il7imx1sx" path="res://Features/Interactables/Tasks/ReturnToBed/return_to_bed_task.tscn" id="32_4723i"]
 [ext_resource type="PackedScene" uid="uid://cph0ce4mqfj5f" path="res://Levels/Wiki/Assest brah/Chair.glb" id="32_xb2y2"]
+[ext_resource type="Script" uid="uid://bex0dpe8e056e" path="res://Features/Interactables/Examines/note.gd" id="33_4723i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbg0b"]
 shader = ExtResource("5_hdvse")
@@ -60,6 +61,9 @@ vertices_per_polygon = 8.0
 normal_enabled = true
 uv1_scale = Vector3(0.215, 0.215, 0.215)
 uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4723i"]
+albedo_color = Color(0.8692924, 0.77428335, 0.47942168, 1)
 
 [node name="Main" type="Node3D" unique_id=2088972694]
 
@@ -2681,6 +2685,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1352939, 0, 9.035391)
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="." unique_id=1231924512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3299732, -0.7013602, -11.934151)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=557896110]
+transform = Transform3D(0.9943999, 0.10537949, -0.007997987, -0.1054713, 0.9943489, -0.012087433, 0.006679023, 0.012863299, 0.999895, -0.8503281, 0.964995, -13.55382)
+use_collision = true
+size = Vector3(0.50024414, 0.6607666, 0.10986328)
+material = SubResource("StandardMaterial3D_4723i")
+script = ExtResource("33_4723i")
+text = "Nice! Glad you noticed me"
+
+[node name="Label3D" type="Label3D" parent="CSGBox3D" unique_id=1050570676]
+transform = Transform3D(1, 1.6007107e-09, -4.656613e-10, -5.81349e-09, 1, 9.313226e-10, 4.656613e-10, 9.313226e-10, 1, 0.00042831898, 0.0008249879, 0.064128876)
+modulate = Color(0, 0, 0, 1)
+text = "%$£\"$£\"
+%$£\"
+A£&\"l £\"*
+"
+font_size = 17
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1438872007]
+transform = Transform3D(0.99720067, -0.07455428, -0.0057019107, 0.074473105, 0.997134, -0.0133252395, 0.006679023, 0.0128633, 0.999895, -2.2476606, 0.63667166, -13.55382)
+use_collision = true
+size = Vector3(0.50024414, 0.6607666, 0.10986328)
+material = SubResource("StandardMaterial3D_4723i")
+script = ExtResource("33_4723i")
+text = "Controls are WASD"
+
+[node name="Label3D" type="Label3D" parent="CSGBox3D2" unique_id=943473730]
+transform = Transform3D(1, 1.6007107e-09, -4.656613e-10, -5.81349e-09, 1, 9.313226e-10, 4.656613e-10, 9.313226e-10, 1, 0.00042831898, 0.0008249879, 0.064128876)
+modulate = Color(0, 0, 0, 1)
+text = "%$£\"$£\"
+%$£\"
+A£&\"l £\"*
+"
+font_size = 17
 
 [connection signal="all_tasks_completed" from="TaskManager" to="GameStateManager" method="_on_task_manager_all_tasks_completed"]
 [connection signal="caught_player" from="TheCount" to="GameStateManager" method="_on_the_count_caught_player"]

@@ -28,6 +28,9 @@ var hud: HUD
 var is_hiding: bool = false
 var is_frozen: bool = false
 
+var _hovered_note : Note = null
+var _inspecting_note : bool = false
+
 
 #-------------------------------------------------------------------------------
 func _ready() -> void:
@@ -136,6 +139,22 @@ func _physics_process(delta: float) -> void:
 			hud.reset_interactable_hud_elements()
 		if has_pressed:
 			holdable_item_manager.drop_current_item()
+		
+		# Check if there's any notes in front of us
+		var note = _get_current_note()
+		if note:
+			_hovered_note = note
+			
+			if has_pressed:
+				hud.show_note(note.text)
+				_inspecting_note = true
+		
+		# Removes any stored notes and closes viewer when looking away
+		elif _hovered_note:
+			_hovered_note = null
+			if _inspecting_note:
+				_inspecting_note = false
+				hud.hide_note()
 	
 	if last_interacted_object and not interactable_object:
 		last_interacted_object.interact_release(self, delta)
@@ -149,4 +168,13 @@ func _get_current_interactable_object() -> Interactable:
 		if collider:
 			var interactable_object: Interactable = collider.owner as Interactable
 			return interactable_object
+	return null
+
+
+func _get_current_note() -> Note:
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider:
+			var note: Note = collider as Note
+			return note
 	return null

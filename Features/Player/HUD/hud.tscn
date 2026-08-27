@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cu0kdxy5t7fgl"]
 
-[ext_resource type="Theme" uid="uid://dkgcamelbh4xu" path="res://screens/ui_theme.tres" id="1_2oed0"]
+[ext_resource type="Theme" uid="uid://dkgcamelbh4xu" path="res://Screens/ui_theme.tres" id="1_2oed0"]
 [ext_resource type="Script" uid="uid://degc01x2f2g1m" path="res://Features/Player/HUD/hud.gd" id="1_qjg4n"]
 [ext_resource type="PackedScene" uid="uid://bbhgld6mgyoxf" path="res://Features/Player/HUD/objectives_list.tscn" id="2_j6b2d"]
 [ext_resource type="PackedScene" uid="uid://bcygdx0gaa2cw" path="res://Features/GameLogic/timer.tscn" id="4_2oed0"]
+[ext_resource type="Texture2D" uid="uid://bdqeg6n16yl34" path="res://Features/Player/HUD/Textures/task_progress_fill.png" id="4_c8vhp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c8vhp"]
 
@@ -49,6 +50,9 @@ _data = {
 }
 
 [sub_resource type="Theme" id="Theme_c8vhp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btu42"]
+bg_color = Color(0.927912, 0.8746347, 0.7981306, 1)
 
 [node name="HUD" type="Control" unique_id=1740219873]
 layout_mode = 3
@@ -105,23 +109,27 @@ one_shot = true
 [node name="TaskCompleteAnimationPlayer" type="AnimationPlayer" parent="TaskComplete" unique_id=203708056]
 libraries/ = SubResource("AnimationLibrary_rtong")
 
-[node name="TaskProgressBar" type="ProgressBar" parent="." unique_id=1180473423]
+[node name="TaskProgressBar" type="TextureProgressBar" parent="." unique_id=175813275]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -110.0
-offset_top = 46.0
-offset_right = 110.0
-offset_bottom = 73.0
+offset_left = -29.0
+offset_top = -29.0
+offset_right = 29.0
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_2oed0")
-show_percentage = false
+value = 50.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("4_c8vhp")
 
 [node name="ObjectivesList" parent="." unique_id=1966678782 instance=ExtResource("2_j6b2d")]
+visible = false
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 1
 offset_left = -207.0
@@ -131,6 +139,7 @@ offset_bottom = 124.0
 theme = ExtResource("1_2oed0")
 
 [node name="EquippableObject" type="RichTextLabel" parent="." unique_id=1475675828]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -203,3 +212,43 @@ grow_vertical = 0
 theme = ExtResource("1_2oed0")
 theme_override_font_sizes/font_size = 18
 text = "[TAB] Tasks"
+
+[node name="ExamineUI" type="Control" parent="." unique_id=805102297]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ExamineUI" unique_id=316888482]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.32
+anchor_top = 0.15
+anchor_right = 0.68
+anchor_bottom = 0.85
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_btu42")
+
+[node name="Label" type="Label" parent="ExamineUI/Panel" unique_id=1165448096]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.05
+anchor_right = 0.9
+anchor_bottom = 0.95
+offset_left = -2.0
+offset_right = 2.0
+offset_bottom = 2.386139
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Test TESTT ESTESGDJKS AHFKJ HSAFHKS AHFKH AFKHASFK HKASH"
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 1
