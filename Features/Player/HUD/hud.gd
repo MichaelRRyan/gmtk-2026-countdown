@@ -60,9 +60,9 @@ func set_task_meter(interact_level_current: float, interact_level_end: float):
 		task_progress_bar.visible = false
 		return
 	
-	var percent: float = interact_level_current / interact_level_end * 100
-	task_progress_bar.visible = task_progress_bar.value <= percent
-	task_progress_bar.value = percent
+	var complete_ratio: float = interact_level_current / interact_level_end
+	task_progress_bar.value = complete_ratio * 100.0
+	task_progress_bar.visible = true
 
 
 func show_task_complete() -> void:
@@ -81,6 +81,10 @@ func show_equippable_object_description(text: String, show_text: bool):
 	if show_text:
 		equippable_object_label.text = text
 	equippable_object_label.visible = show_text
+
+
+func hide_object_description():
+	equippable_object_label.hide()
 
 
 func reset_interactable_hud_elements():

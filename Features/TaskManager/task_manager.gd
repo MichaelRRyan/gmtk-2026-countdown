@@ -83,7 +83,7 @@ func register_task(task_object: TaskObjectBase):
 
 #-------------------------------------------------------------------------------
 func _on_task_updated(task_object: TaskObjectBase, interact_level_current: float, interact_level_end: float):
-	if task_object == _player.last_interacted_object:
+	if task_object == _player._current_interactable:
 		_hud.set_task_meter(interact_level_current, interact_level_end)
 	
 	

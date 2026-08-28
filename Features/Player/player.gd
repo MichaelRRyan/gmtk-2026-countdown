@@ -22,7 +22,8 @@ class_name Player
 var camera_rot_x: float = 0.0
 var camera_rot_y: float = 0.0
 var velocity_desired: Vector3 = Vector3.ZERO
-var last_interacted_object: Interactable = null
+var _current_interactable: Interactable = null
+var _is_interact_held = false
 var hud: HUD
 
 var is_hiding: bool = false
@@ -61,28 +62,89 @@ func _input(event: InputEvent) -> void:
 
 
 #-------------------------------------------------------------------------------
-func _process_input() -> Vector3:	
-	# Process movement direction from input.
-	var direction := Vector3.ZERO
+func _physics_process(delta: float) -> void:
+	if not is_hiding:
+		_process_movement(delta)
 	
-	if Input.is_action_pressed("move_forward"):
-		direction -= transform.basis.z
-	if Input.is_action_pressed("move_back"):
-		direction += transform.basis.z
-	if Input.is_action_pressed("move_left"):
-		direction -= transform.basis.x
-	if Input.is_action_pressed("move_right"):
-		direction += transform.basis.x
+	_process_interactions(delta)
+	handle_notes()
 	
-	return direction.normalized()
+	if Input.is_action_just_pressed("show_tasks"):
+		hud.toggle_tasks()
 	
-	
+	if Input.is_action_just_pressed("drop_item"):
+			holdable_item_manager.drop_current_item()
+
+
 #-------------------------------------------------------------------------------
-# Apply movement, gravity, and acceleration each physics frame.
-func _process_movement(direction : Vector3, delta: float) -> void:
+func _process_interactions(delta : float):
+	var focused_interact: Interactable = _get_current_interactable_object()
+	if focused_interact:
+		
+		# Release old interactable if no longer the currently focused interact.
+		if _current_interactable and _current_interactable != focused_interact:
+			_unfocus_current_interactable(delta)
+		
+		# Set the new currently focused interactable.
+		_current_interactable = focused_interact
+		
+		if focused_interact.is_interactable(self):
+			
+			# Process singular interact inputs.
+			if Input.is_action_just_pressed("interact"):
+				_current_interactable.interact_press(self, delta)
+			
+			# Process hold interact inputs.
+			elif Input.is_action_pressed("interact"):
+				_current_interactable.interact_hold(self, delta)
+				_is_interact_held = true
+			
+			# Release any held interacts when no longer held.
+			elif _is_interact_held:
+				_is_interact_held = false
+				_current_interactable.interact_release(self, delta)
+	
+	# If no focused interacts and we're storing an interact, release it.
+	elif _current_interactable:
+		_unfocus_current_interactable(delta)
+
+
+#-------------------------------------------------------------------------------
+func _unfocus_current_interactable(delta):
+	if _is_interact_held:
+		_is_interact_held = false
+		_current_interactable.interact_release(self, delta)
+	
+	hud.reset_interactable_hud_elements()
+	_current_interactable = null
+
+
+#-------------------------------------------------------------------------------
+func handle_notes():
+	# Check if there's any notes in front of us
+	var note = _get_current_note()
+	if note:
+		_hovered_note = note
+		
+		if Input.is_action_just_pressed("interact"):
+			hud.show_note(note.text)
+			_inspecting_note = true
+	
+	# Removes any stored notes and closes viewer when looking away
+	elif _hovered_note:
+		_hovered_note = null
+		if _inspecting_note:
+			_inspecting_note = false
+			hud.hide_note()
+
+
+## Apply movement, gravity, and acceleration each physics frame.
+func _process_movement(delta: float) -> void:
 	if is_frozen:
 		return
-		
+	
+	var direction : Vector3 = _get_movement_input()
+	
 	velocity_desired = direction * move_speed
 	
 	# Horizontal components
@@ -110,58 +172,27 @@ func _process_movement(direction : Vector3, delta: float) -> void:
 		$FootstepAudio.play()
 	else:
 		$FootstepAudio.stop()
-	
+
 
 #-------------------------------------------------------------------------------
-func _physics_process(delta: float) -> void:
-	if not is_hiding:
-		_process_movement(_process_input(), delta)
+## Get the movement related user input and return it as a movement vector.
+func _get_movement_input() -> Vector3:
+	# Process movement direction from input.
+	var direction := Vector3.ZERO
 	
-	if Input.is_action_just_pressed("show_tasks"):
-		hud.toggle_tasks()
+	if Input.is_action_pressed("move_forward"):
+		direction -= transform.basis.z
+	if Input.is_action_pressed("move_back"):
+		direction += transform.basis.z
+	if Input.is_action_pressed("move_left"):
+		direction -= transform.basis.x
+	if Input.is_action_pressed("move_right"):
+		direction += transform.basis.x
 	
-	var has_pressed: bool = Input.is_action_just_pressed("interact")
-	var is_holding: bool = Input.is_action_pressed("interact")
-	var reason: String = ""
-	
-	var interactable_object: Interactable = _get_current_interactable_object()
-	if interactable_object:
-		var is_interactable: Array = interactable_object.check_is_interactable(self)
-		if is_interactable[0]:
-			if has_pressed and not interactable_object.is_hold_action:
-				interactable_object.interact_press(self, delta)
-			elif is_holding and interactable_object.is_hold_action:
-				interactable_object.interact_hold(self, delta)
-		else:
-			reason = is_interactable[1]
-	else:
-		if reason == "" and hud:
-			hud.reset_interactable_hud_elements()
-		if has_pressed:
-			holdable_item_manager.drop_current_item()
-		
-		# Check if there's any notes in front of us
-		var note = _get_current_note()
-		if note:
-			_hovered_note = note
-			
-			if has_pressed:
-				hud.show_note(note.text)
-				_inspecting_note = true
-		
-		# Removes any stored notes and closes viewer when looking away
-		elif _hovered_note:
-			_hovered_note = null
-			if _inspecting_note:
-				_inspecting_note = false
-				hud.hide_note()
-	
-	if last_interacted_object and not interactable_object:
-		last_interacted_object.interact_release(self, delta)
-	
-	last_interacted_object = interactable_object
-	
-	
+	return direction.normalized()
+
+
+#-------------------------------------------------------------------------------
 func _get_current_interactable_object() -> Interactable:
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
@@ -171,6 +202,7 @@ func _get_current_interactable_object() -> Interactable:
 	return null
 
 
+#-------------------------------------------------------------------------------
 func _get_current_note() -> Note:
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
@@ -178,3 +210,6 @@ func _get_current_note() -> Note:
 			var note: Note = collider as Note
 			return note
 	return null
+
+
+#-------------------------------------------------------------------------------

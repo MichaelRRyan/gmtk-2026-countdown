@@ -16,7 +16,8 @@ func try_pickup(item: EquippableObject) -> void:
 	held_item.collision_shape.disabled = true
 	
 	item.reparent(camera, false)
-
+	
+	held_item.rigid_body.transform = Transform3D.IDENTITY
 	item.transform.origin = item.postition_equipped_camera_offset
 	item.rotation = item.rotation_equipped_camera_offset
 	

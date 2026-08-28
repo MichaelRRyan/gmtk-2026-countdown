@@ -29,19 +29,20 @@ var interact_level_current: float = interact_level_start
 var is_task_complete: bool = false
 
 func check_is_interactable(player: Player) -> Array:
-	var has_pre_requisites: bool = required_item_type != EquippableObject.ItemType.NONE
-	var pre_requisites_met: bool = player.holdable_item_manager.held_item and required_item_type == player.holdable_item_manager.held_item.item_type
-	var item_is_missing: bool = has_pre_requisites and !pre_requisites_met and not is_task_complete
-	var interaction_is_available: bool = is_active and not is_task_complete
-	var is_interactable: bool = !item_is_missing and interaction_is_available
+	var has_pre_requisites = required_item_type != EquippableObject.ItemType.NONE
+	
+	var pre_requisites_met = player.holdable_item_manager.held_item and required_item_type == player.holdable_item_manager.held_item.item_type
+	var item_is_missing = has_pre_requisites and !pre_requisites_met and not is_task_complete
+	var interaction_is_available = is_active and not is_task_complete
+	var can_be_interacted = !item_is_missing and interaction_is_available
 	var object_description: String = ""
 	hud.set_crosshair_interactable(interaction_is_available)
-	if item_is_missing:
+	if item_is_missing and interaction_is_available:
 		var item_type_name: String = EquippableObject.ItemType.keys()[required_item_type]
 		object_description = "Missing: %s" % item_type_name.to_lower()
 		hud.show_equippable_object_description(object_description, true)
 
-	return [is_interactable, object_description]
+	return [can_be_interacted, object_description]
 
 func _process(delta: float) -> void:
 	if not is_active or is_task_complete or is_increasing or interact_level_current <= 0:
@@ -67,7 +68,7 @@ func interact_hold(_player: Player, delta: float) -> void:
 	_perform_action()
 	
 func interact_release(_player: Player, _delta: float) -> void:
-	is_increasing = false	
+	is_increasing = false
 	
 func _perform_action() -> void:
 	pass

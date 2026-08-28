@@ -68,6 +68,7 @@ albedo_color = Color(0.8692924, 0.77428335, 0.47942168, 1)
 [node name="Main" type="Node3D" unique_id=2088972694]
 
 [node name="ScreenspaceShader" type="ColorRect" parent="." unique_id=562131817]
+visible = false
 material = SubResource("ShaderMaterial_cbg0b")
 anchors_preset = 15
 anchor_right = 1.0
