@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ko57imyngi0r"]
 
 [ext_resource type="Script" uid="uid://bkb3o3n3kshfr" path="res://Features/Interactables/Examines/note_interaction.gd" id="1_dt2x4"]
-[ext_resource type="PackedScene" uid="uid://s3laen77ah7f" path="res://Features/Player/HUD/Notes/sticky_note_ui.tscn" id="2_gfvcw"]
+[ext_resource type="PackedScene" uid="uid://qrby32yjj3vw" path="res://Features/Player/HUD/Notes/sticky_note_ui.tscn" id="2_gfvcw"]
 [ext_resource type="FontFile" uid="uid://cek6cuo6t72xf" path="res://screens/fonts/hf-gold-ii-complete/softball-gold-v2/Softball Gold.ttf" id="3_14iox"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_btu42"]
@@ -10,7 +10,7 @@ size = Vector3(0.15527344, 0.74316406, 0.7314453)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqn17"]
 albedo_color = Color(0.96253544, 0.83214504, 0.40023315, 1)
 
-[node name="INote" type="Node3D" unique_id=959405023]
+[node name="NoteInteraction" type="Node3D" unique_id=959405023]
 script = ExtResource("1_dt2x4")
 note_ui = ExtResource("2_gfvcw")
 

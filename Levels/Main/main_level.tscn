@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://b3sucj24j823v" path="res://Levels/Wiki/Assest brah/Table.glb" id="31_xb2y2"]
 [ext_resource type="PackedScene" uid="uid://dad4il7imx1sx" path="res://Features/Interactables/Tasks/ReturnToBed/return_to_bed_task.tscn" id="32_4723i"]
 [ext_resource type="PackedScene" uid="uid://cph0ce4mqfj5f" path="res://Levels/Wiki/Assest brah/Chair.glb" id="32_xb2y2"]
+[ext_resource type="PackedScene" uid="uid://ihl6w10sb825" path="res://Features/Interactables/Examines/a4_note_interaction.tscn" id="34_a2ahd"]
 [ext_resource type="PackedScene" uid="uid://ko57imyngi0r" path="res://Features/Interactables/Examines/note_interaction.tscn" id="34_ls13t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbg0b"]
@@ -2683,13 +2684,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1352939, 0, 9.035391)
 [node name="PlayerSpawnPoint" type="Node3D" parent="." unique_id=1231924512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3299732, -0.7013602, -11.934151)
 
-[node name="INote" parent="." unique_id=959405023 instance=ExtResource("34_ls13t")]
+[node name="NoteInteraction1" parent="." unique_id=959405023 instance=ExtResource("34_ls13t")]
 transform = Transform3D(-4.3631093e-08, 0.060584955, -0.99816304, 2.6482525e-09, 0.99816304, 0.060584955, 1, 0, -4.371139e-08, -0.8657768, 0.9965728, -13.506572)
 text = "Nice!  Glad you noticed me"
 
-[node name="INote2" parent="." unique_id=833792562 instance=ExtResource("34_ls13t")]
+[node name="NoteInteraction2" parent="." unique_id=833792562 instance=ExtResource("34_ls13t")]
 transform = Transform3D(-4.360045e-08, -0.0712008, -0.99746203, -3.112286e-09, 0.99746203, -0.0712008, 1, 0, -4.371139e-08, -2.267731, 0.67519414, -13.506572)
 text = "The controls are WASD"
+
+[node name="A4NoteInteraction" parent="." unique_id=197790843 instance=ExtResource("34_a2ahd")]
+transform = Transform3D(-5.051758e-08, -0.17031848, -0.98538905, 1, -4.371139e-08, -4.371139e-08, -3.5627867e-08, -0.98538905, 0.17031848, -1.4100139, 0.13928056, -13.0654335)
+text = "First day working in this house. It's nice but it's very cold"
 
 [connection signal="all_tasks_completed" from="TaskManager" to="GameStateManager" method="_on_task_manager_all_tasks_completed"]
 [connection signal="caught_player" from="TheCount" to="GameStateManager" method="_on_the_count_caught_player"]

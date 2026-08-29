@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ihl6w10sb825"]
+
+[ext_resource type="PackedScene" uid="uid://ko57imyngi0r" path="res://Features/Interactables/Examines/note_interaction.tscn" id="1_v0ddn"]
+[ext_resource type="PackedScene" uid="uid://s3laen77ah7f" path="res://Features/Player/HUD/Notes/a4_note_ui.tscn" id="2_f8mwi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f8mwi"]
+size = Vector3(0.155, 0.973, 0.831)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0ddn"]
+albedo_color = Color(0.99563247, 0.9675179, 0.87793106, 1)
+
+[node name="A4NoteInteraction" unique_id=959405023 instance=ExtResource("1_v0ddn")]
+note_ui = ExtResource("2_f8mwi")
+
+[node name="CollisionShape3D" parent="Area3D" parent_id_path=PackedInt32Array(1978677071) index="0" unique_id=1681389923]
+shape = SubResource("BoxShape3D_f8mwi")
+
+[node name="CSGBox3D" parent="." index="1" unique_id=1615704175]
+size = Vector3(0.026367188, 0.8017578, 0.63183594)
+material = SubResource("StandardMaterial3D_v0ddn")
+
+[node name="Label3D" parent="." index="2" unique_id=650759685]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.023513615, 0.33243817, 0.25830767)
+text = "Nice!  Glad you noticed me "
+font_size = 12
+horizontal_alignment = 0
+vertical_alignment = 0
+width = 110.0
