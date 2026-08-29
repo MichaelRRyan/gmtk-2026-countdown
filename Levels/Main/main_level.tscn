@@ -2685,7 +2685,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3299732, -0.7013602, -11.9
 
 [node name="INote" parent="." unique_id=959405023 instance=ExtResource("34_ls13t")]
 transform = Transform3D(-4.3631093e-08, 0.060584955, -0.99816304, 2.6482525e-09, 0.99816304, 0.060584955, 1, 0, -4.371139e-08, -0.8657768, 0.9965728, -13.506572)
-text = "Nice! Glad you noticed me"
+text = "Nice!  Glad you noticed me"
 
 [node name="INote2" parent="." unique_id=833792562 instance=ExtResource("34_ls13t")]
 transform = Transform3D(-4.360045e-08, -0.0712008, -0.99746203, -3.112286e-09, 0.99746203, -0.0712008, 1, 0, -4.371139e-08, -2.267731, 0.67519414, -13.506572)

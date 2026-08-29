@@ -53,9 +53,6 @@ _data = {
 
 [sub_resource type="Theme" id="Theme_c8vhp"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btu42"]
-bg_color = Color(0.927912, 0.8746347, 0.7981306, 1)
-
 [node name="HUD" type="Control" unique_id=1740219873]
 layout_mode = 3
 anchors_preset = 15
@@ -231,43 +228,3 @@ grow_vertical = 0
 theme = ExtResource("1_2oed0")
 theme_override_font_sizes/font_size = 18
 text = "[TAB] Tasks"
-
-[node name="ExamineUI" type="Control" parent="." unique_id=805102297]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="ExamineUI" unique_id=316888482]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.32
-anchor_top = 0.15
-anchor_right = 0.68
-anchor_bottom = 0.85
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_btu42")
-
-[node name="Label" type="Label" parent="ExamineUI/Panel" unique_id=1165448096]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.05
-anchor_right = 0.9
-anchor_bottom = 0.95
-offset_left = -2.0
-offset_right = 2.0
-offset_bottom = 2.386139
-grow_horizontal = 2
-grow_vertical = 2
-offset_transform_enabled = true
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Test TESTT ESTESGDJKS AHFKJ HSAFHKS AHFKH AFKHASFK HKASH"
-autowrap_mode = 2
-clip_text = true
-text_overrun_behavior = 1

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://ko57imyngi0r"]
 
 [ext_resource type="Script" uid="uid://bkb3o3n3kshfr" path="res://Features/Interactables/Examines/note_interaction.gd" id="1_dt2x4"]
+[ext_resource type="PackedScene" uid="uid://s3laen77ah7f" path="res://Features/Player/HUD/Notes/sticky_note_ui.tscn" id="2_gfvcw"]
+[ext_resource type="FontFile" uid="uid://cek6cuo6t72xf" path="res://screens/fonts/hf-gold-ii-complete/softball-gold-v2/Softball Gold.ttf" id="3_14iox"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_btu42"]
 size = Vector3(0.15527344, 0.74316406, 0.7314453)
@@ -10,6 +12,7 @@ albedo_color = Color(0.96253544, 0.83214504, 0.40023315, 1)
 
 [node name="INote" type="Node3D" unique_id=959405023]
 script = ExtResource("1_dt2x4")
+note_ui = ExtResource("2_gfvcw")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1978677071]
 collision_layer = 3
@@ -23,9 +26,11 @@ material = SubResource("StandardMaterial3D_fqn17")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=650759685]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.055867255, 0, 0)
-modulate = Color(0.08468986, 0.08468995, 0.08468988, 1)
-outline_modulate = Color(0.08855995, 0.0885599, 0.0885599, 1)
-text = "NOTE TEXT
-PLACEHOLDER
-HERE"
-font_size = 11
+texture_filter = 0
+modulate = Color(0.0253638, 0.0253638, 0.025363795, 1)
+text = "Nice!  Glad you noticed me"
+font = ExtResource("3_14iox")
+font_size = 18
+outline_size = 2
+autowrap_mode = 2
+width = 100.0
