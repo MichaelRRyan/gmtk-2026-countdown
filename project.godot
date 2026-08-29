@@ -98,6 +98,7 @@ pointing/emulate_touch_from_mouse=true
 3d_physics/layer_1="all"
 3d_physics/layer_2="interaction"
 3d_physics/layer_5="shadows"
+3d_physics/layer_6="audio_zones"
 
 [physics]
 

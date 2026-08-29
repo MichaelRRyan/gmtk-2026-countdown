@@ -19,7 +19,6 @@ enum ItemType { NONE, STICK, KEY, CLOTH }
 func check_is_interactable(_player: Player) -> Array:
 	var description = object_name if is_active else ""
 	hud.show_equippable_object_description(description, is_active)
-	hud.set_crosshair_interactable(is_active)
 	
 	return [is_active, ""]
 

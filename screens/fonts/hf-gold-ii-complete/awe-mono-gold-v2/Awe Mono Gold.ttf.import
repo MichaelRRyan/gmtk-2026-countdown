@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b4rl0sjnbun2b"
-path="res://.godot/imported/Awe Mono Gold.ttf-ec387d2f25e2ee23a19806eb8684da01.fontdata"
+path="res://.godot/imported/Awe Mono Gold.ttf-2a645d7083f355dd08b4e15172d02932.fontdata"
 
 [deps]
 
-source_file="res://Screens/fonts/hf-gold-ii-complete/awe-mono-gold-v2/Awe Mono Gold.ttf"
-dest_files=["res://.godot/imported/Awe Mono Gold.ttf-ec387d2f25e2ee23a19806eb8684da01.fontdata"]
+source_file="res://screens/fonts/hf-gold-ii-complete/awe-mono-gold-v2/Awe Mono Gold.ttf"
+dest_files=["res://.godot/imported/Awe Mono Gold.ttf-2a645d7083f355dd08b4e15172d02932.fontdata"]
 
 [params]
 

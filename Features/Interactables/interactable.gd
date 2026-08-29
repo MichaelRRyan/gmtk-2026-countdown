@@ -19,3 +19,6 @@ func interact_hold(_player: Player, _delta: float) -> void:
 	
 func interact_release(_player: Player, _delta: float) -> void:
 	pass
+
+func interact_unfocused(_player : Player, _delta : float) -> void:
+	pass

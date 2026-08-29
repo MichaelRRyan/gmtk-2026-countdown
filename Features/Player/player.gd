@@ -29,9 +29,6 @@ var hud: HUD
 var is_hiding: bool = false
 var is_frozen: bool = false
 
-var _hovered_note : Note = null
-var _inspecting_note : bool = false
-
 
 #-------------------------------------------------------------------------------
 func _ready() -> void:
@@ -67,7 +64,6 @@ func _physics_process(delta: float) -> void:
 		_process_movement(delta)
 	
 	_process_interactions(delta)
-	handle_notes()
 	
 	if Input.is_action_just_pressed("show_tasks"):
 		hud.toggle_tasks()
@@ -89,6 +85,7 @@ func _process_interactions(delta : float):
 		_current_interactable = focused_interact
 		
 		if focused_interact.is_interactable(self):
+			hud.set_crosshair_interactable(true)
 			
 			# Process singular interact inputs.
 			if Input.is_action_just_pressed("interact"):
@@ -115,36 +112,18 @@ func _unfocus_current_interactable(delta):
 		_is_interact_held = false
 		_current_interactable.interact_release(self, delta)
 	
+	_current_interactable.interact_unfocused(self, delta)
 	hud.reset_interactable_hud_elements()
 	_current_interactable = null
 
 
 #-------------------------------------------------------------------------------
-func handle_notes():
-	# Check if there's any notes in front of us
-	var note = _get_current_note()
-	if note:
-		_hovered_note = note
-		
-		if Input.is_action_just_pressed("interact"):
-			hud.show_note(note.text)
-			_inspecting_note = true
-	
-	# Removes any stored notes and closes viewer when looking away
-	elif _hovered_note:
-		_hovered_note = null
-		if _inspecting_note:
-			_inspecting_note = false
-			hud.hide_note()
-
-
 ## Apply movement, gravity, and acceleration each physics frame.
 func _process_movement(delta: float) -> void:
 	if is_frozen:
 		return
 	
 	var direction : Vector3 = _get_movement_input()
-	
 	velocity_desired = direction * move_speed
 	
 	# Horizontal components
@@ -152,7 +131,6 @@ func _process_movement(delta: float) -> void:
 	vel_h.y = 0
 	
 	var rate = acceleration if direction.length() > 0 else deceleration
-	
 	vel_h = vel_h.lerp(velocity_desired, rate * delta)
 
 	# Apply back to velocity
@@ -162,9 +140,8 @@ func _process_movement(delta: float) -> void:
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	else:
-		if Input.is_action_just_pressed("jump"):
-			velocity.y = jump_speed
+	elif Input.is_action_just_pressed("jump"):
+		velocity.y = jump_speed
 	
 	move_and_slide()
 	
@@ -179,6 +156,7 @@ func _process_movement(delta: float) -> void:
 func _get_movement_input() -> Vector3:
 	# Process movement direction from input.
 	var direction := Vector3.ZERO
+	
 	
 	if Input.is_action_pressed("move_forward"):
 		direction -= transform.basis.z
@@ -199,16 +177,6 @@ func _get_current_interactable_object() -> Interactable:
 		if collider:
 			var interactable_object: Interactable = collider.owner as Interactable
 			return interactable_object
-	return null
-
-
-#-------------------------------------------------------------------------------
-func _get_current_note() -> Note:
-	if raycast.is_colliding():
-		var collider = raycast.get_collider()
-		if collider:
-			var note: Note = collider as Note
-			return note
 	return null
 
 

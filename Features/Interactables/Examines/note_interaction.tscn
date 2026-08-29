@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ko57imyngi0r"]
+
+[ext_resource type="Script" uid="uid://bkb3o3n3kshfr" path="res://Features/Interactables/Examines/note_interaction.gd" id="1_dt2x4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btu42"]
+size = Vector3(0.15527344, 0.74316406, 0.7314453)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqn17"]
+albedo_color = Color(0.96253544, 0.83214504, 0.40023315, 1)
+
+[node name="INote" type="Node3D" unique_id=959405023]
+script = ExtResource("1_dt2x4")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1978677071]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1681389923]
+shape = SubResource("BoxShape3D_btu42")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1615704175]
+size = Vector3(0.1, 0.5, 0.5)
+material = SubResource("StandardMaterial3D_fqn17")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=650759685]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.055867255, 0, 0)
+modulate = Color(0.08468986, 0.08468995, 0.08468988, 1)
+outline_modulate = Color(0.08855995, 0.0885599, 0.0885599, 1)
+text = "NOTE TEXT
+PLACEHOLDER
+HERE"
+font_size = 11

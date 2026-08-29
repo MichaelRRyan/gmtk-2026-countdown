@@ -28,6 +28,8 @@ var is_increasing: bool = false
 var interact_level_current: float = interact_level_start
 var is_task_complete: bool = false
 
+
+#-------------------------------------------------------------------------------
 func check_is_interactable(player: Player) -> Array:
 	var has_pre_requisites = required_item_type != EquippableObject.ItemType.NONE
 	
@@ -36,7 +38,6 @@ func check_is_interactable(player: Player) -> Array:
 	var interaction_is_available = is_active and not is_task_complete
 	var can_be_interacted = !item_is_missing and interaction_is_available
 	var object_description: String = ""
-	hud.set_crosshair_interactable(interaction_is_available)
 	if item_is_missing and interaction_is_available:
 		var item_type_name: String = EquippableObject.ItemType.keys()[required_item_type]
 		object_description = "Missing: %s" % item_type_name.to_lower()
@@ -44,6 +45,8 @@ func check_is_interactable(player: Player) -> Array:
 
 	return [can_be_interacted, object_description]
 
+
+#-------------------------------------------------------------------------------
 func _process(delta: float) -> void:
 	if not is_active or is_task_complete or is_increasing or interact_level_current <= 0:
 		return
@@ -52,6 +55,8 @@ func _process(delta: float) -> void:
 	on_task_updated.emit(self, interact_level_current, interact_level_end)
 	_undo_action()
 
+
+#-------------------------------------------------------------------------------
 func interact_hold(_player: Player, delta: float) -> void:
 	if is_task_complete or not is_active:
 		return
@@ -59,6 +64,7 @@ func interact_hold(_player: Player, delta: float) -> void:
 	if interact_level_current >= interact_level_end:
 		is_task_complete = true
 		on_task_completed.emit(self)
+		hud.reset_interactable_hud_elements()
 		return
 	
 	is_increasing = true
@@ -66,27 +72,37 @@ func interact_hold(_player: Player, delta: float) -> void:
 	on_task_updated.emit(self, interact_level_current, interact_level_end)
 	
 	_perform_action()
-	
+
+
+#-------------------------------------------------------------------------------
 func interact_release(_player: Player, _delta: float) -> void:
 	is_increasing = false
-	
+
+
+#-------------------------------------------------------------------------------
 func _perform_action() -> void:
 	pass
-	
+
+
+#-------------------------------------------------------------------------------
 func _undo_action() -> void:
 	pass
-	
+
+
+#-------------------------------------------------------------------------------
 func set_hidden() -> void:
 	is_active = false
 	is_task_complete = false
 	visible = false
-	
+
+
+#-------------------------------------------------------------------------------
 func initialize_task() -> void:
 	is_active = true
 	is_task_complete = false
 	interact_level_current = interact_level_start
 	visible = true
-	
+
 
 #-------------------------------------------------------------------------------
 func _reset_task():
