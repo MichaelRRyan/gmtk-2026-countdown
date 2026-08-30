@@ -51,7 +51,7 @@ func _ready() -> void:
 	_player.hud = _hud
 	
 	# Sets the state to intro and kicks off a new day.
-	_set_game_state(GameState.INTRO)
+	call_deferred("_set_game_state", GameState.INTRO)
 
 
 #-------------------------------------------------------------------------------

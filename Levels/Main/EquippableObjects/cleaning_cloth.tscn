@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_cciay"]
 size = Vector3(0.34057617, 0.3320923, 0.059692383)
 
-[node name="CleaningCloth" type="Node3D" unique_id=1437859175]
+[node name="CleaningCloth" type="Node3D" unique_id=1437859175 groups=["tasks"]]
 script = ExtResource("1_w0kik")
 object_name = "Cleaning Cloth"
 postition_equipped_camera_offset = Vector3(0.3429729, -0.18849738, -0.39251834)

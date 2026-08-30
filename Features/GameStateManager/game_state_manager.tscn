@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://3qt8k80lbkfq"]
 
 [ext_resource type="Script" uid="uid://dsr0mlf6qkayq" path="res://Features/GameStateManager/game_state_manager.gd" id="1_yc5vj"]
+[ext_resource type="AudioStream" uid="uid://bwfnlp5eisdrf" path="res://Audio/Ambience/rain.wav" id="2_awhxv"]
 
 [node name="GameStateManager" type="Node" unique_id=75615673]
 script = ExtResource("1_yc5vj")
@@ -20,6 +21,11 @@ one_shot = true
 [node name="CountPatrolCountdown" type="Timer" parent="." unique_id=1288232168]
 wait_time = 60.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=917124077]
+stream = ExtResource("2_awhxv")
+volume_db = 10.0
+autoplay = true
 
 [connection signal="timeout" from="PlayerFreezeTimer" to="." method="_on_player_freeze_timer_timeout"]
 [connection signal="timeout" from="IntroScreenTimer" to="." method="_on_intro_screen_timer_timeout"]

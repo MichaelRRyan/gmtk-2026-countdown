@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ofdr7"]
 size = Vector3(2.3548431, 0.61120605, 2.0942993)
 
-[node name="TaskCleanBlood" type="Node3D" unique_id=562064819]
+[node name="TaskCleanBlood" type="Node3D" unique_id=562064819 groups=["tasks"]]
 script = ExtResource("1_j50rd")
 interact_increase_rate = 0.25
 required_item_type = 3

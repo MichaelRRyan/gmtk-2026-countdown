@@ -13,7 +13,7 @@ resource_local_to_scene = true
 transparency = 1
 albedo_color = Color(0.79607844, 0.49803922, 0.34509805, 0.7529412)
 
-[node name="DirtyWindowTask" type="Node3D" unique_id=1343915890]
+[node name="DirtyWindowTask" type="Node3D" unique_id=1343915890 groups=["tasks"]]
 script = ExtResource("1_fshc3")
 color_start = Color(0.79607844, 0.49803922, 0.34509805, 0.7529412)
 color_end = Color(1, 1, 1, 0)

@@ -2527,6 +2527,7 @@ transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, -1.6
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=751850732]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010272741, 0, 0)
+visible = false
 navigation_mesh = SubResource("NavigationMesh_y8tdg")
 
 [node name="AudioZones" parent="." unique_id=1441628413 instance=ExtResource("18_0d2pr")]

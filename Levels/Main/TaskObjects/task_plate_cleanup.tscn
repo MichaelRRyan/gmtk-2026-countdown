@@ -8,7 +8,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_cciay"]
 size = Vector3(1.0244141, 0.44335938, 1.0019531)
 
-[node name="TaskPlateCleanup" type="Node3D" unique_id=1857819778]
+[node name="TaskPlateCleanup" type="Node3D" unique_id=1857819778 groups=["tasks"]]
 script = ExtResource("1_anno6")
 interact_increase_rate = 0.5
 interact_delay_before_decrease = 0.1

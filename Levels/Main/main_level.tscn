@@ -6,24 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://3qt8k80lbkfq" path="res://Features/GameStateManager/game_state_manager.tscn" id="5_4723i"]
 [ext_resource type="Shader" uid="uid://csm131yyan6g7" path="res://Levels/Maicon/pixelate_shader.gdshader" id="5_hdvse"]
 [ext_resource type="PackedScene" uid="uid://ekglnyrc5372" path="res://Levels/Main/Geo/castle_geo.tscn" id="6_h1rqx"]
+[ext_resource type="PackedScene" uid="uid://du6x56lafgg8h" path="res://Levels/Days/day_1.tscn" id="10_gf0bk"]
 [ext_resource type="PackedScene" uid="uid://cu0kdxy5t7fgl" path="res://Features/Player/HUD/hud.tscn" id="12_1h7oc"]
-[ext_resource type="PackedScene" uid="uid://b66ha6tgvh6vq" path="res://Levels/Main/TaskObjects/task_dirty_window.tscn" id="14_h71bk"]
-[ext_resource type="PackedScene" uid="uid://se17jate6s7" path="res://Levels/Main/TaskObjects/task_clean_blood.tscn" id="15_kfrea"]
-[ext_resource type="PackedScene" uid="uid://cqliejscdrsyj" path="res://Levels/Main/EquippableObjects/cleaning_cloth.tscn" id="16_32g1e"]
-[ext_resource type="PackedScene" uid="uid://blthaqm2hacyh" path="res://Levels/Main/TaskObjects/task_plate_cleanup.tscn" id="17_h1rqx"]
-[ext_resource type="PackedScene" uid="uid://b8m7yvupsk1fe" path="res://Levels/Main/Objects/coffin_bed.tscn" id="18_7oflx"]
 [ext_resource type="PackedScene" uid="uid://cj42ii7fx2a8i" path="res://Features/Player/HUD/screen.tscn" id="25_vl6cs"]
-[ext_resource type="PackedScene" uid="uid://cs2nw6lbu83dr" path="res://Audio/audio_players.tscn" id="27_domlc"]
 [ext_resource type="PackedScene" uid="uid://dad4il7imx1sx" path="res://Features/Interactables/Tasks/ReturnToBed/return_to_bed_task.tscn" id="32_4723i"]
-[ext_resource type="PackedScene" uid="uid://ihl6w10sb825" path="res://Features/Interactables/Examines/a4_note_interaction.tscn" id="34_a2ahd"]
-[ext_resource type="PackedScene" uid="uid://ko57imyngi0r" path="res://Features/Interactables/Examines/note_interaction.tscn" id="34_ls13t"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cbg0b"]
-shader = ExtResource("5_hdvse")
-shader_parameter/pixel_size = 4.000000142499999
-shader_parameter/vhs_intensity = 3.0
-shader_parameter/noise_intensity = 0.15
-shader_parameter/opacity = 0.30000001425
 
 [sub_resource type="Environment" id="Environment_btu42"]
 background_energy_multiplier = 0.3
@@ -32,17 +18,34 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.1
 volumetric_fog_emission = Color(0.1505669, 0.008409623, 0.008403563, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cbg0b"]
+shader = ExtResource("5_hdvse")
+shader_parameter/pixel_size = 4.000000142499999
+shader_parameter/vhs_intensity = 3.0
+shader_parameter/noise_intensity = 0.15
+shader_parameter/opacity = 0.30000001425
+
 [node name="Main" type="Node3D" unique_id=2088972694]
 
-[node name="ScreenspaceShader" type="ColorRect" parent="." unique_id=562131817]
-material = SubResource("ShaderMaterial_cbg0b")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="GameStateManager" parent="." unique_id=75615673 node_paths=PackedStringArray("_player", "_player_spawn_point", "_task_manager", "_hud", "_screen", "_count_ai") instance=ExtResource("5_4723i")]
+_player = NodePath("../Persistent/Player")
+_player_spawn_point = NodePath("../Persistent/PlayerSpawnPoint")
+_task_manager = NodePath("../Persistent/TaskManager")
+_hud = NodePath("../Persistent/UserInterface/HUD")
+_screen = NodePath("../Persistent/UserInterface/DayTransitionScreen")
+_count_ai = NodePath("../Persistent/CountDouwn")
 
-[node name="UI" type="Control" parent="." unique_id=861997967]
+[node name="Persistent" type="Node" parent="." unique_id=33902188]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Persistent" unique_id=26953060]
+environment = SubResource("Environment_btu42")
+
+[node name="TaskManager" type="Node" parent="Persistent" unique_id=507081622 node_paths=PackedStringArray("_hud", "_player")]
+script = ExtResource("2_4723i")
+_hud = NodePath("../UserInterface/HUD")
+_player = NodePath("../Player")
+
+[node name="UserInterface" type="Control" parent="Persistent" unique_id=861997967]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,124 +53,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HUD" parent="UI" unique_id=1740219873 instance=ExtResource("12_1h7oc")]
+[node name="ScreenspaceShader" type="ColorRect" parent="Persistent/UserInterface" unique_id=562131817]
+material = SubResource("ShaderMaterial_cbg0b")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" parent="Persistent/UserInterface" unique_id=1740219873 instance=ExtResource("12_1h7oc")]
 layout_mode = 1
 offset_top = 1.0
 offset_bottom = 1.0
 
-[node name="DayTransitionScreen" parent="UI" unique_id=1859783061 instance=ExtResource("25_vl6cs")]
+[node name="DayTransitionScreen" parent="Persistent/UserInterface" unique_id=1859783061 instance=ExtResource("25_vl6cs")]
 layout_mode = 1
 
-[node name="GameStateManager" parent="." unique_id=75615673 node_paths=PackedStringArray("_player", "_player_spawn_point", "_task_manager", "_hud", "_screen", "_count_ai") instance=ExtResource("5_4723i")]
-_player = NodePath("../Player")
-_player_spawn_point = NodePath("../PlayerSpawnPoint")
-_task_manager = NodePath("../TaskManager")
-_hud = NodePath("../UI/HUD")
-_screen = NodePath("../UI/DayTransitionScreen")
-_count_ai = NodePath("../TheCount")
+[node name="CastleGeo" parent="Persistent" unique_id=323557534 instance=ExtResource("6_h1rqx")]
 
-[node name="TaskManager" type="Node" parent="." unique_id=507081622 node_paths=PackedStringArray("_task_container", "_return_to_bed_task", "_hud", "_player")]
-script = ExtResource("2_4723i")
-_task_container = NodePath("../TaskObjects")
-_return_to_bed_task = NodePath("../ReturnToBedTask")
-_hud = NodePath("../UI/HUD")
-_player = NodePath("../Player")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=26953060]
-environment = SubResource("Environment_btu42")
-
-[node name="CastleGeo" parent="." unique_id=323557534 instance=ExtResource("6_h1rqx")]
-
-[node name="TaskObjects" type="Node3D" parent="." unique_id=277395040]
-
-[node name="DirtyWindowTask12" parent="TaskObjects" unique_id=2041613348 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.9634295, 1.6429632, 6.402946)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask14" parent="TaskObjects" unique_id=1343915890 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.089061, 1.6429632, 5.1006413)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask15" parent="TaskObjects" unique_id=1227845493 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.089061, 1.6429632, 2.1006413)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask16" parent="TaskObjects" unique_id=839802124 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.089061, 1.6429632, -0.89935875)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask17" parent="TaskObjects" unique_id=1362220640 instance=ExtResource("14_h71bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.089061, 1.6429632, -3.8993587)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask13" parent="TaskObjects" unique_id=1721852476 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.9521265, 1.6429632, 6.402946)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask18" parent="TaskObjects" unique_id=297043379 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, 3.8726907)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask19" parent="TaskObjects" unique_id=803134074 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, 0.8839936)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask20" parent="TaskObjects" unique_id=84955580 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, -4.1273093)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask21" parent="TaskObjects" unique_id=2066433290 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, -7.116007)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="DirtyWindowTask22" parent="TaskObjects" unique_id=527206351 instance=ExtResource("14_h71bk")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, -10.116007)
-color_end = Color(0.23, 0.13654333, 0.10810001, 0)
-
-[node name="TaskCleanBlood" parent="TaskObjects" unique_id=562064819 instance=ExtResource("15_kfrea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5295353, 0.04478711, -9.654356)
-
-[node name="CleaningCloth" parent="TaskObjects" unique_id=1437859175 instance=ExtResource("16_32g1e")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.8250847, 0.24593513, -7.2810335)
-
-[node name="TaskPlateCleanup" parent="TaskObjects" unique_id=1857819778 instance=ExtResource("17_h1rqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 4.251539)
-
-[node name="TaskPlateCleanup2" parent="TaskObjects" unique_id=1555737448 instance=ExtResource("17_h1rqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, -2.3148062)
-
-[node name="TaskPlateCleanup3" parent="TaskObjects" unique_id=1894126411 instance=ExtResource("17_h1rqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 1.1617994)
-
-[node name="CoffinBed" parent="TaskObjects" unique_id=2082441799 instance=ExtResource("18_7oflx")]
-transform = Transform3D(0.39999998, -1.7763568e-15, 1.7763568e-15, 0, 0.39999998, -2.2351744e-08, 0, 2.2351738e-08, 0.4, 0.0672836, 3.4464245, -5.8229628)
-
-[node name="ReturnToBedTask" parent="." unique_id=1315407154 instance=ExtResource("32_4723i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7217144, 0.3136133, -11.644807)
-
-[node name="TheCount" parent="." unique_id=1778632351 groups=["navmesh"] instance=ExtResource("2_vl6cs")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1, 0)
-
-[node name="Player" parent="." unique_id=988380354 groups=["player"] instance=ExtResource("4_efy7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1352939, 0, 9.035391)
-
-[node name="AudioPlayers" parent="." unique_id=1913657729 instance=ExtResource("27_domlc")]
-
-[node name="PlayerSpawnPoint" type="Node3D" parent="." unique_id=1231924512]
+[node name="PlayerSpawnPoint" type="Node3D" parent="Persistent" unique_id=1231924512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3299732, -0.7013602, -11.934151)
 
-[node name="NoteInteraction1" parent="." unique_id=959405023 instance=ExtResource("34_ls13t")]
-transform = Transform3D(-4.3631093e-08, 0.060584955, -0.99816304, 2.6482525e-09, 0.99816304, 0.060584955, 1, 0, -4.371139e-08, -0.8657768, 0.9965728, -13.506572)
-text = "Nice!  Glad you noticed me"
+[node name="ReturnToBedTask" parent="Persistent" unique_id=1315407154 instance=ExtResource("32_4723i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7217144, 0.3136133, -11.644807)
 
-[node name="NoteInteraction2" parent="." unique_id=833792562 instance=ExtResource("34_ls13t")]
-transform = Transform3D(-4.360045e-08, -0.0712008, -0.99746203, -3.112286e-09, 0.99746203, -0.0712008, 1, 0, -4.371139e-08, -2.267731, 0.67519414, -13.506572)
-text = "The controls are WASD"
+[node name="CountDouwn" parent="Persistent" unique_id=1778632351 groups=["navmesh"] instance=ExtResource("2_vl6cs")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1, 0)
 
-[node name="A4NoteInteraction" parent="." unique_id=197790843 instance=ExtResource("34_a2ahd")]
-transform = Transform3D(-5.051758e-08, -0.17031848, -0.98538905, 1, -4.371139e-08, -4.371139e-08, -3.5627867e-08, -0.98538905, 0.17031848, -1.4100139, 0.13928056, -13.0654335)
-text = "First day working in this house. It's nice but it's very cold"
+[node name="Player" parent="Persistent" unique_id=988380354 groups=["player"] instance=ExtResource("4_efy7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1352939, 0, 9.035391)
 
-[connection signal="all_tasks_completed" from="TaskManager" to="GameStateManager" method="_on_task_manager_all_tasks_completed"]
-[connection signal="caught_player" from="TheCount" to="GameStateManager" method="_on_the_count_caught_player"]
-[connection signal="returned_to_rest" from="TheCount" to="GameStateManager" method="_on_the_count_returned_to_rest"]
+[node name="Day1" parent="." unique_id=492043575 instance=ExtResource("10_gf0bk")]
+
+[connection signal="all_tasks_completed" from="Persistent/TaskManager" to="GameStateManager" method="_on_task_manager_all_tasks_completed"]
+[connection signal="caught_player" from="Persistent/CountDouwn" to="GameStateManager" method="_on_the_count_caught_player"]
+[connection signal="returned_to_rest" from="Persistent/CountDouwn" to="GameStateManager" method="_on_the_count_returned_to_rest"]

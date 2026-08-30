@@ -4,7 +4,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_btu42"]
 
-[node name="ReturnToBedTask" type="Area3D" unique_id=1315407154]
+[node name="ReturnToBedTask" type="Area3D" unique_id=1315407154 groups=["tasks"]]
 monitorable = false
 script = ExtResource("1_mdmy7")
 objective_text = "Go to bed"

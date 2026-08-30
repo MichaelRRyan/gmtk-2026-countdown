@@ -9,7 +9,7 @@ radius = 0.35
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y8tdg"]
 
-[node name="TheCount" type="CharacterBody3D" unique_id=1778632351]
+[node name="CountDouwn" type="CharacterBody3D" unique_id=1778632351]
 script = ExtResource("1_4b4jr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1070766215]

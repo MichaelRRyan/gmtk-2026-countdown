@@ -5,8 +5,6 @@ signal all_tasks_completed
 
 
 @export_category("References")
-@export var _task_container : Node = self
-@export var _return_to_bed_task : ReturnToBedTask = null
 @export var _hud: HUD = null
 @export var _player: Player = null
 
@@ -15,6 +13,7 @@ signal all_tasks_completed
 
 var task_objects: Array[TaskObjectBase]
 var _tasks_remaining : int = 0
+var _return_to_bed_task : ReturnToBedTask = null
 
 
 #-------------------------------------------------------------------------------
@@ -39,16 +38,14 @@ func reset_task_states():
 # PRIVATE INTERFACE
 #-------------------------------------------------------------------------------
 func _ready() -> void:
-	for child in _task_container.get_children(true):
+	var tasks = get_tree().get_nodes_in_group("tasks")
+	
+	for child in tasks:
 		if child is Interactable:
 			child.hud = _hud
+			
 			if child is TaskObjectBase:
-				var task_object: TaskObjectBase = child
-				register_task(task_object)
-	
-	# Set up the return to bed signals.
-	_return_to_bed_task.on_task_completed.connect(_on_task_completed)
-	_return_to_bed_task.on_task_reset.connect(_on_task_reset)
+				register_task(child)
 
 
 #-------------------------------------------------------------------------------
@@ -74,11 +71,25 @@ func _select_number_of_tasks(number_of_tasks: int):
 
 #-------------------------------------------------------------------------------
 func register_task(task_object: TaskObjectBase):
-	task_object.on_task_updated.connect(_on_task_updated)
-	task_object.on_task_completed.connect(_on_task_completed)
-	task_object.on_task_reset.connect(_on_task_reset)
-	task_object.set_hidden()
-	task_objects.append(task_object)
+	
+	""" This section is placeholder for a better solution """
+	# Set the return to bed task
+	# Currently this class assumes this object is found
+	# TODO: make this task optional
+	if task_object is ReturnToBedTask:
+		_return_to_bed_task = task_object
+		
+		# Set up the return to bed signals.
+		task_object.on_task_completed.connect(_on_task_completed)
+		task_object.on_task_reset.connect(_on_task_reset)
+		""""""
+	
+	else:
+		task_object.on_task_updated.connect(_on_task_updated)
+		task_object.on_task_completed.connect(_on_task_completed)
+		task_object.on_task_reset.connect(_on_task_reset)
+		task_object.set_hidden()
+		task_objects.append(task_object)
 
 
 #-------------------------------------------------------------------------------

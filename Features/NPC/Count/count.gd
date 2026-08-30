@@ -15,7 +15,6 @@ enum BehaviourState {
 @export var min_wander_time_secs : float = 40.0
 @export var max_wander_time_secs : float = 60.0
 
-
 @onready var nav = $NavigationAgent3D
 @onready var raycast = $RayCast3D
 @onready var _player_memory_timer = $MemoryTimer
