@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://rgitoydlikoe"
-path="res://.godot/imported/Awe Mono Gold.woff-c537c88fd447e63e0b11f827467cae62.fontdata"
+path="res://.godot/imported/Awe Mono Gold.woff-0b4a0d172da4da02130a8c0cc7f43832.fontdata"
 
 [deps]
 
-source_file="res://screens/fonts/hf-gold-ii-complete/awe-mono-gold-v2/Awe Mono Gold.woff"
-dest_files=["res://.godot/imported/Awe Mono Gold.woff-c537c88fd447e63e0b11f827467cae62.fontdata"]
+source_file="res://Screens/fonts/hf-gold-ii-complete/awe-mono-gold-v2/Awe Mono Gold.woff"
+dest_files=["res://.godot/imported/Awe Mono Gold.woff-0b4a0d172da4da02130a8c0cc7f43832.fontdata"]
 
 [params]
 

@@ -25,7 +25,6 @@ one_shot = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=917124077]
 stream = ExtResource("2_awhxv")
 volume_db = 10.0
-autoplay = true
 
 [connection signal="timeout" from="PlayerFreezeTimer" to="." method="_on_player_freeze_timer_timeout"]
 [connection signal="timeout" from="IntroScreenTimer" to="." method="_on_intro_screen_timer_timeout"]

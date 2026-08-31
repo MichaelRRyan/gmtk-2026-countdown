@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Player
 
 @export var move_speed: float = 3.2
+@export var running_move_speed: float = 4.5
 @export var acceleration: float = 4
 @export var deceleration: float = 6
 @export var mouse_sensitivity: float = 0.002
@@ -18,6 +19,7 @@ class_name Player
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var raycast: RayCast3D = $Head/Camera3D/RayCast3D
 @onready var holdable_item_manager: HoldableItemManager = $Head/Camera3D/HoldableItemManager
+@onready var _footstep_audio : FootstepAudio = $FootstepAudio
 
 var camera_rot_x: float = 0.0
 var camera_rot_y: float = 0.0
@@ -53,7 +55,7 @@ func _input(event: InputEvent) -> void:
 		rotation.y = camera_rot_y
 		head.rotation.x = camera_rot_x
 	
-	# PLACEHOLDER - TODO: Remove this.
+	# PLACEHOLDER - TODO: Remove this later.
 	if event.is_action_pressed("exit"):
 		get_tree().quit()
 
@@ -124,7 +126,13 @@ func _process_movement(delta: float) -> void:
 		return
 	
 	var direction : Vector3 = _get_movement_input()
-	velocity_desired = direction * move_speed
+	
+	if Input.is_action_pressed("run"):
+		velocity_desired = direction * running_move_speed
+		_footstep_audio.set_speed_multiplier(1.7)
+	else:
+		velocity_desired = direction * move_speed
+		_footstep_audio.set_speed_multiplier(1.0)
 	
 	# Horizontal components
 	var vel_h = velocity
@@ -146,9 +154,9 @@ func _process_movement(delta: float) -> void:
 	move_and_slide()
 	
 	if direction.length() > 0 and is_on_floor():
-		$FootstepAudio.play()
+		_footstep_audio.play()
 	else:
-		$FootstepAudio.stop()
+		_footstep_audio.stop()
 
 
 #-------------------------------------------------------------------------------
