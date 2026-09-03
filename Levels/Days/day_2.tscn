@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://duqlawdodvk43"]
+
+[ext_resource type="PackedScene" uid="uid://b66ha6tgvh6vq" path="res://Levels/Main/TaskObjects/task_dirty_window.tscn" id="1_pwoqw"]
+[ext_resource type="PackedScene" uid="uid://se17jate6s7" path="res://Levels/Main/TaskObjects/task_clean_blood.tscn" id="2_7e7xy"]
+[ext_resource type="PackedScene" uid="uid://cqliejscdrsyj" path="res://Levels/Main/EquippableObjects/cleaning_cloth.tscn" id="3_v8itk"]
+[ext_resource type="PackedScene" uid="uid://blthaqm2hacyh" path="res://Levels/Main/TaskObjects/task_plate_cleanup.tscn" id="4_4kq8s"]
+[ext_resource type="PackedScene" uid="uid://b8m7yvupsk1fe" path="res://Levels/Main/Objects/coffin_bed.tscn" id="5_31rft"]
+[ext_resource type="PackedScene" uid="uid://ko57imyngi0r" path="res://Features/Interactables/Examines/note_interaction.tscn" id="6_vjqgi"]
+[ext_resource type="PackedScene" uid="uid://ihl6w10sb825" path="res://Features/Interactables/Examines/a4_note_interaction.tscn" id="7_08d4d"]
+
+[node name="Day1" type="Node" unique_id=492043575]
+
+[node name="TaskObjects" type="Node3D" parent="." unique_id=1222966039]
+
+[node name="DirtyWindowTask12" parent="TaskObjects" unique_id=1343915890 instance=ExtResource("1_pwoqw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.9634295, 1.6429632, 6.402946)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask14" parent="TaskObjects" unique_id=640730124 instance=ExtResource("1_pwoqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.089061, 1.6429632, 5.1006413)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask15" parent="TaskObjects" unique_id=336782802 instance=ExtResource("1_pwoqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.089061, 1.6429632, 2.1006413)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask16" parent="TaskObjects" unique_id=1103327683 instance=ExtResource("1_pwoqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.089061, 1.6429632, -0.89935875)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask17" parent="TaskObjects" unique_id=1282348536 instance=ExtResource("1_pwoqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.089061, 1.6429632, -3.8993587)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask13" parent="TaskObjects" unique_id=322421389 instance=ExtResource("1_pwoqw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.9521265, 1.6429632, 6.402946)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask18" parent="TaskObjects" unique_id=263254124 instance=ExtResource("1_pwoqw")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, 3.8726907)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask19" parent="TaskObjects" unique_id=185137214 instance=ExtResource("1_pwoqw")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, 0.8839936)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask20" parent="TaskObjects" unique_id=1891935419 instance=ExtResource("1_pwoqw")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, -4.1273093)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask21" parent="TaskObjects" unique_id=1238006872 instance=ExtResource("1_pwoqw")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, -7.116007)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="DirtyWindowTask22" parent="TaskObjects" unique_id=489319419 instance=ExtResource("1_pwoqw")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.405666, 1.6429632, -10.116007)
+color_end = Color(0.23, 0.13654333, 0.10810001, 0)
+
+[node name="TaskCleanBlood" parent="TaskObjects" unique_id=562064819 instance=ExtResource("2_7e7xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5295353, 0.04478711, -9.654356)
+
+[node name="CleaningCloth" parent="TaskObjects" unique_id=1437859175 instance=ExtResource("3_v8itk")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.8250847, 0.24593513, -7.2810335)
+
+[node name="TaskPlateCleanup" parent="TaskObjects" unique_id=1857819778 instance=ExtResource("4_4kq8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 4.251539)
+
+[node name="TaskPlateCleanup2" parent="TaskObjects" unique_id=1517686625 instance=ExtResource("4_4kq8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, -2.3148062)
+
+[node name="TaskPlateCleanup3" parent="TaskObjects" unique_id=94302997 instance=ExtResource("4_4kq8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6982694, 0.7511032, 1.1617994)
+
+[node name="CoffinBed" parent="TaskObjects" unique_id=2082441799 instance=ExtResource("5_31rft")]
+transform = Transform3D(0.39999998, -1.7763568e-15, 1.7763568e-15, 0, 0.39999998, -2.2351744e-08, 0, 2.2351738e-08, 0.4, 0.0672836, 3.4464245, -5.8229628)
+
+[node name="Notes" type="Node3D" parent="." unique_id=1593345317]
+
+[node name="NoteInteraction1" parent="Notes" unique_id=959405023 instance=ExtResource("6_vjqgi")]
+transform = Transform3D(-4.3631093e-08, 0.060584955, -0.99816304, 2.6482525e-09, 0.99816304, 0.060584955, 1, 0, -4.371139e-08, -0.8657768, 0.9965728, -13.506572)
+text = "Nice!  Glad you noticed me"
+
+[node name="NoteInteraction2" parent="Notes" unique_id=776352596 instance=ExtResource("6_vjqgi")]
+transform = Transform3D(-4.360045e-08, -0.0712008, -0.99746203, -3.112286e-09, 0.99746203, -0.0712008, 1, 0, -4.371139e-08, -2.267731, 0.67519414, -13.506572)
+text = "The controls are WASD"
+
+[node name="A4NoteInteraction" parent="Notes" unique_id=1418406126 instance=ExtResource("7_08d4d")]
+transform = Transform3D(-5.051758e-08, -0.17031848, -0.98538905, 1, -4.371139e-08, -4.371139e-08, -3.5627867e-08, -0.98538905, 0.17031848, -1.4100139, 0.13928056, -13.0654335)
+text = "Second day working here - The system works!"

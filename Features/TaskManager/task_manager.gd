@@ -17,6 +17,12 @@ var _return_to_bed_task : ReturnToBedTask = null
 
 
 #-------------------------------------------------------------------------------
+func reset():
+	task_objects.clear()
+	_retrieve_tasks()
+
+
+#-------------------------------------------------------------------------------
 func reset_task_states():
 	for task_object in task_objects:
 		task_object.set_hidden()
@@ -37,7 +43,7 @@ func reset_task_states():
 #-------------------------------------------------------------------------------
 # PRIVATE INTERFACE
 #-------------------------------------------------------------------------------
-func _ready() -> void:
+func _retrieve_tasks():
 	var tasks = get_tree().get_nodes_in_group("tasks")
 	
 	for child in tasks:
@@ -77,12 +83,13 @@ func register_task(task_object: TaskObjectBase):
 	# Currently this class assumes this object is found
 	# TODO: make this task optional
 	if task_object is ReturnToBedTask:
-		_return_to_bed_task = task_object
-		
-		# Set up the return to bed signals.
-		task_object.on_task_completed.connect(_on_task_completed)
-		task_object.on_task_reset.connect(_on_task_reset)
-		""""""
+		if  not _return_to_bed_task: # Don't register multiple times
+			_return_to_bed_task = task_object
+			
+			# Set up the return to bed signals.
+			task_object.on_task_completed.connect(_on_task_completed)
+			task_object.on_task_reset.connect(_on_task_reset)
+			""""""
 	
 	else:
 		task_object.on_task_updated.connect(_on_task_updated)

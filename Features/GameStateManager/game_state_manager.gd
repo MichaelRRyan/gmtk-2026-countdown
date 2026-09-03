@@ -14,6 +14,7 @@ enum GameState {
 @export var _player: Player = null
 @export var _player_spawn_point: Node3D = null
 @export var _task_manager : TaskManager = null
+@export var _level_manager : LevelManager = null
 @export var _hud: HUD = null
 @export var _screen: Screen = null
 @export var _count_ai : CharacterBody3D = null
@@ -121,6 +122,8 @@ func _set_game_state(new_state : GameState) -> void:
 
 #-------------------------------------------------------------------------------
 func _start_new_day():
+	_level_manager.switch_to_next_level()
+	
 	_player.transform = _player_spawn_point.transform
 	_player.is_frozen = true
 	intro_screen_timer.start()
@@ -131,7 +134,7 @@ func _start_new_day():
 
 #-------------------------------------------------------------------------------
 func _start_round():
-	
+	_task_manager.reset()
 	_task_manager.reset_task_states()
 	
 	_hud.set_countdown_timer_display(count_rest_duration_secs)
