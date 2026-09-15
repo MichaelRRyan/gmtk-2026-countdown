@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dlboep12bogmk"]
+
+[ext_resource type="Material" uid="uid://dr3pnh281if4x" path="res://Assets/Materials/StoneWall/stone_wall.material" id="1_kkx7u"]
+
+[node name="SpiralStaircase" type="Node3D" unique_id=659119746]
+transform = Transform3D(0.9396926, 0, 0.34202015, 0, 1, 0, -0.34202015, 0, 0.9396926, 0, 0, 0)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=2056855899]
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 0, 0, 0)
+use_collision = true
+size = Vector3(3, 0.4, 0.8)
+material = ExtResource("1_kkx7u")
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=1509099167]
+transform = Transform3D(0.9848077, 0, 0.17364818, 0, 1, 0, -0.17364818, 0, 0.9848077, -0.1313355, 0.19999999, -0.62366295)
+use_collision = true
+size = Vector3(3, 0.8, 0.8)
+material = ExtResource("1_kkx7u")
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=736161214]
+transform = Transform3D(0.9961947, 0, 0.08715574, 0, 1, 0, -0.08715574, 0, 0.9961947, -0.21524, 0.6, -1.2916641)
+use_collision = true
+size = Vector3(3, 0.8, 0.8)
+material = ExtResource("1_kkx7u")
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="." unique_id=1715974379]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24143958, 1, -1.9547405)
+use_collision = true
+size = Vector3(3, 0.8, 0.8)
+material = ExtResource("1_kkx7u")
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="." unique_id=1837787488]
+transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, -0.20706177, 1.4, -2.606945)
+use_collision = true
+size = Vector3(3, 0.8, 0.8)
+material = ExtResource("1_kkx7u")
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=334427347]
+transform = Transform3D(0.98480785, 0, -0.17364821, 0, 1, 0, 0.17364821, 0, 0.98480785, -0.10731602, 1.8000002, -3.2673454)
+use_collision = true
+size = Vector3(3, 0.8, 0.8)
+material = ExtResource("1_kkx7u")
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="." unique_id=1454442439]
+transform = Transform3D(0.9659259, 0, -0.25881907, 0, 1, 0, 0.25881907, 0, 0.9659259, 0.042309046, 2.2000003, -3.9237576)
+use_collision = true
+size = Vector3(3, 0.8, 0.8)
+material = ExtResource("1_kkx7u")
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="." unique_id=11853835]
+transform = Transform3D(0.93969274, 0, -0.34202018, 0, 1, 0, 0.34202018, 0, 0.93969274, 0.24447513, 2.6, -4.555807)
+use_collision = true
+size = Vector3(3, 0.8, 0.8)
+material = ExtResource("1_kkx7u")
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="." unique_id=1753412875]
+transform = Transform3D(0.9063078, 0, -0.42261827, 0, 1, 0, 0.42261827, 0, 0.9063078, 0.4998467, 3, -5.1569204)
+use_collision = true
+size = Vector3(3, 0.8, 0.8)
+material = ExtResource("1_kkx7u")
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="." unique_id=947896411]
+transform = Transform3D(0.86602545, 0, -0.5, 0, 1, 0, 0.5, 0, 0.86602545, 0.8131605, 3.3999999, -5.753306)
+use_collision = true
+size = Vector3(3, 0.8, 0.8)
+material = ExtResource("1_kkx7u")
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="." unique_id=1217689535]
+transform = Transform3D(0.8191521, 0, -0.57357645, 0, 1, 0, 0.57357645, 0, 0.8191521, 1.1566793, 3.8, -6.305164)
+use_collision = true
+size = Vector3(3, 0.8, 0.8)
+material = ExtResource("1_kkx7u")
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="." unique_id=87746877]
+transform = Transform3D(0.76604456, 0, -0.64278764, 0, 1, 0, 0.64278764, 0, 0.76604456, 1.542433, 4.2, -6.8128858)
+use_collision = true
+size = Vector3(3, 0.8, 0.8)
+material = ExtResource("1_kkx7u")
+metadata/_edit_group_ = true

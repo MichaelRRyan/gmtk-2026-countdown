@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b4nxiwcitfglq"]
+
+[ext_resource type="Shader" uid="uid://csm131yyan6g7" path="res://Levels/Maicon/pixelate_shader.gdshader" id="1_80eyx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cbg0b"]
+shader = ExtResource("1_80eyx")
+shader_parameter/pixel_size = 4.000000142499999
+shader_parameter/vhs_intensity = 3.0
+shader_parameter/noise_intensity = 0.15
+shader_parameter/opacity = 0.30000001425
+
+[node name="ScreenspaceShader" type="ColorRect" unique_id=675133653]
+material = SubResource("ShaderMaterial_cbg0b")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

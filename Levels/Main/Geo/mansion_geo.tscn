@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://fl4vo6p3wwcx"]
+
+[ext_resource type="PackedScene" uid="uid://dlboep12bogmk" path="res://Levels/Main/Geo/spiral_staircase.tscn" id="4_c1log"]
+[ext_resource type="PackedScene" uid="uid://b4sc850448g56" path="res://Features/Player/player.tscn" id="4_xsgnx"]
+[ext_resource type="PackedScene" uid="uid://b4nxiwcitfglq" path="res://Levels/Maicon/screenspace_shader.tscn" id="5_dr155"]
+[ext_resource type="PackedScene" uid="uid://cph68o10smjc4" path="res://Levels/Main/Objects/chair.tscn" id="8_4j3ue"]
+[ext_resource type="PackedScene" uid="uid://bl8xgw501gyhi" path="res://Levels/Main/Objects/rug.tscn" id="9_00ce5"]
+[ext_resource type="Material" uid="uid://dr3pnh281if4x" path="res://Assets/Materials/StoneWall/stone_wall.material" id="19_m3et3"]
+
+[node name="MansionGeo" type="Node3D" unique_id=323557534 groups=["navmesh"]]
+
+[node name="Walls2" type="Node3D" parent="." unique_id=385143047]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Walls2" unique_id=507772376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5568047, 1.6997681, 26.592138)
+use_collision = true
+size = Vector3(1, 4.399536, 28.680763)
+material = ExtResource("19_m3et3")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Walls2" unique_id=1352988724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 11.906109)
+use_collision = true
+size = Vector3(16.68457, 4.9072266, 1)
+material = ExtResource("19_m3et3")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Walls2" unique_id=1232230904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4896765, 1.6997681, 26.582373)
+use_collision = true
+size = Vector3(1, 4.399536, 28.700294)
+material = ExtResource("19_m3et3")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Walls2" unique_id=261980376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.843, 26.794636)
+use_collision = true
+size = Vector3(18.300001, 1, 28.990784)
+material = ExtResource("19_m3et3")
+
+[node name="Rug" parent="Walls2" unique_id=725089702 instance=ExtResource("9_00ce5")]
+transform = Transform3D(0.88774747, 0, 0.46033075, 0, 1, 0, -0.46033075, 0, 0.88774747, 0.4907167, -0.31949902, 38.03427)
+
+[node name="Rug2" parent="Walls2" unique_id=1555491755 instance=ExtResource("9_00ce5")]
+transform = Transform3D(0.99997044, 0, 0.0076844394, 0, 1, 0, -0.0076844394, 0, 0.99997044, -0.013784647, -0.29366207, 34.36862)
+
+[node name="Rug3" parent="Walls2" unique_id=906030477 instance=ExtResource("9_00ce5")]
+transform = Transform3D(0.98190826, 0, 0.18935713, 0, 1, 0, -0.18935713, 0, 0.98190826, 0.48022473, -0.31949902, 30.25045)
+
+[node name="Rug4" parent="Walls2" unique_id=961303136 instance=ExtResource("9_00ce5")]
+transform = Transform3D(0.9992988, 0, -0.037440762, 0, 1, 0, 0.037440762, 0, 0.9992988, -0.4959954, -0.29864073, 26.137623)
+
+[node name="Rug5" parent="Walls2" unique_id=1870976788 instance=ExtResource("9_00ce5")]
+transform = Transform3D(0.89288825, 0, -0.45027825, 0, 1, 0, 0.45027825, 0, 0.89288825, 1.926336, -0.33565855, 22.325212)
+
+[node name="Rug6" parent="Walls2" unique_id=1843283227 instance=ExtResource("9_00ce5")]
+transform = Transform3D(0.89615786, 0, 0.4437354, 0, 1, 0, -0.4437354, 0, 0.89615786, -2.5175042, -0.33565855, 22.308918)
+
+[node name="Rug7" parent="Walls2" unique_id=1463142223 instance=ExtResource("9_00ce5")]
+transform = Transform3D(-0.021724373, 0, 0.999764, 0, 1, 0, -0.999764, 0, -0.021724373, -0.124985285, -0.33565855, 15.331371)
+
+[node name="Chair" parent="Walls2" unique_id=1028974512 instance=ExtResource("8_4j3ue")]
+transform = Transform3D(0.6076267, 0, -0.7942228, 0, 1, 0, 0.7942228, 0, 0.6076267, 1.9422485, 0.11967057, 29.04164)
+
+[node name="SpiralStaircase" parent="Walls2" unique_id=659119746 instance=ExtResource("4_c1log")]
+transform = Transform3D(0.9396926, 0, 0.34202015, 0, 1, 0, -0.34202015, 0, 0.9396926, -3.5, -0.148, 19.965)
+
+[node name="SpiralStaircase2" parent="Walls2" unique_id=39738700 instance=ExtResource("4_c1log")]
+transform = Transform3D(-0.93969256, -8.2150535e-08, -0.34202018, -8.742277e-08, 1, 0, -0.34202018, -2.9900356e-08, 0.93969256, 3.5, -0.148, 19.965)
+
+[node name="Player" parent="." unique_id=988380354 instance=ExtResource("4_xsgnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92045164, 27.632563)
+
+[node name="ScreenspaceShader" parent="." unique_id=675133653 instance=ExtResource("5_dr155")]
