@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dci1j83ojyowk"]
 
+[ext_resource type="PackedScene" uid="uid://cex14tta7e81l" path="res://Levels/Main/world_environment.tscn" id="2_1h7oc"]
 [ext_resource type="PackedScene" uid="uid://cafaic2afyy2v" path="res://Features/LevelManager/level_manager.tscn" id="2_7n064"]
 [ext_resource type="Script" uid="uid://cpavxnfughx88" path="res://Features/TaskManager/task_manager.gd" id="2_4723i"]
 [ext_resource type="PackedScene" uid="uid://cacuqeg84ldli" path="res://Features/NPC/Count/Count.tscn" id="2_vl6cs"]
@@ -10,13 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cu0kdxy5t7fgl" path="res://Features/Player/HUD/hud.tscn" id="12_1h7oc"]
 [ext_resource type="PackedScene" uid="uid://cj42ii7fx2a8i" path="res://Features/Player/HUD/screen.tscn" id="25_vl6cs"]
 [ext_resource type="PackedScene" uid="uid://dad4il7imx1sx" path="res://Features/Interactables/Tasks/ReturnToBed/return_to_bed_task.tscn" id="32_4723i"]
-
-[sub_resource type="Environment" id="Environment_btu42"]
-background_energy_multiplier = 0.3
-ssao_enabled = true
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.1
-volumetric_fog_emission = Color(0.1505669, 0.008409623, 0.008403563, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbg0b"]
 shader = ExtResource("5_hdvse")
@@ -38,8 +32,7 @@ _count_ai = NodePath("../Persistent/CountDouwn")
 
 [node name="Persistent" type="Node" parent="." unique_id=33902188]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Persistent" unique_id=26953060]
-environment = SubResource("Environment_btu42")
+[node name="WorldEnvironment" parent="Persistent" unique_id=22601695 instance=ExtResource("2_1h7oc")]
 
 [node name="LevelManager" parent="Persistent" unique_id=487584713 node_paths=PackedStringArray("_level_root") instance=ExtResource("2_7n064")]
 _level_root = NodePath("../..")

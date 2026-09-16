@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cex14tta7e81l"]
+
+[sub_resource type="Environment" id="Environment_btu42"]
+background_energy_multiplier = 0.3
+ssao_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1
+volumetric_fog_emission = Color(0.1505669, 0.008409623, 0.008403563, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" unique_id=22601695]
+environment = SubResource("Environment_btu42")

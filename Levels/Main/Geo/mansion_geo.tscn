@@ -1,11 +1,43 @@
 [gd_scene format=3 uid="uid://fl4vo6p3wwcx"]
 
+[ext_resource type="Texture2D" uid="uid://cm3wcld5v6rv0" path="res://Assets/Materials/StoneWall/Textures/rock_wall_13_diff_1k.png" id="2_frfko"]
+[ext_resource type="Texture2D" uid="uid://y1pa7uouf5hx" path="res://Assets/Materials/StoneWall/Textures/rock_wall_13_nor_gl_1k.png" id="3_ulcvp"]
 [ext_resource type="PackedScene" uid="uid://dlboep12bogmk" path="res://Levels/Main/Geo/spiral_staircase.tscn" id="4_c1log"]
+[ext_resource type="Texture2D" uid="uid://dtd6g0x02o5h" path="res://Assets/Materials/StoneWall/Textures/rock_wall_13_rough_1k.png" id="4_ov78c"]
 [ext_resource type="PackedScene" uid="uid://b4sc850448g56" path="res://Features/Player/player.tscn" id="4_xsgnx"]
-[ext_resource type="PackedScene" uid="uid://b4nxiwcitfglq" path="res://Levels/Maicon/screenspace_shader.tscn" id="5_dr155"]
 [ext_resource type="PackedScene" uid="uid://cph68o10smjc4" path="res://Levels/Main/Objects/chair.tscn" id="8_4j3ue"]
 [ext_resource type="PackedScene" uid="uid://bl8xgw501gyhi" path="res://Levels/Main/Objects/rug.tscn" id="9_00ce5"]
+[ext_resource type="PackedScene" uid="uid://b4nxiwcitfglq" path="res://Levels/Maicon/screenspace_shader.tscn" id="10_ov78c"]
+[ext_resource type="PackedScene" uid="uid://cex14tta7e81l" path="res://Levels/Main/world_environment.tscn" id="10_r80q5"]
+[ext_resource type="Shader" uid="uid://csm131yyan6g7" path="res://Levels/Maicon/pixelate_shader.gdshader" id="11_r80q5"]
 [ext_resource type="Material" uid="uid://dr3pnh281if4x" path="res://Assets/Materials/StoneWall/stone_wall.material" id="19_m3et3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r80q5"]
+albedo_color = Color(2.137626, 2.137626, 2.137626, 1)
+albedo_texture = ExtResource("2_frfko")
+roughness_texture = ExtResource("4_ov78c")
+normal_enabled = true
+normal_texture = ExtResource("3_ulcvp")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcaoq"]
+albedo_color = Color(2.8165433, 2.8165433, 2.8165433, 1)
+albedo_texture = ExtResource("2_frfko")
+roughness_texture = ExtResource("4_ov78c")
+normal_enabled = true
+normal_texture = ExtResource("3_ulcvp")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcaoq"]
+shader = ExtResource("11_r80q5")
+shader_parameter/pixel_size = 4.000000142499999
+shader_parameter/vhs_intensity = 3.0
+shader_parameter/noise_intensity = 0.050000002375
+shader_parameter/opacity = 0.18000000855
 
 [node name="MansionGeo" type="Node3D" unique_id=323557534 groups=["navmesh"]]
 
@@ -33,28 +65,28 @@ material = ExtResource("19_m3et3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.843, 26.794636)
 use_collision = true
 size = Vector3(18.300001, 1, 28.990784)
-material = ExtResource("19_m3et3")
+material = SubResource("StandardMaterial3D_r80q5")
 
-[node name="Rug" parent="Walls2" unique_id=725089702 instance=ExtResource("9_00ce5")]
-transform = Transform3D(0.88774747, 0, 0.46033075, 0, 1, 0, -0.46033075, 0, 0.88774747, 0.4907167, -0.31949902, 38.03427)
+[node name="Rug8" parent="Walls2" unique_id=725089702 instance=ExtResource("9_00ce5")]
+transform = Transform3D(-0.999764, 0, -0.021724416, 0, 1, 0, 0.021724416, 0, -0.999764, -0.015498708, -0.28106502, 24.715744)
 
-[node name="Rug2" parent="Walls2" unique_id=1555491755 instance=ExtResource("9_00ce5")]
-transform = Transform3D(0.99997044, 0, 0.0076844394, 0, 1, 0, -0.0076844394, 0, 0.99997044, -0.013784647, -0.29366207, 34.36862)
+[node name="Rug9" parent="Walls2" unique_id=1892613498 instance=ExtResource("9_00ce5")]
+transform = Transform3D(-0.999764, 0, -0.021724416, 0, 1, 0, 0.021724416, 0, -0.999764, 0.06932425, -0.28295597, 28.619324)
 
-[node name="Rug3" parent="Walls2" unique_id=906030477 instance=ExtResource("9_00ce5")]
-transform = Transform3D(0.98190826, 0, 0.18935713, 0, 1, 0, -0.18935713, 0, 0.98190826, 0.48022473, -0.31949902, 30.25045)
+[node name="Rug16" parent="Walls2" unique_id=334067033 instance=ExtResource("9_00ce5")]
+transform = Transform3D(0.07723651, 0, -3.55444, 0, 1, 0, 3.5544398, 0, 0.07723651, -0.16976812, -0.28295597, 17.616224)
 
-[node name="Rug4" parent="Walls2" unique_id=961303136 instance=ExtResource("9_00ce5")]
-transform = Transform3D(0.9992988, 0, -0.037440762, 0, 1, 0, 0.037440762, 0, 0.9992988, -0.4959954, -0.29864073, 26.137623)
+[node name="Rug10" parent="Walls2" unique_id=585569245 instance=ExtResource("9_00ce5")]
+transform = Transform3D(-0.999764, 0, -0.021724416, 0, 1, 0, 0.021724416, 0, -0.999764, 0.15374616, -0.29907975, 32.504444)
 
-[node name="Rug5" parent="Walls2" unique_id=1870976788 instance=ExtResource("9_00ce5")]
-transform = Transform3D(0.89288825, 0, -0.45027825, 0, 1, 0, 0.45027825, 0, 0.89288825, 1.926336, -0.33565855, 22.325212)
+[node name="Rug11" parent="Walls2" unique_id=1310882360 instance=ExtResource("9_00ce5")]
+transform = Transform3D(-0.999764, 0, -0.021724416, 0, 1, 0, 0.021724416, 0, -0.999764, 0.23850131, -0.28592142, 36.404903)
 
-[node name="Rug6" parent="Walls2" unique_id=1843283227 instance=ExtResource("9_00ce5")]
-transform = Transform3D(0.89615786, 0, 0.4437354, 0, 1, 0, -0.4437354, 0, 0.89615786, -2.5175042, -0.33565855, 22.308918)
+[node name="Rug15" parent="Walls2" unique_id=1608530369 instance=ExtResource("9_00ce5")]
+transform = Transform3D(-0.83141935, 0, 0.55564547, 0, 1, 0, -0.55564547, 0, -0.83141935, 1.1473902, -0.30345157, 23.481419)
 
-[node name="Rug7" parent="Walls2" unique_id=1463142223 instance=ExtResource("9_00ce5")]
-transform = Transform3D(-0.021724373, 0, 0.999764, 0, 1, 0, -0.999764, 0, -0.021724373, -0.124985285, -0.33565855, 15.331371)
+[node name="Rug14" parent="Walls2" unique_id=1933161252 instance=ExtResource("9_00ce5")]
+transform = Transform3D(-0.80649805, 0, -0.59123665, 0, 1, 0, 0.59123665, 0, -0.80649805, -0.96635795, -0.328689, 23.406506)
 
 [node name="Chair" parent="Walls2" unique_id=1028974512 instance=ExtResource("8_4j3ue")]
 transform = Transform3D(0.6076267, 0, -0.7942228, 0, 1, 0, 0.7942228, 0, 0.6076267, 1.9422485, 0.11967057, 29.04164)
@@ -65,7 +97,56 @@ transform = Transform3D(0.9396926, 0, 0.34202015, 0, 1, 0, -0.34202015, 0, 0.939
 [node name="SpiralStaircase2" parent="Walls2" unique_id=39738700 instance=ExtResource("4_c1log")]
 transform = Transform3D(-0.93969256, -8.2150535e-08, -0.34202018, -8.742277e-08, 1, 0, -0.34202018, -2.9900356e-08, 0.93969256, 3.5, -0.148, 19.965)
 
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Walls2" unique_id=455844596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0333993, 0, -0.5358887, 15.478908)
+use_collision = true
+radius = 1.9467773
+height = 0.92822266
+sides = 14
+material = SubResource("StandardMaterial3D_pcaoq")
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="Walls2" unique_id=1155198548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.8157814, 0, -0.5358887, 13.873751)
+use_collision = true
+radius = 1.9467773
+height = 0.92822266
+sides = 14
+material = SubResource("StandardMaterial3D_pcaoq")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Walls2" unique_id=2129618138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.533897)
+use_collision = true
+radius = 1.7392578
+sides = 10
+material = SubResource("StandardMaterial3D_pcaoq")
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="Walls2" unique_id=1646513809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.75903004, 0, 1.9659972, 15.197862)
+use_collision = true
+radius = 0.8847656
+sides = 10
+material = SubResource("StandardMaterial3D_pcaoq")
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="Walls2" unique_id=424948696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9304247, 15.627465)
+use_collision = true
+radius = 0.5131836
+height = 0.92785645
+sides = 10
+material = SubResource("StandardMaterial3D_pcaoq")
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="Walls2" unique_id=87188369]
+transform = Transform3D(1.1873627, 0, 0, 0, 1, 0, 0, 0, 0.91700274, 0, 3.6009026, 15.418157)
+use_collision = true
+radius = 1.0219727
+height = 1.8217773
+sides = 10
+material = SubResource("StandardMaterial3D_pcaoq")
+
 [node name="Player" parent="." unique_id=988380354 instance=ExtResource("4_xsgnx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92045164, 27.632563)
 
-[node name="ScreenspaceShader" parent="." unique_id=675133653 instance=ExtResource("5_dr155")]
+[node name="WorldEnvironment" parent="." unique_id=22601695 instance=ExtResource("10_r80q5")]
+
+[node name="ScreenspaceShader" parent="." unique_id=675133653 instance=ExtResource("10_ov78c")]
+material = SubResource("ShaderMaterial_pcaoq")
