@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cfwgslbbcoxnt"]
+
+[ext_resource type="Material" uid="uid://b780x1kpqp6fo" path="res://Levels/Main/Materials/wood_furniture_material.tres" id="1_p0pkg"]
+
+[node name="Table" type="CSGBox3D" unique_id=1130466262]
+use_collision = true
+size = Vector3(2, 0.25, 8)
+material = ExtResource("1_p0pkg")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=276630823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.375, 3.6249998)
+use_collision = true
+size = Vector3(0.25, 0.75, 0.25)
+material = ExtResource("1_p0pkg")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1012421259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.375, 3.6249998)
+use_collision = true
+size = Vector3(0.25, 0.75, 0.25)
+material = ExtResource("1_p0pkg")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=245501111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.375, 0.125)
+use_collision = true
+size = Vector3(0.25, 0.75, 0.25)
+material = ExtResource("1_p0pkg")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=534747282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.375, 0.125)
+use_collision = true
+size = Vector3(0.25, 0.75, 0.25)
+material = ExtResource("1_p0pkg")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1407579791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.375, -3.625)
+use_collision = true
+size = Vector3(0.25, 0.75, 0.25)
+material = ExtResource("1_p0pkg")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=1954805742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.375, -3.625)
+use_collision = true
+size = Vector3(0.25, 0.75, 0.25)
+material = ExtResource("1_p0pkg")

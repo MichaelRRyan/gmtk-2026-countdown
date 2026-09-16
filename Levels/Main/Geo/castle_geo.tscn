@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbm2yoodb8jdm" path="res://Levels/Wiki/Assest brah/StoneFloor.glb" id="4_rsjan"]
 [ext_resource type="PackedScene" uid="uid://1ubxrcku6xbk" path="res://Levels/Wiki/Assest brah/WoodenFloor.glb" id="5_gpwwu"]
 [ext_resource type="PackedScene" uid="uid://sgm12leuc65s" path="res://Levels/Wiki/Assest brah/StoneWallFinal.glb" id="6_u16se"]
-[ext_resource type="Material" uid="uid://b780x1kpqp6fo" path="res://Levels/Main/Materials/wood_furniture_material.tres" id="7_oqkwq"]
+[ext_resource type="PackedScene" uid="uid://cfwgslbbcoxnt" path="res://Levels/Main/Objects/table.tscn" id="7_fgyhq"]
 [ext_resource type="PackedScene" uid="uid://cph68o10smjc4" path="res://Levels/Main/Objects/chair.tscn" id="8_n56pj"]
 [ext_resource type="PackedScene" uid="uid://bl8xgw501gyhi" path="res://Levels/Main/Objects/rug.tscn" id="9_7tb0r"]
 [ext_resource type="PackedScene" uid="uid://djg6wu6a0emq6" path="res://Features/LevelElements/Window/window.tscn" id="10_iv352"]
@@ -2179,47 +2179,8 @@ font_size = 64
 
 [node name="Objects" type="Node3D" parent="." unique_id=1028648718]
 
-[node name="Table" type="CSGBox3D" parent="Objects" unique_id=986598834]
+[node name="Table" parent="Objects" unique_id=1130466262 instance=ExtResource("7_fgyhq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.771559, 0.625, 0.9045088)
-use_collision = true
-size = Vector3(2, 0.25, 8)
-material = ExtResource("7_oqkwq")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/Table" unique_id=773620361]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.375, 3.6249998)
-use_collision = true
-size = Vector3(0.25, 0.75, 0.25)
-material = ExtResource("7_oqkwq")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/Table" unique_id=1667577286]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.375, 3.6249998)
-use_collision = true
-size = Vector3(0.25, 0.75, 0.25)
-material = ExtResource("7_oqkwq")
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/Table" unique_id=1784705792]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.375, 0.125)
-use_collision = true
-size = Vector3(0.25, 0.75, 0.25)
-material = ExtResource("7_oqkwq")
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/Table" unique_id=1140765830]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.375, 0.125)
-use_collision = true
-size = Vector3(0.25, 0.75, 0.25)
-material = ExtResource("7_oqkwq")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/Table" unique_id=1785564932]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.375, -3.625)
-use_collision = true
-size = Vector3(0.25, 0.75, 0.25)
-material = ExtResource("7_oqkwq")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/Table" unique_id=1600079336]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.375, -3.625)
-use_collision = true
-size = Vector3(0.25, 0.75, 0.25)
-material = ExtResource("7_oqkwq")
 
 [node name="Chair" parent="Objects" unique_id=1028974512 instance=ExtResource("8_n56pj")]
 transform = Transform3D(0.9885792, 0, -0.15070222, 0, 1, 0, 0.15070222, 0, 0.9885792, -8.991835, 0.45452857, 3.7870002)
