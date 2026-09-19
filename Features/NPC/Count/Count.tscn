@@ -17,6 +17,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03152573, 0)
 shape = SubResource("CapsuleShape3D_pofvg")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=716879646]
+debug_enabled = true
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1841862045]
 
@@ -43,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 wait_time = 8.0
 autostart = true
 
-[node name="MemoryTimer" type="Timer" parent="." unique_id=1812780494]
+[node name="SearchTimer" type="Timer" parent="." unique_id=1812780494]
 wait_time = 2.0
 
 [node name="WanderTimer" type="Timer" parent="." unique_id=582273238]
@@ -53,5 +54,5 @@ one_shot = true
 [connection signal="body_exited" from="Viewcone" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="BodyCollision" to="." method="_check_for_player_collision"]
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="MemoryTimer" to="." method="_forget_player"]
+[connection signal="timeout" from="SearchTimer" to="." method="_on_search_timer_timeout"]
 [connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]

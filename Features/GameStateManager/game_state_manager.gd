@@ -106,7 +106,8 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("debug_reset_ai"):
 			_count_ai.reset()
 		if Input.is_action_just_pressed("debug_bright_light"):
-			var env : Environment = $"../WorldEnvironment".environment
+			var world_environment : WorldEnvironment = $"../Persistent/WorldEnvironment"
+			var env : Environment = world_environment.environment
 			env.background_energy_multiplier = 2
 			$"../WorldEnvironment".environment = env
 
