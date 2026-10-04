@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dlboep12bogmk" path="res://Levels/Main/Geo/spiral_staircase.tscn" id="4_c1log"]
 [ext_resource type="Texture2D" uid="uid://dtd6g0x02o5h" path="res://Assets/Materials/StoneWall/Textures/rock_wall_13_rough_1k.png" id="4_ov78c"]
 [ext_resource type="PackedScene" uid="uid://b4sc850448g56" path="res://Features/Player/player.tscn" id="4_xsgnx"]
+[ext_resource type="Material" uid="uid://bfynlif3s3t6n" path="res://Assets/Materials/StoneWall/stone_statue.tres" id="8_pcaoq"]
 [ext_resource type="PackedScene" uid="uid://bl8xgw501gyhi" path="res://Levels/Main/Objects/rug.tscn" id="9_00ce5"]
 [ext_resource type="PackedScene" uid="uid://b4nxiwcitfglq" path="res://Levels/Maicon/screenspace_shader.tscn" id="10_ov78c"]
 [ext_resource type="PackedScene" uid="uid://cex14tta7e81l" path="res://Levels/Main/world_environment.tscn" id="10_r80q5"]
@@ -15,16 +16,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r80q5"]
 albedo_color = Color(2.137626, 2.137626, 2.137626, 1)
-albedo_texture = ExtResource("2_frfko")
-roughness_texture = ExtResource("4_ov78c")
-normal_enabled = true
-normal_texture = ExtResource("3_ulcvp")
-uv1_scale = Vector3(0.3, 0.3, 0.3)
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcaoq"]
-albedo_color = Color(2.8165433, 2.8165433, 2.8165433, 1)
 albedo_texture = ExtResource("2_frfko")
 roughness_texture = ExtResource("4_ov78c")
 normal_enabled = true
@@ -51,7 +42,7 @@ size = Vector3(1, 7.001526, 32.92339)
 material = ExtResource("19_m3et3")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Walls2/CSGBox3D" unique_id=782707820]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2182357, 8.230629)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2182357, 7.0000763)
 operation = 2
 use_collision = true
 size = Vector3(1.2685547, 3.859146, 2.7167358)
@@ -123,7 +114,7 @@ size = Vector3(1, 6.5270386, 35.87273)
 material = ExtResource("19_m3et3")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Walls2/CSGBox3D12" unique_id=1235762417]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009407043, -1.2243636, 5.495966)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009407043, -1.2243636, 5.1884193)
 operation = 2
 use_collision = true
 size = Vector3(1.2685547, 3.859146, 2.7167358)
@@ -133,6 +124,12 @@ material = ExtResource("19_m3et3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.843, 26.794636)
 use_collision = true
 size = Vector3(15.379883, 1, 28.990784)
+material = SubResource("StandardMaterial3D_r80q5")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Walls2" unique_id=2131532088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5353394, -1.2664428, 9.579593)
+use_collision = true
+size = Vector3(10.309204, 1, 4.0366974)
 material = SubResource("StandardMaterial3D_r80q5")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Walls2" unique_id=175960736]
@@ -225,29 +222,27 @@ use_collision = true
 radius = 1.9467773
 height = 0.92822266
 sides = 14
-material = SubResource("StandardMaterial3D_pcaoq")
+material = ExtResource("8_pcaoq")
 
-[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="Walls2" unique_id=1155198548]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.8157814, 0, -0.5358887, 13.873751)
+[node name="CSGBox3D11" type="CSGBox3D" parent="Walls2" unique_id=1915513693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57010746, 13.875951)
 use_collision = true
-radius = 1.9467773
-height = 0.92822266
-sides = 14
-material = SubResource("StandardMaterial3D_pcaoq")
+size = Vector3(3.8916016, 1, 3.2055664)
+material = ExtResource("8_pcaoq")
 
 [node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Walls2" unique_id=2129618138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.533897)
 use_collision = true
 radius = 1.7392578
 sides = 10
-material = SubResource("StandardMaterial3D_pcaoq")
+material = ExtResource("8_pcaoq")
 
 [node name="CSGCylinder3D7" type="CSGCylinder3D" parent="Walls2" unique_id=1646513809]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.75903004, 0, 1.9659972, 15.197862)
 use_collision = true
 radius = 0.8847656
 sides = 10
-material = SubResource("StandardMaterial3D_pcaoq")
+material = ExtResource("8_pcaoq")
 
 [node name="CSGCylinder3D8" type="CSGCylinder3D" parent="Walls2" unique_id=424948696]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9304247, 15.627465)
@@ -255,7 +250,7 @@ use_collision = true
 radius = 0.5131836
 height = 0.92785645
 sides = 10
-material = SubResource("StandardMaterial3D_pcaoq")
+material = ExtResource("8_pcaoq")
 
 [node name="CSGCylinder3D9" type="CSGCylinder3D" parent="Walls2" unique_id=87188369]
 transform = Transform3D(1.1873627, 0, 0, 0, 1, 0, 0, 0, 0.91700274, 0, 3.6009026, 15.418157)
@@ -263,7 +258,7 @@ use_collision = true
 radius = 1.0219727
 height = 1.8217773
 sides = 10
-material = SubResource("StandardMaterial3D_pcaoq")
+material = ExtResource("8_pcaoq")
 
 [node name="Player" parent="." unique_id=988380354 instance=ExtResource("4_xsgnx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.276062, 1.467668, 23.6043)

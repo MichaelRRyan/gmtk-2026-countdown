@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bfynlif3s3t6n"]
+
+[ext_resource type="Texture2D" uid="uid://cm3wcld5v6rv0" path="res://Assets/Materials/StoneWall/Textures/rock_wall_13_diff_1k.png" id="1_mpwe0"]
+[ext_resource type="Texture2D" uid="uid://y1pa7uouf5hx" path="res://Assets/Materials/StoneWall/Textures/rock_wall_13_nor_gl_1k.png" id="2_2pfdt"]
+[ext_resource type="Texture2D" uid="uid://dtd6g0x02o5h" path="res://Assets/Materials/StoneWall/Textures/rock_wall_13_rough_1k.png" id="3_1yomr"]
+
+[resource]
+albedo_color = Color(2.8165433, 2.8165433, 2.8165433, 1)
+albedo_texture = ExtResource("1_mpwe0")
+roughness_texture = ExtResource("3_1yomr")
+normal_enabled = true
+normal_texture = ExtResource("2_2pfdt")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true
+uv1_world_triplanar = true

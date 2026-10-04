@@ -20,6 +20,7 @@ shape = SubResource("CapsuleShape3D_pofvg")
 debug_enabled = true
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1841862045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0663755, 0)
 
 [node name="Vampire" parent="." unique_id=1006799130 instance=ExtResource("2_2x40n")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
